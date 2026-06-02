@@ -1,0 +1,13 @@
+{
+  "name": "@terus/config",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "eslint-next.js",
+    "eslint-base.js",
+    "tsconfig.json",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ]
+}

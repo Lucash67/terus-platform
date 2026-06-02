@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --surface-base: #050A14;
+    --surface-elevated-1: #0A1628;
+    --surface-elevated-2: #0F1E36;
+    --surface-elevated-3: #162440;
+    --surface-overlay: #1A2B4A;
+    --surface-border: #1E3256;
+    --surface-border-subtle: #152A4A;
+    --brand-primary: #00C2FF;
+    --brand-primary-hover: #00A8E0;
+    --brand-primary-dim: #00C2FF1A;
+    --brand-secondary: #0066CC;
+    --brand-glow: #00C2FF33;
+    --status-success: #00E676;
+    --status-success-dim: #00E6761A;
+    --status-warning: #FFB300;
+    --status-warning-dim: #FFB3001A;
+    --status-error: #FF3D57;
+    --status-error-dim: #FF3D571A;
+    --status-neutral: #546E8A;
+    --status-neutral-dim: #546E8A1A;
+    --text-primary: #E8F4FF;
+    --text-secondary: #8BA9C5;
+    --text-tertiary: #546E8A;
+    --text-disabled: #2D4A6A;
+    --text-link: #00C2FF;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-surface-border;
+  }
+  body {
+    @apply bg-surface-base text-text-primary;
+  }
+}
