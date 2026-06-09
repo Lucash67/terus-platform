@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from fastapi import APIRouter
 from pydantic import BaseModel
 
@@ -9,11 +10,11 @@ class HealthResponse(BaseModel):
     status: str
     version: str
     timestamp: str
-    services: dict
+    services: dict[str, str]
 
 
 @router.get("/health", response_model=HealthResponse)
-async def health_check():
+async def health_check() -> HealthResponse:
     return HealthResponse(
         status="healthy",
         version="1.0.0",

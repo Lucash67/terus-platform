@@ -23,7 +23,7 @@ app.include_router(health_router, tags=["health"])
 
 
 @app.get("/")
-async def root():
+async def root() -> dict[str, str]:
     return {
         "message": "Terus Platform API",
         "version": "1.0.0",
