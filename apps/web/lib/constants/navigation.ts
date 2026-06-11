@@ -1,0 +1,28 @@
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+export const MAIN_NAV_LINKS: NavLink[] = [
+  { label: "Plataforma", href: "/plataforma" },
+  { label: "Módulos", href: "/modulos" },
+  { label: "Ecossistema", href: "/ecossistema" },
+  { label: "Sobre", href: "/sobre" },
+];
+
+export const FOOTER_LINKS = {
+  produto: [
+    { label: "Plataforma", href: "/plataforma" },
+    { label: "Módulos", href: "/modulos" },
+    { label: "Ecossistema", href: "/ecossistema" },
+  ],
+  modulos: [
+    { label: "Terus Alert", href: "/modulos/alert" },
+    { label: "Terus Strategy", href: "/modulos/strategy" },
+    { label: "Terus Order", href: "/modulos/order" },
+    { label: "Terus Task", href: "/modulos/task" },
+    { label: "Terus Log", href: "/modulos/log" },
+    { label: "Terus Pulse", href: "/modulos/pulse" },
+  ],
+  empresa: [{ label: "Sobre", href: "/sobre" }],
+};

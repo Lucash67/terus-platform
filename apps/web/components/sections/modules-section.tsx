@@ -1,0 +1,49 @@
+import Link from "next/link";
+import { Button } from "@terus/ui";
+
+import { Container } from "@/components/layout/container";
+import { ModuleCard } from "@/components/sections/module-card";
+import { MODULES } from "@/lib/constants/modules";
+
+interface ModulesSectionProps {
+  showViewAll?: boolean;
+  title?: string;
+  description?: string;
+}
+
+export function ModulesSection({
+  showViewAll = true,
+  title = "Seis módulos, uma operação integrada",
+  description = "Cada módulo Terus resolve um ponto crítico da cadeia de suprimentos — do alerta à execução em loja.",
+}: ModulesSectionProps) {
+  return (
+    <section>
+      <Container className="py-20 sm:py-24">
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+          <div className="max-w-2xl">
+            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Módulos Terus
+            </p>
+            <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              {title}
+            </h2>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              {description}
+            </p>
+          </div>
+          {showViewAll && (
+            <Button variant="outline" asChild>
+              <Link href="/modulos">Ver todos os módulos</Link>
+            </Button>
+          )}
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {MODULES.map((module) => (
+            <ModuleCard key={module.slug} module={module} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
