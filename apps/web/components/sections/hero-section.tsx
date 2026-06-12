@@ -7,8 +7,8 @@ import { SITE_TAGLINE } from "@/lib/constants/site";
 export function HeroSection() {
   return (
     <section className="hero-glow relative overflow-hidden">
-      <div className="grid-pattern pointer-events-none absolute inset-0 opacity-40" />
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-brand-glow blur-3xl" />
+      <div className="grid-pattern pointer-events-none absolute inset-0 opacity-20" />
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-32 w-96 -translate-x-1/2 rounded-full bg-brand-glow blur-2xl" />
 
       <Container className="relative py-20 sm:py-28 lg:py-32">
         <div className="mx-auto max-w-4xl text-center">
