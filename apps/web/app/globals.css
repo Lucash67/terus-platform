@@ -46,21 +46,6 @@
     @apply bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent;
   }
 
-  .hero-glow {
-    background: radial-gradient(
-      ellipse 80% 50% at 50% -20%,
-      var(--brand-glow),
-      transparent
-    );
-  }
-
-  .grid-pattern {
-    background-image:
-      linear-gradient(var(--surface-border-subtle) 1px, transparent 1px),
-      linear-gradient(90deg, var(--surface-border-subtle) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
   .cta-gradient {
     background: linear-gradient(
       135deg,
