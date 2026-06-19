@@ -54,4 +54,12 @@
       var(--surface-elevated-2) 100%
     );
   }
+
+  .h-4 {
+    height: 1rem;
+  }
+
+  .w-4 {
+    width: 1rem;
+  }
 }
