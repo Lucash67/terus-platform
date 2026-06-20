@@ -34,16 +34,16 @@ export function Footer() {
                 Terus<span className="text-brand-primary">.</span>
               </span>
             </div>
-            <p className="mt-4 text-body-sm text-text-secondary">
+            <p className="mt-4 text-body-sm text-white/80">
               {SITE_TAGLINE}
             </p>
-            <p className="mt-2 text-body-sm text-text-tertiary">
+            <p className="mt-2 text-body-sm text-white/60">
               {SITE_DESCRIPTION}
             </p>
           </div>
 
           <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-text-primary">
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
               Produto
             </h3>
             <ul className="mt-4 space-y-3">
@@ -51,7 +51,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-body-sm text-text-secondary transition-colors hover:text-brand-primary"
+                    className="text-body-sm text-white/70 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -61,7 +61,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-text-primary">
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
               Módulos
             </h3>
             <ul className="mt-4 space-y-3">
@@ -69,7 +69,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-body-sm text-text-secondary transition-colors hover:text-brand-primary"
+                    className="text-body-sm text-white/70 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -79,7 +79,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-text-primary">
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
               Empresa
             </h3>
             <ul className="mt-4 space-y-3">
@@ -87,7 +87,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-body-sm text-text-secondary transition-colors hover:text-brand-primary"
+                    className="text-body-sm text-white/70 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -97,12 +97,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-surface-border pt-8 sm:flex-row">
-          <p className="text-caption text-text-tertiary">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/20 pt-8 sm:flex-row">
+          <p className="text-caption text-white/60">
             © {new Date().getFullYear()} {SITE_NAME}. Todos os direitos
             reservados.
           </p>
-          <p className="text-caption text-text-tertiary">
+          <p className="text-caption text-white/60">
             Supply Chain Intelligence · Varejo · Indústria · Distribuição
           </p>
         </div>
