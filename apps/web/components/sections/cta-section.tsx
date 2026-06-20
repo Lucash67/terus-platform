@@ -8,7 +8,6 @@ export function CtaSection() {
     <section className="border-t border-surface-border">
       <Container className="py-20 sm:py-24">
         <div className="cta-gradient relative overflow-hidden rounded-lg border border-brand-primary/20 px-8 py-16 text-center sm:px-16">
-          <div className="pointer-events-none absolute inset-0 bg-brand-glow opacity-20 blur-3xl" />
           <div className="relative">
             <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
               Pronto para transformar sua operação?

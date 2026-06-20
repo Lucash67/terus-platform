@@ -6,7 +6,7 @@ import { SITE_TAGLINE } from "@/lib/constants/site";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
       <Container className="relative py-20 sm:py-28 lg:py-32">
         <div className="mx-auto max-w-4xl text-center">
           <Badge variant="secondary" className="mb-6">

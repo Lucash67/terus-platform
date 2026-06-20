@@ -10,7 +10,7 @@ import {
 
 export function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-surface-elevated-1">
+    <footer className="border-t border-surface-border bg-[#1E3A8A]">
       <Container className="py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
