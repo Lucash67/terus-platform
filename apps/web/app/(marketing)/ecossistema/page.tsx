@@ -6,18 +6,18 @@ import { EcosystemSection } from "@/components/sections/ecosystem-section";
 import { PageHero } from "@/components/sections/page-hero";
 
 export const metadata: Metadata = {
-  title: "Ecossistema | Terus Platform",
+  title: "Ecossistema Operacional | Terus Platform",
   description:
-    "Ecossistema Terus — integração com ERPs, indústria, distribuição e operação de loja.",
+    "Todo o ciclo operacional do cliente em um único ecossistema — onboarding, ativação, operação, monitoramento e governança.",
 };
 
-const INTEGRATION_LAYERS = [
+const OPERATIONAL_STAGES = [
   {
-    title: "Camada de Integração",
+    title: "Onboarding e Integração",
     items: ["Winthor", "RMS", "APIs REST", "Conectores homologados"],
   },
   {
-    title: "Camada de Inteligência",
+    title: "Ativação e Operação",
     items: [
       "Alertas em tempo real",
       "Sugestão de pedidos",
@@ -25,7 +25,7 @@ const INTEGRATION_LAYERS = [
     ],
   },
   {
-    title: "Camada de Execução",
+    title: "Monitoramento e Governança",
     items: ["App mobile", "Tarefas em loja", "Evidências e auditoria"],
   },
 ];
@@ -35,8 +35,8 @@ export default function EcossistemaPage() {
     <>
       <PageHero
         badge="Ecossistema"
-        title="Conectando toda a cadeia de valor"
-        description="A Terus integra horizontalmente varejo, indústria e distribuição — criando visibilidade e automação em cada elo."
+        title="Todo o ciclo operacional do cliente em um único ecossistema"
+        description="Do onboarding ao monitoramento contínuo, a Terus integra cada etapa da jornada operacional em um ambiente unificado."
       />
 
       <EcosystemSection showCta={false} />
@@ -44,19 +44,19 @@ export default function EcossistemaPage() {
       <section className="border-t border-surface-border">
         <Container className="py-20 sm:py-24">
           <h2 className="text-center font-display text-heading-xl font-bold text-text-primary">
-            Arquitetura de integração
+            Ecossistema integrado de jornada operacional
           </h2>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {INTEGRATION_LAYERS.map((layer) => (
+            {OPERATIONAL_STAGES.map((stage) => (
               <div
-                key={layer.title}
+                key={stage.title}
                 className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
               >
                 <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {layer.title}
+                  {stage.title}
                 </h3>
                 <ul className="mt-4 space-y-2">
-                  {layer.items.map((item) => (
+                  {stage.items.map((item) => (
                     <li
                       key={item}
                       className="flex items-center gap-2 text-body-md text-text-secondary"
