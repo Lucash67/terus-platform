@@ -34,9 +34,7 @@ export function Footer() {
                 Terus<span className="text-brand-primary">.</span>
               </span>
             </div>
-            <p className="mt-4 text-body-sm text-white/80">
-              {SITE_TAGLINE}
-            </p>
+            <p className="mt-4 text-body-sm text-white/80">{SITE_TAGLINE}</p>
             <p className="mt-2 text-body-sm text-white/60">
               {SITE_DESCRIPTION}
             </p>
