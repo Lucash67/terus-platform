@@ -20,9 +20,9 @@ export const MODULES: ModuleDefinition[] = [
   {
     slug: "alert",
     name: "Terus Alert",
-    tagline: "Alertas críticos operacionais em tempo real",
+    tagline: "Monitoramento operacional em tempo real",
     description:
-      "Detecta rupturas de gôndola, quedas de estoque e anomalias operacionais antes que impactem a receita. Priorização inteligente para ação imediata.",
+      "Garante visibilidade operacional contínua e resposta rápida a desvios de ruptura, estoque e anomalias — priorizando ações por impacto em receita.",
     features: [
       "Monitoramento contínuo de disponibilidade",
       "Priorização por impacto em receita",
@@ -35,9 +35,9 @@ export const MODULES: ModuleDefinition[] = [
   {
     slug: "strategy",
     name: "Terus Strategy",
-    tagline: "Painéis estratégicos e gerenciais",
+    tagline: "Visão executiva da operação",
     description:
-      "Visão executiva da cadeia de suprimentos com métricas de ruptura, capital imobilizado e performance operacional em um único painel.",
+      "Monitoramento estratégico de performance operacional com métricas em tempo real para tomada de decisão informada e governança da jornada.",
     features: [
       "KPIs de supply chain em tempo real",
       "Análise de capital em estoque",
@@ -50,9 +50,9 @@ export const MODULES: ModuleDefinition[] = [
   {
     slug: "order",
     name: "Terus Order",
-    tagline: "Reposição e pedidos automatizados",
+    tagline: "Automação estratégica de reposição",
     description:
-      "Automatiza pedidos de reposição com base em demanda real, lead time e políticas comerciais — eliminando decisões manuais inconsistentes.",
+      "Orquestra a operação de reposição com base em demanda real, garantindo consistência operacional e otimização de capital em toda a jornada.",
     features: [
       "Sugestão automática de pedidos",
       "Regras por categoria e fornecedor",
@@ -65,9 +65,9 @@ export const MODULES: ModuleDefinition[] = [
   {
     slug: "task",
     name: "Terus Task",
-    tagline: "App mobile de execução para encarregados",
+    tagline: "Execução operacional coordenada",
     description:
-      "Transforma alertas em tarefas acionáveis para equipes de loja. Execução rastreada, com evidências e feedback em tempo real.",
+      "Coordena a execução operacional com rastreabilidade completa, transformando alertas em tarefas priorizadas para equipes de loja.",
     features: [
       "Tarefas priorizadas por impacto",
       "Checklist de execução",
@@ -80,9 +80,9 @@ export const MODULES: ModuleDefinition[] = [
   {
     slug: "log",
     name: "Terus Log",
-    tagline: "Evidências e monitoramento de execução",
+    tagline: "Governança e rastreabilidade operacional",
     description:
-      "Registra cada ação operacional com trilha de auditoria completa. Comprova execução, conformidade e performance de equipes.",
+      "Garante governança operacional com trilha de auditoria completa, comprovando execução, conformidade e performance de equipes.",
     features: [
       "Trilha de auditoria imutável",
       "Evidências de execução",
@@ -95,9 +95,9 @@ export const MODULES: ModuleDefinition[] = [
   {
     slug: "pulse",
     name: "Terus Pulse",
-    tagline: "Hub central do cliente",
+    tagline: "Centro de comando operacional",
     description:
-      "Ponto único de acesso à operação Terus. Status de integrações, módulos ativos, saúde do ambiente e ações pendentes.",
+      "Centraliza o controle da operação Terus com visibilidade de integrações, módulos ativos, saúde do ambiente e ações pendentes — garantindo governança da jornada.",
     features: [
       "Dashboard unificado",
       "Status de integrações",

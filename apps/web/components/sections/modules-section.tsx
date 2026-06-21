@@ -13,8 +13,8 @@ interface ModulesSectionProps {
 
 export function ModulesSection({
   showViewAll = true,
-  title = "Seis módulos, uma operação integrada",
-  description = "Cada módulo Terus resolve um ponto crítico da cadeia de suprimentos — do alerta à execução em loja.",
+  title = "Ecossistema integrado de operação",
+  description = "Seis módulos que trabalham juntos para ativar, operar e monitorar clientes em jornada contínua.",
 }: ModulesSectionProps) {
   return (
     <section>
@@ -42,6 +42,14 @@ export function ModulesSection({
           {MODULES.map((module) => (
             <ModuleCard key={module.slug} module={module} />
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-body-lg text-text-secondary">
+            Os seis módulos Terus não funcionam isoladamente — eles compõem um
+            ecossistema integrado que sustenta toda a jornada operacional do
+            cliente, do onboarding ao monitoramento contínuo.
+          </p>
         </div>
       </Container>
     </section>

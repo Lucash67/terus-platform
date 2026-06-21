@@ -5,18 +5,18 @@ import { ModulesSection } from "@/components/sections/modules-section";
 import { PageHero } from "@/components/sections/page-hero";
 
 export const metadata: Metadata = {
-  title: "Módulos | Terus Platform",
+  title: "Operação Integrada | Terus Platform",
   description:
-    "Conheça os seis módulos da Terus Platform: Alert, Strategy, Order, Task, Log e Pulse.",
+    "Seis módulos que sustentam toda a jornada operacional — onboarding, ativação, operação, monitoramento e governança.",
 };
 
 export default function ModulosPage() {
   return (
     <>
       <PageHero
-        badge="Módulos"
-        title="Cada módulo, um resultado operacional"
-        description="A Terus Platform é composta por seis módulos especializados que cobrem toda a jornada — da detecção de ruptura à execução em loja."
+        badge="Operação"
+        title="Seis módulos integrados para operação contínua"
+        description="Cada módulo sustenta uma etapa da jornada operacional — do onboarding ao monitoramento contínuo, em um ambiente unificado."
       />
       <ModulesSection showViewAll={false} />
       <CtaSection />
