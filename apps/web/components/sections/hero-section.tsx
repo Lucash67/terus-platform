@@ -14,14 +14,14 @@ export function HeroSection() {
           </Badge>
 
           <h1 className="font-display text-display-lg font-bold tracking-tight text-text-primary sm:text-display-xl lg:text-display-2xl">
-            Inteligência operacional para{" "}
-            <span className="text-gradient">toda a cadeia</span>
+            Ative, implante e opere clientes em uma{" "}
+            <span className="text-gradient">única plataforma</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-body-lg text-text-secondary">
-            A Terus conecta varejo, indústria e distribuição em tempo real —
-            eliminando ruptura de gôndola, excesso de estoque e execução manual
-            inconsistente.
+            A Terus conecta varejo, indústria e distribuição em uma única
+            plataforma, automatizando a jornada desde o onboarding até a
+            operação contínua dos clientes.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

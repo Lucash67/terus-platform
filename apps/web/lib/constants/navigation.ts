@@ -11,7 +11,7 @@ export const MAIN_NAV_LINKS: NavLink[] = [
 ];
 
 export const FOOTER_LINKS = {
-  produto: [
+  plataforma: [
     { label: "Plataforma", href: "/plataforma" },
     { label: "Módulos", href: "/modulos" },
     { label: "Ecossistema", href: "/ecossistema" },
@@ -24,5 +24,5 @@ export const FOOTER_LINKS = {
     { label: "Terus Log", href: "/modulos/log" },
     { label: "Terus Pulse", href: "/modulos/pulse" },
   ],
-  empresa: [{ label: "Sobre", href: "/sobre" }],
+  sobre: [{ label: "Sobre", href: "/sobre" }],
 };

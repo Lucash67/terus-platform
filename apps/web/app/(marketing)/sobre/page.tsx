@@ -6,9 +6,9 @@ import { PageHero } from "@/components/sections/page-hero";
 import { COMPANY_VALUES } from "@/lib/constants/site";
 
 export const metadata: Metadata = {
-  title: "Sobre | Terus Platform",
+  title: "Sobre a Plataforma | Terus Platform",
   description:
-    "Conheça a Terus Tecnologia — plataforma de Supply Chain Intelligence para o varejo brasileiro.",
+    "Conheça a Terus Platform — plataforma de onboarding, ativação e operação de clientes para o varejo brasileiro.",
 };
 
 export default function SobrePage() {
@@ -16,22 +16,22 @@ export default function SobrePage() {
     <>
       <PageHero
         badge="Sobre"
-        title="Tecnologia que protege receita e otimiza capital"
-        description="A Terus Tecnologia nasceu para resolver os três problemas de missão crítica no varejo: ruptura de gôndola, excesso de estoque e execução manual inconsistente."
+        title="Plataforma que protege receita e otimiza capital"
+        description="A Terus Platform nasceu para resolver os três problemas de missão crítica no varejo: ruptura de gôndola, excesso de estoque e execução manual inconsistente."
       />
 
       <section>
         <Container className="py-20 sm:py-24">
           <div className="mx-auto max-w-3xl">
             <h2 className="font-display text-heading-xl font-bold text-text-primary">
-              Quem somos
+              O que é a Terus Platform
             </h2>
             <p className="mt-6 text-body-lg text-text-secondary">
-              Somos uma plataforma SaaS de Supply Chain Intelligence que integra
-              horizontalmente varejo, indústria e distribuição em tempo real.
-              Não somos uma ferramenta de BI genérica nem uma empresa de
-              integração de dados — somos inteligência operacional com automação
-              em tempo real.
+              A Terus Platform é uma plataforma de onboarding, ativação e
+              operação de clientes que integra horizontalmente varejo, indústria
+              e distribuição em tempo real. Não é uma ferramenta de BI genérica
+              nem uma empresa de integração de dados — é inteligência
+              operacional com automação em tempo real.
             </p>
             <p className="mt-4 text-body-lg text-text-secondary">
               Nossa missão é permitir que operações de varejo detectem rupturas,

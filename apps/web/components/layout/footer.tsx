@@ -42,10 +42,10 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Produto
+              Plataforma
             </h3>
             <ul className="mt-4 space-y-3">
-              {FOOTER_LINKS.produto.map((link) => (
+              {FOOTER_LINKS.plataforma.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -78,10 +78,10 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Empresa
+              Sobre
             </h3>
             <ul className="mt-4 space-y-3">
-              {FOOTER_LINKS.empresa.map((link) => (
+              {FOOTER_LINKS.sobre.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
