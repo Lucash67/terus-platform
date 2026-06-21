@@ -57,12 +57,11 @@ export const PLATFORM_PILLARS = [
   {
     title: "Diagnosticar",
     description:
-      "Validação automatizada de conectividade, permissões e qualidade de dados.",
+      "Validação automatizada de integração operacional, permissões e qualidade de dados.",
   },
   {
     title: "Ativar",
-    description:
-      "Provisionamento do ambiente operacional com configurações automatizadas.",
+    description: "Ativação operacional com configurações automatizadas.",
   },
   {
     title: "Operar",

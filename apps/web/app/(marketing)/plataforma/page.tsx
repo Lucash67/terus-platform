@@ -8,9 +8,9 @@ import { PageHero } from "@/components/sections/page-hero";
 import { PLATFORM_PILLARS } from "@/lib/constants/site";
 
 export const metadata: Metadata = {
-  title: "Plataforma | Terus Platform",
+  title: "Plataforma de Onboarding, Ativação e Operação | Terus Platform",
   description:
-    "Conheça a arquitetura da Terus Platform — Supply Chain Intelligence com integração, diagnóstico, automação e execução.",
+    "Conheça a Terus Platform — plataforma de onboarding, ativação e operação de clientes com integração, diagnóstico, automação e monitoramento em tempo real.",
 };
 
 export default function PlataformaPage() {
@@ -54,15 +54,15 @@ export default function PlataformaPage() {
               </h2>
               <p className="mt-4 text-body-lg text-text-secondary">
                 Clientes com ERP Winthor ou RMS completam todo o fluxo de
-                ativação — do cadastro ao ambiente operacional — sem intervenção
-                manual da equipe técnica Terus.
+                ativação — do cadastro à operação ativa — sem intervenção manual
+                da equipe técnica Terus.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
                   "Assistente guiado de integração",
-                  "Diagnóstico automatizado de conectividade",
+                  "Diagnóstico automatizado de integração operacional",
                   "Contratos digitais integrados",
-                  "Provisionamento de ambiente em minutos",
+                  "Ativação operacional em minutos",
                 ].map((item) => (
                   <li
                     key={item}
@@ -145,6 +145,123 @@ export default function PlataformaPage() {
               <div
                 key={item.title}
                 className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
+              >
+                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-body-md text-text-secondary">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-surface-border">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Benefícios Executivos
+            </p>
+            <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              Resultados para líderes de operação
+            </h2>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              A Terus entrega visibilidade, controle e eficiência para operações
+              de varejo em escala.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Redução de trabalho manual",
+                description:
+                  "Automação de tarefas repetitivas e eliminação de processos manuais",
+              },
+              {
+                title: "Maior visibilidade operacional",
+                description:
+                  "Dashboards executivos com visibilidade completa da operação",
+              },
+              {
+                title: "Menos ruptura e desperdício",
+                description:
+                  "Detecção proativa de anomalias e otimização de estoque",
+              },
+              {
+                title: "Decisões mais rápidas",
+                description:
+                  "Dados em tempo real para tomada de decisão informada",
+              },
+              {
+                title: "Escalabilidade operacional",
+                description:
+                  "Crescimento sem dependência de expansão de equipe técnica",
+              },
+              {
+                title: "Governança de processos",
+                description:
+                  "Rastreabilidade completa e conformidade operacional",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
+              >
+                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-body-md text-text-secondary">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-surface-border bg-surface-elevated-1">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Segurança e Governança
+            </p>
+            <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              Segurança, governança e confiabilidade operacional
+            </h2>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              A Terus foi projetada para operar processos críticos com
+              rastreabilidade, segurança de dados e visibilidade completa da
+              operação.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Integrações Seguras",
+                description:
+                  "Conexões criptografadas com ERPs e sistemas legados",
+              },
+              {
+                title: "Controle de Acesso",
+                description: "Permissões granulares e autenticação segura",
+              },
+              {
+                title: "Auditoria e Rastreabilidade",
+                description:
+                  "Trilha completa de ações e evidências operacionais",
+              },
+              {
+                title: "Operação Monitorada",
+                description: "Visibilidade 24/7 de toda a jornada operacional",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-surface-border bg-surface-base p-8"
               >
                 <h3 className="font-display text-heading-md font-semibold text-brand-primary">
                   {item.title}
