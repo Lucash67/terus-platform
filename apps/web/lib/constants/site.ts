@@ -60,14 +60,19 @@ export const PLATFORM_PILLARS = [
       "Validação automatizada de conectividade, permissões e qualidade de dados.",
   },
   {
-    title: "Automatizar",
+    title: "Ativar",
     description:
-      "Alertas, pedidos e tarefas operacionais sem intervenção manual.",
+      "Provisionamento do ambiente operacional com configurações automatizadas.",
   },
   {
-    title: "Executar",
+    title: "Operar",
     description:
-      "Equipes de loja com tarefas priorizadas e evidências rastreadas.",
+      "Automação de alertas, pedidos e tarefas operacionais sem intervenção manual.",
+  },
+  {
+    title: "Monitorar",
+    description:
+      "Visibilidade em tempo real da operação com dashboards executivos e indicadores.",
   },
 ];
 

@@ -18,8 +18,8 @@ export default function PlataformaPage() {
     <>
       <PageHero
         badge="Plataforma"
-        title="Uma plataforma, quatro capacidades"
-        description="A Terus Platform orquestra toda a jornada — da conexão com o ERP à execução em loja — em um ambiente unificado e seguro."
+        title="Jornada completa do cliente em uma única plataforma"
+        description="Da integração ao monitoramento contínuo da operação, a Terus centraliza onboarding, ativação, execução e acompanhamento em um único ambiente."
       />
 
       <section>
@@ -99,6 +99,65 @@ export default function PlataformaPage() {
         </Container>
       </section>
 
+      <section className="border-t border-surface-border">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Operação contínua
+            </p>
+            <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              Monitoramento e automação em tempo real
+            </h2>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              Após a ativação, a plataforma assume a operação contínua com
+              visibilidade completa, alertas automáticos e execução rastreada.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Monitoramento",
+                description:
+                  "Visibilidade 24/7 da operação com dashboards executivos",
+              },
+              {
+                title: "Alertas",
+                description: "Detecção de anomalias e rupturas em tempo real",
+              },
+              {
+                title: "Automações",
+                description: "Reposições e tarefas geradas automaticamente",
+              },
+              {
+                title: "Execução",
+                description: "Tarefas priorizadas para equipes de loja",
+              },
+              {
+                title: "Rastreabilidade",
+                description: "Evidências e trilha de auditoria completa",
+              },
+              {
+                title: "Indicadores",
+                description: "Métricas e KPIs de performance operacional",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
+              >
+                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-body-md text-text-secondary">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <CtaSection />
     </>
   );
@@ -106,17 +165,18 @@ export default function PlataformaPage() {
 
 function PlatformFlowDiagram() {
   const steps = [
-    "Cadastro",
-    "Integração ERP",
+    "Onboarding",
+    "Integração",
     "Diagnóstico",
-    "Contratos",
     "Ativação",
+    "Operação",
+    "Monitoramento",
   ];
 
   return (
     <div className="space-y-4">
       <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
-        Fluxo de ativação
+        Jornada operacional
       </p>
       {steps.map((step, index) => (
         <div key={step} className="flex items-center gap-4">
