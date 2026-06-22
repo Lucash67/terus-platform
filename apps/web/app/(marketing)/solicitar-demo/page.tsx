@@ -29,7 +29,13 @@ export default function SolicitarDemoPage() {
               operacional de seus clientes.
             </p>
             <Button className="mt-8" size="lg" asChild>
-              <a href="mailto:contato@terus.com.br">Falar com a equipe</a>
+              <a
+                href="https://wa.me/558596290044?text=Olá, gostaria de conhecer a Terus Platform e agendar uma demonstração."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Falar com a equipe
+              </a>
             </Button>
           </div>
         </Container>
