@@ -1,34 +1,5 @@
 import { Container } from "@/components/layout/container";
-
-const SOCIAL_PROOF_ITEMS = [
-  {
-    title: "Cases de Sucesso",
-    description: "Cases serão publicados após autorização dos clientes.",
-  },
-  {
-    title: "Resultados Operacionais",
-    description:
-      "Indicadores serão alimentados com dados reais extraídos da operação.",
-  },
-  {
-    title: "Depoimentos",
-    description: "Depoimentos serão adicionados após aprovação dos clientes.",
-  },
-  {
-    title: "Empresas Atendidas",
-    description:
-      "Logos e informações institucionais serão adicionados após autorização.",
-  },
-  {
-    title: "Validado em Campo",
-    description: "Resultados operacionais em processo de consolidação.",
-  },
-  {
-    title: "Evolução Contínua",
-    description:
-      "Novos indicadores serão disponibilizados conforme expansão da plataforma.",
-  },
-];
+import { DEPOIMENTOS, CASES_DE_SUCESSO } from "@/lib/constants/site-data";
 
 export function SocialProofSection() {
   return (
@@ -48,16 +19,55 @@ export function SocialProofSection() {
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SOCIAL_PROOF_ITEMS.map((item) => (
+          {CASES_DE_SUCESSO.map((caseStudy) => (
             <div
-              key={item.title}
-              className="rounded-lg border border-surface-border bg-surface-base p-8 text-center"
+              key={caseStudy.title}
+              className="rounded-lg border border-surface-border bg-surface-base p-8"
             >
               <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                {item.title}
+                {caseStudy.title}
               </h3>
+              <p className="mt-2 text-body-sm text-text-secondary">
+                {caseStudy.company}
+              </p>
               <p className="mt-4 text-body-md text-text-secondary">
-                {item.description}
+                {caseStudy.description}
+              </p>
+              <p className="mt-2 text-body-sm text-text-secondary">
+                {caseStudy.results}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {DEPOIMENTOS.map((testimonial) => (
+            <div
+              key={testimonial.name}
+              className="rounded-lg border border-surface-border bg-surface-base p-8"
+            >
+              <div className="flex items-center gap-4">
+                {testimonial.avatar ? (
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="h-12 w-12 rounded-full"
+                  />
+                ) : null}
+                <div>
+                  <h3 className="font-display text-heading-sm font-semibold text-text-primary">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-body-sm text-text-secondary">
+                    {testimonial.role}
+                  </p>
+                  <p className="text-body-sm text-text-secondary">
+                    {testimonial.company}
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-body-md text-text-secondary">
+                {testimonial.testimonial}
               </p>
             </div>
           ))}

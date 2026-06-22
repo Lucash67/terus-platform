@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { EMPRESAS_CLIENTES } from "@/lib/constants/site-data";
 
 export function CompaniesSection() {
   return (
@@ -19,9 +20,24 @@ export function CompaniesSection() {
 
         <div className="mt-16 text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-8 rounded-lg border border-surface-border bg-surface-base p-12">
-            <p className="text-body-md text-text-secondary">
-              Seção preparada para exibir logos de clientes
-            </p>
+            {EMPRESAS_CLIENTES.map((company) => (
+              <div
+                key={company.name}
+                className="flex flex-col items-center gap-2"
+              >
+                {company.logo ? (
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="h-12 w-auto"
+                  />
+                ) : (
+                  <p className="text-body-md text-text-secondary">
+                    {company.name}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </Container>

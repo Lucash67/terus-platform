@@ -1,27 +1,5 @@
 import { Container } from "@/components/layout/container";
-
-const INTEGRATIONS_ECOSYSTEM_ITEMS = [
-  {
-    title: "Integrações ERP",
-    description:
-      "Estrutura preparada para exibir ERPs homologados e integrações operacionais.",
-  },
-  {
-    title: "APIs e Conectores",
-    description:
-      "Estrutura preparada para exibir conectores e integrações disponíveis.",
-  },
-  {
-    title: "Operação Integrada",
-    description:
-      "Ambiente preparado para unificar dados, processos e execução operacional.",
-  },
-  {
-    title: "Evolução Contínua",
-    description:
-      "Novas integrações poderão ser disponibilizadas conforme evolução da plataforma.",
-  },
-];
+import { INTEGRACOES } from "@/lib/constants/site-data";
 
 export function IntegrationsEcosystemSection() {
   return (
@@ -41,16 +19,27 @@ export function IntegrationsEcosystemSection() {
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {INTEGRATIONS_ECOSYSTEM_ITEMS.map((item) => (
+          {INTEGRACOES.map((integration) => (
             <div
-              key={item.title}
+              key={integration.name}
               className="rounded-lg border border-surface-border bg-surface-base p-8 text-center"
             >
-              <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-body-md text-text-secondary">
-                {item.description}
+              {integration.logo ? (
+                <img
+                  src={integration.logo}
+                  alt={integration.name}
+                  className="mx-auto h-12 w-auto"
+                />
+              ) : (
+                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                  {integration.name}
+                </h3>
+              )}
+              <p className="mt-4 text-body-sm text-text-secondary">
+                {integration.type}
+              </p>
+              <p className="mt-2 text-body-md text-text-secondary">
+                {integration.description}
               </p>
             </div>
           ))}

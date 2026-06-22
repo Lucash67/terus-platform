@@ -1,27 +1,5 @@
 import { Container } from "@/components/layout/container";
-
-const PLATFORM_INDICATORS = [
-  {
-    title: "Tempo Médio de Onboarding",
-    value: "Em validação operacional",
-    description: "Métrica disponível mediante validação",
-  },
-  {
-    title: "Taxa de Sucesso de Integração",
-    value: "Em validação operacional",
-    description: "Métrica disponível mediante validação",
-  },
-  {
-    title: "Disponibilidade da Plataforma",
-    value: "Em validação operacional",
-    description: "Métrica disponível mediante validação",
-  },
-  {
-    title: "SLA de Suporte",
-    value: "Em validação operacional",
-    description: "Métrica disponível mediante validação",
-  },
-];
+import { INDICADORES_PLATAFORMA } from "@/lib/constants/site-data";
 
 export function PlatformIndicatorsSection() {
   return (
@@ -41,7 +19,7 @@ export function PlatformIndicatorsSection() {
         </div>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {PLATFORM_INDICATORS.map((indicator) => (
+          {INDICADORES_PLATAFORMA.map((indicator) => (
             <div
               key={indicator.title}
               className="rounded-lg border border-surface-border bg-surface-base p-8 text-center"
