@@ -103,6 +103,59 @@ export default function PlataformaPage() {
         <Container className="py-20 sm:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Integração
+            </p>
+            <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              Integração operacional desde o primeiro dia
+            </h2>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              A jornada operacional começa com integração estruturada,
+              permitindo ativação rápida e continuidade da operação.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Integração ERP",
+                description: "Estrutura preparada para exibir ERPs homologados",
+              },
+              {
+                title: "Diagnóstico Automatizado",
+                description:
+                  "Estrutura preparada para exibir diagnóstico integrado",
+              },
+              {
+                title: "Ativação Operacional",
+                description:
+                  "Estrutura preparada para exibir processo de ativação",
+              },
+              {
+                title: "Monitoramento Contínuo",
+                description:
+                  "Estrutura preparada para exibir monitoramento integrado",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
+              >
+                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-body-md text-text-secondary">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-surface-border">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Operação contínua
             </p>
             <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
