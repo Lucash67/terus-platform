@@ -67,6 +67,86 @@ export default function SobrePage() {
         <Container className="py-20 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-display text-heading-xl font-bold text-text-primary">
+              História da Terus
+            </h2>
+            <p className="mt-6 text-body-lg text-text-secondary">
+              A Terus Platform nasceu para resolver os três problemas de missão
+              crítica no varejo: ruptura de gôndola, excesso de estoque e
+              execução manual inconsistente. Nossa jornada é marcada pela
+              evolução contínua da plataforma e pela expansão da jornada
+              operacional de nossos clientes.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-surface-border bg-surface-elevated-1">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-display text-heading-xl font-bold text-text-primary">
+              Evolução da Plataforma
+            </h2>
+            <p className="mt-6 text-body-lg text-text-secondary">
+              A Terus Platform evoluiu de uma solução de integração para uma
+              plataforma completa de onboarding, ativação e operação de
+              clientes. Cada versão trouxe novas capacidades operacionais e
+              expansão da jornada.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-display text-heading-xl font-bold text-text-primary">
+              Missão e Visão
+            </h2>
+            <div className="mt-8 space-y-6">
+              <div className="rounded-lg border border-surface-border bg-surface-base p-8">
+                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                  Missão
+                </h3>
+                <p className="mt-4 text-body-lg text-text-secondary">
+                  Permitir que operações de varejo detectem rupturas,
+                  automatizem reposições e executem ações em loja — tudo com
+                  rastreabilidade completa e sem dependência de equipes técnicas
+                  externas.
+                </p>
+              </div>
+              <div className="rounded-lg border border-surface-border bg-surface-base p-8">
+                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                  Visão
+                </h3>
+                <p className="mt-4 text-body-lg text-text-secondary">
+                  Ser a plataforma referência em onboarding, ativação e operação
+                  de clientes para o varejo brasileiro, transformando a cadeia
+                  de suprimentos com inteligência operacional em tempo real.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-surface-border bg-surface-elevated-1">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-display text-heading-xl font-bold text-text-primary">
+              Liderança
+            </h2>
+            <p className="mt-6 text-body-lg text-text-secondary">
+              Seção preparada para exibir informações sobre a liderança da
+              Terus. Informações disponíveis mediante autorização.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-display text-heading-xl font-bold text-text-primary">
               Por que Supply Chain Intelligence?
             </h2>
             <p className="mt-6 text-body-lg text-text-secondary">

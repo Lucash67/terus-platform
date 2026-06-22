@@ -78,6 +78,52 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
+              Institucional
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Informações institucionais em atualização
+                </span>
+              </li>
+              <li>
+                <span className="text-body-sm text-white/70">
+                  CNPJ: Em atualização
+                </span>
+              </li>
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Endereço: Em atualização
+                </span>
+              </li>
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Contato: Em atualização
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
+              Legal
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Política de Privacidade: Em atualização
+                </span>
+              </li>
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Termos de Uso: Em atualização
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
               Sobre
             </h3>
             <ul className="mt-4 space-y-3">
