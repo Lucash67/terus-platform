@@ -73,10 +73,10 @@ export function Navbar() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <Button variant="outline" size="sm" disabled>
-              Entrar
+              Acessar plataforma
             </Button>
-            <Button size="sm" disabled>
-              Solicitar demo
+            <Button size="sm" asChild>
+              <Link href="/solicitar-demo">Agendar demonstração</Link>
             </Button>
           </div>
 
@@ -133,10 +133,10 @@ export function Navbar() {
             </div>
             <div className="mt-4 flex flex-col gap-2 px-4">
               <Button variant="outline" className="w-full" disabled>
-                Entrar
+                Acessar plataforma
               </Button>
-              <Button className="w-full" disabled>
-                Solicitar demo
+              <Button className="w-full" asChild>
+                <Link href="/solicitar-demo">Agendar demonstração</Link>
               </Button>
             </div>
           </div>

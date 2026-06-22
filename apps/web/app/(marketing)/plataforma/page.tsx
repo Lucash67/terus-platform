@@ -88,7 +88,7 @@ export default function PlataformaPage() {
                 ))}
               </ul>
               <Button className="mt-8" asChild>
-                <Link href="/modulos">Conhecer os módulos</Link>
+                <Link href="/modulos">Ver jornada operacional</Link>
               </Button>
             </div>
 

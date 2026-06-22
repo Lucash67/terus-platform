@@ -17,8 +17,8 @@ export function CtaSection() {
               imobilizado e automatiza a reposição em toda a cadeia.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" disabled>
-                Solicitar demonstração
+              <Button size="lg" asChild>
+                <Link href="/solicitar-demo">Agendar demonstração</Link>
               </Button>
               <Button
                 variant="outline"
@@ -26,7 +26,7 @@ export function CtaSection() {
                 asChild
                 className="bg-white text-brand-primary hover:bg-white/90"
               >
-                <Link href="/sobre">Sobre a Terus</Link>
+                <Link href="/plataforma">Explorar plataforma</Link>
               </Button>
             </div>
           </div>

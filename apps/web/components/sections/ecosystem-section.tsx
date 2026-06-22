@@ -47,7 +47,7 @@ export function EcosystemSection({ showCta = true }: EcosystemSectionProps) {
         {showCta && (
           <div className="mt-12 text-center">
             <Button variant="outline" asChild>
-              <Link href="/ecossistema">Explorar ecossistema</Link>
+              <Link href="/ecossistema">Ver integrações</Link>
             </Button>
           </div>
         )}

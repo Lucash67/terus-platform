@@ -124,6 +124,61 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
+              Comercial
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Informações comerciais em atualização
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
+              Suporte
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Informações de suporte em atualização
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
+              Demonstração
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <Link
+                  href="/solicitar-demo"
+                  className="text-body-sm text-white/70 transition-colors hover:text-white"
+                >
+                  Agendar demonstração
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
+              LinkedIn
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <span className="text-body-sm text-white/70">
+                  LinkedIn em atualização
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
               Sobre
             </h3>
             <ul className="mt-4 space-y-3">

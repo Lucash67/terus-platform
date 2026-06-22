@@ -33,7 +33,7 @@ export function ModulesSection({
           </div>
           {showViewAll && (
             <Button variant="outline" asChild>
-              <Link href="/modulos">Ver todos os módulos</Link>
+              <Link href="/modulos">Ver jornada operacional</Link>
             </Button>
           )}
         </div>

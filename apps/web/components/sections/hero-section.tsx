@@ -26,10 +26,10 @@ export function HeroSection() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
-              <Link href="/plataforma">Conhecer a plataforma</Link>
+              <Link href="/plataforma">Explorar plataforma</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link href="/modulos">Ver módulos</Link>
+              <Link href="/modulos">Ver jornada operacional</Link>
             </Button>
           </div>
         </div>
