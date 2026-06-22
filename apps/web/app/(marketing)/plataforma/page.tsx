@@ -222,6 +222,61 @@ export default function PlataformaPage() {
         </Container>
       </section>
 
+      <section className="border-t border-surface-border">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Operação, segurança e governança
+            </p>
+            <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              Confiabilidade para operações críticas
+            </h2>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              A Terus foi projetada para operar processos críticos com
+              rastreabilidade, segurança de dados e visibilidade completa da
+              operação.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Continuidade da Operação",
+                description:
+                  "Estrutura preparada para garantir continuidade operacional",
+              },
+              {
+                title: "Monitoramento 24/7",
+                description:
+                  "Visibilidade contínua de toda a jornada operacional",
+              },
+              {
+                title: "Governança de Processos",
+                description:
+                  "Rastreabilidade completa e conformidade operacional",
+              },
+              {
+                title: "Suporte Técnico",
+                description:
+                  "Estrutura de suporte preparada para atender operações críticas",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
+              >
+                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-body-md text-text-secondary">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <section className="border-t border-surface-border bg-surface-elevated-1">
         <Container className="py-20 sm:py-24">
           <div className="mx-auto max-w-2xl text-center">

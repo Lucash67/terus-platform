@@ -179,6 +179,34 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
+              Confiabilidade
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Segurança: Em atualização
+                </span>
+              </li>
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Governança: Em atualização
+                </span>
+              </li>
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Disponibilidade: Em atualização
+                </span>
+              </li>
+              <li>
+                <span className="text-body-sm text-white/70">
+                  Suporte: Em atualização
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
               Sobre
             </h3>
             <ul className="mt-4 space-y-3">

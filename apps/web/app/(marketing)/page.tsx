@@ -7,6 +7,7 @@ import { PlatformIndicatorsSection } from "@/components/sections/platform-indica
 import { CompaniesSection } from "@/components/sections/companies-section";
 import { SecurityGovernanceSection } from "@/components/sections/security-governance-section";
 import { SocialProofSection } from "@/components/sections/social-proof-section";
+import { ReliabilitySection } from "@/components/sections/reliability-section";
 import { PositioningSection } from "@/components/sections/positioning-section";
 import { StatsSection } from "@/components/sections/stats-section";
 
@@ -23,6 +24,7 @@ export default function HomePage() {
       <CompaniesSection />
       <SecurityGovernanceSection />
       <SocialProofSection />
+      <ReliabilitySection />
       <CtaSection />
     </>
   );

@@ -143,6 +143,24 @@ export default function SobrePage() {
         </Container>
       </section>
 
+      <section className="border-t border-surface-border bg-surface-elevated-1">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Segurança e Operação
+            </p>
+            <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              Compromisso com segurança e operação
+            </h2>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              A Terus está comprometida com a segurança, governança e
+              confiabilidade operacional de sua plataforma. Estrutura preparada
+              para receber informações de compliance e certificações.
+            </p>
+          </div>
+        </Container>
+      </section>
+
       <section>
         <Container className="py-20 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
