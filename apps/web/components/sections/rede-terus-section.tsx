@@ -20,6 +20,15 @@ export function RedeTerusSection() {
         </div>
 
         <div className="mt-16 space-y-16">
+          <div className="text-center">
+            <p className="font-display text-display-lg font-bold text-brand-primary">
+              +20 empresas conectadas
+            </p>
+            <p className="mt-2 text-body-md text-text-secondary">
+              Varejos e distribuidores integrados à jornada operacional Terus
+            </p>
+          </div>
+
           <div>
             <h3 className="font-display text-heading-lg font-semibold text-text-primary">
               Varejos

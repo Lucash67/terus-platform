@@ -14,11 +14,13 @@ import { StatsSection } from "@/components/sections/stats-section";
 import { RedeTerusSection } from "@/components/sections/rede-terus-section";
 import { InstitutionalVideosSection } from "@/components/sections/institutional-videos-section";
 import { EducationalVideosSection } from "@/components/sections/educational-videos-section";
+import { RealResultsSection } from "@/components/sections/real-results-section";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <RealResultsSection />
       <StatsSection />
       <PositioningSection />
       <ModulesSection />

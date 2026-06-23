@@ -235,6 +235,22 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
+              Cases
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <Link
+                  href="/cases"
+                  className="text-body-sm text-white/70 transition-colors hover:text-white"
+                >
+                  Cases de Sucesso
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
               Sobre
             </h3>
             <ul className="mt-4 space-y-3">
