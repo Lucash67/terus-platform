@@ -36,11 +36,18 @@ export function RedeTerusSection() {
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {REDE_TERUS.varejos.map((varejo) => (
                 <div
-                  key={varejo}
+                  key={varejo.name}
                   className="rounded-lg border border-surface-border bg-surface-base p-6"
                 >
+                  {varejo.logo ? (
+                    <img
+                      src={varejo.logo}
+                      alt={varejo.name}
+                      className="h-12 w-auto"
+                    />
+                  ) : null}
                   <p className="font-display text-body-md font-semibold text-text-primary">
-                    {varejo}
+                    {varejo.name}
                   </p>
                 </div>
               ))}
@@ -54,11 +61,18 @@ export function RedeTerusSection() {
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {REDE_TERUS.distribuidores.map((distribuidor) => (
                 <div
-                  key={distribuidor}
+                  key={distribuidor.name}
                   className="rounded-lg border border-surface-border bg-surface-base p-6"
                 >
+                  {distribuidor.logo ? (
+                    <img
+                      src={distribuidor.logo}
+                      alt={distribuidor.name}
+                      className="h-12 w-auto"
+                    />
+                  ) : null}
                   <p className="font-display text-body-md font-semibold text-text-primary">
-                    {distribuidor}
+                    {distribuidor.name}
                   </p>
                 </div>
               ))}

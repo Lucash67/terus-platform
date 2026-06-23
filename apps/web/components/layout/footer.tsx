@@ -15,6 +15,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2">
+              {/* Inserir logo oficial Terus quando disponível */}
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-brand-primary-dim ring-1 ring-brand-primary/30">
                 <svg
                   viewBox="0 0 24 24"

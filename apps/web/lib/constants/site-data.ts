@@ -52,25 +52,29 @@ export const INDICADORES_PLATAFORMA = [
 ];
 
 export const EMPRESAS_CLIENTES = [
-  // Inserir Logos de Clientes
+  // Inserir Logos de Clientes quando disponíveis
   {
     name: "Em atualização",
-    logo: null,
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
     description: "Em atualização",
   },
   {
     name: "Em atualização",
-    logo: null,
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
     description: "Em atualização",
   },
   {
     name: "Em atualização",
-    logo: null,
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
     description: "Em atualização",
   },
   {
     name: "Em atualização",
-    logo: null,
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
     description: "Em atualização",
   },
 ];
@@ -176,29 +180,129 @@ export const CERTIFICACOES = [
 ];
 
 export const VAREJOS = [
-  "Baratão Supermercados",
-  "Center Box",
-  "Cometa Supermercados",
-  "Fazendinha",
-  "Frangolândia Supermercados",
-  "Freitas Varejo",
-  "Nova Opção Supermercados",
-  "Pinheiro Supermercados",
-  "São Luiz",
-  "Super do Povo",
-  "Super Lagoa",
-  "Supermercado Guará",
+  {
+    name: "Baratão Supermercados",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Center Box",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Cometa Supermercados",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Fazendinha",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Frangolândia Supermercados",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Freitas Varejo",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Nova Opção Supermercados",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Pinheiro Supermercados",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "São Luiz",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Super do Povo",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Super Lagoa",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
+  {
+    name: "Supermercado Guará",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "varejo",
+  },
 ];
 
 export const DISTRIBUIDORES = [
-  "Brava Distribuidora",
-  "Distribuidora Asa Branca",
-  "Donizete Distribuidora",
-  "D'Origem Distribuidora",
-  "JA Distribuidora",
-  "Opção Distribuidora",
-  "RB Distribuidora",
-  "DSL Distribuidora",
+  {
+    name: "Brava Distribuidora",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "distribuidor",
+  },
+  {
+    name: "Distribuidora Asa Branca",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "distribuidor",
+  },
+  {
+    name: "Donizete Distribuidora",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "distribuidor",
+  },
+  {
+    name: "D'Origem Distribuidora",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "distribuidor",
+  },
+  {
+    name: "JA Distribuidora",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "distribuidor",
+  },
+  {
+    name: "Opção Distribuidora",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "distribuidor",
+  },
+  {
+    name: "RB Distribuidora",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "distribuidor",
+  },
+  {
+    name: "DSL Distribuidora",
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
+    category: "distribuidor",
+  },
 ];
 
 export const REDE_TERUS = {
@@ -378,6 +482,9 @@ export const CONTEUDOS_MODULOS = [
 export const CONTEUDOS_CASES = [
   {
     title: "Crescimento operacional em distribuidor da Rede Terus",
+    company: null, // Inserir nome da empresa quando disponível
+    logo: null, // Inserir logo oficial da empresa quando disponível
+    website: null, // Inserir website oficial da empresa quando disponível
     description:
       "Baixa digitalização, alto índice de rejeição ERP e baixo atendimento de pedidos.",
     thumbnail: null,
@@ -391,6 +498,9 @@ export const CONTEUDOS_CASES = [
   },
   {
     title: "Resultados Operacionais",
+    company: null,
+    logo: null,
+    website: null,
     description: "Em atualização",
     thumbnail: null,
     contentUrl: null,
@@ -398,6 +508,9 @@ export const CONTEUDOS_CASES = [
   },
   {
     title: "Indicadores de Performance",
+    company: null,
+    logo: null,
+    website: null,
     description: "Em atualização",
     thumbnail: null,
     contentUrl: null,
@@ -405,6 +518,9 @@ export const CONTEUDOS_CASES = [
   },
   {
     title: "Evolução da Operação",
+    company: null,
+    logo: null,
+    website: null,
     description: "Em atualização",
     thumbnail: null,
     contentUrl: null,
