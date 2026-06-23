@@ -13,8 +13,8 @@ export function PlatformIndicatorsSection() {
             Métricas operacionais da jornada
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Indicadores de performance da plataforma Terus. Resultados
-            disponíveis mediante validação operacional.
+            Indicadores de performance da plataforma Terus. Resultados validados
+            em ambiente produtivo.
           </p>
         </div>
 

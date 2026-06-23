@@ -14,7 +14,7 @@ export function OperationalResultsSection() {
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
             Indicadores baseados em dados reais da operação Terus. Resultados
-            disponíveis mediante validação operacional.
+            validados em ambiente produtivo.
           </p>
         </div>
 

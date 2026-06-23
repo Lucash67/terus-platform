@@ -33,6 +33,19 @@ export default function ConteudosPage() {
       <EducationalContentSection />
       <ModulesContentSection />
       <CasesResultsSection />
+      <section className="border-t border-surface-border">
+        <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
+          <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+            Resultados Reais
+          </h2>
+          <p className="mt-4 text-body-lg text-text-secondary">
+            Crescimento operacional em distribuidor da Rede Terus: Digitalização
+            de até 96% dos pedidos, Rejeição ERP reduzida para 0,5%, Fill Rate
+            elevado para 96%, Ticket médio +34%, Receita processada +38%, Mais
+            de 31 mil pedidos rastreáveis.
+          </p>
+        </div>
+      </section>
       <CtaSection />
     </>
   );

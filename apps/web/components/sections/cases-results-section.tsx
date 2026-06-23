@@ -40,6 +40,36 @@ export function CasesResultsSection() {
               <p className="mt-2 text-body-md text-text-secondary">
                 {content.description}
               </p>
+              {content.challenge && (
+                <div className="mt-4 text-left">
+                  <p className="text-body-sm font-semibold text-text-primary">
+                    Desafio:
+                  </p>
+                  <p className="text-body-sm text-text-secondary">
+                    {content.challenge}
+                  </p>
+                </div>
+              )}
+              {content.implementation && (
+                <div className="mt-2 text-left">
+                  <p className="text-body-sm font-semibold text-text-primary">
+                    Implementação:
+                  </p>
+                  <p className="text-body-sm text-text-secondary">
+                    {content.implementation}
+                  </p>
+                </div>
+              )}
+              {content.results && (
+                <div className="mt-2 text-left">
+                  <p className="text-body-sm font-semibold text-text-primary">
+                    Resultados:
+                  </p>
+                  <p className="text-body-sm text-text-secondary">
+                    {content.results}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>

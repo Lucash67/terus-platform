@@ -3,55 +3,51 @@
 
 export const RESULTADOS_OPERACIONAIS = [
   {
+    title: "Digitalização do Canal",
+    before: "0%",
+    after: "até 96%",
+    improvement: "Pedidos realizados digitalmente através da operação Terus.",
+  },
+  {
     title: "Ticket Médio",
-    // Inserir Ticket Médio Antes x Depois
-    before: "Em atualização",
-    after: "Em atualização",
-    improvement: "Em atualização",
+    before: "R$ 1.740",
+    after: "R$ 2.338",
+    improvement: "+34% de crescimento no valor médio por pedido.",
   },
   {
-    title: "Tempo de Entrega",
-    // Inserir Tempo de Entrega Antes x Depois
-    before: "Em atualização",
-    after: "Em atualização",
-    improvement: "Em atualização",
+    title: "Receita Processada",
+    before: "R$ 11,6 mi",
+    after: "R$ 16,0 mi",
+    improvement:
+      "+38% de crescimento financeiro no mesmo horizonte operacional.",
   },
   {
-    title: "Ganho Financeiro por Atividade",
-    // Inserir Ganho Financeiro por Atividade
-    value: "Em atualização",
-  },
-  {
-    title: "R$ por Mil Atividades",
-    // Inserir R$ por Mil Atividades
-    value: "Em atualização",
+    title: "Rastreabilidade",
+    value: "31.881 pedidos",
+    description: "Auditoria ponta a ponta entre varejo, Terus e ERP.",
   },
 ];
 
 export const INDICADORES_PLATAFORMA = [
   {
-    title: "Redução de Ruptura",
-    // Inserir porcentagem de redução de ruptura
-    value: "Em atualização",
-    description: "Em atualização",
+    title: "Rejeição ERP",
+    value: "35% → 0,5%",
+    description: "Redução significativa na rejeição de pedidos.",
   },
   {
-    title: "Detecção de Anomalias",
-    // Inserir número de anomalias detectadas
-    value: "Em atualização",
-    description: "Em atualização",
+    title: "Fill Rate",
+    value: "40% → 96%",
+    description: "Melhoria no atendimento de pedidos.",
   },
   {
-    title: "Módulos Integrados",
-    // Inserir número de módulos integrados
-    value: "Em atualização",
-    description: "Em atualização",
+    title: "Pedidos Rastreáveis",
+    value: "31.881",
+    description: "Pedidos identificados pela marca Terus no ERP.",
   },
   {
-    title: "Monitoramento Contínuo",
-    // Inserir período de monitoramento
-    value: "Em atualização",
-    description: "Em atualização",
+    title: "Digitalização Operacional",
+    value: "86% a 96%",
+    description: "Pedidos realizados via Terus.",
   },
 ];
 
@@ -381,11 +377,17 @@ export const CONTEUDOS_MODULOS = [
 
 export const CONTEUDOS_CASES = [
   {
-    title: "Cases de Sucesso",
-    description: "Em atualização",
+    title: "Crescimento operacional em distribuidor da Rede Terus",
+    description:
+      "Baixa digitalização, alto índice de rejeição ERP e baixo atendimento de pedidos.",
     thumbnail: null,
     contentUrl: null,
     type: "case",
+    challenge:
+      "Baixa digitalização, alto índice de rejeição ERP e baixo atendimento de pedidos.",
+    implementation: "Adoção da jornada operacional Terus integrada ao Winthor.",
+    results:
+      "Digitalização de até 96% dos pedidos, Rejeição ERP reduzida para 0,5%, Fill Rate elevado para 96%, Ticket médio +34%, Receita processada +38%, Mais de 31 mil pedidos rastreáveis.",
   },
   {
     title: "Resultados Operacionais",

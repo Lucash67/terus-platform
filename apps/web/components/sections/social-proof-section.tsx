@@ -19,6 +19,16 @@ export function SocialProofSection() {
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-lg border border-surface-border bg-surface-base p-8">
+            <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+              Resultados Reais
+            </h3>
+            <p className="mt-4 text-body-md text-text-secondary">
+              Indicadores operacionais validados em ambiente produtivo
+              demonstram crescimento de receita, aumento do ticket médio e
+              melhoria significativa na execução operacional.
+            </p>
+          </div>
           {CASES_DE_SUCESSO.map((caseStudy) => (
             <div
               key={caseStudy.title}
