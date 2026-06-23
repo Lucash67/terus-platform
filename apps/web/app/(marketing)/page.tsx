@@ -11,6 +11,9 @@ import { ReliabilitySection } from "@/components/sections/reliability-section";
 import { IntegrationsEcosystemSection } from "@/components/sections/integrations-ecosystem-section";
 import { PositioningSection } from "@/components/sections/positioning-section";
 import { StatsSection } from "@/components/sections/stats-section";
+import { RedeTerusSection } from "@/components/sections/rede-terus-section";
+import { InstitutionalVideosSection } from "@/components/sections/institutional-videos-section";
+import { EducationalVideosSection } from "@/components/sections/educational-videos-section";
 
 export default function HomePage() {
   return (
@@ -25,6 +28,9 @@ export default function HomePage() {
       <PlatformIndicatorsSection />
       <CompaniesSection />
       <SecurityGovernanceSection />
+      <RedeTerusSection />
+      <InstitutionalVideosSection />
+      <EducationalVideosSection />
       <SocialProofSection />
       <ReliabilitySection />
       <CtaSection />

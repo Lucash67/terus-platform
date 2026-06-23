@@ -178,3 +178,82 @@ export const CERTIFICACOES = [
     logo: null,
   },
 ];
+
+export const VAREJOS = [
+  "Baratão Supermercados",
+  "Center Box",
+  "Cometa Supermercados",
+  "Fazendinha",
+  "Frangolândia Supermercados",
+  "Freitas Varejo",
+  "Nova Opção Supermercados",
+  "Pinheiro Supermercados",
+  "São Luiz",
+  "Super do Povo",
+  "Super Lagoa",
+  "Supermercado Guará",
+];
+
+export const DISTRIBUIDORES = [
+  "Brava Distribuidora",
+  "Distribuidora Asa Branca",
+  "Donizete Distribuidora",
+  "D'Origem Distribuidora",
+  "JA Distribuidora",
+  "Opção Distribuidora",
+  "RB Distribuidora",
+  "DSL Distribuidora",
+];
+
+export const REDE_TERUS = {
+  varejos: VAREJOS,
+  distribuidores: DISTRIBUIDORES,
+};
+
+export const VIDEOS_INSTITUCIONAIS = [
+  {
+    title: "Apresentação Institucional",
+    description: "Em atualização",
+    thumbnail: null,
+    videoUrl: null,
+  },
+  {
+    title: "Visão da Plataforma",
+    description: "Em atualização",
+    thumbnail: null,
+    videoUrl: null,
+  },
+  {
+    title: "Transformação Operacional",
+    description: "Em atualização",
+    thumbnail: null,
+    videoUrl: null,
+  },
+];
+
+export const VIDEOS_EDUCACIONAIS = [
+  {
+    title: "Terus Alert",
+    description: "Em atualização",
+    thumbnail: null,
+    videoUrl: null,
+  },
+  {
+    title: "Terus Order",
+    description: "Em atualização",
+    thumbnail: null,
+    videoUrl: null,
+  },
+  {
+    title: "Terus Task",
+    description: "Em atualização",
+    thumbnail: null,
+    videoUrl: null,
+  },
+  {
+    title: "Terus Pulse",
+    description: "Em atualização",
+    thumbnail: null,
+    videoUrl: null,
+  },
+];
