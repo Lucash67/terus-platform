@@ -7,6 +7,7 @@ export const MAIN_NAV_LINKS: NavLink[] = [
   { label: "Plataforma", href: "/plataforma" },
   { label: "Módulos", href: "/modulos" },
   { label: "Ecossistema", href: "/ecossistema" },
+  { label: "Conteúdos", href: "/conteudos" },
   { label: "Sobre", href: "/sobre" },
 ];
 

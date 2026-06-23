@@ -257,3 +257,155 @@ export const VIDEOS_EDUCACIONAIS = [
     videoUrl: null,
   },
 ];
+
+export const CONTEUDOS_INSTITUCIONAIS = [
+  {
+    title: "Apresentação Institucional",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Visão da Plataforma",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Nossa História",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Transformação Operacional",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+];
+
+export const CONTEUDOS_EDUCACIONAIS = [
+  {
+    title: "Ruptura e Disponibilidade",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Reposição Inteligente",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Execução Operacional",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Monitoramento Contínuo",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Governança Operacional",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Supply Chain Intelligence",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+];
+
+export const CONTEUDOS_MODULOS = [
+  {
+    title: "Terus Alert",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Terus Strategy",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Terus Order",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Terus Task",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Terus Log",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+  {
+    title: "Terus Pulse",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "video",
+  },
+];
+
+export const CONTEUDOS_CASES = [
+  {
+    title: "Cases de Sucesso",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "case",
+  },
+  {
+    title: "Resultados Operacionais",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "metrics",
+  },
+  {
+    title: "Indicadores de Performance",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "metrics",
+  },
+  {
+    title: "Evolução da Operação",
+    description: "Em atualização",
+    thumbnail: null,
+    contentUrl: null,
+    type: "case",
+  },
+];
