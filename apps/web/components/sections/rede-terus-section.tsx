@@ -37,18 +37,28 @@ export function RedeTerusSection() {
               {REDE_TERUS.varejos.map((varejo) => (
                 <div
                   key={varejo.name}
-                  className="rounded-lg border border-surface-border bg-surface-base p-6"
+                  className="rounded-lg border border-surface-border bg-surface-base h-32 p-6 flex flex-col items-center justify-center hover:shadow-sm hover:border-brand-primary/20 transition-all duration-300"
                 >
-                  {varejo.logo ? (
-                    <img
-                      src={varejo.logo}
-                      alt={varejo.name}
-                      className="h-12 w-auto"
-                    />
-                  ) : null}
-                  <p className="font-display text-body-md font-semibold text-text-primary">
-                    {varejo.name}
-                  </p>
+                  {varejo.logos.primary ? (
+                    <div className="flex flex-col items-center justify-center w-full h-full">
+                      <div className="h-12 w-full flex items-center justify-center">
+                        <img
+                          src={varejo.logos.primary}
+                          alt={varejo.name}
+                          className="max-h-full max-w-full object-contain filter-none"
+                        />
+                      </div>
+                      <span className="text-body-sm font-medium text-text-secondary mt-2 text-center truncate w-full">
+                        {varejo.name}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center w-full h-full text-center">
+                      <span className="font-display text-body-md font-semibold text-text-primary">
+                        {varejo.name}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -62,18 +72,28 @@ export function RedeTerusSection() {
               {REDE_TERUS.distribuidores.map((distribuidor) => (
                 <div
                   key={distribuidor.name}
-                  className="rounded-lg border border-surface-border bg-surface-base p-6"
+                  className="rounded-lg border border-surface-border bg-surface-base h-32 p-6 flex flex-col items-center justify-center hover:shadow-sm hover:border-brand-primary/20 transition-all duration-300"
                 >
-                  {distribuidor.logo ? (
-                    <img
-                      src={distribuidor.logo}
-                      alt={distribuidor.name}
-                      className="h-12 w-auto"
-                    />
-                  ) : null}
-                  <p className="font-display text-body-md font-semibold text-text-primary">
-                    {distribuidor.name}
-                  </p>
+                  {distribuidor.logos.primary ? (
+                    <div className="flex flex-col items-center justify-center w-full h-full">
+                      <div className="h-12 w-full flex items-center justify-center">
+                        <img
+                          src={distribuidor.logos.primary}
+                          alt={distribuidor.name}
+                          className="max-h-full max-w-full object-contain filter-none"
+                        />
+                      </div>
+                      <span className="text-body-sm font-medium text-text-secondary mt-2 text-center truncate w-full">
+                        {distribuidor.name}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center w-full h-full text-center">
+                      <span className="font-display text-body-md font-semibold text-text-primary">
+                        {distribuidor.name}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

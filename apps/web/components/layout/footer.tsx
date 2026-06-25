@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { FOOTER_LINKS } from "@/lib/constants/navigation";
+import { TerusLogo } from "@/components/layout/terus-logo";
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -15,26 +16,11 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2">
-              {/* Inserir logo oficial Terus quando disponível */}
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-brand-primary-dim ring-1 ring-brand-primary/30">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="h-4 w-4 text-brand-primary"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M4 12h16M12 4v16"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
+              <div className="bg-white p-1.5 rounded-md inline-flex">
+                <TerusLogo className="h-6 w-auto object-contain" />
               </div>
-              <span className="font-display text-heading-md font-semibold">
-                Terus<span className="text-brand-primary">.</span>
-              </span>
             </div>
+
             <p className="mt-4 text-body-sm text-white/80">{SITE_TAGLINE}</p>
             <p className="mt-2 text-body-sm text-white/60">
               {SITE_DESCRIPTION}

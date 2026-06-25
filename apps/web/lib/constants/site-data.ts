@@ -1,5 +1,4 @@
-// Dados institucionais preparados para preenchimento futuro
-// Não inventar números, clientes, certificações ou integrações
+import { RedeCompany, CaseStudy } from "@terus/types";
 
 export const RESULTADOS_OPERACIONAIS = [
   {
@@ -51,36 +50,74 @@ export const INDICADORES_PLATAFORMA = [
   },
 ];
 
-export const EMPRESAS_CLIENTES = [
-  // Inserir Logos de Clientes quando disponíveis
+export const EMPRESAS_CLIENTES: RedeCompany[] = [
   {
-    name: "Em atualização",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
-    description: "Em atualização",
+    name: "Baratão Supermercados",
+    slug: "baratao-supermercados",
+    category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: "https://barataosupermercados.com.br",
+    featured: true,
+    permissionLevel: "logo",
+    logos: {
+      primary: "/logos/clientes/baratao.png",
+      monochrome: null,
+      dark: null,
+    },
   },
   {
-    name: "Em atualização",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
-    description: "Em atualização",
+    name: "Center Box",
+    slug: "center-box",
+    category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "RMS",
+    website: "https://centerbox.com.br",
+    featured: true,
+    permissionLevel: "logo",
+    logos: {
+      primary: "/logos/clientes/centerbox.png",
+      monochrome: null,
+      dark: null,
+    },
   },
   {
-    name: "Em atualização",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
-    description: "Em atualização",
+    name: "Fazendinha",
+    slug: "fazendinha",
+    category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: "https://www.supermercado-fazendinha.com.br",
+    featured: true,
+    permissionLevel: "logo",
+    logos: {
+      primary: "/logos/clientes/fazendinha.png",
+      monochrome: null,
+      dark: null,
+    },
   },
   {
-    name: "Em atualização",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
-    description: "Em atualização",
+    name: "São Luiz",
+    slug: "saoluiz",
+    category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "RMS",
+    website: "https://www.mercadinhossaoluiz.com.br",
+    featured: true,
+    permissionLevel: "logo",
+    logos: {
+      primary: "/logos/clientes/saoluiz.png",
+      monochrome: null,
+      dark: null,
+    },
   },
 ];
 
 export const DEPOIMENTOS = [
-  // Inserir Cases Reais
   {
     name: "Em atualização",
     role: "Em atualização",
@@ -105,7 +142,6 @@ export const DEPOIMENTOS = [
 ];
 
 export const CASES_DE_SUCESSO = [
-  // Inserir Cases Reais
   {
     title: "Em atualização",
     company: "Em atualização",
@@ -130,7 +166,6 @@ export const CASES_DE_SUCESSO = [
 ];
 
 export const INTEGRACOES = [
-  // Inserir Integrações Homologadas
   {
     name: "Em atualização",
     type: "ERP",
@@ -158,7 +193,6 @@ export const INTEGRACOES = [
 ];
 
 export const CERTIFICACOES = [
-  // Inserir Certificações
   {
     name: "Em atualização",
     issuer: "Em atualização",
@@ -179,129 +213,329 @@ export const CERTIFICACOES = [
   },
 ];
 
-export const VAREJOS = [
+export const VAREJOS: RedeCompany[] = [
   {
     name: "Baratão Supermercados",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "baratao-supermercados",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: "https://barataosupermercados.com.br",
+    featured: true,
+    permissionLevel: "logo",
+    logos: {
+      primary: "/logos/clientes/baratao.png",
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Center Box",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "center-box",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "RMS",
+    website: "https://centerbox.com.br",
+    featured: true,
+    permissionLevel: "logo",
+    logos: {
+      primary: "/logos/clientes/centerbox.png",
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Cometa Supermercados",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "cometa-supermercados",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "RMS",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Fazendinha",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "fazendinha",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: "https://www.supermercado-fazendinha.com.br",
+    featured: true,
+    permissionLevel: "logo",
+    logos: {
+      primary: "/logos/clientes/fazendinha.png",
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Frangolândia Supermercados",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "frangolandia-supermercados",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Freitas Varejo",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "freitas-varejo",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Nova Opção Supermercados",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "nova-opcao-supermercados",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Pinheiro Supermercados",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "pinheiro-supermercados",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "São Luiz",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "saoluiz",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "RMS",
+    website: "https://www.mercadinhossaoluiz.com.br",
+    featured: true,
+    permissionLevel: "logo",
+    logos: {
+      primary: "/logos/clientes/saoluiz.png",
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Super do Povo",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "super-do-povo",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Super Lagoa",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "super-lagoa",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Supermercado Guará",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "supermercado-guara",
     category: "varejo",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
 ];
 
-export const DISTRIBUIDORES = [
+export const DISTRIBUIDORES: RedeCompany[] = [
   {
     name: "Brava Distribuidora",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "brava-distribuidora",
     category: "distribuidor",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Distribuidora Asa Branca",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "distribuidora-asa-branca",
     category: "distribuidor",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Donizete Distribuidora",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "donizete-distribuidora",
     category: "distribuidor",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "D'Origem Distribuidora",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "dorigem-distribuidora",
     category: "distribuidor",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "JA Distribuidora",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "ja-distribuidora",
     category: "distribuidor",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "Opção Distribuidora",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "opcao-distribuidora",
     category: "distribuidor",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "RB Distribuidora",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "rb-distribuidora",
     category: "distribuidor",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
   {
     name: "DSL Distribuidora",
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
+    slug: "dsl-distribuidora",
     category: "distribuidor",
+    status: "ativo",
+    integrationStatus: "connected",
+    erp: "Winthor",
+    website: null,
+    featured: false,
+    permissionLevel: "public",
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
 ];
 
@@ -479,51 +713,76 @@ export const CONTEUDOS_MODULOS = [
   },
 ];
 
-export const CONTEUDOS_CASES = [
+export const CONTEUDOS_CASES: CaseStudy[] = [
   {
+    slug: "crescimento-operacional-distribuidor-terus",
     title: "Crescimento operacional em distribuidor da Rede Terus",
-    company: null, // Inserir nome da empresa quando disponível
-    logo: null, // Inserir logo oficial da empresa quando disponível
-    website: null, // Inserir website oficial da empresa quando disponível
-    description:
-      "Baixa digitalização, alto índice de rejeição ERP e baixo atendimento de pedidos.",
-    thumbnail: null,
-    contentUrl: null,
-    type: "case",
+    company: null,
+    category: "distribuidor",
+    erp: "Winthor",
     challenge:
       "Baixa digitalização, alto índice de rejeição ERP e baixo atendimento de pedidos.",
     implementation: "Adoção da jornada operacional Terus integrada ao Winthor.",
     results:
       "Digitalização de até 96% dos pedidos, Rejeição ERP reduzida para 0,5%, Fill Rate elevado para 96%, Ticket médio +34%, Receita processada +38%, Mais de 31 mil pedidos rastreáveis.",
-  },
-  {
-    title: "Resultados Operacionais",
-    company: null,
-    logo: null,
-    website: null,
-    description: "Em atualização",
     thumbnail: null,
-    contentUrl: null,
-    type: "metrics",
-  },
-  {
-    title: "Indicadores de Performance",
-    company: null,
-    logo: null,
-    website: null,
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "metrics",
-  },
-  {
-    title: "Evolução da Operação",
-    company: null,
-    logo: null,
-    website: null,
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "case",
+    description:
+      "Crescimento operacional em distribuidor da Rede Terus obtendo digitalização de até 96%.",
+    beforeAfterIndicators: {
+      antes: [
+        { label: "Digitalização do canal", value: "0%" },
+        { label: "Rejeição ERP", value: "35%" },
+        { label: "Fill Rate", value: "40%" },
+        { label: "Ticket Médio", value: "R$ 1.740" },
+      ],
+      depois: [
+        { label: "Digitalização do canal", value: "até 96%" },
+        { label: "Rejeição ERP", value: "0,5%" },
+        { label: "Fill Rate", value: "96%" },
+        { label: "Ticket Médio", value: "R$ 2.338" },
+      ],
+      resultados: [
+        { label: "Ticket Médio", value: "+34%" },
+        { label: "Receita Processada", value: "+38%" },
+        { label: "Pedidos Rastreáveis", value: "31.881" },
+      ],
+    },
+    executiveIndicators: [
+      {
+        label: "Ticket Médio",
+        value: "R$ 1.740 → R$ 2.338",
+        description: "Crescimento de valor médio por pedido",
+      },
+      {
+        label: "Receita Processada",
+        value: "R$ 11,6 mi → R$ 16,0 mi",
+        description: "Evolução do faturamento financeiro",
+      },
+      {
+        label: "Fill Rate",
+        value: "40% → 96%",
+        description: "Aumento no nível de atendimento de produtos",
+      },
+      {
+        label: "Rejeição ERP",
+        value: "35% → 0,5%",
+        description: "Redução drástica de falhas operacionais e de validação",
+      },
+      {
+        label: "Pedidos Rastreáveis",
+        value: "31.881",
+        description: "Total auditado ponta a ponta",
+      },
+      {
+        label: "Digitalização Operacional",
+        value: "86% a 96%",
+        description: "Volume de pedidos gerados de forma digital",
+      },
+    ],
+    logos: {
+      primary: null,
+      monochrome: null,
+      dark: null,
+    },
   },
 ];

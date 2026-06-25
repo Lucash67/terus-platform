@@ -1,3 +1,12 @@
+export const BRAND = {
+  name: "Terus",
+  logos: {
+    primary: "/logos/terus/terus.jpg",
+    monochrome: null,
+    dark: null,
+  },
+};
+
 export const SITE_NAME = "Terus Platform";
 
 export const SITE_TAGLINE = "Supply Chain Intelligence";

@@ -54,3 +54,53 @@ export interface ApiError {
   message: string;
   detail?: unknown[];
 }
+
+export interface CompanyLogos {
+  primary: string | null;
+  monochrome: string | null;
+  dark: string | null;
+}
+
+export interface RedeCompany {
+  name: string;
+  slug: string;
+  category: "varejo" | "distribuidor";
+  status: "ativo" | "inativo";
+  integrationStatus: "connected" | "pending" | "error";
+  erp: string | null;
+  website: string | null;
+  featured: boolean;
+  permissionLevel: "logo" | "case" | "public";
+  logos: CompanyLogos;
+}
+
+export interface Indicator {
+  label: string;
+  value: string;
+}
+
+export interface ExecutiveIndicator {
+  label: string;
+  value: string;
+  description?: string;
+}
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  company: string | null;
+  category: "varejo" | "distribuidor";
+  erp: string;
+  challenge: string;
+  implementation: string;
+  results: string;
+  beforeAfterIndicators: {
+    antes: Indicator[];
+    depois: Indicator[];
+    resultados: Indicator[];
+  };
+  executiveIndicators: ExecutiveIndicator[];
+  logos: CompanyLogos;
+  thumbnail?: string | null;
+  description?: string;
+}

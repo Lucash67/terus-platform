@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/container";
 import Link from "next/link";
+import { Button } from "@terus/ui";
 
 export function RealResultsSection() {
   return (
@@ -78,14 +79,13 @@ export function RealResultsSection() {
 
         <div className="mt-12 text-center">
           <p className="text-body-md text-text-secondary">
-            Resultados obtidos em ambiente produtivo da Rede Terus.
+            Resultados validados em ambiente produtivo da Rede Terus.
           </p>
-          <Link
-            href="/cases"
-            className="mt-4 inline-block font-display text-body-md font-semibold text-brand-primary transition-colors hover:text-brand-primary-dim"
-          >
-            Ver case completo →
-          </Link>
+          <div className="mt-6">
+            <Button variant="outline" asChild>
+              <Link href="/cases">Ver case completo</Link>
+            </Button>
+          </div>
         </div>
       </Container>
     </section>

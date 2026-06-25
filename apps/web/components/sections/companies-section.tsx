@@ -19,22 +19,31 @@ export function CompaniesSection() {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-8 rounded-lg border border-surface-border bg-surface-base p-12">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
             {EMPRESAS_CLIENTES.map((company) => (
               <div
                 key={company.name}
-                className="flex flex-col items-center gap-2"
+                className="rounded-lg border border-surface-border bg-surface-base h-32 p-6 flex flex-col items-center justify-center hover:shadow-sm hover:border-brand-primary/20 transition-all duration-300"
               >
-                {company.logo ? (
-                  <img
-                    src={company.logo}
-                    alt={company.name}
-                    className="h-12 w-auto"
-                  />
+                {company.logos.primary ? (
+                  <div className="flex flex-col items-center justify-center w-full h-full">
+                    <div className="h-12 w-full flex items-center justify-center">
+                      <img
+                        src={company.logos.primary}
+                        alt={company.name}
+                        className="max-h-full max-w-full object-contain filter-none"
+                      />
+                    </div>
+                    <span className="text-body-sm font-medium text-text-secondary mt-2 text-center truncate w-full">
+                      {company.name}
+                    </span>
+                  </div>
                 ) : (
-                  <p className="text-body-md text-text-secondary">
-                    {company.name}
-                  </p>
+                  <div className="flex items-center justify-center w-full h-full text-center">
+                    <span className="font-display text-body-md font-semibold text-text-primary">
+                      {company.name}
+                    </span>
+                  </div>
                 )}
               </div>
             ))}

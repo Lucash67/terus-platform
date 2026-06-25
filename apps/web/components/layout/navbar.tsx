@@ -7,33 +7,7 @@ import { Button, cn } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { MAIN_NAV_LINKS } from "@/lib/constants/navigation";
-import { SITE_NAME } from "@/lib/constants/site";
-
-function TerusLogo() {
-  return (
-    <div className="flex items-center gap-2">
-      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-brand-primary-dim ring-1 ring-brand-primary/30">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          className="h-4 w-4 text-brand-primary"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 12h16M12 4v16"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
-      <span className="font-display text-heading-md font-semibold text-text-primary">
-        {SITE_NAME.split(" ")[0]}
-        <span className="text-brand-primary">.</span>
-      </span>
-    </div>
-  );
-}
+import { TerusLogo } from "@/components/layout/terus-logo";
 
 export function Navbar() {
   const pathname = usePathname();

@@ -1,5 +1,7 @@
 import { CtaSection } from "@/components/sections/cta-section";
 import { CONTEUDOS_CASES } from "@/lib/constants/site-data";
+import { Container } from "@/components/layout/container";
+import { Badge } from "@terus/ui";
 
 export const metadata = {
   title: "Cases | Terus Platform",
@@ -8,274 +10,225 @@ export const metadata = {
 };
 
 export default function CasesPage() {
-  const realCase = CONTEUDOS_CASES.find((c) => c.challenge);
-
   return (
     <>
       <section className="border-t border-surface-border bg-surface-elevated-1">
-        <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-          <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
-            Cases
-          </p>
-          <h1 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Cases de Sucesso
-          </h1>
-          <p className="mt-4 text-body-lg text-text-secondary">
-            Resultados operacionais validados em ambiente produtivo da Rede
-            Terus.
-          </p>
-        </div>
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Cases de Sucesso
+            </p>
+            <h1 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              Casos de Uso da Rede Terus
+            </h1>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              Resultados de negócio e eficiência operacional validados em
+              ambiente produtivo real.
+            </p>
+          </div>
+        </Container>
       </section>
 
-      {realCase && (
-        <>
-          <section className="border-t border-surface-border">
-            <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-              <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-                {realCase.title}
+      {CONTEUDOS_CASES.map((c, index) => (
+        <div key={c.slug || index} className="border-t border-surface-border">
+          {/* Header do Case */}
+          <section className="bg-surface-base py-16">
+            <Container className="max-w-4xl">
+              <div className="flex flex-wrap gap-2 items-center mb-6">
+                <Badge variant="outline" className="text-caption capitalize">
+                  {c.category}
+                </Badge>
+                <Badge variant="secondary" className="text-caption">
+                  ERP: {c.erp}
+                </Badge>
+              </div>
+              <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg leading-tight">
+                {c.title}
               </h2>
-            </div>
-          </section>
-
-          <section className="border-t border-surface-border bg-surface-elevated-1">
-            <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-              <div className="rounded-lg border border-surface-border bg-surface-base p-8">
-                <h3 className="font-display text-heading-lg font-semibold text-brand-primary">
-                  Desafio
-                </h3>
-                <p className="mt-4 text-body-lg text-text-secondary">
-                  {realCase.challenge}
+              {c.company && (
+                <p className="mt-2 text-body-md text-text-secondary font-medium">
+                  Empresa: {c.company}
                 </p>
-              </div>
-            </div>
+              )}
+            </Container>
           </section>
 
-          <section className="border-t border-surface-border">
-            <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-              <div className="rounded-lg border border-surface-border bg-surface-base p-8">
-                <h3 className="font-display text-heading-lg font-semibold text-brand-primary">
-                  Implementação
-                </h3>
-                <p className="mt-4 text-body-lg text-text-secondary">
-                  {realCase.implementation}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="border-t border-surface-border bg-surface-elevated-1">
-            <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-              <div className="rounded-lg border border-surface-border bg-surface-base p-8">
-                <h3 className="font-display text-heading-lg font-semibold text-brand-primary">
-                  Resultados
-                </h3>
-                <p className="mt-4 text-body-lg text-text-secondary">
-                  {realCase.results}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="border-t border-surface-border">
-            <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-              <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
-                Transformação
-              </p>
-              <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-                Transformação operacional validada
-              </h2>
-              <p className="mt-4 text-body-lg text-text-secondary">
-                Resultados obtidos após a adoção da jornada operacional Terus
-                integrada ao ERP do distribuidor.
-              </p>
-            </div>
-          </section>
-
-          <section className="border-t border-surface-border bg-surface-elevated-1">
-            <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-              <div className="grid gap-8 sm:grid-cols-3">
+          {/* Três pilares do Case */}
+          <section className="bg-surface-elevated-1 py-12 border-t border-b border-surface-border">
+            <Container className="max-w-4xl">
+              <div className="grid gap-6 md:grid-cols-3">
                 <div className="rounded-lg border border-surface-border bg-surface-base p-6">
-                  <h3 className="font-display text-heading-md font-semibold text-text-secondary">
-                    ANTES DA TERUS
+                  <h3 className="font-display text-heading-md font-semibold text-text-primary">
+                    Desafio
                   </h3>
-                  <div className="mt-4 space-y-3">
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Digitalização do canal
-                      </p>
-                      <p className="font-display text-display-md font-bold text-text-primary">
-                        0%
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Rejeição ERP
-                      </p>
-                      <p className="font-display text-display-md font-bold text-text-primary">
-                        35%
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Fill Rate
-                      </p>
-                      <p className="font-display text-display-md font-bold text-text-primary">
-                        40%
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Ticket Médio
-                      </p>
-                      <p className="font-display text-display-md font-bold text-text-primary">
-                        R$ 1.740
-                      </p>
-                    </div>
-                  </div>
+                  <p className="mt-3 text-body-sm text-text-secondary leading-relaxed">
+                    {c.challenge}
+                  </p>
                 </div>
-
+                <div className="rounded-lg border border-surface-border bg-surface-base p-6">
+                  <h3 className="font-display text-heading-md font-semibold text-text-primary">
+                    Implementação
+                  </h3>
+                  <p className="mt-3 text-body-sm text-text-secondary leading-relaxed">
+                    {c.implementation}
+                  </p>
+                </div>
                 <div className="rounded-lg border border-surface-border bg-surface-base p-6">
                   <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                    DEPOIS DA TERUS
+                    Resultados
                   </h3>
-                  <div className="mt-4 space-y-3">
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Digitalização do canal
-                      </p>
-                      <p className="font-display text-display-md font-bold text-brand-primary">
-                        até 96%
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Rejeição ERP
-                      </p>
-                      <p className="font-display text-display-md font-bold text-brand-primary">
-                        0,5%
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Fill Rate
-                      </p>
-                      <p className="font-display text-display-md font-bold text-brand-primary">
-                        96%
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Ticket Médio
-                      </p>
-                      <p className="font-display text-display-md font-bold text-brand-primary">
-                        R$ 2.338
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-lg border border-surface-border bg-surface-base p-6">
-                  <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                    RESULTADO
-                  </h3>
-                  <div className="mt-4 space-y-3">
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Ticket Médio
-                      </p>
-                      <p className="font-display text-display-md font-bold text-brand-primary">
-                        +34%
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Receita Processada
-                      </p>
-                      <p className="font-display text-display-md font-bold text-brand-primary">
-                        +38%
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-body-sm text-text-secondary">
-                        Pedidos Rastreáveis
-                      </p>
-                      <p className="font-display text-display-md font-bold text-brand-primary">
-                        31.881
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="border-t border-surface-border">
-            <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-              <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
-                Indicadores
-              </p>
-              <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-                Impacto financeiro e operacional
-              </h2>
-            </div>
-          </section>
-
-          <section className="border-t border-surface-border bg-surface-elevated-1">
-            <div className="mx-auto max-w-2xl px-4 py-20 sm:py-24">
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="rounded-lg border border-surface-border bg-surface-base p-6">
-                  <p className="font-display text-body-sm font-semibold text-text-secondary">
-                    Ticket Médio
-                  </p>
-                  <p className="mt-2 font-display text-display-md font-bold text-brand-primary">
-                    R$ 1.740 → R$ 2.338
-                  </p>
-                </div>
-                <div className="rounded-lg border border-surface-border bg-surface-base p-6">
-                  <p className="font-display text-body-sm font-semibold text-text-secondary">
-                    Receita Processada
-                  </p>
-                  <p className="mt-2 font-display text-display-md font-bold text-brand-primary">
-                    R$ 11,6 mi → R$ 16,0 mi
-                  </p>
-                </div>
-                <div className="rounded-lg border border-surface-border bg-surface-base p-6">
-                  <p className="font-display text-body-sm font-semibold text-text-secondary">
-                    Fill Rate
-                  </p>
-                  <p className="mt-2 font-display text-display-md font-bold text-brand-primary">
-                    40% → 96%
-                  </p>
-                </div>
-                <div className="rounded-lg border border-surface-border bg-surface-base p-6">
-                  <p className="font-display text-body-sm font-semibold text-text-secondary">
-                    Rejeição ERP
-                  </p>
-                  <p className="mt-2 font-display text-display-md font-bold text-brand-primary">
-                    35% → 0,5%
-                  </p>
-                </div>
-                <div className="rounded-lg border border-surface-border bg-surface-base p-6">
-                  <p className="font-display text-body-sm font-semibold text-text-secondary">
-                    Pedidos Rastreáveis
-                  </p>
-                  <p className="mt-2 font-display text-display-md font-bold text-brand-primary">
-                    31.881
-                  </p>
-                </div>
-                <div className="rounded-lg border border-surface-border bg-surface-base p-6">
-                  <p className="font-display text-body-sm font-semibold text-text-secondary">
-                    Digitalização
-                  </p>
-                  <p className="mt-2 font-display text-display-md font-bold text-brand-primary">
-                    86% a 96%
+                  <p className="mt-3 text-body-sm text-text-secondary leading-relaxed">
+                    {c.results}
                   </p>
                 </div>
               </div>
-            </div>
+            </Container>
           </section>
-        </>
-      )}
+
+          {/* Comparativo Antes/Depois/Resultados */}
+          <section className="bg-surface-base py-20">
+            <Container className="max-w-4xl">
+              <div className="text-center mb-12">
+                <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+                  Transformação
+                </p>
+                <h3 className="mt-2 font-display text-heading-xl font-bold text-text-primary">
+                  Transformação operacional validada
+                </h3>
+                <p className="mt-2 text-body-md text-text-secondary">
+                  Resultados obtidos após a adoção da jornada operacional Terus
+                  integrada ao ERP.
+                </p>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-3">
+                {/* ANTES DA TERUS (Mudo, Neutro, Alertas em Vermelho) */}
+                <div className="rounded-lg border border-surface-border bg-surface-elevated-1 p-6 transition-all hover:shadow-sm">
+                  <h4 className="font-display text-body-sm font-bold uppercase tracking-wider text-text-tertiary mb-6 border-b border-surface-border pb-2">
+                    Antes da Terus
+                  </h4>
+                  <div className="space-y-4">
+                    {c.beforeAfterIndicators.antes.map((ind, i) => (
+                      <div
+                        key={i}
+                        className="flex justify-between items-center border-b border-surface-border/50 pb-2 last:border-0 last:pb-0"
+                      >
+                        <span className="text-body-sm text-text-secondary font-medium">
+                          {ind.label}
+                        </span>
+                        <span className="font-display text-body-md font-bold text-status-error">
+                          {ind.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* DEPOIS DA TERUS (Premium, Destaque em Azul Gradient, Alta Tecnologia) */}
+                <div className="rounded-lg bg-gradient-to-br from-brand-primary to-brand-primary-hover text-white p-6 shadow-lg shadow-brand-primary/10 transition-all hover:-translate-y-0.5">
+                  <h4 className="font-display text-body-sm font-bold uppercase tracking-wider text-white/90 mb-6 border-b border-white/20 pb-2">
+                    Depois da Terus
+                  </h4>
+                  <div className="space-y-4">
+                    {c.beforeAfterIndicators.depois.map((ind, i) => (
+                      <div
+                        key={i}
+                        className="flex justify-between items-center border-b border-white/10 pb-2 last:border-0 last:pb-0"
+                      >
+                        <span className="text-body-sm text-white/80 font-medium">
+                          {ind.label}
+                        </span>
+                        <span className="font-display text-body-md font-bold text-white">
+                          {ind.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* RESULTADO (Sucesso, Eficiência, Tons Verdes) */}
+                <div className="rounded-lg border border-status-success/30 bg-[#F0FDF4] p-6 transition-all hover:shadow-sm">
+                  <h4 className="font-display text-body-sm font-bold uppercase tracking-wider text-status-success mb-6 border-b border-status-success/15 pb-2">
+                    Resultado Obtido
+                  </h4>
+                  <div className="space-y-4">
+                    {c.beforeAfterIndicators.resultados.map((ind, i) => (
+                      <div
+                        key={i}
+                        className="flex justify-between items-center border-b border-status-success/10 pb-2 last:border-0 last:pb-0"
+                      >
+                        <span className="text-body-sm text-[#15803D] font-medium">
+                          {ind.label}
+                        </span>
+                        <span className="font-display text-body-md font-bold text-[#16A34A]">
+                          {ind.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Container>
+          </section>
+
+          {/* Indicadores Executivos */}
+          <section className="bg-surface-elevated-1 py-20 border-t border-surface-border">
+            <Container className="max-w-4xl">
+              <div className="text-center mb-12">
+                <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+                  Indicadores
+                </p>
+                <h3 className="mt-2 font-display text-heading-xl font-bold text-text-primary">
+                  Impacto financeiro e operacional
+                </h3>
+                <p className="mt-2 text-body-md text-text-secondary">
+                  Painel executivo consolidando a evolução dos principais
+                  indicadores da operação.
+                </p>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                {c.executiveIndicators.map((ind, i) => (
+                  <div
+                    key={i}
+                    className="rounded-lg border border-surface-border bg-surface-base p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-primary/30 flex flex-col justify-between"
+                  >
+                    <div>
+                      <h4 className="font-display text-body-sm font-semibold text-text-secondary">
+                        {ind.label}
+                      </h4>
+                      {ind.description && (
+                        <p className="mt-1 text-body-sm text-text-tertiary">
+                          {ind.description}
+                        </p>
+                      )}
+                    </div>
+                    <div className="mt-4">
+                      {ind.value.includes("→") ? (
+                        <span className="flex items-center gap-2 flex-wrap">
+                          <span className="text-text-tertiary line-through text-body-lg">
+                            {ind.value.split("→")[0].trim()}
+                          </span>
+                          <span className="text-text-tertiary text-body-md">
+                            →
+                          </span>
+                          <span className="font-display text-heading-xl font-bold text-brand-primary">
+                            {ind.value.split("→")[1].trim()}
+                          </span>
+                        </span>
+                      ) : (
+                        <span className="font-display text-heading-xl font-bold text-brand-primary">
+                          {ind.value}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </section>
+        </div>
+      ))}
 
       <CtaSection />
     </>
