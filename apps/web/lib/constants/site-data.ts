@@ -431,9 +431,9 @@ export const VAREJOS: RedeCompany[] = [
     erp: "Winthor",
     website: null,
     featured: false,
-    permissionLevel: "public",
+    permissionLevel: "logo",
     logos: {
-      primary: null,
+      primary: "/logos/clientes/novaopcao.png",
       monochrome: null,
       dark: null,
     },
