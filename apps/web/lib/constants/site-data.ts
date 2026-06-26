@@ -190,7 +190,7 @@ export const EMPRESAS_CLIENTES: RedeCompany[] = [
     featured: false,
     permissionLevel: "logo",
     logos: {
-      primary: "/logos/clientes/freitas.png",
+      primary: "/logos/clientes/freitas.webp",
       monochrome: null,
       dark: null,
     },
@@ -513,7 +513,7 @@ export const VAREJOS: RedeCompany[] = [
     featured: false,
     permissionLevel: "logo",
     logos: {
-      primary: "/logos/clientes/freitas.png",
+      primary: "/logos/clientes/freitas.webp",
       monochrome: null,
       dark: null,
     },
