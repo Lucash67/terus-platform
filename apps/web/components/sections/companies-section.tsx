@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { EMPRESAS_CLIENTES } from "@/lib/constants/site-data";
 
@@ -19,22 +20,23 @@ export function CompaniesSection() {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
             {EMPRESAS_CLIENTES.map((company) => (
               <div
                 key={company.name}
-                className="rounded-lg border border-surface-border bg-surface-base h-32 p-6 flex flex-col items-center justify-center hover:shadow-sm hover:border-brand-primary/20 transition-all duration-300"
+                className="rounded-xl border border-surface-border bg-surface-base h-44 p-6 flex flex-col items-center justify-center hover:shadow-card hover:border-brand-primary/20 transition-all duration-300"
               >
                 {company.logos.primary ? (
                   <div className="flex flex-col items-center justify-center w-full h-full">
-                    <div className="h-12 w-full flex items-center justify-center">
-                      <img
+                    <div className="h-16 w-full flex items-center justify-center">
+                      <Image
                         src={company.logos.primary}
                         alt={company.name}
-                        className="max-h-full max-w-full object-contain filter-none"
+                        fill
+                        className="object-contain filter-none p-2"
                       />
                     </div>
-                    <span className="text-body-sm font-medium text-text-secondary mt-2 text-center truncate w-full">
+                    <span className="text-body-sm font-medium text-text-secondary mt-3 text-center truncate w-full">
                       {company.name}
                     </span>
                   </div>

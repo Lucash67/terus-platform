@@ -147,7 +147,7 @@ export default function CasesPage() {
                 </div>
 
                 {/* RESULTADO (Sucesso, Eficiência, Tons Verdes) */}
-                <div className="rounded-lg border border-status-success/30 bg-[#F0FDF4] p-6 transition-all hover:shadow-sm">
+                <div className="rounded-lg border border-status-success/30 bg-status-success-dim p-6 transition-all hover:shadow-sm">
                   <h4 className="font-display text-body-sm font-bold uppercase tracking-wider text-status-success mb-6 border-b border-status-success/15 pb-2">
                     Resultado Obtido
                   </h4>

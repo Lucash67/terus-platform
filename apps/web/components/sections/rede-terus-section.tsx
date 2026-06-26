@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { REDE_TERUS } from "@/lib/constants/site-data";
 
@@ -33,22 +34,23 @@ export function RedeTerusSection() {
             <h3 className="font-display text-heading-lg font-semibold text-text-primary">
               Varejos
             </h3>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {REDE_TERUS.varejos.map((varejo) => (
                 <div
                   key={varejo.name}
-                  className="rounded-lg border border-surface-border bg-surface-base h-32 p-6 flex flex-col items-center justify-center hover:shadow-sm hover:border-brand-primary/20 transition-all duration-300"
+                  className="rounded-xl border border-surface-border bg-surface-base h-44 p-6 flex flex-col items-center justify-center hover:shadow-card hover:border-brand-primary/20 transition-all duration-300"
                 >
                   {varejo.logos.primary ? (
                     <div className="flex flex-col items-center justify-center w-full h-full">
-                      <div className="h-12 w-full flex items-center justify-center">
-                        <img
+                      <div className="h-16 w-full flex items-center justify-center">
+                        <Image
                           src={varejo.logos.primary}
                           alt={varejo.name}
-                          className="max-h-full max-w-full object-contain filter-none"
+                          fill
+                          className="object-contain filter-none p-2"
                         />
                       </div>
-                      <span className="text-body-sm font-medium text-text-secondary mt-2 text-center truncate w-full">
+                      <span className="text-body-sm font-medium text-text-secondary mt-3 text-center truncate w-full">
                         {varejo.name}
                       </span>
                     </div>
@@ -68,22 +70,23 @@ export function RedeTerusSection() {
             <h3 className="font-display text-heading-lg font-semibold text-text-primary">
               Distribuidores
             </h3>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {REDE_TERUS.distribuidores.map((distribuidor) => (
                 <div
                   key={distribuidor.name}
-                  className="rounded-lg border border-surface-border bg-surface-base h-32 p-6 flex flex-col items-center justify-center hover:shadow-sm hover:border-brand-primary/20 transition-all duration-300"
+                  className="rounded-xl border border-surface-border bg-surface-base h-44 p-6 flex flex-col items-center justify-center hover:shadow-card hover:border-brand-primary/20 transition-all duration-300"
                 >
                   {distribuidor.logos.primary ? (
                     <div className="flex flex-col items-center justify-center w-full h-full">
-                      <div className="h-12 w-full flex items-center justify-center">
-                        <img
+                      <div className="h-16 w-full flex items-center justify-center">
+                        <Image
                           src={distribuidor.logos.primary}
                           alt={distribuidor.name}
-                          className="max-h-full max-w-full object-contain filter-none"
+                          fill
+                          className="object-contain filter-none p-2"
                         />
                       </div>
-                      <span className="text-body-sm font-medium text-text-secondary mt-2 text-center truncate w-full">
+                      <span className="text-body-sm font-medium text-text-secondary mt-3 text-center truncate w-full">
                         {distribuidor.name}
                       </span>
                     </div>

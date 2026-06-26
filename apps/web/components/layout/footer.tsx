@@ -11,9 +11,9 @@ import {
 
 export function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-[#1E3A8A]">
+    <footer className="border-t border-surface-border bg-brand-dark">
       <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2">
               <div className="bg-white p-1.5 rounded-md inline-flex">
@@ -65,164 +65,7 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Institucional
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Informações institucionais em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  CNPJ: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Endereço: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Contato: Em atualização
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Legal
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Política de Privacidade: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Termos de Uso: Em atualização
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Comercial
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Informações comerciais em atualização
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Suporte
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Informações de suporte em atualização
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Demonstração
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <Link
-                  href="/solicitar-demo"
-                  className="text-body-sm text-white/70 transition-colors hover:text-white"
-                >
-                  Agendar demonstração
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              LinkedIn
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <span className="text-body-sm text-white/70">
-                  LinkedIn em atualização
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Ecossistema
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Integrações: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Tecnologias: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Parceiros: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Conectividade: Em atualização
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Confiabilidade
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Segurança: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Governança: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Disponibilidade: Em atualização
-                </span>
-              </li>
-              <li>
-                <span className="text-body-sm text-white/70">
-                  Suporte: Em atualização
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Cases
+              Links úteis
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
@@ -233,14 +76,14 @@ export function Footer() {
                   Cases de Sucesso
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display text-body-sm font-semibold uppercase tracking-wider text-white">
-              Sobre
-            </h3>
-            <ul className="mt-4 space-y-3">
+              <li>
+                <Link
+                  href="/solicitar-demo"
+                  className="text-body-sm text-white/70 transition-colors hover:text-white"
+                >
+                  Agendar demonstração
+                </Link>
+              </li>
               {FOOTER_LINKS.sobre.map((link) => (
                 <li key={link.href}>
                   <Link
