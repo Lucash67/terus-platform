@@ -23,6 +23,7 @@ module.exports = {
           "primary-hover": "#1D4ED8",
           "primary-dim": "#DBEAFE",
           secondary: "#60A5FA",
+          dark: "#1E3A8A",
         },
         status: {
           success: "#16A34A",
