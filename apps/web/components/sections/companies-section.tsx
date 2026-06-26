@@ -20,23 +20,24 @@ export function CompaniesSection() {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-6xl mx-auto">
             {EMPRESAS_CLIENTES.map((company) => (
               <div
                 key={company.name}
-                className="rounded-xl border border-surface-border bg-surface-base h-44 p-6 flex flex-col items-center justify-center hover:shadow-card hover:border-brand-primary/20 transition-all duration-300"
+                className="rounded-2xl border border-surface-border bg-surface-base h-44 p-6 flex flex-col items-center justify-center hover:shadow-card hover:border-brand-primary/20 transition-all duration-300"
               >
                 {company.logos.primary ? (
-                  <div className="flex flex-col items-center justify-center w-full h-full">
-                    <div className="h-16 w-full flex items-center justify-center">
+                  <div className="flex flex-col items-center justify-center w-full h-full gap-3">
+                    <div className="relative w-full h-20 flex items-center justify-center overflow-hidden">
                       <Image
                         src={company.logos.primary}
                         alt={company.name}
-                        fill
-                        className="object-contain filter-none p-2"
+                        width={180}
+                        height={80}
+                        className="object-contain max-h-16 w-auto filter-none"
                       />
                     </div>
-                    <span className="text-body-sm font-medium text-text-secondary mt-3 text-center truncate w-full">
+                    <span className="text-body-sm font-medium text-text-secondary text-center truncate w-full">
                       {company.name}
                     </span>
                   </div>
