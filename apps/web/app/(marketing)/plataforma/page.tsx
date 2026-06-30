@@ -7,12 +7,14 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { PLATFORM_PILLARS } from "@/lib/constants/site";
 import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Plataforma de Onboarding, Ativação e Operação | Terus Platform",
+export const metadata: Metadata = createPageMetadata({
+  title: "Plataforma de Onboarding, Ativação e Operação",
   description:
-    "Conheça a Terus Platform — plataforma de onboarding, ativação e operação de clientes com integração, diagnóstico, automação e monitoramento em tempo real.",
-};
+    "Conheça a Terus Platform — plataforma de Supply Chain Intelligence com integração, diagnóstico, automação e monitoramento em tempo real para varejo e distribuição.",
+  path: "/plataforma",
+});
 
 export default function PlataformaPage() {
   return (

@@ -4,12 +4,14 @@ import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { COMPANY_VALUES } from "@/lib/constants/site";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Sobre a Plataforma | Terus Platform",
+export const metadata: Metadata = createPageMetadata({
+  title: "Sobre a Terus",
   description:
-    "Conheça a Terus Platform — plataforma de onboarding, ativação e operação de clientes para o varejo brasileiro.",
-};
+    "Conheça a Terus Tecnologia — plataforma de Supply Chain Intelligence para varejo, indústria e distribuição no Brasil.",
+  path: "/sobre",
+});
 
 export default function SobrePage() {
   return (

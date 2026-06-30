@@ -1,13 +1,17 @@
+import type { Metadata } from "next";
+
 import { CtaSection } from "@/components/sections/cta-section";
 import { CONTEUDOS_CASES } from "@/lib/constants/site-data";
 import { Container } from "@/components/layout/container";
 import { Badge } from "@terus/ui";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Cases | Terus Platform",
+export const metadata: Metadata = createPageMetadata({
+  title: "Cases de Sucesso",
   description:
-    "Cases de sucesso e resultados operacionais validados em ambiente produtivo da Rede Terus.",
-};
+    "Cases de sucesso e resultados operacionais validados em ambiente produtivo da Rede Terus — digitalização, Fill Rate, ticket médio e rastreabilidade.",
+  path: "/cases",
+});
 
 export default function CasesPage() {
   return (

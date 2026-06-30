@@ -4,12 +4,14 @@ import { Button } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/sections/page-hero";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Agendar Demonstração | Terus Platform",
+export const metadata: Metadata = createPageMetadata({
+  title: "Agendar Demonstração",
   description:
-    "Agende uma demonstração da Terus Platform e conheça como transformar sua operação de supply chain.",
-};
+    "Agende uma demonstração da Terus Platform e conheça como eliminar ruptura, automatizar reposição e operar com Supply Chain Intelligence.",
+  path: "/solicitar-demo",
+});
 
 export default function SolicitarDemoPage() {
   return (

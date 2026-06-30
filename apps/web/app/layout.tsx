@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { DM_Sans, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+
+import { JsonLd } from "@/components/seo/json-ld";
+import { rootMetadata } from "@/lib/seo/metadata";
+
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -23,11 +27,7 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
-export const metadata: Metadata = {
-  title: "Terus Platform - Supply Chain Intelligence",
-  description:
-    "Plataforma SaaS de Supply Chain Intelligence que integra varejo, indústria e distribuição em tempo real.",
-};
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({
   children,
@@ -39,7 +39,8 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${dmSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
     >
-      <body className="bg-surface-base text-text-primary font-sans antialiased">
+      <body className="bg-surface-base font-sans text-text-primary antialiased">
+        <JsonLd />
         {children}
       </body>
     </html>

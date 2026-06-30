@@ -1,15 +1,19 @@
+import type { Metadata } from "next";
+
 import { CtaSection } from "@/components/sections/cta-section";
 import { InstitutionalContentSection } from "@/components/sections/institutional-content-section";
 import { EducationalContentSection } from "@/components/sections/educational-content-section";
 import { ModulesContentSection } from "@/components/sections/modules-content-section";
 import { CasesResultsSection } from "@/components/sections/cases-results-section";
 import { Container } from "@/components/layout/container";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Conteúdos | Terus Platform",
+export const metadata: Metadata = createPageMetadata({
+  title: "Conteúdos",
   description:
-    "Materiais sobre operação, monitoramento, automação e inteligência operacional para varejos e distribuidores.",
-};
+    "Materiais sobre operação, monitoramento, automação e Supply Chain Intelligence para varejos e distribuidores.",
+  path: "/conteudos",
+});
 
 export default function ConteudosPage() {
   return (

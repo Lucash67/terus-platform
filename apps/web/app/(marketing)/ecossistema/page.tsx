@@ -5,12 +5,14 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { EcosystemSection } from "@/components/sections/ecosystem-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { INTEGRACOES } from "@/lib/constants/site-data";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Ecossistema Operacional | Terus Platform",
+export const metadata: Metadata = createPageMetadata({
+  title: "Ecossistema Operacional",
   description:
-    "Todo o ciclo operacional do cliente em um único ecossistema — onboarding, ativação, operação, monitoramento e governança.",
-};
+    "Todo o ciclo operacional do cliente em um único ecossistema — onboarding, ativação, operação, monitoramento e governança com ERPs Winthor e RMS homologados.",
+  path: "/ecossistema",
+});
 
 const OPERATIONAL_STAGES = [
   {

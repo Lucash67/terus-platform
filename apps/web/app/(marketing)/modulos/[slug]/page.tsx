@@ -10,6 +10,7 @@ import {
   MODULE_SLUGS,
   MODULES,
 } from "@/lib/constants/modules";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
 interface ModulePageProps {
   params: { slug: string };
@@ -21,12 +22,20 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: ModulePageProps): Metadata {
   const module = getModuleBySlug(params.slug);
-  if (!module) return { title: "Módulo não encontrado" };
+  if (!module) {
+    return createPageMetadata({
+      title: "Módulo não encontrado",
+      description: "O módulo solicitado não existe na Terus Platform.",
+      path: "/modulos",
+      noIndex: true,
+    });
+  }
 
-  return {
-    title: `${module.name} | Terus Platform`,
+  return createPageMetadata({
+    title: `${module.name} — ${module.tagline}`,
     description: module.description,
-  };
+    path: `/modulos/${module.slug}`,
+  });
 }
 
 export default function ModuleDetailPage({ params }: ModulePageProps) {
