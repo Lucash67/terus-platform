@@ -1,6 +1,7 @@
 import { Badge } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { INTEGRACOES } from "@/lib/constants/site-data";
 
 const STATUS_LABELS = {
@@ -51,6 +52,8 @@ export function IntegrationsEcosystemSection() {
             );
           })}
         </div>
+
+        <CtaButtons className="mt-12" />
       </Container>
     </section>
   );

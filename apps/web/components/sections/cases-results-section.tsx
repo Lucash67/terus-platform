@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Badge, Button } from "@terus/ui";
+import { Badge } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { CONTEUDOS_CASES } from "@/lib/constants/site-data";
 
 export function CasesResultsSection() {
@@ -67,10 +68,14 @@ export function CasesResultsSection() {
                 </div>
               </div>
 
-              <div className="mt-6">
-                <Button asChild>
-                  <Link href="/cases">Ver case completo com indicadores</Link>
-                </Button>
+              <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <CtaButtons size="md" showSecondary={false} />
+                <Link
+                  href="/cases"
+                  className="text-body-sm font-medium text-brand-primary hover:underline"
+                >
+                  Ver case completo com indicadores →
+                </Link>
               </div>
             </div>
           ))}

@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { Button } from "@terus/ui";
-
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { POSITIONING_POINTS } from "@/lib/constants/site";
 
 export function EducationalContentSection() {
@@ -34,11 +32,7 @@ export function EducationalContentSection() {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <Button variant="outline" asChild>
-            <Link href="/modulos">Conhecer os módulos Terus</Link>
-          </Button>
-        </div>
+        <CtaButtons className="mt-10" />
       </Container>
     </section>
   );

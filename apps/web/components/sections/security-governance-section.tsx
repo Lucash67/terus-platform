@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 
 const SECURITY_GOVERNANCE_ITEMS = [
   {
@@ -56,6 +57,8 @@ export function SecurityGovernanceSection() {
             </div>
           ))}
         </div>
+
+        <CtaButtons className="mt-12" />
       </Container>
     </section>
   );

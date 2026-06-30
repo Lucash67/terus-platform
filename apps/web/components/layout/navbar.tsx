@@ -6,12 +6,14 @@ import { usePathname } from "next/navigation";
 import { Button, cn } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
-import { MAIN_NAV_LINKS } from "@/lib/constants/navigation";
 import { TerusLogo } from "@/components/layout/terus-logo";
+import { CTA } from "@/lib/constants/conversion";
+import { MAIN_NAV_LINKS } from "@/lib/constants/navigation";
 
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isDemoPage = pathname === CTA.primary.href;
 
   return (
     <header className="sticky top-0 z-50 border-b border-surface-border/60 bg-surface-base/80 backdrop-blur-xl">
@@ -46,11 +48,23 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Button variant="outline" size="sm" disabled>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled
+              className="text-text-tertiary"
+            >
               Acessar plataforma
             </Button>
-            <Button size="sm" asChild>
-              <Link href="/solicitar-demo">Agendar demonstração</Link>
+            <Button
+              size="md"
+              asChild
+              className={cn(
+                "font-semibold shadow-elevated ring-2 ring-brand-primary/15 transition-all hover:ring-brand-primary/30",
+                isDemoPage && "ring-brand-primary/40",
+              )}
+            >
+              <Link href={CTA.primary.href}>{CTA.primary.label}</Link>
             </Button>
           </div>
 
@@ -106,11 +120,21 @@ export function Navbar() {
               ))}
             </div>
             <div className="mt-4 flex flex-col gap-2 px-4">
-              <Button variant="outline" className="w-full" disabled>
-                Acessar plataforma
+              <Button className="w-full font-semibold shadow-elevated" asChild>
+                <Link
+                  href={CTA.primary.href}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {CTA.primary.label}
+                </Link>
               </Button>
-              <Button className="w-full" asChild>
-                <Link href="/solicitar-demo">Agendar demonstração</Link>
+              <Button variant="outline" className="w-full" asChild>
+                <Link
+                  href={CTA.secondary.href}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {CTA.secondary.label}
+                </Link>
               </Button>
             </div>
           </div>

@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { Button } from "@terus/ui";
-
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { PLATFORM_PILLARS } from "@/lib/constants/site";
 
 export function InstitutionalContentSection() {
@@ -37,11 +35,7 @@ export function InstitutionalContentSection() {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <Button variant="outline" asChild>
-            <Link href="/plataforma">Explorar arquitetura da plataforma</Link>
-          </Button>
-        </div>
+        <CtaButtons className="mt-10" />
       </Container>
     </section>
   );

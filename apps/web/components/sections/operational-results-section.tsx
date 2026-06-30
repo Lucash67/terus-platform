@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { RESULTADOS_OPERACIONAIS } from "@/lib/constants/site-data";
 
 export function OperationalResultsSection() {
@@ -47,6 +48,8 @@ export function OperationalResultsSection() {
             </div>
           ))}
         </div>
+
+        <CtaButtons className="mt-12" />
       </Container>
     </section>
   );

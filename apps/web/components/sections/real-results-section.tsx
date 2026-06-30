@@ -1,6 +1,7 @@
-import { Container } from "@/components/layout/container";
 import Link from "next/link";
-import { Button } from "@terus/ui";
+
+import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 
 export function RealResultsSection() {
   return (
@@ -81,11 +82,15 @@ export function RealResultsSection() {
           <p className="text-body-md text-text-secondary">
             Resultados validados em ambiente produtivo da Rede Terus.
           </p>
-          <div className="mt-6">
-            <Button variant="outline" asChild>
-              <Link href="/cases">Ver case completo</Link>
-            </Button>
-          </div>
+          <CtaButtons size="md" className="mt-6" />
+          <p className="mt-4">
+            <Link
+              href="/cases"
+              className="text-body-sm font-medium text-brand-primary hover:underline"
+            >
+              Ver case completo com indicadores →
+            </Link>
+          </p>
         </div>
       </Container>
     </section>

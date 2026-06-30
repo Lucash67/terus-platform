@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Button } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { PageHero } from "@/components/sections/page-hero";
 import { PLATFORM_PILLARS } from "@/lib/constants/site";
 import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
@@ -90,9 +89,7 @@ export default function PlataformaPage() {
                   </li>
                 ))}
               </ul>
-              <Button className="mt-8" asChild>
-                <Link href="/modulos">Ver jornada operacional</Link>
-              </Button>
+              <CtaButtons size="md" align="start" className="mt-8" />
             </div>
 
             <div className="rounded-lg border border-surface-border bg-surface-base p-8">

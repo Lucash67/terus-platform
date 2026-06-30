@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { Button } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { ModuleCard } from "@/components/sections/module-card";
+import { CTA } from "@/lib/constants/conversion";
 import { MODULES } from "@/lib/constants/modules";
 
 interface ModulesSectionProps {
@@ -32,9 +33,12 @@ export function ModulesSection({
             </p>
           </div>
           {showViewAll && (
-            <Button variant="outline" asChild>
-              <Link href="/modulos">Ver jornada operacional</Link>
-            </Button>
+            <Link
+              href={CTA.secondary.href}
+              className="shrink-0 text-body-md font-semibold text-brand-primary hover:underline"
+            >
+              {CTA.secondary.label} →
+            </Link>
           )}
         </div>
 
@@ -50,6 +54,7 @@ export function ModulesSection({
             ecossistema integrado que sustenta toda a jornada operacional do
             cliente, do onboarding ao monitoramento contínuo.
           </p>
+          <CtaButtons className="mt-8" />
         </div>
       </Container>
     </section>

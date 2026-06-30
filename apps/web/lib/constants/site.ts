@@ -24,14 +24,6 @@ export const HERO = {
     "Automação de reposição e pedidos inteligentes",
     "Integração ponta a ponta varejo ↔ distribuidor",
   ],
-  primaryCta: {
-    label: "Agendar demonstração",
-    href: "/solicitar-demo",
-  },
-  secondaryCta: {
-    label: "Explorar plataforma",
-    href: "/plataforma",
-  },
   trustStats: [
     { value: "40%", label: "Redução de ruptura" },
     { value: "< 5min", label: "Detecção de anomalias" },

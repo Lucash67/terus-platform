@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { Button } from "@terus/ui";
-
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { ECOSYSTEM_PARTNERS } from "@/lib/constants/site";
 
 interface EcosystemSectionProps {
@@ -44,13 +42,7 @@ export function EcosystemSection({ showCta = true }: EcosystemSectionProps) {
           ))}
         </div>
 
-        {showCta && (
-          <div className="mt-12 text-center">
-            <Button variant="outline" asChild>
-              <Link href="/ecossistema">Ver integrações</Link>
-            </Button>
-          </div>
-        )}
+        {showCta && <CtaButtons className="mt-12" />}
       </Container>
     </section>
   );

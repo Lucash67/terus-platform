@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Badge, Button } from "@terus/ui";
+import { Badge } from "@terus/ui";
 
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { Container } from "@/components/layout/container";
 import { HeroDashboardPreview } from "@/components/sections/hero-dashboard-preview";
 import { HERO, SITE_TAGLINE } from "@/lib/constants/site";
@@ -72,20 +72,12 @@ export function HeroSection() {
               ))}
             </ul>
 
-            <div className="hero-fade-in mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-              <Button size="lg" asChild className="w-full sm:w-auto">
-                <Link href={HERO.primaryCta.href}>{HERO.primaryCta.label}</Link>
-              </Button>
-              <Button
-                variant="outline"
+            <div className="hero-fade-in mt-10 flex flex-col items-center lg:items-start">
+              <CtaButtons
                 size="lg"
-                asChild
-                className="w-full sm:w-auto"
-              >
-                <Link href={HERO.secondaryCta.href}>
-                  {HERO.secondaryCta.label}
-                </Link>
-              </Button>
+                align="center"
+                className="lg:justify-start"
+              />
             </div>
 
             {/* Trust stats strip */}

@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { Button } from "@terus/ui";
-
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 
 export function CtaSection() {
   return (
@@ -16,19 +14,7 @@ export function CtaSection() {
               Conheça como a Terus Platform elimina ruptura, reduz capital
               imobilizado e automatiza a reposição em toda a cadeia.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" asChild>
-                <Link href="/solicitar-demo">Agendar demonstração</Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                asChild
-                className="bg-white text-brand-primary hover:bg-white/90"
-              >
-                <Link href="/plataforma">Explorar plataforma</Link>
-              </Button>
-            </div>
+            <CtaButtons size="lg" inverted className="mt-8" />
           </div>
         </div>
       </Container>

@@ -1,5 +1,7 @@
 import Image from "next/image";
+
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { REDE_TERUS } from "@/lib/constants/site-data";
 
 export function RedeTerusSection() {
@@ -104,6 +106,8 @@ export function RedeTerusSection() {
             </div>
           </div>
         </div>
+
+        <CtaButtons className="mt-16" />
       </Container>
     </section>
   );

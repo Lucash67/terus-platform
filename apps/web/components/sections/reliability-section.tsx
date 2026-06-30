@@ -1,6 +1,7 @@
 import { Badge } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
 
 const STATUS_LABELS = {
@@ -47,6 +48,8 @@ export function ReliabilitySection() {
             );
           })}
         </div>
+
+        <CtaButtons className="mt-12" />
       </Container>
     </section>
   );

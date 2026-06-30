@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Button } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { CASES_DE_SUCESSO, DEPOIMENTOS } from "@/lib/constants/site-data";
 
 export function SocialProofSection() {
@@ -33,11 +33,14 @@ export function SocialProofSection() {
               demonstram crescimento de receita, aumento do ticket médio e
               melhoria significativa na execução operacional.
             </p>
-            <div className="mt-6">
-              <Button variant="outline" size="sm" asChild>
-                <Link href="/cases">Ver case completo</Link>
-              </Button>
-            </div>
+            <p className="mt-4">
+              <Link
+                href="/cases"
+                className="text-body-sm font-medium text-brand-primary hover:underline"
+              >
+                Ver case completo →
+              </Link>
+            </p>
           </div>
 
           {CASES_DE_SUCESSO.map((caseStudy) => (
@@ -95,6 +98,8 @@ export function SocialProofSection() {
             ))}
           </div>
         ) : null}
+
+        <CtaButtons className="mt-16" />
       </Container>
     </section>
   );
