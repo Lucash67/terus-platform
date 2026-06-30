@@ -14,6 +14,32 @@ export const SITE_TAGLINE = "Supply Chain Intelligence";
 export const SITE_DESCRIPTION =
   "Plataforma SaaS de Supply Chain Intelligence que integra varejo, indústria e distribuição em tempo real.";
 
+export const HERO = {
+  headline: "Inteligência operacional em tempo real",
+  headlineAccent: "para toda a cadeia de suprimentos",
+  description:
+    "A Terus Platform transforma sinais da operação em ações automáticas — conectando ERPs, varejos e distribuidores com monitoramento contínuo e execução rastreada.",
+  highlights: [
+    "Detecção de ruptura em menos de 5 minutos",
+    "Automação de reposição e pedidos inteligentes",
+    "Integração ponta a ponta varejo ↔ distribuidor",
+  ],
+  primaryCta: {
+    label: "Agendar demonstração",
+    href: "/solicitar-demo",
+  },
+  secondaryCta: {
+    label: "Explorar plataforma",
+    href: "/plataforma",
+  },
+  trustStats: [
+    { value: "40%", label: "Redução de ruptura" },
+    { value: "< 5min", label: "Detecção de anomalias" },
+    { value: "6", label: "Módulos integrados" },
+    { value: "24/7", label: "Monitoramento contínuo" },
+  ],
+} as const;
+
 export const POSITIONING_POINTS = [
   {
     title: "Inteligência operacional",

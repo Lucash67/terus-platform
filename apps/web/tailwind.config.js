@@ -79,6 +79,10 @@ module.exports = {
         md: "8px",
         sm: "6px",
       },
+      boxShadow: {
+        floating:
+          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      },
       animation: {
         "fade-in": "fade-in 300ms ease-out",
         "slide-up": "slide-up 300ms ease-out",
