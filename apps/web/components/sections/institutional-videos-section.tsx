@@ -2,6 +2,10 @@ import { Container } from "@/components/layout/container";
 import { VIDEOS_INSTITUCIONAIS } from "@/lib/constants/site-data";
 
 export function InstitutionalVideosSection() {
+  if (VIDEOS_INSTITUCIONAIS.length === 0) {
+    return null;
+  }
+
   return (
     <section className="border-t border-surface-border">
       <Container className="py-20 sm:py-24">
@@ -24,19 +28,15 @@ export function InstitutionalVideosSection() {
               key={video.title}
               className="rounded-lg border border-surface-border bg-surface-base p-8"
             >
-              <div className="aspect-video rounded-lg bg-surface-elevated-1 flex items-center justify-center">
-                {video.thumbnail ? (
+              {video.thumbnail ? (
+                <div className="aspect-video overflow-hidden rounded-lg">
                   <img
                     src={video.thumbnail}
                     alt={video.title}
-                    className="h-full w-full object-cover rounded-lg"
+                    className="h-full w-full object-cover"
                   />
-                ) : (
-                  <p className="text-body-md text-text-secondary">
-                    Thumbnail em atualização
-                  </p>
-                )}
-              </div>
+                </div>
+              ) : null}
               <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary">
                 {video.title}
               </h3>

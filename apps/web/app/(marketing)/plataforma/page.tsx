@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { PLATFORM_PILLARS } from "@/lib/constants/site";
+import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
 
 export const metadata: Metadata = {
   title: "Plataforma de Onboarding, Ativação e Operação | Terus Platform",
@@ -115,27 +116,7 @@ export default function PlataformaPage() {
           </div>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: "Integração ERP",
-                description: "Estrutura preparada para exibir ERPs homologados",
-              },
-              {
-                title: "Diagnóstico Automatizado",
-                description:
-                  "Estrutura preparada para exibir diagnóstico integrado",
-              },
-              {
-                title: "Ativação Operacional",
-                description:
-                  "Estrutura preparada para exibir processo de ativação",
-              },
-              {
-                title: "Monitoramento Contínuo",
-                description:
-                  "Estrutura preparada para exibir monitoramento integrado",
-              },
-            ].map((item) => (
+            {PLATFORM_PILLARS.slice(0, 4).map((item) => (
               <div
                 key={item.title}
                 className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
@@ -292,34 +273,13 @@ export default function PlataformaPage() {
           </div>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: "Continuidade da Operação",
-                description:
-                  "Estrutura preparada para garantir continuidade operacional",
-              },
-              {
-                title: "Monitoramento 24/7",
-                description:
-                  "Visibilidade contínua de toda a jornada operacional",
-              },
-              {
-                title: "Governança de Processos",
-                description:
-                  "Rastreabilidade completa e conformidade operacional",
-              },
-              {
-                title: "Suporte Técnico",
-                description:
-                  "Estrutura de suporte preparada para atender operações críticas",
-              },
-            ].map((item) => (
+            {PILARES_CONFIABILIDADE.map((item) => (
               <div
-                key={item.title}
+                key={item.name}
                 className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
               >
                 <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {item.title}
+                  {item.name}
                 </h3>
                 <p className="mt-3 text-body-md text-text-secondary">
                   {item.description}

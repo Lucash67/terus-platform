@@ -1,5 +1,13 @@
+import { Badge } from "@terus/ui";
+
 import { Container } from "@/components/layout/container";
 import { INTEGRACOES } from "@/lib/constants/site-data";
+
+const STATUS_LABELS = {
+  homologado: { label: "Homologado", variant: "success" as const },
+  ativo: { label: "Ativo", variant: "default" as const },
+  roadmap: { label: "Roadmap", variant: "secondary" as const },
+};
 
 export function IntegrationsEcosystemSection() {
   return (
@@ -13,36 +21,35 @@ export function IntegrationsEcosystemSection() {
             Integrações e ecossistema tecnológico
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            A Terus foi projetada para conectar diferentes sistemas, operações e
-            fontes de dados em uma única jornada operacional.
+            ERPs homologados, conectores guiados e APIs projetadas para integrar
+            varejo, indústria e distribuição em uma jornada única.
           </p>
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {INTEGRACOES.map((integration) => (
-            <div
-              key={integration.name}
-              className="rounded-lg border border-surface-border bg-surface-base p-8 text-center"
-            >
-              {integration.logo ? (
-                <img
-                  src={integration.logo}
-                  alt={integration.name}
-                  className="mx-auto h-12 w-auto"
-                />
-              ) : (
-                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+          {INTEGRACOES.map((integration) => {
+            const status = STATUS_LABELS[integration.status];
+
+            return (
+              <div
+                key={integration.name}
+                className="rounded-lg border border-surface-border bg-surface-base p-8 text-center"
+              >
+                <div className="flex justify-center">
+                  <Badge variant={status.variant}>{status.label}</Badge>
+                </div>
+                <h3 className="mt-4 font-display text-heading-md font-semibold text-brand-primary">
                   {integration.name}
                 </h3>
-              )}
-              <p className="mt-4 text-body-sm text-text-secondary">
-                {integration.type}
-              </p>
-              <p className="mt-2 text-body-md text-text-secondary">
-                {integration.description}
-              </p>
-            </div>
-          ))}
+                <p className="mt-2 font-mono text-caption uppercase tracking-wider text-text-tertiary">
+                  {integration.type}
+                </p>
+                <p className="mt-4 text-body-md text-text-secondary">
+                  {integration.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

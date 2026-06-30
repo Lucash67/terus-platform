@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { EcosystemSection } from "@/components/sections/ecosystem-section";
 import { PageHero } from "@/components/sections/page-hero";
+import { INTEGRACOES } from "@/lib/constants/site-data";
 
 export const metadata: Metadata = {
   title: "Ecossistema Operacional | Terus Platform",
@@ -58,33 +59,17 @@ export default function EcossistemaPage() {
           </div>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: "Integrações ERP",
-                description: "Estrutura preparada para exibir ERPs homologados",
-              },
-              {
-                title: "Conectores Operacionais",
-                description:
-                  "Estrutura preparada para exibir conectores disponíveis",
-              },
-              {
-                title: "APIs",
-                description: "Estrutura preparada para exibir APIs disponíveis",
-              },
-              {
-                title: "Expansão do Ecossistema",
-                description:
-                  "Estrutura preparada para expansão contínua do ecossistema",
-              },
-            ].map((item) => (
+            {INTEGRACOES.map((item) => (
               <div
-                key={item.title}
+                key={item.name}
                 className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
               >
                 <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {item.title}
+                  {item.name}
                 </h3>
+                <p className="mt-1 font-mono text-caption uppercase tracking-wider text-text-tertiary">
+                  {item.type}
+                </p>
                 <p className="mt-3 text-body-md text-text-secondary">
                   {item.description}
                 </p>

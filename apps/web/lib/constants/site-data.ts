@@ -229,101 +229,99 @@ export const EMPRESAS_CLIENTES: RedeCompany[] = [
   },
 ];
 
-export const DEPOIMENTOS = [
-  {
-    name: "Em atualização",
-    role: "Em atualização",
-    company: "Em atualização",
-    testimonial: "Em atualização",
-    avatar: null,
-  },
-  {
-    name: "Em atualização",
-    role: "Em atualização",
-    company: "Em atualização",
-    testimonial: "Em atualização",
-    avatar: null,
-  },
-  {
-    name: "Em atualização",
-    role: "Em atualização",
-    company: "Em atualização",
-    testimonial: "Em atualização",
-    avatar: null,
-  },
-];
+export const DEPOIMENTOS: {
+  name: string;
+  role: string;
+  company: string;
+  testimonial: string;
+  avatar: string | null;
+}[] = [];
 
 export const CASES_DE_SUCESSO = [
   {
-    title: "Em atualização",
-    company: "Em atualização",
-    description: "Em atualização",
-    results: "Em atualização",
-    image: null,
-  },
-  {
-    title: "Em atualização",
-    company: "Em atualização",
-    description: "Em atualização",
-    results: "Em atualização",
-    image: null,
-  },
-  {
-    title: "Em atualização",
-    company: "Em atualização",
-    description: "Em atualização",
-    results: "Em atualização",
+    title: "Crescimento operacional na Rede Terus",
+    company: "Distribuidor homologado · ERP Winthor",
+    description:
+      "Adoção da jornada operacional Terus integrada ao Winthor, com foco em digitalização de pedidos, redução de rejeição ERP e elevação do Fill Rate.",
+    results:
+      "Digitalização até 96%, Rejeição ERP 0,5%, Fill Rate 96%, ticket médio +34%, receita +38%, 31.881 pedidos rastreáveis.",
     image: null,
   },
 ];
 
 export const INTEGRACOES = [
   {
-    name: "Em atualização",
+    name: "Winthor",
     type: "ERP",
-    description: "Em atualização",
+    status: "homologado" as const,
+    description:
+      "Integração nativa homologada para varejo e distribuição — conexão validada em ambiente produtivo.",
     logo: null,
   },
   {
-    name: "Em atualização",
+    name: "RMS",
     type: "ERP",
-    description: "Em atualização",
+    status: "homologado" as const,
+    description:
+      "Conexão validada para operações de varejo em escala, com diagnóstico automatizado de permissões.",
     logo: null,
   },
   {
-    name: "Em atualização",
+    name: "Assistente de Integração",
     type: "Conector",
-    description: "Em atualização",
+    status: "ativo" as const,
+    description:
+      "Configuração guiada para conexão segura com ERPs homologados, do cadastro ao go-live.",
     logo: null,
   },
   {
-    name: "Em atualização",
+    name: "API Terus",
     type: "API",
-    description: "Em atualização",
+    status: "roadmap" as const,
+    description:
+      "Endpoints REST para sincronização de estoque, pedidos e alertas — disponível na evolução da plataforma.",
     logo: null,
   },
 ];
 
-export const CERTIFICACOES = [
+export const PILARES_CONFIABILIDADE = [
   {
-    name: "Em atualização",
-    issuer: "Em atualização",
-    description: "Em atualização",
+    name: "Auditoria imutável",
+    status: "ativo" as const,
+    description:
+      "Registro de operações críticas em trilha imutável para conformidade e rastreabilidade ponta a ponta.",
     logo: null,
   },
   {
-    name: "Em atualização",
-    issuer: "Em atualização",
-    description: "Em atualização",
+    name: "Vault de credenciais",
+    status: "ativo" as const,
+    description:
+      "Armazenamento seguro de credenciais de cliente com TTL de 5 minutos e revogação automática após uso.",
     logo: null,
   },
   {
-    name: "Em atualização",
-    issuer: "Em atualização",
-    description: "Em atualização",
+    name: "Multi-tenant isolado",
+    status: "ativo" as const,
+    description:
+      "Isolamento por schema dedicado — cada cliente opera em ambiente segregado no PostgreSQL.",
+    logo: null,
+  },
+  {
+    name: "LGPD",
+    status: "conformidade" as const,
+    description:
+      "Arquitetura desenhada para proteção de dados, governança de acesso e auditoria de operações sensíveis.",
     logo: null,
   },
 ];
+
+/** @deprecated Use PILARES_CONFIABILIDADE — mantido para compatibilidade de import */
+export const CERTIFICACOES = PILARES_CONFIABILIDADE.map((p) => ({
+  name: p.name,
+  issuer: p.status === "ativo" ? "Implementado" : "Em conformidade",
+  description: p.description,
+  logo: p.logo,
+}));
 
 export const VAREJOS: RedeCompany[] = [
   {
@@ -704,174 +702,43 @@ export const REDE_TERUS = {
   distribuidores: DISTRIBUIDORES,
 };
 
-export const VIDEOS_INSTITUCIONAIS = [
-  {
-    title: "Apresentação Institucional",
-    description: "Em atualização",
-    thumbnail: null,
-    videoUrl: null,
-  },
-  {
-    title: "Visão da Plataforma",
-    description: "Em atualização",
-    thumbnail: null,
-    videoUrl: null,
-  },
-  {
-    title: "Transformação Operacional",
-    description: "Em atualização",
-    thumbnail: null,
-    videoUrl: null,
-  },
-];
+export const VIDEOS_INSTITUCIONAIS: {
+  title: string;
+  description: string;
+  thumbnail: string | null;
+  videoUrl: string | null;
+}[] = [];
 
-export const VIDEOS_EDUCACIONAIS = [
-  {
-    title: "Terus Alert",
-    description: "Em atualização",
-    thumbnail: null,
-    videoUrl: null,
-  },
-  {
-    title: "Terus Order",
-    description: "Em atualização",
-    thumbnail: null,
-    videoUrl: null,
-  },
-  {
-    title: "Terus Task",
-    description: "Em atualização",
-    thumbnail: null,
-    videoUrl: null,
-  },
-  {
-    title: "Terus Pulse",
-    description: "Em atualização",
-    thumbnail: null,
-    videoUrl: null,
-  },
-];
+export const VIDEOS_EDUCACIONAIS: {
+  title: string;
+  description: string;
+  thumbnail: string | null;
+  videoUrl: string | null;
+}[] = [];
 
-export const CONTEUDOS_INSTITUCIONAIS = [
-  {
-    title: "Apresentação Institucional",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Visão da Plataforma",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Nossa História",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Transformação Operacional",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-];
+export const CONTEUDOS_INSTITUCIONAIS: {
+  title: string;
+  description: string;
+  thumbnail: string | null;
+  contentUrl: string | null;
+  type: string;
+}[] = [];
 
-export const CONTEUDOS_EDUCACIONAIS = [
-  {
-    title: "Ruptura e Disponibilidade",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Reposição Inteligente",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Execução Operacional",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Monitoramento Contínuo",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Governança Operacional",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Supply Chain Intelligence",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-];
+export const CONTEUDOS_EDUCACIONAIS: {
+  title: string;
+  description: string;
+  thumbnail: string | null;
+  contentUrl: string | null;
+  type: string;
+}[] = [];
 
-export const CONTEUDOS_MODULOS = [
-  {
-    title: "Terus Alert",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Terus Strategy",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Terus Order",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Terus Task",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Terus Log",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-  {
-    title: "Terus Pulse",
-    description: "Em atualização",
-    thumbnail: null,
-    contentUrl: null,
-    type: "video",
-  },
-];
+export const CONTEUDOS_MODULOS: {
+  title: string;
+  description: string;
+  thumbnail: string | null;
+  contentUrl: string | null;
+  type: string;
+}[] = [];
 
 export const CONTEUDOS_CASES: CaseStudy[] = [
   {

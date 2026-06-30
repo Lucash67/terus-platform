@@ -153,9 +153,9 @@ export default function SobrePage() {
               Compromisso com segurança e operação
             </h2>
             <p className="mt-4 text-body-lg text-text-secondary">
-              A Terus está comprometida com a segurança, governança e
-              confiabilidade operacional de sua plataforma. Estrutura preparada
-              para receber informações de compliance e certificações.
+              A Terus está comprometida com segurança, governança e
+              confiabilidade operacional — com controles técnicos implementados
+              na arquitetura e programa de certificações em andamento.
             </p>
           </div>
         </Container>

@@ -1,5 +1,12 @@
+import { Badge } from "@terus/ui";
+
 import { Container } from "@/components/layout/container";
-import { CERTIFICACOES } from "@/lib/constants/site-data";
+import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
+
+const STATUS_LABELS = {
+  ativo: { label: "Implementado", variant: "success" as const },
+  conformidade: { label: "Em conformidade", variant: "default" as const },
+};
 
 export function ReliabilitySection() {
   return (
@@ -10,40 +17,35 @@ export function ReliabilitySection() {
             Confiabilidade
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Confiabilidade para operações críticas
+            Infraestrutura para operações críticas
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            A estrutura abaixo foi preparada para exibir informações de
-            disponibilidade, segurança, conformidade e suporte da Terus
-            Platform.
+            Pilares de segurança, isolamento e governança já implementados na
+            arquitetura da plataforma — preparados para escala enterprise.
           </p>
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {CERTIFICACOES.map((cert) => (
-            <div
-              key={cert.name}
-              className="rounded-lg border border-surface-border bg-surface-base p-8 text-center"
-            >
-              {cert.logo ? (
-                <img
-                  src={cert.logo}
-                  alt={cert.name}
-                  className="mx-auto h-12 w-auto"
-                />
-              ) : (
-                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {cert.name}
+          {PILARES_CONFIABILIDADE.map((pillar) => {
+            const status = STATUS_LABELS[pillar.status];
+
+            return (
+              <div
+                key={pillar.name}
+                className="rounded-lg border border-surface-border bg-surface-base p-8 text-center"
+              >
+                <div className="flex justify-center">
+                  <Badge variant={status.variant}>{status.label}</Badge>
+                </div>
+                <h3 className="mt-4 font-display text-heading-md font-semibold text-brand-primary">
+                  {pillar.name}
                 </h3>
-              )}
-              <p className="mt-4 text-body-sm text-text-secondary">
-                {cert.issuer}
-              </p>
-              <p className="mt-2 text-body-md text-text-secondary">
-                {cert.description}
-              </p>
-            </div>
-          ))}
+                <p className="mt-4 text-body-md text-text-secondary">
+                  {pillar.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

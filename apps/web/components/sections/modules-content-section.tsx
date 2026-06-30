@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 import { Container } from "@/components/layout/container";
-import { CONTEUDOS_MODULOS } from "@/lib/constants/site-data";
+import { MODULES } from "@/lib/constants/modules";
 
 export function ModulesContentSection() {
   return (
@@ -10,37 +12,37 @@ export function ModulesContentSection() {
             Conteúdos por módulo
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Estrutura preparada para exibir materiais específicos de cada módulo
-            da Terus Platform.
+            Seis módulos integrados que compõem o ecossistema operacional Terus
+            — explore cada um em detalhe.
           </p>
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {CONTEUDOS_MODULOS.map((content) => (
-            <div
-              key={content.title}
-              className="rounded-lg border border-surface-border bg-surface-base p-8"
+          {MODULES.map((module) => (
+            <Link
+              key={module.slug}
+              href={`/modulos/${module.slug}`}
+              className="group rounded-lg border border-surface-border bg-surface-base p-8 transition-colors hover:border-brand-primary/30 hover:bg-surface-elevated-1"
             >
-              <div className="aspect-video rounded-lg bg-surface-elevated-1 flex items-center justify-center">
-                {content.thumbnail ? (
-                  <img
-                    src={content.thumbnail}
-                    alt={content.title}
-                    className="h-full w-full object-cover rounded-lg"
-                  />
-                ) : (
-                  <p className="text-body-md text-text-secondary">
-                    Thumbnail em atualização
-                  </p>
-                )}
-              </div>
-              <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary">
-                {content.title}
-              </h3>
-              <p className="mt-2 text-body-md text-text-secondary">
-                {content.description}
+              <p className="font-display text-display-lg font-bold text-brand-primary">
+                {module.metric}
               </p>
-            </div>
+              <p className="text-caption text-text-tertiary">
+                {module.metricLabel}
+              </p>
+              <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary group-hover:text-brand-primary">
+                {module.name}
+              </h3>
+              <p className="mt-2 text-body-sm font-medium text-text-secondary">
+                {module.tagline}
+              </p>
+              <p className="mt-3 text-body-md text-text-secondary">
+                {module.description}
+              </p>
+              <p className="mt-4 text-body-sm font-medium text-brand-primary">
+                Saiba mais →
+              </p>
+            </Link>
           ))}
         </div>
       </Container>

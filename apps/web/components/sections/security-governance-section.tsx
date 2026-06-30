@@ -4,20 +4,22 @@ const SECURITY_GOVERNANCE_ITEMS = [
   {
     title: "Certificações de Segurança",
     description:
-      "Informações sobre certificações disponíveis mediante validação",
+      "Programa de certificações em andamento — controles técnicos de segurança já implementados na arquitetura.",
   },
   {
     title: "Compliance e Governança",
-    description: "Informações sobre compliance disponíveis mediante validação",
+    description:
+      "Políticas de acesso, auditoria imutável e segregação de ambientes por tenant.",
   },
   {
     title: "SLA e Disponibilidade",
-    description: "Informações sobre SLA disponíveis mediante validação",
+    description:
+      "Infraestrutura projetada para operações 24/7 com monitoramento contínuo de saúde.",
   },
   {
     title: "Proteção de Dados",
     description:
-      "Informações sobre proteção de dados disponíveis mediante validação",
+      "Conformidade LGPD by design — credenciais exclusivamente via Vault, sem exposição em logs.",
   },
 ];
 
@@ -33,8 +35,9 @@ export function SecurityGovernanceSection() {
             Credibilidade enterprise
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Estrutura de segurança e governança preparada para receber
-            certificações e informações de compliance.
+            Estrutura de segurança e governança enterprise — certificações
+            formais em processo de validação, com controles técnicos já
+            implementados na arquitetura.
           </p>
         </div>
 

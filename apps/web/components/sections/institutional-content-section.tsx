@@ -1,5 +1,8 @@
+import Link from "next/link";
+import { Button } from "@terus/ui";
+
 import { Container } from "@/components/layout/container";
-import { CONTEUDOS_INSTITUCIONAIS } from "@/lib/constants/site-data";
+import { PLATFORM_PILLARS } from "@/lib/constants/site";
 
 export function InstitutionalContentSection() {
   return (
@@ -7,41 +10,37 @@ export function InstitutionalContentSection() {
       <Container className="py-20 sm:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Conheça a Terus
+            Jornada operacional da plataforma
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Estrutura preparada para exibir conteúdos institucionais sobre a
-            empresa, sua visão e a proposta de valor da plataforma.
+            Da conexão com o ERP à operação contínua — cinco pilares que
+            estruturam a proposta de valor da Terus Platform.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {CONTEUDOS_INSTITUCIONAIS.map((content) => (
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PLATFORM_PILLARS.map((pillar, index) => (
             <div
-              key={content.title}
+              key={pillar.title}
               className="rounded-lg border border-surface-border bg-surface-base p-8"
             >
-              <div className="aspect-video rounded-lg bg-surface-elevated-1 flex items-center justify-center">
-                {content.thumbnail ? (
-                  <img
-                    src={content.thumbnail}
-                    alt={content.title}
-                    className="h-full w-full object-cover rounded-lg"
-                  />
-                ) : (
-                  <p className="text-body-md text-text-secondary">
-                    Thumbnail em atualização
-                  </p>
-                )}
-              </div>
-              <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary">
-                {content.title}
+              <span className="font-mono text-caption font-semibold text-brand-primary">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-2 font-display text-heading-md font-semibold text-text-primary">
+                {pillar.title}
               </h3>
-              <p className="mt-2 text-body-md text-text-secondary">
-                {content.description}
+              <p className="mt-3 text-body-md text-text-secondary">
+                {pillar.description}
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Button variant="outline" asChild>
+            <Link href="/plataforma">Explorar arquitetura da plataforma</Link>
+          </Button>
         </div>
       </Container>
     </section>
