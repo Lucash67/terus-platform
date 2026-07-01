@@ -52,6 +52,9 @@
 
 ## Assinatura de release
 
+- [x] **Tag Git** — `v0.4.0` publicada em `origin`
+- [x] **GitHub Release** — [Terus Platform v0.4.0](https://github.com/Lucash67/terus-platform/releases/tag/v0.4.0) · publicada em 1 jul 2026
+
 | Campo | Valor |
 |-------|-------|
 | Versão | v0.4.0 — Institutional Layer Complete |

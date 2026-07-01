@@ -512,11 +512,11 @@ Convenções: [`docs/assets/README.md`](assets/README.md)
 | **Commit baseline (código)** | `5b50ec1` | ✅ Em produção |
 | **Commit baseline (docs)** | `c1748bf` | ✅ Em `main` |
 | **Tag Git** | `v0.4.0` | ✅ Publicada em `origin` |
-| **Release GitHub** | GitHub Releases | ⏳ Pendente |
+| **Release GitHub** | [GitHub Releases · v0.4.0](https://github.com/Lucash67/terus-platform/releases/tag/v0.4.0) | ✅ Publicada · 1 jul 2026 |
 
 Estes itens compõem a **baseline permanente** da camada institucional congelada.
 
-**v0.4.0 encerrada:** baseline visual (51 screenshots + 1 vídeo) oficialmente completa em 1 de julho de 2026. Apresentações permanecem opcionais para Release GitHub.
+**v0.4.0 encerrada:** baseline visual (51 screenshots + 1 vídeo) e GitHub Release oficialmente completos em 1 de julho de 2026. Apresentações permanecem opcionais.
 
 ---
 
