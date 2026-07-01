@@ -27,6 +27,7 @@ A **Terus Platform** é uma plataforma SaaS de **Supply Chain Intelligence** que
 | [`docs/project-roadmap.md`](project-roadmap.md) | Histórico oficial de fases |
 | [`docs/backend-foundation.md`](backend-foundation.md) | Baseline Sprint 1 |
 | [`docs/releases/v0.4.0-institutional-layer-complete.md`](releases/v0.4.0-institutional-layer-complete.md) | Release notes v0.4.0 |
+| [`docs/assets/README.md`](assets/README.md) | Arquivos institucionais (screenshots, vídeos, apresentações) |
 | [`CHANGELOG.md`](../CHANGELOG.md) | Changelog Keep a Changelog |
 
 ---
@@ -492,6 +493,31 @@ Copy estática institucional permanece em `site.ts`, `modules.ts` e `copy.ts`.
 
 ---
 
+## Version Archives
+
+Registro permanente de cada grande versão da Terus Platform.  
+Convenções: [`docs/assets/README.md`](assets/README.md)
+
+### v0.4.0 — Institutional Layer Complete
+
+| Artefato | Localização | Status |
+|----------|-------------|--------|
+| **Documentação técnica** | [`docs/project-state.md`](project-state.md), [`docs/architecture.md`](architecture.md) | ✅ Completo |
+| **Release notes** | [`docs/releases/v0.4.0-institutional-layer-complete.md`](releases/v0.4.0-institutional-layer-complete.md) | ✅ Completo |
+| **Release checklist** | [`docs/releases/release-checklist-v0.4.0.md`](releases/release-checklist-v0.4.0.md) | ✅ Completo |
+| **Screenshots oficiais** | [`docs/assets/screenshots/v0.4.0/`](assets/screenshots/v0.4.0/) · [`INDEX.md`](assets/screenshots/v0.4.0/INDEX.md) | ⏳ Infraestrutura pronta — capturas pendentes |
+| **Vídeos oficiais** | [`docs/assets/videos/v0.4.0/`](assets/videos/v0.4.0/) · [`INDEX.md`](assets/videos/v0.4.0/INDEX.md) | ⏳ Infraestrutura pronta — gravações pendentes |
+| **Apresentações** | [`docs/assets/presentations/v0.4.0/`](assets/presentations/v0.4.0/) | ⏳ Infraestrutura pronta — materiais pendentes |
+| **Changelog** | [`CHANGELOG.md`](../CHANGELOG.md) · seção `[0.4.0]` | ✅ Completo |
+| **Commit baseline (código)** | `5b50ec1` | ✅ Em produção |
+| **Commit baseline (docs)** | `c1748bf` | ✅ Em `main` |
+| **Tag Git** | `v0.4.0` | ✅ Publicada em `origin` |
+| **Release GitHub** | GitHub Releases | ⏳ Pendente |
+
+Estes itens compõem a **baseline permanente** da camada institucional congelada.
+
+---
+
 ## Referências cruzadas
 
 | Documento | Conteúdo |
@@ -503,6 +529,7 @@ Copy estática institucional permanece em `site.ts`, `modules.ts` e `copy.ts`.
 | [`docs/deployment-flow.md`](deployment-flow.md) | Fluxo de deploy |
 | [`docs/vercel.md`](vercel.md) | Infra Vercel |
 | [`docs/releases/v0.4.0-institutional-layer-complete.md`](releases/v0.4.0-institutional-layer-complete.md) | Release v0.4.0 |
+| [`docs/assets/README.md`](assets/README.md) | Arquivos institucionais |
 | [`CHANGELOG.md`](../CHANGELOG.md) | Changelog |
 | [`PROJECT_RULES.md`](../PROJECT_RULES.md) | Regras invioláveis |
 | [`CLAUDE.md`](../CLAUDE.md) | Contexto para IAs |

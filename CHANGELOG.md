@@ -35,6 +35,7 @@ Baseline permanente antes do Backend Foundation (Sprint 1).
 - Utilitários CSS: `section-rhythm`, `card-interactive`, `premium-cta-glow` (Fase 3C)
 - Documentação oficial: `docs/project-state.md`, `docs/architecture.md`, `docs/vercel.md`, `docs/deployment-flow.md`
 - Release notes v0.4.0 e baseline Sprint 1 (`docs/backend-foundation.md`)
+- Infraestrutura de arquivos institucionais (`docs/assets/` — screenshots, vídeos, apresentações)
 
 ### Changed
 
@@ -66,6 +67,20 @@ Baseline permanente antes do Backend Foundation (Sprint 1).
 
 - Performance: **95**
 - Accessibility: **96**
+
+### Nota — Primeira versão congelada
+
+A **v0.4.0** é a primeira versão oficialmente congelada da Terus Platform. Esta release estabelece a baseline permanente contendo:
+
+- Documentação técnica e release notes oficiais
+- Infraestrutura de **baseline visual** (screenshots) — [`docs/assets/screenshots/v0.4.0/`](docs/assets/screenshots/v0.4.0/)
+- Infraestrutura de **baseline em vídeo** — [`docs/assets/videos/v0.4.0/`](docs/assets/videos/v0.4.0/)
+- Histórico de **apresentações** — [`docs/assets/presentations/v0.4.0/`](docs/assets/presentations/v0.4.0/)
+- Changelog Keep a Changelog
+- Tag Git oficial (`v0.4.0`) — publicada em `origin`
+- Release GitHub — pendente de publicação após inclusão dos ativos visuais
+
+Arquivos binários (PNG, MP4, PDF) serão adicionados manualmente conforme os índices oficiais. A camada institucional do código permanece congelada em `5b50ec1`.
 
 ---
 
