@@ -505,8 +505,8 @@ Convenções: [`docs/assets/README.md`](assets/README.md)
 | **Documentação técnica** | [`docs/project-state.md`](project-state.md), [`docs/architecture.md`](architecture.md) | ✅ Completo |
 | **Release notes** | [`docs/releases/v0.4.0-institutional-layer-complete.md`](releases/v0.4.0-institutional-layer-complete.md) | ✅ Completo |
 | **Release checklist** | [`docs/releases/release-checklist-v0.4.0.md`](releases/release-checklist-v0.4.0.md) | ✅ Completo |
-| **Screenshots oficiais** | [`docs/assets/screenshots/v0.4.0/`](assets/screenshots/v0.4.0/) · [`INDEX.md`](assets/screenshots/v0.4.0/INDEX.md) | ⏳ Infraestrutura pronta — capturas pendentes |
-| **Vídeos oficiais** | [`docs/assets/videos/v0.4.0/`](assets/videos/v0.4.0/) · [`INDEX.md`](assets/videos/v0.4.0/INDEX.md) | ⏳ Infraestrutura pronta — gravações pendentes |
+| **Screenshots oficiais** | [`docs/assets/screenshots/v0.4.0/`](assets/screenshots/v0.4.0/) · [`INDEX.md`](assets/screenshots/v0.4.0/INDEX.md) · 51 capturas | ✅ Concluído |
+| **Vídeos oficiais** | [`docs/assets/videos/v0.4.0/`](assets/videos/v0.4.0/) · [`INDEX.md`](assets/videos/v0.4.0/INDEX.md) · 1 tour | ✅ Concluído |
 | **Apresentações** | [`docs/assets/presentations/v0.4.0/`](assets/presentations/v0.4.0/) | ⏳ Infraestrutura pronta — materiais pendentes |
 | **Changelog** | [`CHANGELOG.md`](../CHANGELOG.md) · seção `[0.4.0]` | ✅ Completo |
 | **Commit baseline (código)** | `5b50ec1` | ✅ Em produção |
@@ -515,6 +515,8 @@ Convenções: [`docs/assets/README.md`](assets/README.md)
 | **Release GitHub** | GitHub Releases | ⏳ Pendente |
 
 Estes itens compõem a **baseline permanente** da camada institucional congelada.
+
+**v0.4.0 encerrada:** baseline visual (51 screenshots + 1 vídeo) oficialmente completa em 1 de julho de 2026. Apresentações permanecem opcionais para Release GitHub.
 
 ---
 

@@ -2,44 +2,86 @@
 
 > Registros em vídeo da baseline institucional · Terus Platform  
 > **Produção:** https://terus-platform-web.vercel.app  
-> **Commit:** `5b50ec1` · **Data baseline:** 1 de julho de 2026
+> **Commit:** `5b50ec1` · **Data baseline:** 1 de julho de 2026  
+> **Total de vídeos:** 1 · **Status geral:** ✅ Concluído
 
-Os arquivos listados abaixo devem ser gravados **manualmente** após esta etapa.  
-Atualize a coluna **Status** ao incluir cada vídeo.
+Registro histórico oficial da Terus Platform antes da Sprint 1 — Backend Foundation.
 
----
-
-## Catálogo oficial
-
-| # | Arquivo | Escopo | Descrição | Status |
-|---|---------|--------|-----------|--------|
-| 01 | `01-overview.mp4` | Home completa | Navegação completa da Home — scroll por todas as 11 seções, hero com dashboard animado, métricas, módulos, Rede Terus, CTA final premium. Visão executiva de 2–3 minutos. | ⏳ Pendente |
-| 02 | `02-platform.mp4` | Páginas institucionais | Tour pelas páginas Plataforma, Ecossistema, Sobre e Conteúdos — demonstra profundidade institucional e narrativa Supply Chain Intelligence. | ⏳ Pendente |
-| 03 | `03-modules.mp4` | Módulos Terus | Demonstração dos 6 módulos — grid em `/modulos`, entrada em `/modulos/order` com ModulePreview animado e capacidades listadas. | ⏳ Pendente |
-| 04 | `04-demo-flow.mp4` | Conversão comercial | Fluxo completo de conversão — navbar CTA → `/solicitar-demo` → processo em 3 etapas → expectativa WhatsApp. Evidência do funil comercial v0.4.0. | ⏳ Pendente |
-| 05 | `05-mobile.mp4` | Mobile | Navegação completa em viewport mobile (390×844) — menu hamburger, hero, sticky CTA, scroll principal. **Opcional** mas recomendada para stakeholders mobile-first. | ⏳ Pendente |
+**Convenção de nomenclatura:** `{ordem}-{contexto}-{descricao}.mp4`
 
 ---
 
-## Roteiro sugerido (01-overview)
+## Resumo
 
-1. Abrir https://terus-platform-web.vercel.app
-2. Pausar 3s no hero (dashboard animado visível)
-3. Scroll lento pelas seções: Resultados → Positioning → Módulos → Ecossistema
-4. Destacar Rede Terus e Prova Social
-5. Finalizar no CTA premium "Transforme sinais da operação..."
-6. Mostrar footer enterprise
+| Grupo | Vídeos | Status |
+|-------|--------|--------|
+| Overview / Tour completo | 1 | ✅ Concluído |
+| Tours temáticos (Home, Plataforma, Módulos, etc.) | — | Não gravados nesta versão |
+| Mobile | — | Não gravado nesta versão |
+
+> **Nota:** A gravação v0.4.0 consolida a navegação institucional em um único tour longo. Tours temáticos separados podem ser adicionados em versões futuras conforme [`docs/assets/README.md`](../../README.md).
 
 ---
 
-## Checklist de gravação
+## Overview
 
-- [ ] Confirmar deploy v0.4.0 em produção
-- [ ] Gravar em resolução 1920×1080
-- [ ] Nomenclatura exata conforme tabela acima
-- [ ] Arquivos salvos em `docs/assets/videos/v0.4.0/`
-- [ ] Status atualizado neste índice
-- [ ] Commit: `docs(assets): add v0.4.0 videos`
+| Arquivo | Objetivo | Duração | Descrição | Status |
+|---------|----------|---------|-----------|--------|
+| `01-overview-institutional-tour.mp4` | Tour completo da camada institucional v0.4.0 | ~long-form (133 MB) | Gravação de tela percorrendo as páginas institucionais da Terus Platform em produção — Home, Plataforma, Módulos, Ecossistema, Cases, Conteúdos, Sobre e Solicitar Demonstração. Documenta o fluxo de navegação, scroll das seções da Home, interação com navbar e CTAs. Baseline em vídeo para apresentações executivas, onboarding interno e histórico de evolução. | ✅ Registrado |
+
+### Conteúdo esperado do tour
+
+Com base na gravação e nos screenshots oficiais catalogados, o vídeo cobre:
+
+1. **Home** — Hero com dashboard animado, resultados, posicionamento, módulos, ecossistema, Rede Terus, confiabilidade, CTA final e footer
+2. **Plataforma** — Jornada 5 passos, onboarding roadmap, operação contínua, benefícios executivos
+3. **Módulos** — Grid dos 6 módulos Terus
+4. **Ecossistema** — Parceiros, tecnologias homologadas, jornada integrada
+5. **Cases** — Case distribuidor Winthor com transformação e indicadores
+6. **Conteúdos** — Hub educacional e módulos detalhados
+7. **Sobre** — Missão, visão, diferencial e infraestrutura
+8. **Solicitar Demonstração** — Fluxo comercial e CTA WhatsApp
+
+---
+
+## Home
+
+Nenhum vídeo temático separado — coberto por `01-overview-institutional-tour.mp4`.
+
+---
+
+## Plataforma
+
+Nenhum vídeo temático separado — coberto por `01-overview-institutional-tour.mp4`.
+
+---
+
+## Módulos
+
+Nenhum vídeo temático separado — coberto por `01-overview-institutional-tour.mp4`.
+
+---
+
+## Conversão
+
+Nenhum vídeo temático separado — fluxo `/solicitar-demo` incluído no tour completo.
+
+---
+
+## Mobile
+
+Nenhuma gravação mobile nesta versão. Recomendado para v0.5.0+.
+
+---
+
+## Outros
+
+| Item | Detalhe |
+|------|---------|
+| Arquivo original | `20260701-1354-41.2158215.mp4` |
+| Renomeado em | 1 de julho de 2026 |
+| Formato | MP4 |
+| Tamanho | 133,67 MB |
 
 ---
 
@@ -47,4 +89,5 @@ Atualize a coluna **Status** ao incluir cada vídeo.
 
 - [`README.md`](README.md) — instruções desta pasta
 - [`docs/assets/README.md`](../../README.md) — convenções globais
-- [`docs/assets/screenshots/v0.4.0/INDEX.md`](../../screenshots/v0.4.0/INDEX.md) — screenshots correspondentes
+- [`docs/assets/screenshots/v0.4.0/INDEX.md`](../../screenshots/v0.4.0/INDEX.md) — 51 screenshots correspondentes
+- [`docs/releases/v0.4.0-institutional-layer-complete.md`](../../../releases/v0.4.0-institutional-layer-complete.md) — release notes

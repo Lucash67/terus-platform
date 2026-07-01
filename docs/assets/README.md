@@ -106,7 +106,7 @@ Exemplos: `2026-07-01-executivo-terus-platform-v0.4.0.pdf`
 
 | Versão | Screenshots | Vídeos | Apresentações | Tag Git |
 |--------|-------------|--------|---------------|---------|
-| **v0.4.0** | [`screenshots/v0.4.0/`](screenshots/v0.4.0/) | [`videos/v0.4.0/`](videos/v0.4.0/) | [`presentations/v0.4.0/`](presentations/v0.4.0/) | ✅ `v0.4.0` |
+| **v0.4.0** | [`screenshots/v0.4.0/`](screenshots/v0.4.0/) · 51 capturas | [`videos/v0.4.0/`](videos/v0.4.0/) · 1 tour | [`presentations/v0.4.0/`](presentations/v0.4.0/) | ✅ `v0.4.0` |
 
 ---
 

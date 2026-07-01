@@ -36,6 +36,7 @@ Baseline permanente antes do Backend Foundation (Sprint 1).
 - Documentação oficial: `docs/project-state.md`, `docs/architecture.md`, `docs/vercel.md`, `docs/deployment-flow.md`
 - Release notes v0.4.0 e baseline Sprint 1 (`docs/backend-foundation.md`)
 - Infraestrutura de arquivos institucionais (`docs/assets/` — screenshots, vídeos, apresentações)
+- Baseline visual v0.4.0: 51 screenshots oficiais catalogados e 1 tour em vídeo (`01-overview-institutional-tour.mp4`)
 
 ### Changed
 
@@ -73,14 +74,13 @@ Baseline permanente antes do Backend Foundation (Sprint 1).
 A **v0.4.0** é a primeira versão oficialmente congelada da Terus Platform. Esta release estabelece a baseline permanente contendo:
 
 - Documentação técnica e release notes oficiais
-- Infraestrutura de **baseline visual** (screenshots) — [`docs/assets/screenshots/v0.4.0/`](docs/assets/screenshots/v0.4.0/)
-- Infraestrutura de **baseline em vídeo** — [`docs/assets/videos/v0.4.0/`](docs/assets/videos/v0.4.0/)
-- Histórico de **apresentações** — [`docs/assets/presentations/v0.4.0/`](docs/assets/presentations/v0.4.0/)
+- Infraestrutura de **baseline visual** (screenshots) — [`docs/assets/screenshots/v0.4.0/`](docs/assets/screenshots/v0.4.0/) · **51 capturas ✅**
+- Infraestrutura de **baseline em vídeo** — [`docs/assets/videos/v0.4.0/`](docs/assets/videos/v0.4.0/) · **1 tour ✅**
+- Histórico de **apresentações** — [`docs/assets/presentations/v0.4.0/`](docs/assets/presentations/v0.4.0/) · opcional
 - Changelog Keep a Changelog
 - Tag Git oficial (`v0.4.0`) — publicada em `origin`
-- Release GitHub — pendente de publicação após inclusão dos ativos visuais
 
-Arquivos binários (PNG, MP4, PDF) serão adicionados manualmente conforme os índices oficiais. A camada institucional do código permanece congelada em `5b50ec1`.
+**Versão v0.4.0 encerrada definitivamente** — baseline visual completa. Próximo marco: Sprint 1 — Backend Foundation.
 
 ---
 

@@ -2,17 +2,36 @@
 
 > Capturas oficiais da baseline institucional congelada.  
 > **Produção:** https://terus-platform-web.vercel.app  
-> **Commit baseline:** `5b50ec1`
+> **Commit baseline:** `5b50ec1`  
+> **Status:** ✅ Concluído — 51 capturas registradas
 
 ---
 
-## Instruções
+## Catálogo
 
-1. Consulte [`INDEX.md`](INDEX.md) para a lista completa de capturas obrigatórias
-2. Grave cada screenshot diretamente da **URL de produção**
-3. Salve os arquivos nesta pasta com a nomenclatura definida no índice
-4. Atualize o status de cada item no `INDEX.md` após adicionar o arquivo
-5. Commit: `docs(assets): add v0.4.0 screenshots`
+Consulte [`INDEX.md`](INDEX.md) para o catálogo completo organizado por página e seção.
+
+| Página | Capturas |
+|--------|----------|
+| Home | 20 |
+| Plataforma | 8 |
+| Módulos | 2 |
+| Ecossistema | 4 |
+| Cases | 4 |
+| Conteúdos | 6 |
+| Sobre | 4 |
+| Solicitar Demonstração | 3 |
+| **Total** | **51** |
+
+---
+
+## Convenção de nomenclatura
+
+```
+{ordem}-{pagina}-{secao}[-{parte}].png
+```
+
+Exemplos: `01-home-hero.png`, `14-home-rede-terus-01.png`, `35-cases-hero.png`
 
 ---
 
@@ -21,17 +40,14 @@
 | Parâmetro | Valor |
 |-----------|-------|
 | Formato | PNG |
-| Desktop | 1920×1080 ou full-page capture |
-| Mobile | 390×844 (opcional — item 12) |
+| Desktop | 1920×1080 · full-page capture |
 | Browser | Chrome ou Edge · modo claro |
-| Cache | Hard refresh antes de capturar |
+| Origem | URL de produção oficial |
 
 ---
 
-## Status
+## Referências
 
-| Item | Arquivos esperados | Status |
-|------|-------------------|--------|
-| Catálogo | 12 screenshots | ⏳ Aguardando captura manual |
-
-Ver [`INDEX.md`](INDEX.md) para detalhes de cada captura.
+- [`INDEX.md`](INDEX.md) — catálogo oficial
+- [`docs/assets/README.md`](../../README.md) — convenções globais
+- [`docs/assets/videos/v0.4.0/INDEX.md`](../../videos/v0.4.0/INDEX.md) — vídeos correspondentes
