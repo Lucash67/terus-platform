@@ -77,6 +77,7 @@ Exemplos: `01-overview.mp4`, `04-demo-flow.mp4`
 - Formato: **MP4** (H.264)
 - Resolução recomendada: **1920×1080**, 30 fps
 - Duração orientativa: 1–3 min por vídeo temático
+- **Git LFS:** arquivos em `docs/assets/videos/**/*.mp4` (limite GitHub: 100 MB por arquivo)
 
 ### Apresentações
 
