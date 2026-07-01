@@ -1,21 +1,37 @@
 # Current Phase
 
 > Registro oficial do estado e fase ativa da Terus Platform.
-> Atualizar este arquivo ao concluir a Fase 3C e iniciar a Sprint 1.
+> **Versão:** v0.4.0 — Institutional Layer Complete
 
 ---
 
 ## Current milestone
 
-**Fase 3C — Executive Polish & Launch Readiness**
+**Institutional Layer**
 
 ---
 
-## Previous milestone
+## Status
 
-**Fase 3B — Institutional Maturity**
+**COMPLETED**
 
-Hero refinado, placeholders removidos, SEO institucional, otimização de conversão e auditoria executiva end-to-end concluída.
+A camada institucional foi oficialmente encerrada em 1 de julho de 2026.
+Baseline permanente: commit `5b50ec1`.
+
+Release notes: [`docs/releases/v0.4.0-institutional-layer-complete.md`](releases/v0.4.0-institutional-layer-complete.md)
+
+---
+
+## Previous milestones
+
+| Fase | Nome | Status |
+|------|------|--------|
+| Sprint 0 | Fundação | ✅ Concluído |
+| 3A | Institutional Foundation | ✅ Concluído |
+| 3B | Institutional Maturity | ✅ Concluído |
+| 3C | Executive Polish & Launch Readiness | ✅ Concluído |
+
+Histórico completo: [`docs/project-roadmap.md`](project-roadmap.md)
 
 ---
 
@@ -23,59 +39,43 @@ Hero refinado, placeholders removidos, SEO institucional, otimização de conver
 
 **Sprint 1 — Backend Foundation**
 
-Auth, backend base e route groups `(onboarding)` / `(admin)`.
+Planejamento documentado em [`docs/backend-foundation.md`](backend-foundation.md).
+
+**Não iniciado.** Aguardando kickoff oficial.
+
+Escopo resumido: auth JWT, FastAPI base, route groups `(onboarding)` / `(admin)`.
 
 ---
 
-## Current objectives
+## Institutional layer — entregas finais
 
-- Executive copy review
-- Executive UX e ritmo visual
-- Product experience nos módulos
-- Executive credibility
-- Enterprise brand polish (CTA final + Footer)
-- Motion & delight
-- Performance & accessibility
+- Site institucional enterprise em produção (19 rotas estáticas)
+- SEO, conversão e auditoria executiva concluídos
+- Lighthouse: Performance 95 · Accessibility 96
+- Identidade visual e arquitetura frontend **congeladas** como baseline v0.4.0
 
 ---
 
-## Out of scope
+## Out of scope (até Sprint 1)
 
-- Backend
-- FastAPI
-- APIs
-- Autenticação
-- Multi-tenancy
-- Novas rotas
-- Alteração de métricas validadas
+- Backend de produto
+- Autenticação funcional
+- Onboarding funcional
+- Alterações na camada institucional v0.4.0
+- Novas rotas marketing
 
 ---
 
 ## Source of truth
 
-- `docs/project-state.md`
-- `docs/architecture.md`
-- `docs/vercel.md`
-- `docs/deployment-flow.md`
-- `PROJECT_RULES.md`
-- `CLAUDE.md`
-
----
-
-## Success criteria for completion
-
-- Copy institucional sem linguagem provisória
-- Home fluida sem redundância crítica
-- Módulos com experiência visual premium
-- CTA final e Footer enterprise
-- Lighthouse ≥ 90 em Performance e Accessibility
-- Site pronto para launch institucional definitivo
-
----
-
-## Completion condition
-
-Após a conclusão desta fase iniciaremos oficialmente:
-
-- Sprint 1 — Backend Foundation
-- Planejamento da Fase 4 (Portal de Self-Onboarding)
+| Documento | Conteúdo |
+|-----------|----------|
+| [`docs/project-state.md`](project-state.md) | Estado permanente |
+| [`docs/project-roadmap.md`](project-roadmap.md) | Histórico de fases |
+| [`docs/architecture.md`](architecture.md) | Arquitetura técnica |
+| [`docs/backend-foundation.md`](backend-foundation.md) | Baseline Sprint 1 |
+| [`docs/vercel.md`](vercel.md) | Deploy produção |
+| [`docs/deployment-flow.md`](deployment-flow.md) | Fluxo de entrega |
+| [`CHANGELOG.md`](../CHANGELOG.md) | Changelog oficial |
+| [`PROJECT_RULES.md`](../PROJECT_RULES.md) | Regras invioláveis |
+| [`CLAUDE.md`](../CLAUDE.md) | Contexto para IAs |
