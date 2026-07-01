@@ -18,8 +18,8 @@ export function ModulesSection({
   description = "Seis módulos que trabalham juntos para ativar, operar e monitorar clientes em jornada contínua.",
 }: ModulesSectionProps) {
   return (
-    <section>
-      <Container className="py-20 sm:py-24">
+    <section className="section-rhythm">
+      <Container>
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">

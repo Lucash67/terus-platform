@@ -78,12 +78,16 @@ module.exports = {
         lg: "12px",
         md: "8px",
         sm: "6px",
+        xl: "16px",
+        "2xl": "20px",
       },
       boxShadow: {
         elevated:
           "0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04)",
         floating:
           "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        premium:
+          "0 25px 50px -12px rgba(47, 99, 245, 0.08), 0 12px 24px -8px rgba(0, 0, 0, 0.06)",
       },
       animation: {
         "fade-in": "fade-in 300ms ease-out",

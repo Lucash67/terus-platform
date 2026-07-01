@@ -4,8 +4,8 @@ import { EMPRESAS_CLIENTES } from "@/lib/constants/site-data";
 
 export function CompaniesSection() {
   return (
-    <section className="border-t border-surface-border bg-surface-elevated-1">
-      <Container className="py-20 sm:py-24">
+    <section className="section-rhythm-alt">
+      <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
             Empresas que operam com a Terus
@@ -14,8 +14,8 @@ export function CompaniesSection() {
             Confiança validada pelo mercado
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Empresas que operam com a Terus Platform. Logos e informações de
-            clientes disponíveis mediante autorização.
+            Varejos e distribuidores integrados à jornada operacional Terus —
+            credibilidade construída em operação real.
           </p>
         </div>
 

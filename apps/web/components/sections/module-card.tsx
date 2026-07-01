@@ -76,7 +76,7 @@ const MODULE_ICONS: Record<string, ReactNode> = {
 export function ModuleCard({ module }: ModuleCardProps) {
   return (
     <Link href={`/modulos/${module.slug}`} className="group block h-full">
-      <Card className="h-full transition-all duration-200 hover:border-brand-primary/40 hover:bg-surface-elevated-2">
+      <Card className="card-interactive h-full shadow-sm transition-all duration-300 hover:shadow-elevated">
         <CardHeader>
           <div className="mb-4 flex items-start justify-between">
             <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-primary-dim text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-surface-base">

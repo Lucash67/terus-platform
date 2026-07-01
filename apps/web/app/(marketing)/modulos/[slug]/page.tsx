@@ -5,10 +5,13 @@ import { Badge, Button } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
+import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { ModulePreview } from "@/components/modules/module-preview";
 import {
   getModuleBySlug,
   MODULE_SLUGS,
   MODULES,
+  type ModuleSlug,
 } from "@/lib/constants/modules";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
@@ -49,42 +52,55 @@ export default function ModuleDetailPage({ params }: ModulePageProps) {
 
   return (
     <>
-      <section className="hero-glow border-b border-surface-border">
+      <section className="hero-section-bg border-b border-surface-border">
         <Container className="py-16 sm:py-20 lg:py-24">
           <Link
             href="/modulos"
-            className="inline-flex items-center gap-2 text-body-sm text-text-secondary transition-colors hover:text-brand-primary"
+            className="inline-flex items-center gap-2 text-body-sm text-text-secondary transition-colors duration-200 hover:text-brand-primary"
           >
             ← Todos os módulos
           </Link>
 
-          <div className="mt-8 max-w-3xl">
-            <Badge variant="secondary" className="mb-4">
-              {module.metric} · {module.metricLabel}
-            </Badge>
-            <h1 className="font-display text-display-lg font-bold text-text-primary sm:text-display-xl">
-              {module.name}
-            </h1>
-            <p className="mt-2 text-heading-md text-brand-primary">
-              {module.tagline}
-            </p>
-            <p className="mt-6 text-body-lg text-text-secondary">
-              {module.description}
-            </p>
+          <div className="mt-10 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="max-w-xl">
+              <Badge variant="secondary" className="mb-4">
+                {module.metric} · {module.metricLabel}
+              </Badge>
+              <h1 className="font-display text-display-lg font-bold tracking-tight text-text-primary sm:text-display-xl">
+                {module.name}
+              </h1>
+              <p className="mt-2 text-heading-md text-brand-primary">
+                {module.tagline}
+              </p>
+              <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
+                {module.description}
+              </p>
+              <CtaButtons size="md" align="start" className="mt-8" />
+            </div>
+
+            <ModulePreview
+              slug={module.slug as ModuleSlug}
+              className="hero-dashboard-float lg:ml-auto lg:max-w-md"
+            />
           </div>
         </Container>
       </section>
 
-      <section>
-        <Container className="py-20 sm:py-24">
+      <section className="section-rhythm">
+        <Container>
           <h2 className="font-display text-heading-xl font-bold text-text-primary">
             Capacidades
           </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {module.features.map((feature) => (
+          <p className="mt-2 max-w-2xl text-body-lg text-text-secondary">
+            Funcionalidades projetadas para operações de varejo e distribuição
+            em escala enterprise.
+          </p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {module.features.map((feature, index) => (
               <div
                 key={feature}
-                className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-elevated-1 p-6"
+                className="card-interactive flex items-start gap-3 rounded-xl border border-surface-border bg-surface-elevated-1 p-6"
+                style={{ animationDelay: `${index * 60}ms` }}
               >
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-primary-dim text-brand-primary">
                   <svg
@@ -108,14 +124,20 @@ export default function ModuleDetailPage({ params }: ModulePageProps) {
         </Container>
       </section>
 
-      <section className="border-t border-surface-border bg-surface-elevated-1">
-        <Container className="py-16">
+      <section className="section-rhythm-alt">
+        <Container>
           <h2 className="font-display text-heading-lg font-semibold text-text-primary">
             Outros módulos
           </h2>
           <div className="mt-6 flex flex-wrap gap-3">
             {otherModules.map((m) => (
-              <Button key={m.slug} variant="outline" size="sm" asChild>
+              <Button
+                key={m.slug}
+                variant="outline"
+                size="sm"
+                asChild
+                className="transition-all duration-200 hover:border-brand-primary/40 hover:bg-brand-primary-dim/30"
+              >
                 <Link href={`/modulos/${m.slug}`}>{m.name}</Link>
               </Button>
             ))}

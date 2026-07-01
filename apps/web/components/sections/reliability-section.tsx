@@ -1,7 +1,7 @@
 import { Badge } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
-import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { ENTERPRISE_TRUST } from "@/lib/constants/copy";
 import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
 
 const STATUS_LABELS = {
@@ -11,45 +11,42 @@ const STATUS_LABELS = {
 
 export function ReliabilitySection() {
   return (
-    <section className="border-t border-surface-border bg-surface-elevated-1">
-      <Container className="py-20 sm:py-24">
+    <section className="section-rhythm">
+      <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
-            Confiabilidade
+            {ENTERPRISE_TRUST.badge}
           </p>
-          <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Infraestrutura para operações críticas
+          <h2 className="mt-4 font-display text-heading-xl font-bold tracking-tight text-text-primary sm:text-display-lg">
+            {ENTERPRISE_TRUST.title}
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Pilares de segurança, isolamento e governança já implementados na
-            arquitetura da plataforma — preparados para escala enterprise.
+            {ENTERPRISE_TRUST.description}
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PILARES_CONFIABILIDADE.map((pillar) => {
             const status = STATUS_LABELS[pillar.status];
 
             return (
               <div
                 key={pillar.name}
-                className="rounded-lg border border-surface-border bg-surface-base p-8 text-center"
+                className="card-interactive rounded-xl border border-surface-border bg-surface-base p-6 text-center sm:p-8"
               >
                 <div className="flex justify-center">
                   <Badge variant={status.variant}>{status.label}</Badge>
                 </div>
-                <h3 className="mt-4 font-display text-heading-md font-semibold text-brand-primary">
+                <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary">
                   {pillar.name}
                 </h3>
-                <p className="mt-4 text-body-md text-text-secondary">
+                <p className="mt-3 text-body-md leading-relaxed text-text-secondary">
                   {pillar.description}
                 </p>
               </div>
             );
           })}
         </div>
-
-        <CtaButtons className="mt-12" />
       </Container>
     </section>
   );

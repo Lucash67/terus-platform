@@ -3,8 +3,8 @@ import { POSITIONING_POINTS } from "@/lib/constants/site";
 
 export function PositioningSection() {
   return (
-    <section className="border-y border-surface-border bg-surface-elevated-1">
-      <Container className="py-20 sm:py-24">
+    <section className="section-rhythm-alt">
+      <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
             Supply Chain Intelligence
@@ -22,7 +22,7 @@ export function PositioningSection() {
           {POSITIONING_POINTS.map((point, index) => (
             <div
               key={point.title}
-              className="group rounded-lg border border-surface-border bg-surface-base p-8 transition-colors hover:border-brand-primary/30 hover:bg-surface-elevated-2"
+              className="card-interactive group rounded-xl border border-surface-border bg-surface-base p-8"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-brand-primary-dim font-mono text-body-sm font-medium text-brand-primary">
                 {String(index + 1).padStart(2, "0")}

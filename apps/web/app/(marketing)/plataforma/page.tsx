@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 
+import { Badge } from "@terus/ui";
+
 import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { PageHero } from "@/components/sections/page-hero";
+import { PLATFORM_ROADMAP_BADGE } from "@/lib/constants/copy";
 import { PLATFORM_PILLARS } from "@/lib/constants/site";
 import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -47,17 +50,20 @@ export default function PlataformaPage() {
         </Container>
       </section>
 
-      <section className="border-t border-surface-border bg-surface-elevated-1">
-        <Container className="py-20 sm:py-24">
+      <section className="section-rhythm-alt">
+        <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              <Badge variant="secondary" className="mb-4">
+                {PLATFORM_ROADMAP_BADGE}
+              </Badge>
+              <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary sm:text-display-lg">
                 Onboarding autônomo
               </h2>
-              <p className="mt-4 text-body-lg text-text-secondary">
-                Clientes com ERP Winthor ou RMS completam todo o fluxo de
-                ativação — do cadastro à operação ativa — sem intervenção manual
-                da equipe técnica Terus.
+              <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
+                Meta do produto: clientes com ERP Winthor ou RMS completam a
+                ativação — do cadastro à operação — com assistência guiada e
+                mínima dependência da equipe técnica Terus.
               </p>
               <ul className="mt-6 space-y-3">
                 {[

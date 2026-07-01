@@ -8,8 +8,8 @@ interface EcosystemSectionProps {
 
 export function EcosystemSection({ showCta = true }: EcosystemSectionProps) {
   return (
-    <section className="border-t border-surface-border bg-surface-elevated-1">
-      <Container className="py-20 sm:py-24">
+    <section className="section-rhythm">
+      <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
             Ecossistema
@@ -27,7 +27,7 @@ export function EcosystemSection({ showCta = true }: EcosystemSectionProps) {
           {ECOSYSTEM_PARTNERS.map((partner) => (
             <div
               key={partner.name}
-              className="rounded-lg border border-surface-border bg-surface-base p-8 transition-colors hover:border-brand-primary/30"
+              className="card-interactive rounded-xl border border-surface-border bg-surface-base p-8"
             >
               <span className="inline-block rounded-md bg-brand-primary-dim px-2.5 py-1 text-caption font-medium text-brand-primary">
                 {partner.category}

@@ -6,8 +6,8 @@ import { REDE_TERUS } from "@/lib/constants/site-data";
 
 export function RedeTerusSection() {
   return (
-    <section className="border-t border-surface-border bg-surface-elevated-1">
-      <Container className="py-20 sm:py-24">
+    <section className="section-rhythm-alt">
+      <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
             Rede Terus
