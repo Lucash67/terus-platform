@@ -262,3 +262,341 @@
     }
   }
 }
+
+/* ============================================================
+   Onboarding Wizard — camada de movimento
+   ============================================================ */
+@layer utilities {
+  /* Fundo vivo do wizard: malha + auroras de marca */
+  .ob-bg {
+    background-image:
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--brand-primary) 3%, transparent),
+        transparent 320px
+      ),
+      radial-gradient(
+        circle at 15% 10%,
+        color-mix(in srgb, var(--brand-primary) 7%, transparent) 0%,
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 85%,
+        color-mix(in srgb, var(--brand-secondary) 8%, transparent) 0%,
+        transparent 40%
+      );
+  }
+
+  .ob-grid-overlay {
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--brand-primary) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--brand-primary) 5%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 20%, transparent 75%);
+  }
+
+  .ob-aurora {
+    filter: blur(90px);
+    opacity: 0.5;
+    animation: ob-aurora-drift 18s ease-in-out infinite alternate;
+  }
+
+  .ob-aurora-delayed {
+    animation-delay: -9s;
+  }
+
+  /* Entradas de conteúdo — nítido, rápido, com profundidade */
+  .ob-enter {
+    animation: ob-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .ob-enter-scale {
+    animation: ob-enter-scale 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .ob-enter-right {
+    animation: ob-enter-right 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Stepper */
+  .ob-connector-fill {
+    transform-origin: left;
+    animation: ob-connector-fill 0.7s cubic-bezier(0.65, 0, 0.35, 1) both;
+  }
+
+  .ob-node-pop {
+    animation: ob-node-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .ob-node-current::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    border: 2px solid color-mix(in srgb, var(--brand-primary) 45%, transparent);
+    animation: ob-ring-pulse 2.2s ease-out infinite;
+  }
+
+  .ob-check-draw {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: ob-draw 0.45s ease-out 0.15s forwards;
+  }
+
+  /* Diagnóstico */
+  .ob-spin {
+    animation: ob-spin 0.9s linear infinite;
+  }
+
+  .ob-radar-sweep {
+    animation: ob-spin 2.6s linear infinite;
+    transform-origin: center;
+  }
+
+  .ob-log-line {
+    animation: ob-log-line 0.35s ease-out both;
+  }
+
+  .ob-progress-stripes {
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      color-mix(in srgb, var(--surface-base) 35%, transparent) 45%,
+      color-mix(in srgb, var(--surface-base) 35%, transparent) 55%,
+      transparent 100%
+    );
+    background-size: 220% 100%;
+    animation: ob-shimmer 1.6s linear infinite;
+  }
+
+  .ob-scanline {
+    animation: ob-scanline 2.4s ease-in-out infinite;
+  }
+
+  /* Assinatura digital */
+  .ob-pen-draw {
+    stroke-dasharray: 320;
+    stroke-dashoffset: 320;
+    animation: ob-draw-long 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+  }
+
+  /* Conclusão */
+  .ob-success-ring {
+    animation: ob-success-ring 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+
+  .ob-check-big {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: ob-draw-big 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.35s forwards;
+  }
+
+  .ob-module-activate {
+    animation: ob-module-activate 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .ob-float-slow {
+    animation: hero-float 7s ease-in-out infinite;
+  }
+
+  .ob-live-dot {
+    animation: hero-live-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes ob-aurora-drift {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(60px, -40px, 0) scale(1.15);
+    }
+  }
+
+  @keyframes ob-enter {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes ob-enter-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.94) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes ob-enter-right {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes ob-connector-fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes ob-node-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes ob-ring-pulse {
+    0% {
+      transform: scale(0.85);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ob-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes ob-draw-long {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes ob-draw-big {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes ob-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes ob-log-line {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ob-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -20% 0;
+    }
+  }
+
+  @keyframes ob-scanline {
+    0%,
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(400%);
+    }
+  }
+
+  @keyframes ob-success-ring {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ob-module-activate {
+    from {
+      opacity: 0;
+      transform: translateY(14px) scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ob-aurora,
+    .ob-enter,
+    .ob-enter-scale,
+    .ob-enter-right,
+    .ob-connector-fill,
+    .ob-node-pop,
+    .ob-check-draw,
+    .ob-spin,
+    .ob-radar-sweep,
+    .ob-log-line,
+    .ob-progress-stripes,
+    .ob-scanline,
+    .ob-pen-draw,
+    .ob-success-ring,
+    .ob-check-big,
+    .ob-module-activate,
+    .ob-float-slow,
+    .ob-live-dot {
+      animation: none;
+    }
+
+    .ob-node-current::after {
+      animation: none;
+    }
+
+    .ob-check-draw,
+    .ob-pen-draw,
+    .ob-check-big {
+      stroke-dashoffset: 0;
+    }
+  }
+}
