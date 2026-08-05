@@ -30,7 +30,7 @@ export function CtaSection({ className }: CtaSectionProps) {
             <div className="relative mx-auto max-w-3xl text-center">
               <Badge
                 variant="secondary"
-                className="mb-6 border-brand-primary/20 bg-brand-primary-dim/60 font-mono uppercase tracking-widest text-brand-primary"
+                className="mb-6 border-brand-primary/20 bg-brand-primary/5 font-mono uppercase tracking-widest text-brand-primary"
               >
                 {CTA_SECTION.badge}
               </Badge>
@@ -57,7 +57,7 @@ export function CtaSection({ className }: CtaSectionProps) {
                   variant="outline"
                   size="lg"
                   asChild
-                  className="w-full border-surface-border bg-surface-base/80 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/30 hover:bg-brand-primary-dim/30 sm:w-auto"
+                  className="w-full border-surface-border bg-surface-base/80 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/30 hover:bg-brand-primary/5 sm:w-auto"
                 >
                   <Link href={CTA.secondary.href}>{CTA.secondary.label}</Link>
                 </Button>

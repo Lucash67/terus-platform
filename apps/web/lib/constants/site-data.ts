@@ -284,6 +284,31 @@ export const INTEGRACOES = [
   },
 ];
 
+/**
+ * Ecossistema de ERPs exibido no ticker animado da Home.
+ * `logo` aponta para /logos/erps/*.png quando o arquivo oficial existir;
+ * sem arquivo, o chip renderiza o wordmark tipográfico.
+ */
+export interface ErpEcosystemItem {
+  name: string;
+  vendor: string;
+  status: "homologado" | "roadmap";
+  logo: string | null;
+}
+
+export const ERP_ECOSYSTEM: ErpEcosystemItem[] = [
+  { name: "Winthor", vendor: "TOTVS", status: "homologado", logo: null },
+  { name: "RMS", vendor: "TOTVS", status: "homologado", logo: null },
+  { name: "Protheus", vendor: "TOTVS", status: "roadmap", logo: null },
+  { name: "Consinco", vendor: "TOTVS", status: "roadmap", logo: null },
+  { name: "SAP S/4HANA", vendor: "SAP", status: "roadmap", logo: null },
+  { name: "Oracle Retail", vendor: "Oracle", status: "roadmap", logo: null },
+  { name: "Linx", vendor: "Linx", status: "roadmap", logo: null },
+  { name: "Sysmo", vendor: "Sysmo", status: "roadmap", logo: null },
+  { name: "Bluesoft", vendor: "Bluesoft", status: "roadmap", logo: null },
+  { name: "Tek-System", vendor: "Tek-System", status: "roadmap", logo: null },
+];
+
 export const PILARES_CONFIABILIDADE = [
   {
     name: "Auditoria imutável",

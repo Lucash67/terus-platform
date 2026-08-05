@@ -3,6 +3,7 @@ import { Badge } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { TerusLogo } from "@/components/layout/terus-logo";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 export function OnboardingNavbar() {
   return (
@@ -32,6 +33,7 @@ export function OnboardingNavbar() {
               </span>
               Ambiente seguro · acesso somente-leitura
             </span>
+            <ThemeToggle />
             <Link
               href="/"
               className="text-body-sm font-medium text-text-secondary transition-colors hover:text-text-primary"

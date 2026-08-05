@@ -43,7 +43,7 @@ export function HeroDashboardPreview() {
       className="hero-dashboard-float relative mx-auto w-full max-w-lg lg:max-w-none"
       aria-hidden="true"
     >
-      <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-brand-primary/10 via-brand-primary-dim/40 to-transparent blur-2xl" />
+      <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-brand-primary/10 via-brand-primary/5 to-transparent blur-2xl" />
 
       <div className="tr-glow-ring relative overflow-hidden rounded-xl border border-surface-border bg-surface-elevated-1/80 shadow-floating backdrop-blur-sm">
         {/* Window chrome */}

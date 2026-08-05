@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 
 import { JsonLd } from "@/components/seo/json-ld";
+import { ThemeScript } from "@/components/theme/theme-script";
 import { rootMetadata } from "@/lib/seo/metadata";
 
 import "./globals.css";
@@ -38,8 +39,10 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`${dmSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+      suppressHydrationWarning
     >
       <body className="bg-surface-base font-sans text-text-primary antialiased">
+        <ThemeScript />
         <JsonLd />
         {children}
       </body>

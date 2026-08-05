@@ -4,32 +4,59 @@
 
 @layer base {
   :root {
-    /* Identidade oficial Terus — dark enterprise (CLAUDE.md) */
-    --surface-base: #050A14;
-    --surface-elevated-1: #0A1628;
-    --surface-elevated-2: #0F1E36;
-    --surface-elevated-3: #162440;
-    --surface-overlay: rgba(3, 8, 18, 0.72);
-    --surface-border: #1E3256;
-    --surface-border-subtle: #152A4A;
-    --brand-primary: #00C2FF;
-    --brand-primary-hover: #33CEFF;
-    --brand-primary-dim: rgba(0, 194, 255, 0.1);
-    --brand-secondary: #0066CC;
-    --brand-dark: #003D7A;
-    --status-success: #00E676;
-    --status-success-dim: rgba(0, 230, 118, 0.1);
-    --status-warning: #FFB300;
-    --status-warning-dim: rgba(255, 179, 0, 0.1);
-    --status-error: #FF3D57;
-    --status-error-dim: rgba(255, 61, 87, 0.1);
-    --status-neutral: #546E8A;
-    --status-neutral-dim: rgba(84, 110, 138, 0.12);
-    --text-primary: #E8F4FF;
-    --text-secondary: #8BA9C5;
-    --text-tertiary: #546E8A;
-    --text-disabled: #2D4A6A;
-    --text-link: #00C2FF;
+    /* Identidade oficial Terus — dark enterprise (CLAUDE.md), tema padrão.
+       Canais RGB permitem modificadores de opacidade do Tailwind e troca de tema. */
+    --surface-base-rgb: 5 10 20;
+    --surface-elevated-1-rgb: 10 22 40;
+    --surface-elevated-2-rgb: 15 30 54;
+    --surface-elevated-3-rgb: 22 36 64;
+    --surface-border-rgb: 30 50 86;
+    --surface-border-subtle-rgb: 21 42 74;
+    --brand-primary-rgb: 0 194 255;
+    --brand-primary-hover-rgb: 51 206 255;
+    --brand-secondary-rgb: 0 102 204;
+    --brand-dark-rgb: 0 61 122;
+    --status-success-rgb: 0 230 118;
+    --status-warning-rgb: 255 179 0;
+    --status-error-rgb: 255 61 87;
+    --status-neutral-rgb: 84 110 138;
+    --text-primary-rgb: 232 244 255;
+    --text-secondary-rgb: 139 169 197;
+    --text-tertiary-rgb: 84 110 138;
+    --text-disabled-rgb: 45 74 106;
+    --text-link-rgb: 0 194 255;
+
+    /* Tokens de cor derivados (uso direto em CSS/gradientes/color-mix) */
+    --surface-base: rgb(var(--surface-base-rgb));
+    --surface-elevated-1: rgb(var(--surface-elevated-1-rgb));
+    --surface-elevated-2: rgb(var(--surface-elevated-2-rgb));
+    --surface-elevated-3: rgb(var(--surface-elevated-3-rgb));
+    --surface-overlay: rgb(3 8 18 / 0.72);
+    --surface-border: rgb(var(--surface-border-rgb));
+    --surface-border-subtle: rgb(var(--surface-border-subtle-rgb));
+    --brand-primary: rgb(var(--brand-primary-rgb));
+    --brand-primary-hover: rgb(var(--brand-primary-hover-rgb));
+    --brand-primary-dim: rgb(var(--brand-primary-rgb) / 0.1);
+    --brand-secondary: rgb(var(--brand-secondary-rgb));
+    --brand-dark: rgb(var(--brand-dark-rgb));
+    --status-success: rgb(var(--status-success-rgb));
+    --status-success-dim: rgb(var(--status-success-rgb) / 0.1);
+    --status-warning: rgb(var(--status-warning-rgb));
+    --status-warning-dim: rgb(var(--status-warning-rgb) / 0.1);
+    --status-error: rgb(var(--status-error-rgb));
+    --status-error-dim: rgb(var(--status-error-rgb) / 0.1);
+    --status-neutral: rgb(var(--status-neutral-rgb));
+    --status-neutral-dim: rgb(var(--status-neutral-rgb) / 0.12);
+    --text-primary: rgb(var(--text-primary-rgb));
+    --text-secondary: rgb(var(--text-secondary-rgb));
+    --text-tertiary: rgb(var(--text-tertiary-rgb));
+    --text-disabled: rgb(var(--text-disabled-rgb));
+    --text-link: rgb(var(--text-link-rgb));
+
+    /* Glow de marca (some no tema claro) */
+    --glow-sm: 0 0 12px rgb(var(--brand-primary-rgb) / 0.25);
+    --glow: 0 0 24px rgb(var(--brand-primary-rgb) / 0.35);
+    --glow-lg: 0 0 48px rgb(var(--brand-primary-rgb) / 0.35);
     /* Typography tokens */
     --font-display: var(--font-dm-sans);
     --font-body: var(--font-ibm-plex-sans);
@@ -48,11 +75,51 @@
     /* Shadow tokens — profundidade para superfícies escuras */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
     --shadow-card: 0 4px 16px -2px rgba(0, 0, 0, 0.45);
-    --shadow-elevated: 0 12px 28px -6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 194, 255, 0.04);
+    --shadow-elevated: 0 12px 28px -6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgb(var(--brand-primary-rgb) / 0.04);
     --shadow-floating: 0 24px 48px -12px rgba(0, 0, 0, 0.65);
-    --shadow-premium: 0 24px 60px -12px rgba(0, 194, 255, 0.16), 0 12px 28px -8px rgba(0, 0, 0, 0.6);
+    --shadow-premium: 0 24px 60px -12px rgb(var(--brand-primary-rgb) / 0.16), 0 12px 28px -8px rgba(0, 0, 0, 0.6);
     --radius-xl: 16px;
     --radius-2xl: 20px;
+  }
+
+  /* Tema claro — ativado via classe .light no <html> */
+  .light {
+    --surface-base-rgb: 255 255 255;
+    --surface-elevated-1-rgb: 245 248 252;
+    --surface-elevated-2-rgb: 234 241 248;
+    --surface-elevated-3-rgb: 220 231 242;
+    --surface-border-rgb: 213 224 236;
+    --surface-border-subtle-rgb: 228 236 244;
+    --brand-primary-rgb: 0 119 184;
+    --brand-primary-hover-rgb: 0 136 209;
+    --brand-secondary-rgb: 0 102 204;
+    --brand-dark-rgb: 0 61 122;
+    --status-success-rgb: 0 143 79;
+    --status-warning-rgb: 166 106 0;
+    --status-error-rgb: 217 32 56;
+    --status-neutral-rgb: 100 128 156;
+    --text-primary-rgb: 10 22 40;
+    --text-secondary-rgb: 61 88 120;
+    --text-tertiary-rgb: 100 128 156;
+    --text-disabled-rgb: 165 184 204;
+    --text-link-rgb: 0 119 184;
+
+    --surface-overlay: rgb(10 22 40 / 0.45);
+    --brand-primary-dim: rgb(var(--brand-primary-rgb) / 0.08);
+    --status-success-dim: rgb(var(--status-success-rgb) / 0.1);
+    --status-warning-dim: rgb(var(--status-warning-rgb) / 0.12);
+    --status-error-dim: rgb(var(--status-error-rgb) / 0.1);
+    --status-neutral-dim: rgb(var(--status-neutral-rgb) / 0.12);
+
+    --glow-sm: 0 0 0 0 transparent;
+    --glow: 0 0 0 0 transparent;
+    --glow-lg: 0 0 0 0 transparent;
+
+    --shadow-sm: 0 1px 2px 0 rgba(10, 22, 40, 0.06);
+    --shadow-card: 0 4px 12px -2px rgba(10, 22, 40, 0.08);
+    --shadow-elevated: 0 12px 24px -6px rgba(10, 22, 40, 0.12);
+    --shadow-floating: 0 24px 40px -12px rgba(10, 22, 40, 0.16);
+    --shadow-premium: 0 24px 50px -12px rgb(var(--brand-primary-rgb) / 0.12), 0 12px 24px -8px rgba(10, 22, 40, 0.1);
   }
 }
 
@@ -62,6 +129,9 @@
   }
   body {
     @apply bg-surface-base text-text-primary;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 }
 
@@ -307,7 +377,7 @@
 
   /* Chip claro para logos de clientes (arquivos com fundo branco) */
   .tr-logo-chip {
-    @apply flex items-center justify-center rounded-lg bg-white/95 transition-all duration-300;
+    @apply flex items-center justify-center rounded-lg border border-surface-border/40 bg-white/95 transition-all duration-300;
   }
 
   .tr-logo-chip:hover {
@@ -368,6 +438,14 @@
     animation: tr-ticker 42s linear infinite;
   }
 
+  .tr-ticker-fast {
+    animation-duration: 30s;
+  }
+
+  .tr-ticker-reverse {
+    animation-direction: reverse;
+  }
+
   .tr-ticker-wrap:hover .tr-ticker {
     animation-play-state: paused;
   }
@@ -425,7 +503,9 @@
       transition: none;
     }
 
-    .tr-ticker {
+    .tr-ticker,
+    .tr-ticker-fast,
+    .tr-ticker-reverse {
       animation: none;
     }
 

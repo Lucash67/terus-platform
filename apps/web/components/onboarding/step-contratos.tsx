@@ -27,7 +27,7 @@ function SignaturePanel({ signedAt }: { signedAt: string | null }) {
     : null;
 
   return (
-    <div className="rounded-xl border border-status-success/30 bg-status-success-dim/40 p-5">
+    <div className="rounded-xl border border-status-success/30 bg-status-success/5 p-5">
       <div className="flex items-center justify-between">
         <span className="font-mono text-caption uppercase tracking-widest text-status-success">
           Assinado digitalmente

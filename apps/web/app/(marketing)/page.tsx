@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { CtaSection } from "@/components/sections/cta-section";
 import { EcosystemSection } from "@/components/sections/ecosystem-section";
+import { ErpTickerSection } from "@/components/sections/erp-ticker-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ModulesSection } from "@/components/sections/modules-section";
 import { PlatformIndicatorsSection } from "@/components/sections/platform-indicators-section";
@@ -29,6 +30,7 @@ export default function HomePage() {
       <PositioningSection />
       <ModulesSection />
       <EcosystemSection />
+      <ErpTickerSection />
       <IntegrationsEcosystemSection />
       <PlatformIndicatorsSection />
       <CompaniesSection />

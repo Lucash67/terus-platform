@@ -376,7 +376,7 @@ export function StepDiagnostico() {
 
       {allDone && (
         <div
-          className="ob-enter mt-6 flex items-center gap-3 rounded-2xl border border-status-success/30 bg-status-success-dim/50 px-5 py-4"
+          className="ob-enter mt-6 flex items-center gap-3 rounded-2xl border border-status-success/30 bg-status-success/5 px-5 py-4"
           role="status"
         >
           <svg

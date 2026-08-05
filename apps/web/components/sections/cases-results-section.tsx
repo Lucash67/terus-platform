@@ -61,7 +61,7 @@ export function CasesResultsSection() {
                     {content.implementation}
                   </p>
                 </div>
-                <div className="rounded-md border border-brand-primary/20 bg-brand-primary-dim/30 p-4">
+                <div className="rounded-md border border-brand-primary/20 bg-brand-primary/5 p-4">
                   <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
                     Resultados
                   </p>

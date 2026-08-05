@@ -19,7 +19,7 @@ export default function SolicitarDemoPage() {
   return (
     <>
       {/* Hero de conversão */}
-      <section className="relative overflow-hidden border-b border-surface-border bg-gradient-to-b from-brand-primary-dim/40 via-surface-base to-surface-base">
+      <section className="relative overflow-hidden border-b border-surface-border bg-gradient-to-b from-brand-primary/5 via-surface-base to-surface-base">
         <div
           className="tr-grid-bg pointer-events-none absolute inset-0"
           aria-hidden="true"
@@ -32,7 +32,7 @@ export default function SolicitarDemoPage() {
           <div className="hero-fade-in mx-auto max-w-3xl text-center">
             <Badge
               variant="secondary"
-              className="border border-brand-primary/20 bg-brand-primary-dim/60 text-brand-primary"
+              className="border border-brand-primary/20 bg-brand-primary/5 text-brand-primary"
             >
               {DEMO_PAGE.badge}
             </Badge>

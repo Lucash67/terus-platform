@@ -13,11 +13,11 @@ const badgeVariants = cva(
         secondary:
           "border-transparent bg-surface-elevated-2 text-text-primary hover:bg-surface-elevated-3",
         success:
-          "border-transparent bg-status-success-dim text-status-success hover:bg-status-success-dim/80",
+          "border-transparent bg-status-success-dim text-status-success hover:bg-status-success/20",
         warning:
-          "border-transparent bg-status-warning-dim text-status-warning hover:bg-status-warning-dim/80",
+          "border-transparent bg-status-warning-dim text-status-warning hover:bg-status-warning/20",
         error:
-          "border-transparent bg-status-error-dim text-status-error hover:bg-status-error-dim/80",
+          "border-transparent bg-status-error-dim text-status-error hover:bg-status-error/20",
         outline: "text-text-primary",
       },
     },

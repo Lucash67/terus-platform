@@ -52,7 +52,7 @@ function FlowDiagram() {
                 className={cn(
                   "ob-enter-scale flex min-w-20 flex-col items-center rounded-xl border px-3 py-3 text-center",
                   index === 1
-                    ? "border-brand-primary/40 bg-brand-primary-dim/50"
+                    ? "border-brand-primary/40 bg-brand-primary/5"
                     : "border-surface-border bg-surface-elevated-1",
                 )}
                 style={{ animationDelay: `${300 + index * 150}ms` }}

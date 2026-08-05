@@ -7,6 +7,7 @@ import { Button, cn } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { TerusLogo } from "@/components/layout/terus-logo";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { CTA } from "@/lib/constants/conversion";
 import { MAIN_NAV_LINKS } from "@/lib/constants/navigation";
 
@@ -48,6 +49,7 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
+            <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"
@@ -68,36 +70,39 @@ export function Navbar() {
             </Button>
           </div>
 
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-surface-border text-text-primary lg:hidden"
-            onClick={() => setMobileOpen((open) => !open)}
-            aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              className="h-5 w-5"
-              aria-hidden="true"
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-surface-border text-text-primary"
+              onClick={() => setMobileOpen((open) => !open)}
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
             >
-              {mobileOpen ? (
-                <path
-                  d="M6 6l12 12M18 6L6 18"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              ) : (
-                <path
-                  d="M4 7h16M4 12h16M4 17h16"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-5 w-5"
+                aria-hidden="true"
+              >
+                {mobileOpen ? (
+                  <path
+                    d="M6 6l12 12M18 6L6 18"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                ) : (
+                  <path
+                    d="M4 7h16M4 12h16M4 17h16"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </nav>
 
         {mobileOpen && (

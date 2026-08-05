@@ -147,7 +147,7 @@ export function StepIntegracao() {
 
       {selected === "other" && (
         <div
-          className="ob-enter mt-6 rounded-2xl border border-status-warning/30 bg-status-warning-dim/40 p-6"
+          className="ob-enter mt-6 rounded-2xl border border-status-warning/30 bg-status-warning/5 p-6"
           role="status"
         >
           {analysisRequested ? (

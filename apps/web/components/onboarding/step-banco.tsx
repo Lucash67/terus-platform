@@ -245,7 +245,7 @@ export function StepBanco() {
           </div>
 
           <div
-            className="ob-enter-right flex items-start gap-3 rounded-2xl border border-brand-primary/20 bg-brand-primary-dim/40 p-5"
+            className="ob-enter-right flex items-start gap-3 rounded-2xl border border-brand-primary/20 bg-brand-primary/5 p-5"
             style={{ animationDelay: "250ms" }}
           >
             <svg
