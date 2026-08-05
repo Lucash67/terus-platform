@@ -7,18 +7,22 @@ import { HERO, SITE_TAGLINE } from "@/lib/constants/site";
 
 export function HeroSection() {
   return (
-    <section className="hero-section-bg relative overflow-hidden border-b border-surface-border">
-      {/* Decorative background */}
+    <section className="hero-section-bg relative overflow-hidden border-b border-surface-border-subtle">
+      {/* Fundo técnico: grid + auroras de marca */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-primary-dim/30 via-surface-base to-surface-base"
+        className="tr-grid-bg pointer-events-none absolute inset-0"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-brand-primary/5 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-brand-primary/10 blur-3xl"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-brand-secondary/10 blur-3xl"
+        className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-brand-secondary/15 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="tr-horizon pointer-events-none absolute inset-x-0 bottom-0 h-px"
         aria-hidden="true"
       />
 
@@ -29,7 +33,7 @@ export function HeroSection() {
             <div className="hero-fade-in flex flex-col items-center gap-3 lg:items-start">
               <Badge
                 variant="secondary"
-                className="border border-brand-primary/20 bg-brand-primary-dim/60 px-3 py-1 text-brand-dark"
+                className="border border-brand-primary/30 bg-brand-primary-dim px-3 py-1 font-mono text-caption uppercase tracking-widest text-brand-primary"
               >
                 <span className="hero-live-pulse mr-2 inline-block h-1.5 w-1.5 rounded-full bg-status-success" />
                 {SITE_TAGLINE}

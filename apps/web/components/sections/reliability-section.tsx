@@ -1,6 +1,7 @@
 import { Badge } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/motion/reveal";
 import { ENTERPRISE_TRUST } from "@/lib/constants/copy";
 import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
 
@@ -13,8 +14,8 @@ export function ReliabilitySection() {
   return (
     <section className="section-rhythm">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
             {ENTERPRISE_TRUST.badge}
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold tracking-tight text-text-primary sm:text-display-lg">
@@ -23,27 +24,34 @@ export function ReliabilitySection() {
           <p className="mt-4 text-body-lg text-text-secondary">
             {ENTERPRISE_TRUST.description}
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {PILARES_CONFIABILIDADE.map((pillar) => {
+          {PILARES_CONFIABILIDADE.map((pillar, index) => {
             const status = STATUS_LABELS[pillar.status];
 
             return (
-              <div
+              <Reveal
                 key={pillar.name}
-                className="card-interactive rounded-xl border border-surface-border bg-surface-base p-6 text-center sm:p-8"
+                variant="scale"
+                delay={Math.min(index * 70, 490)}
+                className="card-interactive group rounded-xl border border-surface-border bg-surface-base p-6 text-center sm:p-8"
               >
                 <div className="flex justify-center">
-                  <Badge variant={status.variant}>{status.label}</Badge>
+                  <Badge
+                    variant={status.variant}
+                    className="font-mono uppercase tracking-wider"
+                  >
+                    {status.label}
+                  </Badge>
                 </div>
-                <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary">
+                <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary transition-colors duration-300 group-hover:text-brand-primary">
                   {pillar.name}
                 </h3>
                 <p className="mt-3 text-body-md leading-relaxed text-text-secondary">
                   {pillar.description}
                 </p>
-              </div>
+              </Reveal>
             );
           })}
         </div>

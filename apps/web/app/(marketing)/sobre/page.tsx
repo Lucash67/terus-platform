@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { ReliabilitySection } from "@/components/sections/reliability-section";
+import { Reveal } from "@/components/motion/reveal";
 import { COMPANY_VALUES } from "@/lib/constants/site";
 import { ABOUT } from "@/lib/constants/copy";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -27,7 +28,7 @@ export default function SobrePage() {
       <section className="section-rhythm">
         <Container>
           <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2 lg:gap-16">
-            <div>
+            <Reveal variant="left">
               <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary">
                 O que é a Terus Platform
               </h2>
@@ -41,25 +42,30 @@ export default function SobrePage() {
                 automatizem reposições e executem ações em loja com
                 rastreabilidade completa.
               </p>
-            </div>
-            <div>
+            </Reveal>
+            <Reveal variant="right" delay={100}>
               <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary">
                 Nossa história
               </h2>
               <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
                 {ABOUT.story}
               </p>
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>
 
-      <section className="section-rhythm-alt">
-        <Container>
+      <section className="section-rhythm-alt relative overflow-hidden">
+        <div
+          className="tr-grid-bg pointer-events-none absolute inset-0"
+          aria-hidden="true"
+        />
+        <Container className="relative">
           <div className="grid gap-6 md:grid-cols-3">
-            {COMPANY_VALUES.map((value) => (
-              <div
+            {COMPANY_VALUES.map((value, index) => (
+              <Reveal
                 key={value.title}
+                delay={index * 70}
                 className="card-interactive rounded-xl border border-surface-border bg-surface-base p-8"
               >
                 <h3 className="font-display text-heading-md font-semibold text-brand-primary">
@@ -68,7 +74,7 @@ export default function SobrePage() {
                 <p className="mt-4 text-body-md leading-relaxed text-text-secondary">
                   {value.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -76,14 +82,14 @@ export default function SobrePage() {
 
       <section className="section-rhythm">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
+          <Reveal className="mx-auto max-w-3xl text-center">
             <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary">
               Por que Supply Chain Intelligence?
             </h2>
             <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
               {ABOUT.whySci}
             </p>
-          </div>
+          </Reveal>
         </Container>
       </section>
 

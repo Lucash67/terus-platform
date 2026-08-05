@@ -18,14 +18,19 @@ export const metadata: Metadata = createPageMetadata({
 export default function ConteudosPage() {
   return (
     <>
-      <section className="border-t border-surface-border bg-surface-elevated-1">
-        <Container className="py-20 sm:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+      <section className="relative overflow-hidden border-t border-surface-border bg-surface-elevated-1">
+        <div
+          className="tr-grid-bg pointer-events-none absolute inset-0"
+          aria-hidden="true"
+        />
+        <Container className="relative py-20 sm:py-24">
+          <div className="hero-fade-in mx-auto max-w-2xl text-center">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Conteúdo
             </p>
             <h1 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-              Conhecimento operacional Terus
+              Conhecimento{" "}
+              <span className="text-gradient">operacional Terus</span>
             </h1>
             <p className="mt-4 text-body-lg text-text-secondary">
               Pilares da plataforma, módulos integrados e cases com resultados

@@ -45,7 +45,7 @@ export function CtaButtons({
           className={cn(
             "w-full sm:w-auto",
             inverted &&
-              "border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white",
+              "border-text-primary/30 bg-text-primary/10 text-text-primary hover:bg-text-primary/20 hover:text-text-primary",
           )}
         >
           <Link href={CTA.secondary.href}>{CTA.secondary.label}</Link>

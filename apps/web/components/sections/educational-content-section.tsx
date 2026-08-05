@@ -1,12 +1,17 @@
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { Reveal } from "@/components/motion/reveal";
 import { POSITIONING_POINTS } from "@/lib/constants/site";
 
 export function EducationalContentSection() {
   return (
-    <section className="border-t border-surface-border bg-surface-elevated-1">
-      <Container className="py-20 sm:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+    <section className="section-rhythm-alt relative overflow-hidden">
+      <div
+        className="tr-grid-bg pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      />
+      <Container className="relative">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
             Supply Chain Intelligence na prática
           </h2>
@@ -14,13 +19,14 @@ export function EducationalContentSection() {
             Três capacidades centrais que diferenciam a Terus de ferramentas
             genéricas de integração e BI.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {POSITIONING_POINTS.map((point) => (
-            <div
+          {POSITIONING_POINTS.map((point, index) => (
+            <Reveal
               key={point.title}
-              className="rounded-lg border border-surface-border bg-surface-base p-8"
+              delay={index * 70}
+              className="card-interactive rounded-xl border border-surface-border bg-surface-base p-8"
             >
               <h3 className="font-display text-heading-md font-semibold text-brand-primary">
                 {point.title}
@@ -28,11 +34,13 @@ export function EducationalContentSection() {
               <p className="mt-4 text-body-md text-text-secondary">
                 {point.description}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <CtaButtons className="mt-10" />
+        <Reveal delay={100}>
+          <CtaButtons className="mt-10" />
+        </Reveal>
       </Container>
     </section>
   );

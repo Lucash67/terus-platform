@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Badge } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/motion/reveal";
 import { CtaSection } from "@/components/sections/cta-section";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { PageHero } from "@/components/sections/page-hero";
@@ -23,28 +24,28 @@ export default function PlataformaPage() {
     <>
       <PageHero
         badge="Plataforma"
-        title="Jornada completa do cliente em uma única plataforma"
+        title="Jornada completa do cliente"
+        titleAccent="em uma única plataforma"
         description="Da integração ao monitoramento contínuo da operação, a Terus centraliza onboarding, ativação, execução e acompanhamento em um único ambiente."
       />
 
-      <section>
-        <Container className="py-20 sm:py-24">
+      <section className="py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="grid gap-8 lg:grid-cols-2">
             {PLATFORM_PILLARS.map((pillar, index) => (
-              <div
-                key={pillar.title}
-                className="relative rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
-              >
-                <span className="font-mono text-display-lg font-bold text-brand-primary/20">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h2 className="mt-2 font-display text-heading-lg font-semibold text-text-primary">
-                  {pillar.title}
-                </h2>
-                <p className="mt-3 text-body-md text-text-secondary">
-                  {pillar.description}
-                </p>
-              </div>
+              <Reveal key={pillar.title} delay={Math.min(index * 70, 490)}>
+                <div className="card-interactive relative h-full rounded-lg border border-surface-border bg-surface-elevated-1 p-8">
+                  <span className="font-mono text-display-lg font-bold text-brand-primary/20">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h2 className="mt-2 font-display text-heading-lg font-semibold text-text-primary">
+                    {pillar.title}
+                  </h2>
+                  <p className="mt-3 text-body-md text-text-secondary">
+                    {pillar.description}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -53,8 +54,11 @@ export default function PlataformaPage() {
       <section className="section-rhythm-alt">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <Badge variant="secondary" className="mb-4">
+            <Reveal variant="left">
+              <Badge
+                variant="secondary"
+                className="mb-4 border border-brand-primary/30 bg-brand-primary-dim font-mono text-caption uppercase tracking-widest text-brand-primary"
+              >
                 {PLATFORM_ROADMAP_BADGE}
               </Badge>
               <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary sm:text-display-lg">
@@ -96,19 +100,21 @@ export default function PlataformaPage() {
                 ))}
               </ul>
               <CtaButtons size="md" align="start" className="mt-8" />
-            </div>
+            </Reveal>
 
-            <div className="rounded-lg border border-surface-border bg-surface-base p-8">
-              <PlatformFlowDiagram />
-            </div>
+            <Reveal variant="right">
+              <div className="tr-beam rounded-lg border border-surface-border bg-surface-base p-8">
+                <PlatformFlowDiagram />
+              </div>
+            </Reveal>
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-surface-border">
-        <Container className="py-20 sm:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+      <section className="section-rhythm">
+        <Container>
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Integração
             </p>
             <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
@@ -118,30 +124,29 @@ export default function PlataformaPage() {
               A jornada operacional começa com integração estruturada,
               permitindo ativação rápida e continuidade da operação.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PLATFORM_PILLARS.slice(0, 4).map((item) => (
-              <div
-                key={item.title}
-                className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
-              >
-                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-body-md text-text-secondary">
-                  {item.description}
-                </p>
-              </div>
+            {PLATFORM_PILLARS.slice(0, 4).map((item, index) => (
+              <Reveal key={item.title} delay={Math.min(index * 70, 490)}>
+                <div className="card-interactive h-full rounded-lg border border-surface-border bg-surface-elevated-1 p-8">
+                  <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-body-md text-text-secondary">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-surface-border">
-        <Container className="py-20 sm:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+      <section className="section-rhythm-alt">
+        <Container>
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Operação contínua
             </p>
             <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
@@ -151,7 +156,7 @@ export default function PlataformaPage() {
               Após a ativação, a plataforma assume a operação contínua com
               visibilidade completa, alertas automáticos e execução rastreada.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -180,27 +185,26 @@ export default function PlataformaPage() {
                 title: "Indicadores",
                 description: "Métricas e KPIs de performance operacional",
               },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
-              >
-                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-body-md text-text-secondary">
-                  {item.description}
-                </p>
-              </div>
+            ].map((item, index) => (
+              <Reveal key={item.title} delay={Math.min(index * 70, 490)}>
+                <div className="card-interactive h-full rounded-lg border border-surface-border bg-surface-elevated-1 p-8">
+                  <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-body-md text-text-secondary">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-surface-border">
-        <Container className="py-20 sm:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+      <section className="section-rhythm">
+        <Container>
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Benefícios Executivos
             </p>
             <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
@@ -210,7 +214,7 @@ export default function PlataformaPage() {
               A Terus entrega visibilidade, controle e eficiência para operações
               de varejo em escala.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -244,27 +248,26 @@ export default function PlataformaPage() {
                 description:
                   "Rastreabilidade completa e conformidade operacional",
               },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
-              >
-                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-body-md text-text-secondary">
-                  {item.description}
-                </p>
-              </div>
+            ].map((item, index) => (
+              <Reveal key={item.title} delay={Math.min(index * 70, 490)}>
+                <div className="card-interactive h-full rounded-lg border border-surface-border bg-surface-elevated-1 p-8">
+                  <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-body-md text-text-secondary">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-surface-border">
-        <Container className="py-20 sm:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+      <section className="section-rhythm-alt">
+        <Container>
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Operação, segurança e governança
             </p>
             <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
@@ -275,30 +278,33 @@ export default function PlataformaPage() {
               rastreabilidade, segurança de dados e visibilidade completa da
               operação.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PILARES_CONFIABILIDADE.map((item) => (
-              <div
-                key={item.name}
-                className="rounded-lg border border-surface-border bg-surface-elevated-1 p-8"
-              >
-                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {item.name}
-                </h3>
-                <p className="mt-3 text-body-md text-text-secondary">
-                  {item.description}
-                </p>
-              </div>
+            {PILARES_CONFIABILIDADE.map((item, index) => (
+              <Reveal key={item.name} delay={Math.min(index * 70, 490)}>
+                <div className="card-interactive h-full rounded-lg border border-surface-border bg-surface-elevated-1 p-8">
+                  <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                    {item.name}
+                  </h3>
+                  <p className="mt-3 text-body-md text-text-secondary">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-surface-border bg-surface-elevated-1">
-        <Container className="py-20 sm:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+      <section className="section-rhythm relative overflow-hidden">
+        <div
+          className="tr-grid-bg pointer-events-none absolute inset-0"
+          aria-hidden="true"
+        />
+        <Container className="relative">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Segurança e Governança
             </p>
             <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
@@ -309,7 +315,7 @@ export default function PlataformaPage() {
               rastreabilidade, segurança de dados e visibilidade completa da
               operação.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -331,18 +337,17 @@ export default function PlataformaPage() {
                 title: "Operação Monitorada",
                 description: "Visibilidade 24/7 de toda a jornada operacional",
               },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-lg border border-surface-border bg-surface-base p-8"
-              >
-                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-body-md text-text-secondary">
-                  {item.description}
-                </p>
-              </div>
+            ].map((item, index) => (
+              <Reveal key={item.title} delay={Math.min(index * 70, 490)}>
+                <div className="card-interactive h-full rounded-lg border border-surface-border bg-surface-elevated-1 p-8">
+                  <h3 className="font-display text-heading-md font-semibold text-brand-primary">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-body-md text-text-secondary">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -365,12 +370,12 @@ function PlatformFlowDiagram() {
 
   return (
     <div className="space-y-4">
-      <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+      <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
         Jornada operacional
       </p>
       {steps.map((step, index) => (
         <div key={step} className="flex items-center gap-4">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary-dim text-caption font-semibold text-brand-primary">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary-dim font-mono text-caption font-semibold text-brand-primary">
             {index + 1}
           </div>
           <div className="flex-1 rounded-md border border-surface-border bg-surface-elevated-2 px-4 py-3">

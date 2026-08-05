@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { Reveal } from "@/components/motion/reveal";
 import { ModuleCard } from "@/components/sections/module-card";
 import { CTA } from "@/lib/constants/conversion";
 import { MODULES } from "@/lib/constants/modules";
@@ -18,11 +19,15 @@ export function ModulesSection({
   description = "Seis módulos que trabalham juntos para ativar, operar e monitorar clientes em jornada contínua.",
 }: ModulesSectionProps) {
   return (
-    <section className="section-rhythm">
-      <Container>
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+    <section className="section-rhythm relative overflow-hidden">
+      <div
+        className="tr-grid-bg pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      />
+      <Container className="relative">
+        <Reveal className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
-            <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Módulos Terus
             </p>
             <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
@@ -40,22 +45,29 @@ export function ModulesSection({
               {CTA.secondary.label} →
             </Link>
           )}
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {MODULES.map((module) => (
-            <ModuleCard key={module.slug} module={module} />
+          {MODULES.map((module, index) => (
+            <Reveal
+              key={module.slug}
+              variant="scale"
+              delay={Math.min(index * 70, 490)}
+              className="h-full"
+            >
+              <ModuleCard module={module} />
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <Reveal delay={120} className="mt-16 text-center">
           <p className="text-body-lg text-text-secondary">
             Os seis módulos Terus não funcionam isoladamente — eles compõem um
             ecossistema integrado que sustenta toda a jornada operacional do
             cliente, do onboarding ao monitoramento contínuo.
           </p>
           <CtaButtons className="mt-8" />
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

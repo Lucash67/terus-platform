@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { Reveal } from "@/components/motion/reveal";
 import { SOCIAL_PROOF } from "@/lib/constants/copy";
 import { CASES_DE_SUCESSO, DEPOIMENTOS } from "@/lib/constants/site-data";
 
@@ -11,8 +13,8 @@ export function SocialProofSection() {
   return (
     <section className="section-rhythm-alt">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
             {SOCIAL_PROOF.badge}
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold tracking-tight text-text-primary sm:text-display-lg">
@@ -21,24 +23,26 @@ export function SocialProofSection() {
           <p className="mt-4 text-body-lg text-text-secondary">
             {SOCIAL_PROOF.description}
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {CASES_DE_SUCESSO.map((caseStudy) => (
-            <div
+          {CASES_DE_SUCESSO.map((caseStudy, index) => (
+            <Reveal
               key={caseStudy.title}
-              className="card-interactive rounded-xl border border-surface-border bg-surface-base p-8"
+              variant="scale"
+              delay={Math.min(index * 70, 490)}
+              className="card-interactive group rounded-xl border border-surface-border bg-surface-base p-8"
             >
-              <h3 className="font-display text-heading-md font-semibold text-text-primary">
+              <h3 className="font-display text-heading-md font-semibold text-text-primary transition-colors duration-300 group-hover:text-brand-primary">
                 {caseStudy.title}
               </h3>
-              <p className="mt-2 text-body-sm font-medium text-text-secondary">
+              <p className="mt-2 font-mono text-caption uppercase tracking-wider text-text-tertiary">
                 {caseStudy.company}
               </p>
               <p className="mt-4 text-body-md leading-relaxed text-text-secondary">
                 {caseStudy.description}
               </p>
-              <p className="mt-4 rounded-lg bg-brand-primary-dim/50 px-4 py-3 text-body-sm font-medium text-brand-dark">
+              <p className="mt-4 rounded-lg border border-brand-primary/20 bg-brand-primary-dim px-4 py-3 text-body-sm font-medium text-brand-primary">
                 {caseStudy.results}
               </p>
               <p className="mt-4">
@@ -49,23 +53,27 @@ export function SocialProofSection() {
                   Ver case completo →
                 </Link>
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         {hasTestimonials ? (
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {DEPOIMENTOS.map((testimonial) => (
-              <div
+            {DEPOIMENTOS.map((testimonial, index) => (
+              <Reveal
                 key={testimonial.name}
+                variant="scale"
+                delay={Math.min(index * 70, 490)}
                 className="card-interactive rounded-xl border border-surface-border bg-surface-base p-8"
               >
                 <div className="flex items-center gap-4">
                   {testimonial.avatar ? (
-                    <img
+                    <Image
                       src={testimonial.avatar}
                       alt={testimonial.name}
-                      className="h-12 w-12 rounded-full"
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 rounded-full object-cover"
                     />
                   ) : null}
                   <div>
@@ -83,12 +91,14 @@ export function SocialProofSection() {
                 <p className="mt-4 text-body-md text-text-secondary">
                   {testimonial.testimonial}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         ) : null}
 
-        <CtaButtons className="mt-12" />
+        <Reveal delay={120}>
+          <CtaButtons className="mt-12" />
+        </Reveal>
       </Container>
     </section>
   );

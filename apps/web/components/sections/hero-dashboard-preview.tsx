@@ -45,7 +45,7 @@ export function HeroDashboardPreview() {
     >
       <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-brand-primary/10 via-brand-primary-dim/40 to-transparent blur-2xl" />
 
-      <div className="relative overflow-hidden rounded-xl border border-surface-border bg-surface-base shadow-floating">
+      <div className="tr-glow-ring relative overflow-hidden rounded-xl border border-surface-border bg-surface-elevated-1/80 shadow-floating backdrop-blur-sm">
         {/* Window chrome */}
         <div className="flex items-center justify-between border-b border-surface-border bg-surface-elevated-1 px-4 py-3">
           <div className="flex items-center gap-2">

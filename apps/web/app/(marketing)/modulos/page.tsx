@@ -17,7 +17,8 @@ export default function ModulosPage() {
     <>
       <PageHero
         badge="Operação"
-        title="Seis módulos integrados para operação contínua"
+        title="Seis módulos integrados para"
+        titleAccent="operação contínua"
         description="Cada módulo sustenta uma etapa da jornada operacional — do onboarding ao monitoramento contínuo, em um ambiente unificado."
       />
       <ModulesSection showViewAll={false} />

@@ -67,3 +67,6 @@ htmlcov/
 
 # OS
 Thumbs.db
+
+# Ferramenta local de verificação visual (não versionar)
+.redesign-shots/

@@ -1,12 +1,43 @@
 import Image from "next/image";
+
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/motion/reveal";
 import { EMPRESAS_CLIENTES } from "@/lib/constants/site-data";
 
-export function CompaniesSection() {
+function LogoChip({ name, logo }: { name: string; logo: string | null }) {
   return (
-    <section className="section-rhythm-alt">
+    <div className="flex w-40 shrink-0 flex-col items-center gap-2.5">
+      <div className="tr-logo-chip h-20 w-full px-4 py-3">
+        {logo ? (
+          <Image
+            src={logo}
+            alt={name}
+            width={140}
+            height={56}
+            className="max-h-14 w-auto object-contain"
+          />
+        ) : (
+          <span className="font-display text-body-sm font-bold text-brand-dark">
+            {name}
+          </span>
+        )}
+      </div>
+      <span className="w-full truncate text-center text-caption text-text-tertiary">
+        {name}
+      </span>
+    </div>
+  );
+}
+
+export function CompaniesSection() {
+  const companies = EMPRESAS_CLIENTES.filter(
+    (company) => company.logos.primary,
+  );
+
+  return (
+    <section className="section-rhythm relative overflow-hidden">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
             Empresas que operam com a Terus
           </p>
@@ -17,42 +48,31 @@ export function CompaniesSection() {
             Varejos e distribuidores integrados à jornada operacional Terus —
             credibilidade construída em operação real.
           </p>
-        </div>
+        </Reveal>
+      </Container>
 
-        <div className="mt-16 text-center">
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-6xl mx-auto">
-            {EMPRESAS_CLIENTES.map((company) => (
-              <div
-                key={company.name}
-                className="rounded-2xl border border-surface-border bg-surface-base h-44 p-6 flex flex-col items-center justify-center hover:shadow-card hover:border-brand-primary/20 transition-all duration-300"
-              >
-                {company.logos.primary ? (
-                  <div className="flex flex-col items-center justify-center w-full h-full gap-3">
-                    <div className="relative w-full h-20 flex items-center justify-center overflow-hidden">
-                      <Image
-                        src={company.logos.primary}
-                        alt={company.name}
-                        width={180}
-                        height={80}
-                        className="object-contain max-h-16 w-auto filter-none"
-                      />
-                    </div>
-                    <span className="text-body-sm font-medium text-text-secondary text-center truncate w-full">
-                      {company.name}
-                    </span>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center w-full h-full text-center">
-                    <span className="font-display text-body-md font-semibold text-text-primary">
-                      {company.name}
-                    </span>
-                  </div>
-                )}
-              </div>
+      {/* Ticker contínuo de logos — pausa no hover */}
+      <Reveal variant="scale" delay={150}>
+        <div className="tr-ticker-wrap relative mt-14 overflow-hidden">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-surface-base to-transparent"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-surface-base to-transparent"
+            aria-hidden="true"
+          />
+          <div className="tr-ticker flex w-max gap-8 pr-8">
+            {[...companies, ...companies].map((company, index) => (
+              <LogoChip
+                key={`${company.name}-${index}`}
+                name={company.name}
+                logo={company.logos.primary}
+              />
             ))}
           </div>
         </div>
-      </Container>
+      </Reveal>
     </section>
   );
 }

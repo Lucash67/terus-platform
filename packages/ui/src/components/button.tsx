@@ -10,12 +10,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-brand-primary text-surface-base hover:bg-brand-primary-hover",
+          "bg-brand-primary font-semibold text-surface-base shadow-glow-sm transition-shadow hover:bg-brand-primary-hover hover:shadow-glow",
         secondary:
-          "bg-brand-secondary text-surface-base hover:bg-brand-primary-hover",
+          "border border-surface-border bg-surface-elevated-2 text-text-primary hover:border-brand-primary/40 hover:bg-surface-elevated-3",
         outline:
-          "border border-surface-border bg-transparent text-text-primary hover:bg-surface-elevated-1",
-        ghost: "hover:bg-surface-elevated-1 text-text-primary",
+          "border border-surface-border bg-transparent text-text-primary hover:border-brand-primary/40 hover:bg-surface-elevated-1",
+        ghost: "text-text-primary hover:bg-surface-elevated-1",
         link: "text-brand-primary underline-offset-4 hover:underline",
       },
       size: {

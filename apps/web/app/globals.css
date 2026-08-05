@@ -4,31 +4,32 @@
 
 @layer base {
   :root {
-    --surface-base: #FFFFFF;
-    --surface-elevated-1: #F8FAFC;
-    --surface-elevated-2: #F1F5F9;
-    --surface-elevated-3: #E2E8F0;
-    --surface-overlay: rgba(0, 0, 0, 0.5);
-    --surface-border: #E5E7EB;
-    --surface-border-subtle: #F3F4F6;
-    --brand-primary: #2F63F5;
-    --brand-primary-hover: #1D4ED8;
-    --brand-primary-dim: #DBEAFE;
-    --brand-secondary: #60A5FA;
-    --brand-dark: #1E3A8A;
-    --status-success: #16A34A;
-    --status-success-dim: #DCFCE7;
-    --status-warning: #D97706;
-    --status-warning-dim: #FEF3C7;
-    --status-error: #DC2626;
-    --status-error-dim: #FEE2E2;
-    --status-neutral: #6B7280;
-    --status-neutral-dim: #F3F4F6;
-    --text-primary: #111827;
-    --text-secondary: #374151;
-    --text-tertiary: #6B7280;
-    --text-disabled: #9CA3AF;
-    --text-link: #2F63F5;
+    /* Identidade oficial Terus — dark enterprise (CLAUDE.md) */
+    --surface-base: #050A14;
+    --surface-elevated-1: #0A1628;
+    --surface-elevated-2: #0F1E36;
+    --surface-elevated-3: #162440;
+    --surface-overlay: rgba(3, 8, 18, 0.72);
+    --surface-border: #1E3256;
+    --surface-border-subtle: #152A4A;
+    --brand-primary: #00C2FF;
+    --brand-primary-hover: #33CEFF;
+    --brand-primary-dim: rgba(0, 194, 255, 0.1);
+    --brand-secondary: #0066CC;
+    --brand-dark: #003D7A;
+    --status-success: #00E676;
+    --status-success-dim: rgba(0, 230, 118, 0.1);
+    --status-warning: #FFB300;
+    --status-warning-dim: rgba(255, 179, 0, 0.1);
+    --status-error: #FF3D57;
+    --status-error-dim: rgba(255, 61, 87, 0.1);
+    --status-neutral: #546E8A;
+    --status-neutral-dim: rgba(84, 110, 138, 0.12);
+    --text-primary: #E8F4FF;
+    --text-secondary: #8BA9C5;
+    --text-tertiary: #546E8A;
+    --text-disabled: #2D4A6A;
+    --text-link: #00C2FF;
     /* Typography tokens */
     --font-display: var(--font-dm-sans);
     --font-body: var(--font-ibm-plex-sans);
@@ -44,12 +45,12 @@
     --leading-snug: 1.375;
     --leading-normal: 1.5;
     --leading-relaxed: 1.625;
-    /* Shadow tokens */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-    --shadow-floating: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --shadow-premium: 0 25px 50px -12px rgba(47, 99, 245, 0.08), 0 12px 24px -8px rgba(0, 0, 0, 0.06);
+    /* Shadow tokens — profundidade para superfícies escuras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 4px 16px -2px rgba(0, 0, 0, 0.45);
+    --shadow-elevated: 0 12px 28px -6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 194, 255, 0.04);
+    --shadow-floating: 0 24px 48px -12px rgba(0, 0, 0, 0.65);
+    --shadow-premium: 0 24px 60px -12px rgba(0, 194, 255, 0.16), 0 12px 28px -8px rgba(0, 0, 0, 0.6);
     --radius-xl: 16px;
     --radius-2xl: 20px;
   }
@@ -66,28 +67,28 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-text-primary to-brand-primary bg-clip-text text-transparent;
   }
 
   .cta-gradient {
     background: linear-gradient(
       135deg,
       var(--brand-primary) 0%,
-      var(--brand-primary-hover) 100%
+      var(--brand-secondary) 100%
     );
   }
 
-  /* Hero section — Fase 3B */
+  /* Hero section — fundo vivo dark enterprise */
   .hero-section-bg {
     background-image: radial-gradient(
-        circle at 20% 50%,
-        color-mix(in srgb, var(--brand-primary) 6%, transparent) 0%,
-        transparent 50%
+        ellipse 70% 55% at 20% 35%,
+        color-mix(in srgb, var(--brand-primary) 10%, transparent) 0%,
+        transparent 60%
       ),
       radial-gradient(
-        circle at 80% 20%,
-        color-mix(in srgb, var(--brand-secondary) 8%, transparent) 0%,
-        transparent 40%
+        ellipse 55% 45% at 82% 12%,
+        color-mix(in srgb, var(--brand-secondary) 16%, transparent) 0%,
+        transparent 55%
       );
   }
 
@@ -196,21 +197,13 @@
     }
   }
 
-  .h-4 {
-    height: 1rem;
-  }
-
-  .w-4 {
-    width: 1rem;
-  }
-
-  /* Fase 3C — Executive Polish */
+  /* Ritmo de seções */
   .section-rhythm {
-    @apply border-t border-surface-border py-16 sm:py-20 lg:py-24;
+    @apply border-t border-surface-border-subtle py-16 sm:py-20 lg:py-24;
   }
 
   .section-rhythm-alt {
-    @apply border-t border-surface-border bg-surface-elevated-1 py-16 sm:py-20 lg:py-24;
+    @apply border-t border-surface-border-subtle bg-surface-elevated-1/60 py-16 sm:py-20 lg:py-24;
   }
 
   .premium-cta-card {
@@ -220,7 +213,7 @@
   .premium-cta-glow {
     background: radial-gradient(
       ellipse 80% 60% at 50% 0%,
-      color-mix(in srgb, var(--brand-primary) 8%, transparent) 0%,
+      color-mix(in srgb, var(--brand-primary) 14%, transparent) 0%,
       transparent 70%
     );
   }
@@ -230,8 +223,8 @@
   }
 
   .card-interactive:hover {
-    @apply border-brand-primary/25 shadow-elevated;
-    transform: translateY(-2px);
+    @apply border-brand-primary/40 shadow-elevated;
+    transform: translateY(-3px);
   }
 
   .module-preview {
@@ -259,6 +252,185 @@
 
     .card-interactive:hover {
       transform: none;
+    }
+  }
+}
+
+/* ============================================================
+   Terus Design Language v0.5 — materiais e movimento globais
+   ============================================================ */
+@layer utilities {
+  /* Vidro escuro — navbar, barras flutuantes */
+  .tr-glass {
+    background: color-mix(in srgb, var(--surface-base) 78%, transparent);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  }
+
+  /* Grid técnico de fundo — assinatura visual das seções */
+  .tr-grid-bg {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--brand-primary) 6%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--brand-primary) 6%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 44px 44px;
+    mask-image: radial-gradient(
+      ellipse 85% 70% at 50% 30%,
+      black 25%,
+      transparent 78%
+    );
+  }
+
+  /* Linha de horizonte ciano — divisor de destaque */
+  .tr-horizon {
+    background: linear-gradient(
+      to right,
+      transparent,
+      color-mix(in srgb, var(--brand-primary) 55%, transparent) 50%,
+      transparent
+    );
+  }
+
+  /* Glow de marca */
+  .tr-glow-ring {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--brand-primary) 35%, transparent),
+      0 0 24px color-mix(in srgb, var(--brand-primary) 22%, transparent);
+  }
+
+  /* Chip claro para logos de clientes (arquivos com fundo branco) */
+  .tr-logo-chip {
+    @apply flex items-center justify-center rounded-lg bg-white/95 transition-all duration-300;
+  }
+
+  .tr-logo-chip:hover {
+    @apply bg-white;
+    box-shadow: 0 0 20px color-mix(in srgb, var(--brand-primary) 25%, transparent);
+  }
+
+  /* Reveal on scroll — aplicado via <Reveal/>; nunca no conteúdo above-the-fold */
+  .tr-reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(5px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .tr-reveal-scale {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .tr-reveal-left {
+    opacity: 0;
+    transform: translateX(-28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .tr-reveal-right {
+    opacity: 0;
+    transform: translateX(28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .is-revealed.tr-reveal,
+  .is-revealed.tr-reveal-scale,
+  .is-revealed.tr-reveal-left,
+  .is-revealed.tr-reveal-right {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  /* Ticker horizontal contínuo — logo wall */
+  .tr-ticker {
+    animation: tr-ticker 42s linear infinite;
+  }
+
+  .tr-ticker-wrap:hover .tr-ticker {
+    animation-play-state: paused;
+  }
+
+  @keyframes tr-ticker {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Contorno luminoso que percorre a borda de um card em destaque */
+  .tr-beam {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tr-beam::before {
+    content: "";
+    position: absolute;
+    inset: -150%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 300deg,
+      color-mix(in srgb, var(--brand-primary) 65%, transparent) 340deg,
+      transparent 360deg
+    );
+    animation: ob-spin 6s linear infinite;
+  }
+
+  .tr-beam::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--surface-elevated-1);
+  }
+
+  .tr-beam > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tr-reveal,
+    .tr-reveal-scale,
+    .tr-reveal-left,
+    .tr-reveal-right {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+
+    .tr-ticker {
+      animation: none;
+    }
+
+    .tr-beam::before {
+      animation: none;
     }
   }
 }

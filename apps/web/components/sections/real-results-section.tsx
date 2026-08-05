@@ -2,14 +2,15 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { Reveal } from "@/components/motion/reveal";
 import { RESULTADOS_OPERACIONAIS } from "@/lib/constants/site-data";
 
 export function RealResultsSection() {
   return (
     <section className="section-rhythm-alt">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="font-display text-caption font-semibold uppercase tracking-widest text-brand-primary">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
             Resultados reais
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold tracking-tight text-text-primary sm:text-display-lg">
@@ -18,23 +19,30 @@ export function RealResultsSection() {
           <p className="mt-4 text-body-lg text-text-secondary">
             Indicadores validados em ambiente produtivo da Rede Terus.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          {RESULTADOS_OPERACIONAIS.map((result) => (
-            <div
+          {RESULTADOS_OPERACIONAIS.map((result, index) => (
+            <Reveal
               key={result.title}
-              className="card-interactive rounded-xl border border-surface-border bg-surface-base p-6 text-center sm:p-8"
+              variant="scale"
+              delay={Math.min(index * 70, 490)}
+              className="card-interactive group rounded-xl border border-surface-border bg-surface-base p-6 text-center sm:p-8"
             >
-              <p className="font-display text-body-sm font-semibold text-text-secondary">
+              <p className="font-mono text-caption font-medium uppercase tracking-wider text-text-secondary">
                 {result.title}
               </p>
               {result.before && result.after ? (
                 <>
-                  <p className="mt-3 font-display text-body-md text-text-tertiary line-through decoration-text-tertiary/40">
-                    {result.before}
+                  <p className="mt-4 flex items-baseline justify-center gap-2 font-display text-body-md text-text-tertiary">
+                    <span className="line-through decoration-text-tertiary/40">
+                      {result.before}
+                    </span>
+                    <span aria-hidden="true" className="text-brand-primary">
+                      →
+                    </span>
                   </p>
-                  <p className="mt-1 font-display text-display-lg font-bold text-brand-primary">
+                  <p className="mt-1 font-display text-display-lg font-bold tracking-tight text-brand-primary transition-colors duration-300 group-hover:text-brand-primary-hover">
                     {result.after}
                   </p>
                   <p className="mt-2 text-body-sm text-text-secondary">
@@ -43,7 +51,7 @@ export function RealResultsSection() {
                 </>
               ) : (
                 <>
-                  <p className="mt-3 font-display text-display-lg font-bold text-brand-primary">
+                  <p className="mt-4 font-display text-display-lg font-bold tracking-tight text-brand-primary transition-colors duration-300 group-hover:text-brand-primary-hover">
                     {result.value}
                   </p>
                   {"description" in result && result.description ? (
@@ -53,11 +61,11 @@ export function RealResultsSection() {
                   ) : null}
                 </>
               )}
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <Reveal delay={120} className="mt-10 text-center">
           <CtaButtons size="md" className="mt-2" />
           <p className="mt-4">
             <Link
@@ -67,7 +75,7 @@ export function RealResultsSection() {
               Ver case completo com indicadores →
             </Link>
           </p>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

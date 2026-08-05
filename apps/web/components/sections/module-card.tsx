@@ -79,16 +79,19 @@ export function ModuleCard({ module }: ModuleCardProps) {
       <Card className="card-interactive h-full shadow-sm transition-all duration-300 hover:shadow-elevated">
         <CardHeader>
           <div className="mb-4 flex items-start justify-between">
-            <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-primary-dim text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-surface-base">
+            <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-primary-dim text-brand-primary transition-all duration-300 group-hover:bg-brand-primary group-hover:text-surface-base group-hover:shadow-glow-sm">
               <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
                 {MODULE_ICONS[module.slug]}
               </svg>
             </div>
-            <Badge variant="outline" className="text-caption">
+            <Badge
+              variant="outline"
+              className="border-brand-primary/30 bg-brand-primary-dim font-mono text-caption font-medium tracking-wider text-brand-primary"
+            >
               {module.metric}
             </Badge>
           </div>
-          <CardTitle className="font-display text-heading-md group-hover:text-brand-primary">
+          <CardTitle className="font-display text-heading-md transition-colors duration-300 group-hover:text-brand-primary">
             {module.name}
           </CardTitle>
           <CardDescription>{module.tagline}</CardDescription>

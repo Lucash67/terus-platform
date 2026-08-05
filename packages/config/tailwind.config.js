@@ -1,10 +1,12 @@
-/** @type {import('tailwindcss').Config} */
+/**
+ * Preset oficial de tema da Terus Platform — identidade dark enterprise.
+ * Fonte única de tokens de cor/tipografia/espaçamento (CLAUDE.md · PROJECT_RULES.md).
+ * Os apps consomem via `presets: [require("@terus/config/tailwind.config.js")]`.
+ * @type {import('tailwindcss').Config}
+ */
 module.exports = {
   darkMode: ["class"],
-  content: [
-    "./apps/web/**/*.{js,ts,jsx,tsx,mdx}",
-    "./packages/ui/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: [],
   theme: {
     extend: {
       colors: {
@@ -13,26 +15,27 @@ module.exports = {
           "elevated-1": "#0A1628",
           "elevated-2": "#0F1E36",
           "elevated-3": "#162440",
-          overlay: "#1A2B4A",
+          overlay: "rgba(3, 8, 18, 0.72)",
           border: "#1E3256",
           "border-subtle": "#152A4A",
         },
         brand: {
           primary: "#00C2FF",
-          "primary-hover": "#00A8E0",
-          "primary-dim": "#00C2FF1A",
+          "primary-hover": "#33CEFF",
+          "primary-dim": "rgba(0, 194, 255, 0.10)",
           secondary: "#0066CC",
-          glow: "#00C2FF33",
+          dark: "#003D7A",
+          glow: "rgba(0, 194, 255, 0.20)",
         },
         status: {
           success: "#00E676",
-          "success-dim": "#00E6761A",
+          "success-dim": "rgba(0, 230, 118, 0.10)",
           warning: "#FFB300",
-          "warning-dim": "#FFB3001A",
+          "warning-dim": "rgba(255, 179, 0, 0.10)",
           error: "#FF3D57",
-          "error-dim": "#FF3D571A",
+          "error-dim": "rgba(255, 61, 87, 0.10)",
           neutral: "#546E8A",
-          "neutral-dim": "#546E8A1A",
+          "neutral-dim": "rgba(84, 110, 138, 0.12)",
         },
         text: {
           primary: "#E8F4FF",
@@ -74,9 +77,22 @@ module.exports = {
         30: "120px",
       },
       borderRadius: {
-        lg: "12px",
-        md: "8px",
         sm: "6px",
+        md: "8px",
+        lg: "12px",
+        xl: "16px",
+        "2xl": "20px",
+      },
+      boxShadow: {
+        card: "0 4px 16px -2px rgba(0, 0, 0, 0.45)",
+        elevated:
+          "0 12px 28px -6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 194, 255, 0.04)",
+        floating: "0 24px 48px -12px rgba(0, 0, 0, 0.65)",
+        premium:
+          "0 24px 60px -12px rgba(0, 194, 255, 0.16), 0 12px 28px -8px rgba(0, 0, 0, 0.6)",
+        "glow-sm": "0 0 12px rgba(0, 194, 255, 0.25)",
+        glow: "0 0 24px rgba(0, 194, 255, 0.35)",
+        "glow-lg": "0 0 48px rgba(0, 194, 255, 0.35)",
       },
       animation: {
         "fade-in": "fade-in 300ms ease-out",
@@ -99,5 +115,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 };

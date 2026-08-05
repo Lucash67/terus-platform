@@ -3,13 +3,14 @@ import { Badge } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { Reveal } from "@/components/motion/reveal";
 import { CONTEUDOS_CASES } from "@/lib/constants/site-data";
 
 export function CasesResultsSection() {
   return (
-    <section className="border-t border-surface-border bg-surface-elevated-1">
-      <Container className="py-20 sm:py-24">
-        <div className="mx-auto max-w-2xl text-center">
+    <section className="section-rhythm-alt">
+      <Container>
+        <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
             Cases e resultados operacionais
           </h2>
@@ -17,13 +18,15 @@ export function CasesResultsSection() {
             Resultados validados em ambiente produtivo da Rede Terus — métricas
             reais de digitalização, eficiência e crescimento financeiro.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-16 grid gap-6 lg:grid-cols-1">
-          {CONTEUDOS_CASES.map((content) => (
-            <div
+          {CONTEUDOS_CASES.map((content, index) => (
+            <Reveal
               key={content.slug}
-              className="rounded-lg border border-surface-border bg-surface-base p-8 lg:p-10"
+              variant="scale"
+              delay={Math.min(index, 4) * 70}
+              className="card-interactive rounded-xl border border-surface-border bg-surface-base p-8 lg:p-10"
             >
               <div className="flex flex-wrap items-center gap-2">
                 <Badge variant="outline" className="text-caption capitalize">
@@ -43,7 +46,7 @@ export function CasesResultsSection() {
 
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 <div className="rounded-md border border-surface-border bg-surface-elevated-1 p-4">
-                  <p className="text-caption font-semibold uppercase tracking-wider text-text-tertiary">
+                  <p className="font-mono text-caption font-semibold uppercase tracking-widest text-text-tertiary">
                     Desafio
                   </p>
                   <p className="mt-2 text-body-sm text-text-secondary">
@@ -51,7 +54,7 @@ export function CasesResultsSection() {
                   </p>
                 </div>
                 <div className="rounded-md border border-surface-border bg-surface-elevated-1 p-4">
-                  <p className="text-caption font-semibold uppercase tracking-wider text-text-tertiary">
+                  <p className="font-mono text-caption font-semibold uppercase tracking-widest text-text-tertiary">
                     Implementação
                   </p>
                   <p className="mt-2 text-body-sm text-text-secondary">
@@ -59,7 +62,7 @@ export function CasesResultsSection() {
                   </p>
                 </div>
                 <div className="rounded-md border border-brand-primary/20 bg-brand-primary-dim/30 p-4">
-                  <p className="text-caption font-semibold uppercase tracking-wider text-brand-dark">
+                  <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
                     Resultados
                   </p>
                   <p className="mt-2 text-body-sm text-text-secondary">
@@ -77,7 +80,7 @@ export function CasesResultsSection() {
                   Ver case completo com indicadores →
                 </Link>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>

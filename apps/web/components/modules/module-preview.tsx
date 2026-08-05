@@ -21,11 +21,21 @@ export function ModulePreview({ slug, className }: ModulePreviewProps) {
         <span className="h-2.5 w-2.5 rounded-full bg-status-error/60" />
         <span className="h-2.5 w-2.5 rounded-full bg-status-warning/60" />
         <span className="h-2.5 w-2.5 rounded-full bg-status-success/60" />
-        <span className="ml-2 font-mono text-caption text-text-tertiary">
+        <span className="ml-2 font-mono text-caption uppercase tracking-widest text-text-tertiary">
           terus · {slug}
         </span>
+        <span className="ml-auto flex items-center gap-1.5 font-mono text-caption uppercase tracking-widest text-status-success">
+          <span className="hero-live-pulse inline-block h-1.5 w-1.5 rounded-full bg-status-success" />
+          live
+        </span>
       </div>
-      <div className="p-4 sm:p-6">{PREVIEWS[slug]}</div>
+      <div className="relative p-4 sm:p-6">
+        <div
+          className="tr-grid-bg pointer-events-none absolute inset-0 opacity-40"
+          aria-hidden="true"
+        />
+        <div className="relative">{PREVIEWS[slug]}</div>
+      </div>
     </div>
   );
 }

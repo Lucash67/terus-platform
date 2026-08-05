@@ -8,7 +8,11 @@ import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-surface-base">
+    <footer className="relative border-t border-surface-border bg-surface-elevated-1/40">
+      <div
+        className="tr-horizon pointer-events-none absolute inset-x-0 top-0 h-px"
+        aria-hidden="true"
+      />
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
@@ -16,7 +20,7 @@ export function Footer() {
               href="/"
               className="inline-flex rounded-lg transition-opacity duration-200 hover:opacity-80"
             >
-              <TerusLogo className="h-8 w-auto object-contain" />
+              <TerusLogo size="lg" />
             </Link>
             <p className="mt-5 font-display text-body-md font-medium text-text-primary">
               {SITE_TAGLINE}
