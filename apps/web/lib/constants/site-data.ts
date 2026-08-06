@@ -727,6 +727,31 @@ export const REDE_TERUS = {
   distribuidores: DISTRIBUIDORES,
 };
 
+/**
+ * Vídeo demo de produto (60s) — Home + Plataforma.
+ * Quando os arquivos estiverem prontos em public/videos/,
+ * preencha `src` e `poster` (hoje null = layout pronto, aguardando mídia).
+ */
+export const PRODUCT_DEMO = {
+  eyebrow: "Demo do produto",
+  title: "Veja a Terus em 60 segundos",
+  description:
+    "Do onboarding autônomo ao Pulse ao vivo — o caminho da ruptura detectada até o pedido automático.",
+  durationLabel: "60s",
+  /** Caminho público do MP4/WebM — null até o arquivo existir */
+  src: null as string | null,
+  /** Poster 16:9 — null usa o frame visual do próprio componente */
+  poster: null as string | null,
+  chapters: [
+    { at: 0, label: "Problema", hint: "Ruptura em tempo real" },
+    { at: 8, label: "Onboarding", hint: "ERP conectado pelo cliente" },
+    { at: 20, label: "Diagnóstico", hint: "Validação automática" },
+    { at: 32, label: "Pulse", hint: "Operação ao vivo" },
+    { at: 45, label: "Resultados", hint: "Impacto comprovado" },
+    { at: 55, label: "CTA", hint: "Agende a demonstração" },
+  ],
+} as const;
+
 export const VIDEOS_INSTITUCIONAIS: {
   title: string;
   description: string;
