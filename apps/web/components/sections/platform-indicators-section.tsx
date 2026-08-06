@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
 import { INDICADORES_PLATAFORMA } from "@/lib/constants/site-data";
 
@@ -31,7 +32,25 @@ export function PlatformIndicatorsSection() {
                 {indicator.title}
               </p>
               <p className="mt-3 font-display text-display-lg font-bold tracking-tight text-brand-primary transition-colors duration-300 group-hover:text-brand-primary-hover">
-                {indicator.value}
+                {index === 0 ? (
+                  <>
+                    <span className="text-text-tertiary">35% → </span>
+                    <CountUp value={0.5} decimals={1} suffix="%" />
+                  </>
+                ) : index === 1 ? (
+                  <>
+                    <span className="text-text-tertiary">40% → </span>
+                    <CountUp value={96} suffix="%" />
+                  </>
+                ) : index === 2 ? (
+                  <CountUp value={31881} locale />
+                ) : (
+                  <>
+                    <CountUp value={86} suffix="%" />
+                    <span className="text-text-tertiary"> a </span>
+                    <CountUp value={96} suffix="%" />
+                  </>
+                )}
               </p>
               <p className="mt-2 text-body-sm text-text-secondary">
                 {indicator.description}

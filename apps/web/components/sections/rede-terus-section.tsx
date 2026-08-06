@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
 import { REDE_TERUS } from "@/lib/constants/site-data";
 
@@ -86,7 +87,7 @@ export function RedeTerusSection() {
 
         <Reveal variant="scale" delay={120} className="mt-12 text-center">
           <p className="font-display text-display-lg font-bold text-brand-primary">
-            +20 empresas conectadas
+            <CountUp value={20} prefix="+" /> empresas conectadas
           </p>
           <p className="mt-2 text-body-md text-text-secondary">
             Varejos e distribuidores integrados à jornada operacional Terus

@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { Reveal } from "@/components/motion/reveal";
+import { SupplyChainFlow } from "@/components/sections/supply-chain-flow";
 import { ECOSYSTEM_PARTNERS } from "@/lib/constants/site";
 
 interface EcosystemSectionProps {
@@ -23,6 +24,8 @@ export function EcosystemSection({ showCta = true }: EcosystemSectionProps) {
             integrações homologadas e execução coordenada.
           </p>
         </Reveal>
+
+        <SupplyChainFlow />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2">
           {ECOSYSTEM_PARTNERS.map((partner, index) => (

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
+import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
 import { RESULTADOS_OPERACIONAIS } from "@/lib/constants/site-data";
 
@@ -43,7 +44,18 @@ export function RealResultsSection() {
                     </span>
                   </p>
                   <p className="mt-1 font-display text-display-lg font-bold tracking-tight text-brand-primary transition-colors duration-300 group-hover:text-brand-primary-hover">
-                    {result.after}
+                    {index === 0 ? (
+                      <CountUp value={96} prefix="até " suffix="%" />
+                    ) : index === 1 ? (
+                      <CountUp value={2338} prefix="R$ " locale />
+                    ) : (
+                      <CountUp
+                        value={16}
+                        decimals={1}
+                        prefix="R$ "
+                        suffix=" mi"
+                      />
+                    )}
                   </p>
                   <p className="mt-2 text-body-sm text-text-secondary">
                     {result.improvement}
@@ -52,7 +64,7 @@ export function RealResultsSection() {
               ) : (
                 <>
                   <p className="mt-4 font-display text-display-lg font-bold tracking-tight text-brand-primary transition-colors duration-300 group-hover:text-brand-primary-hover">
-                    {result.value}
+                    <CountUp value={31881} locale suffix=" pedidos" />
                   </p>
                   {"description" in result && result.description ? (
                     <p className="mt-2 text-body-sm text-text-secondary">

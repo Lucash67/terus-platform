@@ -2,6 +2,7 @@ import { Badge } from "@terus/ui";
 
 import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { Container } from "@/components/layout/container";
+import { CountUp } from "@/components/motion/count-up";
 import { HeroDashboardPreview } from "@/components/sections/hero-dashboard-preview";
 import { HERO, SITE_TAGLINE } from "@/lib/constants/site";
 
@@ -86,10 +87,18 @@ export function HeroSection() {
 
             {/* Trust stats strip */}
             <div className="hero-fade-in mt-12 grid grid-cols-2 gap-6 border-t border-surface-border pt-8 sm:grid-cols-4">
-              {HERO.trustStats.map((stat) => (
+              {HERO.trustStats.map((stat, index) => (
                 <div key={stat.label} className="text-center lg:text-left">
                   <p className="font-display text-heading-lg font-bold text-brand-primary">
-                    {stat.value}
+                    {index === 0 ? (
+                      <CountUp value={40} suffix="%" immediate />
+                    ) : index === 1 ? (
+                      <CountUp value={5} prefix="< " suffix="min" immediate />
+                    ) : index === 2 ? (
+                      <CountUp value={6} immediate />
+                    ) : (
+                      stat.value
+                    )}
                   </p>
                   <p className="mt-0.5 text-caption text-text-tertiary">
                     {stat.label}

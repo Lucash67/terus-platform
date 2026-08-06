@@ -2,10 +2,12 @@
 
 import { Badge } from "@terus/ui";
 
+import { CountUp } from "@/components/motion/count-up";
+
 const METRICS = [
-  { label: "Alertas ativos", value: "12", trend: "+3" },
-  { label: "Pedidos automáticos", value: "847", trend: "hoje" },
-  { label: "Lojas monitoradas", value: "156", trend: "live" },
+  { label: "Alertas ativos", value: 12, trend: "+3" },
+  { label: "Pedidos automáticos", value: 847, trend: "hoje" },
+  { label: "Lojas monitoradas", value: 156, trend: "live" },
 ] as const;
 
 const ALERTS = [
@@ -77,7 +79,7 @@ export function HeroDashboardPreview() {
                   {metric.label}
                 </p>
                 <p className="mt-1 font-display text-heading-md font-bold text-text-primary">
-                  {metric.value}
+                  <CountUp value={metric.value} immediate duration={1200} />
                 </p>
                 <p className="mt-0.5 font-mono text-caption text-brand-primary">
                   {metric.trend}
