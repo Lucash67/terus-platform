@@ -88,18 +88,12 @@ export function HeroDashboardPreview() {
             ))}
           </div>
 
-          {/* Supply chain flow */}
+          {/* Supply chain hub — Terus envia para os 3 elos */}
           <div className="rounded-lg border border-surface-border bg-surface-elevated-1 p-4">
             <p className="mb-3 font-mono text-caption font-medium uppercase tracking-wider text-text-tertiary">
               Fluxo integrado
             </p>
-            <div className="flex items-center justify-between gap-2">
-              <FlowNode label="Varejo" sublabel="12 lojas" />
-              <FlowConnector />
-              <FlowNode label="Terus" sublabel="Inteligência" highlight />
-              <FlowConnector />
-              <FlowNode label="Distribuidor" sublabel="3 parceiros" />
-            </div>
+            <HubFlow />
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
@@ -168,6 +162,23 @@ export function HeroDashboardPreview() {
   );
 }
 
+function HubFlow() {
+  return (
+    <div className="flex flex-col items-center gap-1.5">
+      <FlowNode label="Varejo" sublabel="12 lojas" />
+      <FlowConnector direction="up" />
+
+      <div className="flex w-full items-center justify-between gap-1">
+        <FlowNode label="Distribuidor" sublabel="3 parceiros" />
+        <FlowConnector direction="left" />
+        <FlowNode label="Terus" sublabel="Inteligência" highlight />
+        <FlowConnector direction="right" />
+        <FlowNode label="Indústria" sublabel="fornecedores" />
+      </div>
+    </div>
+  );
+}
+
 function FlowNode({
   label,
   sublabel,
@@ -178,7 +189,7 @@ function FlowNode({
   highlight?: boolean;
 }) {
   return (
-    <div className="flex flex-col items-center gap-1">
+    <div className="flex shrink-0 flex-col items-center gap-1">
       <div
         className={`flex h-10 w-10 items-center justify-center rounded-lg border text-caption font-semibold sm:h-11 sm:w-11 ${
           highlight
@@ -188,19 +199,35 @@ function FlowNode({
       >
         {label.slice(0, 1)}
       </div>
-      <span className="text-caption font-medium text-text-primary">
+      <span className="text-center text-caption font-medium text-text-primary">
         {label}
       </span>
-      <span className="text-caption text-text-tertiary">{sublabel}</span>
+      <span className="text-center text-caption text-text-tertiary">
+        {sublabel}
+      </span>
     </div>
   );
 }
 
-function FlowConnector() {
+/** Conector com pacote saindo da Terus (hub → receptor). */
+function FlowConnector({ direction }: { direction: "left" | "right" | "up" }) {
+  if (direction === "up") {
+    return (
+      <div className="relative flex h-6 w-px items-stretch bg-surface-border">
+        <span className="hero-flow-dot-up absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-brand-primary" />
+      </div>
+    );
+  }
+
   return (
-    <div className="relative flex flex-1 items-center px-1">
+    <div className="relative flex min-w-[1.5rem] flex-1 items-center px-0.5">
       <div className="h-px w-full bg-surface-border" />
-      <span className="hero-flow-dot absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-brand-primary" />
+      <span
+        className={[
+          "absolute top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-brand-primary",
+          direction === "left" ? "hero-flow-dot-left" : "hero-flow-dot-right",
+        ].join(" ")}
+      />
     </div>
   );
 }

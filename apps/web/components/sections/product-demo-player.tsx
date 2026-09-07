@@ -247,7 +247,7 @@ function DemoPosterFrame() {
       <div className="relative flex items-center gap-2 rounded-lg border border-surface-border bg-surface-base/80 px-3 py-2.5">
         <span className="hero-live-pulse h-2 w-2 rounded-full bg-status-success" />
         <p className="font-mono text-caption text-text-secondary">
-          Terus Pulse · fluxo varejo → inteligência → distribuição
+          Terus Pulse · hub → varejo · distribuidor · indústria
         </p>
       </div>
     </div>

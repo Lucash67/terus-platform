@@ -191,8 +191,16 @@
     transform-origin: bottom;
   }
 
-  .hero-flow-dot {
-    animation: hero-flow 2s ease-in-out infinite;
+  .hero-flow-dot-right {
+    animation: hero-flow-right 2s ease-in-out infinite;
+  }
+
+  .hero-flow-dot-left {
+    animation: hero-flow-left 2s ease-in-out infinite;
+  }
+
+  .hero-flow-dot-up {
+    animation: hero-flow-up 2s ease-in-out infinite;
   }
 
   @keyframes hero-live-pulse {
@@ -250,7 +258,7 @@
     }
   }
 
-  @keyframes hero-flow {
+  @keyframes hero-flow-right {
     0% {
       left: 0%;
       opacity: 0;
@@ -263,6 +271,40 @@
     }
     100% {
       left: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes hero-flow-left {
+    0% {
+      left: 100%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      left: 0%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes hero-flow-up {
+    0% {
+      top: 100%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      top: 0%;
       opacity: 0;
     }
   }
@@ -314,7 +356,9 @@
     .hero-metric-enter,
     .hero-alert-enter,
     .hero-bar-grow,
-    .hero-flow-dot,
+    .hero-flow-dot-right,
+    .hero-flow-dot-left,
+    .hero-flow-dot-up,
     .module-preview,
     .module-preview-bar {
       animation: none;
