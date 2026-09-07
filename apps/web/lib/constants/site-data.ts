@@ -728,27 +728,23 @@ export const REDE_TERUS = {
 };
 
 /**
- * Vídeo demo de produto (60s) — Home + Plataforma.
- * Quando os arquivos estiverem prontos em public/videos/,
- * preencha `src` e `poster` (hoje null = layout pronto, aguardando mídia).
+ * Vídeo demo do produto — versão curta (10s) no ar;
+ * a versão completa (60s) entra quando a mídia estiver pronta.
  */
 export const PRODUCT_DEMO = {
   eyebrow: "Demo do produto",
-  title: "Veja a Terus em 60 segundos",
+  title: "Veja a Terus em 10 segundos",
   description:
-    "Do onboarding autônomo ao Pulse ao vivo — o caminho da ruptura detectada até o pedido automático.",
-  durationLabel: "60s",
+    "Do hub da Terus saem alertas e pedidos para varejo, distribuição e indústria — em tempo real.",
+  durationLabel: "10s",
   /** Caminho público do MP4/WebM — null até o arquivo existir */
   src: null as string | null,
   /** Poster 16:9 — null usa o frame visual do próprio componente */
   poster: null as string | null,
   chapters: [
-    { at: 0, label: "Problema", hint: "Ruptura em tempo real" },
-    { at: 8, label: "Onboarding", hint: "ERP conectado pelo cliente" },
-    { at: 20, label: "Diagnóstico", hint: "Validação automática" },
-    { at: 32, label: "Pulse", hint: "Operação ao vivo" },
-    { at: 45, label: "Resultados", hint: "Impacto comprovado" },
-    { at: 55, label: "CTA", hint: "Agende a demonstração" },
+    { at: 0, label: "Ruptura", hint: "Alerta em tempo real" },
+    { at: 3, label: "Hub Terus", hint: "Inteligência no centro" },
+    { at: 7, label: "Ação", hint: "Pedido automático" },
   ],
 } as const;
 
