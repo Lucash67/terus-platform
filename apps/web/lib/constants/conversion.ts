@@ -10,7 +10,7 @@ export const CTA = {
 } as const;
 
 export const WHATSAPP_DEMO_URL = `https://wa.me/558596290044?text=${encodeURIComponent(
-  "Olá! Gostaria de agendar uma demonstração da Terus Platform. Operamos com ERP Winthor/RMS e quero conhecer a solução de Supply Chain Intelligence.",
+  "Olá! Gostaria de agendar uma demonstração da Terus Varejo. Operamos com ERP Winthor/RMS e quero conhecer a solução de Inteligência da Cadeia de Suprimentos.",
 )}`;
 
 export const DEMO_PAGE = {
