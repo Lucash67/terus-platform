@@ -28,7 +28,7 @@ export function Navbar() {
             className="shrink-0"
             onClick={() => setMobileOpen(false)}
           >
-            <TerusLogo />
+            <TerusLogo priority />
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">

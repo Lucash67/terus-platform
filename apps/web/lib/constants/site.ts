@@ -1,9 +1,14 @@
 export const BRAND = {
-  name: "Terus",
+  name: "Terus.TEC",
   logos: {
-    primary: "/logos/terus/terus.jpg",
-    monochrome: null,
-    dark: null,
+    /** Wordmark oficial (fundo transparente) — navbar, footer */
+    primary: "/logos/terus/terus-wordmark.png",
+    /** Monograma colorido — favicon / espaços compactos */
+    mark: "/logos/terus/terus-mark.png",
+    /** Monograma claro (path branco) — fundos escuros */
+    markLight: "/logos/terus/terus-mark-light.png",
+    /** Wordmark em fundo branco — impressão / OG */
+    print: "/logos/terus/terus.jpg",
   },
 };
 
