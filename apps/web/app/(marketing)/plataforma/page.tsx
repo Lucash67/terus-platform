@@ -7,11 +7,13 @@ import { Reveal } from "@/components/motion/reveal";
 import { CtaSection } from "@/components/sections/cta-section";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { PageHero } from "@/components/sections/page-hero";
-import { ProductDemoSection } from "@/components/sections/product-demo-section";
 import { PLATFORM_ROADMAP_BADGE } from "@/lib/constants/copy";
 import { PLATFORM_PILLARS } from "@/lib/constants/site";
 import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
 import { createPageMetadata } from "@/lib/seo/metadata";
+
+// ProductDemoSection ocultada até haver vídeo real do produto.
+// import { ProductDemoSection } from "@/components/sections/product-demo-section";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Plataforma de Onboarding, Ativação e Operação",
@@ -29,8 +31,6 @@ export default function PlataformaPage() {
         titleAccent="em uma única plataforma"
         description="Da integração ao monitoramento contínuo da operação, a Terus centraliza onboarding, ativação, execução e acompanhamento em um único ambiente."
       />
-
-      <ProductDemoSection />
 
       <section className="py-16 sm:py-20 lg:py-24">
         <Container>

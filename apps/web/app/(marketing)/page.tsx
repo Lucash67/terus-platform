@@ -12,10 +12,12 @@ import { ReliabilitySection } from "@/components/sections/reliability-section";
 import { IntegrationsEcosystemSection } from "@/components/sections/integrations-ecosystem-section";
 import { PositioningSection } from "@/components/sections/positioning-section";
 import { RedeTerusSection } from "@/components/sections/rede-terus-section";
-import { ProductDemoSection } from "@/components/sections/product-demo-section";
 import { RealResultsSection } from "@/components/sections/real-results-section";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { SITE_DESCRIPTION } from "@/lib/constants/site";
+
+// ProductDemoSection ocultada até haver vídeo real do produto.
+// import { ProductDemoSection } from "@/components/sections/product-demo-section";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Terus Platform — Supply Chain Intelligence",
@@ -28,7 +30,6 @@ export default function HomePage() {
     <>
       <HeroSection />
       <RealResultsSection />
-      <ProductDemoSection />
       <PositioningSection />
       <ModulesSection />
       <EcosystemSection />
