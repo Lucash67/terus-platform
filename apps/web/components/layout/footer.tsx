@@ -1,12 +1,20 @@
 import Link from "next/link";
+import { Button } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { TerusLogo } from "@/components/layout/terus-logo";
 import { FOOTER_COPY } from "@/lib/constants/copy";
-import { FOOTER_LINKS } from "@/lib/constants/navigation";
+import { CTA } from "@/lib/constants/conversion";
+import { FOOTER_LINKS, LP_NAV_MODE } from "@/lib/constants/navigation";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants/site";
 
 export function Footer() {
+  const showLinkColumns =
+    !LP_NAV_MODE &&
+    (FOOTER_LINKS.plataforma.length > 0 ||
+      FOOTER_LINKS.modulos.length > 0 ||
+      FOOTER_LINKS.sobre.length > 0);
+
   return (
     <footer className="relative border-t border-surface-border bg-surface-elevated-1/40">
       <div
@@ -14,8 +22,14 @@ export function Footer() {
         aria-hidden="true"
       />
       <Container className="py-16 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-4">
+        <div
+          className={
+            showLinkColumns
+              ? "grid gap-12 lg:grid-cols-12 lg:gap-8"
+              : "flex flex-col items-start justify-between gap-10 sm:flex-row sm:items-end"
+          }
+        >
+          <div className={showLinkColumns ? "lg:col-span-4" : "max-w-md"}>
             <Link
               href="/"
               className="inline-flex rounded-lg transition-opacity duration-200 hover:opacity-80"
@@ -33,77 +47,83 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
-            <div>
-              <h3 className="font-display text-caption font-semibold uppercase tracking-wider text-text-tertiary">
-                Produto
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {FOOTER_LINKS.plataforma.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-body-sm text-text-secondary transition-colors duration-200 hover:text-brand-primary"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {showLinkColumns ? (
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
+              <div>
+                <h3 className="font-display text-caption font-semibold uppercase tracking-wider text-text-tertiary">
+                  Produto
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {FOOTER_LINKS.plataforma.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-body-sm text-text-secondary transition-colors duration-200 hover:text-brand-primary"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div>
-              <h3 className="font-display text-caption font-semibold uppercase tracking-wider text-text-tertiary">
-                Módulos
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {FOOTER_LINKS.modulos.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-body-sm text-text-secondary transition-colors duration-200 hover:text-brand-primary"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div>
+                <h3 className="font-display text-caption font-semibold uppercase tracking-wider text-text-tertiary">
+                  Módulos
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {FOOTER_LINKS.modulos.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-body-sm text-text-secondary transition-colors duration-200 hover:text-brand-primary"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="col-span-2 sm:col-span-1">
-              <h3 className="font-display text-caption font-semibold uppercase tracking-wider text-text-tertiary">
-                Empresa
-              </h3>
-              <ul className="mt-4 space-y-3">
-                <li>
-                  <Link
-                    href="/cases"
-                    className="text-body-sm text-text-secondary transition-colors duration-200 hover:text-brand-primary"
-                  >
-                    Cases de Sucesso
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solicitar-demo"
-                    className="text-body-sm font-medium text-brand-primary transition-colors duration-200 hover:text-brand-primary-hover"
-                  >
-                    Agendar demonstração
-                  </Link>
-                </li>
-                {FOOTER_LINKS.sobre.map((link) => (
-                  <li key={link.href}>
+              <div className="col-span-2 sm:col-span-1">
+                <h3 className="font-display text-caption font-semibold uppercase tracking-wider text-text-tertiary">
+                  Empresa
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  <li>
                     <Link
-                      href={link.href}
+                      href="/cases"
                       className="text-body-sm text-text-secondary transition-colors duration-200 hover:text-brand-primary"
                     >
-                      {link.label}
+                      Cases de Sucesso
                     </Link>
                   </li>
-                ))}
-              </ul>
+                  <li>
+                    <Link
+                      href="/solicitar-demo"
+                      className="text-body-sm font-medium text-brand-primary transition-colors duration-200 hover:text-brand-primary-hover"
+                    >
+                      Agendar demonstração
+                    </Link>
+                  </li>
+                  {FOOTER_LINKS.sobre.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-body-sm text-text-secondary transition-colors duration-200 hover:text-brand-primary"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          ) : (
+            <Button size="md" asChild className="font-semibold shadow-elevated">
+              <Link href={CTA.primary.href}>{CTA.primary.label}</Link>
+            </Button>
+          )}
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-surface-border pt-8 sm:flex-row">
@@ -112,7 +132,8 @@ export function Footer() {
             reservados.
           </p>
           <p className="text-caption text-text-tertiary">
-            Inteligência da Cadeia de Suprimentos · Varejo · Indústria · Distribuição
+            Inteligência da Cadeia de Suprimentos · Varejo · Indústria ·
+            Distribuição
           </p>
         </div>
       </Container>

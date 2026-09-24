@@ -15,6 +15,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const isDemoPage = pathname === CTA.primary.href;
+  const hasNavLinks = MAIN_NAV_LINKS.length > 0;
 
   return (
     <header className="tr-glass sticky top-0 z-50 border-b border-surface-border/60">
@@ -31,33 +32,28 @@ export function Navbar() {
             <TerusLogo priority />
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
-            {MAIN_NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "rounded-md px-4 py-2 text-body-md font-medium transition-colors",
-                  pathname === link.href || pathname.startsWith(`${link.href}/`)
-                    ? "bg-surface-elevated-2 text-brand-primary"
-                    : "text-text-secondary hover:bg-surface-elevated-1 hover:text-text-primary",
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          {hasNavLinks ? (
+            <div className="hidden items-center gap-1 lg:flex">
+              {MAIN_NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "rounded-md px-4 py-2 text-body-md font-medium transition-colors",
+                    pathname === link.href ||
+                      pathname.startsWith(`${link.href}/`)
+                      ? "bg-surface-elevated-2 text-brand-primary"
+                      : "text-text-secondary hover:bg-surface-elevated-1 hover:text-text-primary",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          ) : null}
 
           <div className="hidden items-center gap-3 lg:flex">
             <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="sm"
-              disabled
-              className="text-text-tertiary"
-            >
-              Acessar Terus Varejo
-            </Button>
             <Button
               size="md"
               asChild
@@ -72,40 +68,46 @@ export function Navbar() {
 
           <div className="flex items-center gap-2 lg:hidden">
             <ThemeToggle />
-            <button
-              type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-surface-border text-text-primary"
-              onClick={() => setMobileOpen((open) => !open)}
-              aria-expanded={mobileOpen}
-              aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="h-5 w-5"
-                aria-hidden="true"
+            {hasNavLinks ? (
+              <button
+                type="button"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-surface-border text-text-primary"
+                onClick={() => setMobileOpen((open) => !open)}
+                aria-expanded={mobileOpen}
+                aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
               >
-                {mobileOpen ? (
-                  <path
-                    d="M6 6l12 12M18 6L6 18"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                ) : (
-                  <path
-                    d="M4 7h16M4 12h16M4 17h16"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                )}
-              </svg>
-            </button>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  {mobileOpen ? (
+                    <path
+                      d="M6 6l12 12M18 6L6 18"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                  ) : (
+                    <path
+                      d="M4 7h16M4 12h16M4 17h16"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                  )}
+                </svg>
+              </button>
+            ) : (
+              <Button size="sm" asChild className="font-semibold shadow-elevated">
+                <Link href={CTA.primary.href}>{CTA.primary.label}</Link>
+              </Button>
+            )}
           </div>
         </nav>
 
-        {mobileOpen && (
+        {hasNavLinks && mobileOpen ? (
           <div className="border-t border-surface-border py-4 lg:hidden">
             <div className="flex flex-col gap-1">
               {MAIN_NAV_LINKS.map((link) => (
@@ -133,17 +135,9 @@ export function Navbar() {
                   {CTA.primary.label}
                 </Link>
               </Button>
-              <Button variant="outline" className="w-full" asChild>
-                <Link
-                  href={CTA.secondary.href}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {CTA.secondary.label}
-                </Link>
-              </Button>
             </div>
           </div>
-        )}
+        ) : null}
       </Container>
     </header>
   );
