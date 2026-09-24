@@ -16,96 +16,102 @@ export interface ModuleDefinition {
   metricLabel: string;
 }
 
+/**
+ * Catálogo dos 6 módulos oficiais (nomenclatura da plataforma).
+ * Copy alinhada às soluções reais do site legado terustec.com.br:
+ * Alert ← ALERT · Strategy ← STRATEGY · Order ← TASK WEB ·
+ * Task ← TASK · Log ← TEAMS · Pulse ← Portal do Cliente.
+ */
 export const MODULES: ModuleDefinition[] = [
   {
     slug: "alert",
     name: "Terus Alert",
-    tagline: "Monitoramento operacional em tempo real",
+    tagline: "Alertas que impactam a performance da loja",
     description:
-      "Garante visibilidade operacional contínua e resposta rápida a desvios de ruptura, estoque e anomalias — priorizando ações por impacto em receita.",
+      "Painel com os principais problemas que atingem as lojas do varejo — ruptura, exposição, precificação e oferta. Cada alerta lista os produtos envolvidos e alimenta as ferramentas de execução (Task e Order).",
     features: [
-      "Monitoramento contínuo de disponibilidade",
-      "Priorização por impacto em receita",
-      "Notificações em tempo real",
-      "Integração nativa com ERP",
+      "Cerca de 12 alertas ligados à performance da loja",
+      "Detalhamento por produto do que prejudica o resultado",
+      "Encaminhamento para execução no Task e no Order",
+      "Visão de manutenção e prevenção operacional",
     ],
-    metric: "< 5min",
-    metricLabel: "Tempo médio de detecção",
+    metric: "~12",
+    metricLabel: "Alertas operacionais por loja",
   },
   {
     slug: "strategy",
     name: "Terus Strategy",
-    tagline: "Visão executiva da operação",
+    tagline: "Painéis estratégicos para a sala de reunião",
     description:
-      "Monitoramento estratégico de performance operacional com métricas em tempo real para tomada de decisão informada e governança da jornada.",
+      "Painéis de informações estratégicas e gerenciais formatados de forma simples — pensados para responder às perguntas que o varejo faz em mesa redonda, com velocidade para apoiar a tomada de decisão.",
     features: [
-      "KPIs de supply chain em tempo real",
-      "Análise de capital em estoque",
-      "Comparativo entre lojas e regiões",
-      "Modo executivo e técnico",
+      "Uma pergunta de negócio, um painel dedicado",
+      "Visão para varejo, fornecedores e encarregados",
+      "Acesso e leitura facilitados das informações",
+      "Respostas rápidas para decisão gerencial",
     ],
-    metric: "360°",
-    metricLabel: "Visão da operação",
+    metric: "1:1",
+    metricLabel: "Pergunta → painel dedicado",
   },
   {
     slug: "order",
     name: "Terus Order",
-    tagline: "Automação estratégica de reposição",
+    tagline: "Pedidos, reposição e correção de estoque",
     description:
-      "Orquestra a operação de reposição com base em demanda real, garantindo consistência operacional e otimização de capital em toda a jornada.",
+      "Área web para atuar sobre necessidades de correção e ajuste: pedido de compra, solicitação de reabastecimento ao CD, bloqueio de compra em excesso e inativação de produtos descontinuados — com evidência e prazo.",
     features: [
-      "Sugestão automática de pedidos",
-      "Regras por categoria e fornecedor",
-      "Aprovação configurável",
-      "Histórico e rastreabilidade",
+      "Filtro por departamento, seção, fornecedor ou alerta",
+      "Pedido de compra e reposição ao Centro de Distribuição",
+      "Bloqueio de compra em produtos com excesso de estoque",
+      "Evidências e alerta quando a atividade não conclui no prazo",
     ],
-    metric: "40%",
-    metricLabel: "Redução de ruptura",
+    metric: "CD+",
+    metricLabel: "Compra, CD e bloqueio",
   },
   {
     slug: "task",
     name: "Terus Task",
-    tagline: "Execução operacional coordenada",
+    tagline: "Atividades guiadas para o encarregado na loja",
     description:
-      "Coordena a execução operacional com rastreabilidade completa, transformando alertas em tarefas priorizadas para equipes de loja.",
+      "Aplicativo mobile que guia, de forma ordenada e prioritária, as atividades do encarregado: abastecimento, correção de exposição, etiqueta de preço e destaque de oferta — com evidência de cada execução.",
     features: [
-      "Tarefas priorizadas por impacto",
-      "Checklist de execução",
-      "Evidências fotográficas",
-      "Sincronização offline",
+      "Priorização das atividades mais importantes do dia",
+      "Verificação de exposição, abastecimento e preço",
+      "Destaque correto de produtos em oferta",
+      "Evidências geradas em toda atividade executada",
     ],
-    metric: "3x",
-    metricLabel: "Mais rápido na execução",
+    metric: "App",
+    metricLabel: "Execução guiada na loja",
   },
   {
     slug: "log",
     name: "Terus Log",
-    tagline: "Governança e rastreabilidade operacional",
+    tagline: "Acompanhamento de equipes e evidências",
     description:
-      "Garante governança operacional com trilha de auditoria completa, comprovando execução, conformidade e performance de equipes.",
+      "Visão do fluxo de execução das equipes: atividades concluídas ou abandonadas, evidências do que foi feito, filtros por encarregado ou produto — para acompanhar e medir a operação em loja.",
     features: [
-      "Trilha de auditoria imutável",
-      "Evidências de execução",
-      "Relatórios de conformidade",
-      "Integração com Terus Task",
+      "Execuções e abandonos de atividades em um só lugar",
+      "Evidências de todo o fluxo do que foi executado",
+      "Filtros e busca por encarregado ou produto",
+      "Medição do desempenho das equipes de loja",
     ],
     metric: "100%",
-    metricLabel: "Rastreabilidade",
+    metricLabel: "Evidência da execução",
   },
   {
     slug: "pulse",
     name: "Terus Pulse",
-    tagline: "Centro de comando operacional",
+    tagline: "Portal de gestão, execução e acompanhamento",
     description:
-      "Centraliza o controle da operação Terus com visibilidade de integrações, módulos ativos, saúde do ambiente e ações pendentes — garantindo governança da jornada.",
+      "Centro de administração e operação do varejo: usuários, atribuições e metas; Strategy e Alert; acompanhamento de atividades e evidências; aprovação de sugestões de reposição do CD ou do fornecedor.",
     features: [
-      "Dashboard unificado",
-      "Status de integrações",
-      "Gestão de módulos",
-      "Central de notificações",
+      "Gestão de usuários, atribuições e metas",
+      "Acesso a Strategy e Alert no mesmo ambiente",
+      "Acompanhamento de atividades e evidências",
+      "Aprovação de sugestões de reposição (CD ou fornecedor)",
     ],
     metric: "1",
-    metricLabel: "Ponto de controle",
+    metricLabel: "Portal de gestão da operação",
   },
 ];
 

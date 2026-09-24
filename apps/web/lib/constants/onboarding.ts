@@ -269,31 +269,31 @@ export const TERUS_MODULES: TerusModuleDef[] = [
   {
     id: "alert",
     name: "Terus Alert",
-    tagline: "Alertas de ruptura em tempo real",
+    tagline: "Alertas que impactam a performance da loja",
   },
   {
     id: "strategy",
     name: "Terus Strategy",
-    tagline: "Inteligência de sortimento e demanda",
+    tagline: "Painéis estratégicos para decisão",
   },
   {
     id: "order",
     name: "Terus Order",
-    tagline: "Sugestão automática de reposição",
+    tagline: "Pedidos, reposição e correção de estoque",
   },
   {
     id: "task",
     name: "Terus Task",
-    tagline: "Tarefas operacionais para o time de loja",
+    tagline: "Atividades guiadas para o encarregado",
   },
   {
     id: "log",
     name: "Terus Log",
-    tagline: "Trilha auditável de cada decisão",
+    tagline: "Equipes, execuções e evidências",
   },
   {
     id: "pulse",
     name: "Terus Pulse",
-    tagline: "Visão executiva da operação",
+    tagline: "Portal de gestão da operação",
   },
 ];
