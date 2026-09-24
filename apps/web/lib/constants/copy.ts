@@ -7,7 +7,7 @@ export const CTA_SECTION = {
     "Agende uma demonstração executiva e veja como a Terus Platform elimina ruptura, otimiza capital e automatiza a reposição em toda a cadeia.",
   trustIndicators: [
     { value: "96%", label: "Digitalização validada" },
-    { value: "< 5min", label: "Detecção de ruptura" },
+    { value: "0,5%", label: "Rejeição ERP" },
     { value: "+20", label: "Empresas na Rede Terus" },
   ],
 } as const;
@@ -28,7 +28,7 @@ export const SOCIAL_PROOF = {
   badge: "Prova social",
   title: "Resultados comprovados na Rede Terus",
   description:
-    "Indicadores operacionais validados em ambiente produtivo — digitalização, eficiência e crescimento financeiro.",
+    "Indicadores validados em ambiente produtivo — do antes ao depois, com pedidos rastreáveis e evidência operacional.",
 } as const;
 
 export const PLATFORM_ROADMAP_BADGE = "Roadmap 2026";

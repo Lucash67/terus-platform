@@ -249,6 +249,53 @@ export const CASES_DE_SUCESSO = [
   },
 ];
 
+/**
+ * Pilares de prova social — alinhados ao discurso do produto real
+ * (site legado terustec.com.br), sem depoimentos inventados.
+ */
+export const PROVA_SOCIAL_PILARES = [
+  {
+    title: "Atividades, não só relatórios",
+    description:
+      "O ecossistema gera atividades guiadas e monitoradas — reposição, exposição, preço e oferta — em vez de dashboards estáticos.",
+  },
+  {
+    title: "Evidência em cada execução",
+    description:
+      "Toda atividade concluída gera evidência do que foi feito. Equipes e abandonos ficam visíveis para acompanhar e medir a operação.",
+  },
+  {
+    title: "Varejo + fornecedor na mesma jornada",
+    description:
+      "Integração segura com indústria e distribuição: pedidos automatizados, painéis de alerta no PDV e Task para correção na gôndola.",
+  },
+] as const;
+
+/**
+ * Camada de integração do produto real (legado: Agent, IAproc, Bond).
+ * Infraestrutura que alimenta Alert, Strategy, Order, Task, Log e Pulse.
+ */
+export const CAMADA_INTEGRACAO = [
+  {
+    name: "Agent",
+    role: "Coleta",
+    description:
+      "Conexão segura e controlada aos sistemas do varejo. Extrai os dados necessários, compacta, criptografa e envia para a nuvem Terus.",
+  },
+  {
+    name: "IAproc",
+    role: "Inteligência",
+    description:
+      "Processa e trata os dados recebidos pelo Agent e transforma resultados em ações efetivas para os módulos da plataforma.",
+  },
+  {
+    name: "Bond",
+    role: "Integração",
+    description:
+      "Integra ERPs e fornecedores parceiros: sugestão de abastecimento, pedido de compra e troca de dados com indústria e distribuição.",
+  },
+] as const;
+
 export const INTEGRACOES = [
   {
     name: "Winthor",
@@ -738,13 +785,13 @@ export const PRODUCT_DEMO = {
     "Do hub da Terus saem alertas e pedidos para varejo, distribuição e indústria — em tempo real.",
   durationLabel: "10s",
   /** Caminho público do MP4/WebM — null até o arquivo existir */
-  src: null as string | null,
+  src: "/videos/demo-produto-10s.mp4" as string | null,
   /** Poster 16:9 — null usa o frame visual do próprio componente */
   poster: null as string | null,
   chapters: [
     { at: 0, label: "Ruptura", hint: "Alerta em tempo real" },
-    { at: 3, label: "Hub Terus", hint: "Inteligência no centro" },
-    { at: 7, label: "Ação", hint: "Pedido automático" },
+    { at: 2, label: "Hub Terus", hint: "Inteligência no centro" },
+    { at: 4, label: "Ação", hint: "Pedido automático" },
   ],
 } as const;
 

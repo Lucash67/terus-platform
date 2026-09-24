@@ -9,7 +9,10 @@ import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { PageHero } from "@/components/sections/page-hero";
 import { PLATFORM_ROADMAP_BADGE } from "@/lib/constants/copy";
 import { PLATFORM_PILLARS } from "@/lib/constants/site";
-import { PILARES_CONFIABILIDADE } from "@/lib/constants/site-data";
+import {
+  CAMADA_INTEGRACAO,
+  PILARES_CONFIABILIDADE,
+} from "@/lib/constants/site-data";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 // ProductDemoSection ocultada até haver vídeo real do produto.
@@ -48,6 +51,48 @@ export default function PlataformaPage() {
                     {pillar.description}
                   </p>
                 </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-rhythm-alt relative overflow-hidden">
+        <div
+          className="tr-grid-bg pointer-events-none absolute inset-0 opacity-40"
+          aria-hidden="true"
+        />
+        <Container className="relative">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              Camada de integração
+            </p>
+            <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
+              Agent, IAproc e Bond
+            </h2>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              A infraestrutura que coleta, processa e integra dados — a base
+              real que alimenta Alert, Strategy, Order, Task, Log e Pulse.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {CAMADA_INTEGRACAO.map((item, index) => (
+              <Reveal
+                key={item.name}
+                variant="scale"
+                delay={Math.min(index * 70, 420)}
+                className="rounded-xl border border-surface-border bg-surface-elevated-1 p-8"
+              >
+                <span className="inline-block rounded-md bg-brand-primary-dim px-2.5 py-1 font-mono text-caption font-medium uppercase tracking-wider text-brand-primary">
+                  {item.role}
+                </span>
+                <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary">
+                  {item.name}
+                </h3>
+                <p className="mt-3 text-body-md leading-relaxed text-text-secondary">
+                  {item.description}
+                </p>
               </Reveal>
             ))}
           </div>
