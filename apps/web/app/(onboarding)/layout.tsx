@@ -5,8 +5,8 @@ import { OnboardingStepper } from "@/components/onboarding/onboarding-stepper";
 
 export const metadata: Metadata = {
   title: {
-    default: "Onboarding — Terus",
-    template: "%s · Onboarding Terus",
+    default: "Onboarding — Terus Varejo",
+    template: "%s · Onboarding Terus Varejo",
   },
   robots: { index: false, follow: false },
 };
