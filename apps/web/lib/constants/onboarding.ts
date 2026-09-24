@@ -240,7 +240,7 @@ export const CONTRACT_CLAUSES: ContractClause[] = [
   {
     title: "Objeto",
     summary:
-      "Licenciamento da plataforma Terus — Supply Chain Intelligence — em modelo SaaS, com sincronização contínua do ERP.",
+      "Licenciamento da Terus Varejo — Inteligência da Cadeia de Suprimentos — em modelo SaaS, com sincronização contínua do ERP.",
   },
   {
     title: "Acesso aos dados",
@@ -255,7 +255,7 @@ export const CONTRACT_CLAUSES: ContractClause[] = [
   {
     title: "Nível de serviço",
     summary:
-      "Disponibilidade de 99,5% da plataforma, com suporte em horário comercial e canal prioritário para incidentes críticos.",
+      "Disponibilidade de 99,5% da Terus Varejo, com suporte em horário comercial e canal prioritário para incidentes críticos.",
   },
 ];
 

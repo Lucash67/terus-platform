@@ -270,7 +270,7 @@ export function StepContratos() {
 
       <StepNav
         backHref="/onboarding/diagnostico"
-        continueLabel="Ativar plataforma"
+        continueLabel="Ativar Terus Varejo"
         continueDisabled={signState !== "signed"}
         onContinue={() => router.push("/onboarding/conclusao")}
       />

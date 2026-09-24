@@ -12,18 +12,18 @@ export const BRAND = {
   },
 };
 
-export const SITE_NAME = "Terus Platform";
+export const SITE_NAME = "Terus Varejo";
 
-export const SITE_TAGLINE = "Supply Chain Intelligence";
+export const SITE_TAGLINE = "Inteligência da Cadeia de Suprimentos";
 
 export const SITE_DESCRIPTION =
-  "Plataforma SaaS de Supply Chain Intelligence que integra varejo, indústria e distribuição em tempo real.";
+  "Terus Varejo — solução de Inteligência da Cadeia de Suprimentos que integra varejo, indústria e distribuição em tempo real.";
 
 export const HERO = {
   headline: "Inteligência operacional em tempo real",
   headlineAccent: "para toda a cadeia de suprimentos",
   description:
-    "A Terus Platform transforma sinais da operação em ações automáticas — conectando ERPs, varejos e distribuidores com monitoramento contínuo e execução rastreada.",
+    "A Terus Varejo transforma sinais da operação em ações automáticas — conectando ERPs, varejos e distribuidores com monitoramento contínuo e execução rastreada.",
   highlights: [
     "Detecção de ruptura em menos de 5 minutos",
     "Automação de reposição e pedidos inteligentes",
@@ -116,7 +116,7 @@ export const COMPANY_VALUES = [
   {
     title: "Visão",
     description:
-      "Ser a plataforma de referência em Supply Chain Intelligence para o varejo brasileiro.",
+      "Ser a referência em Inteligência da Cadeia de Suprimentos para o varejo brasileiro.",
   },
   {
     title: "Diferencial",

@@ -111,7 +111,7 @@ export function SupplyChainFlow() {
             A Terus no centro — inteligência para toda a cadeia
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-body-md text-text-secondary">
-            Do hub da plataforma saem alertas, pedidos e sinais operacionais
+            Do hub da Terus Varejo saem alertas, pedidos e sinais operacionais
             para varejo, distribuição e indústria — em tempo real.
           </p>
         </div>

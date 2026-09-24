@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Sobre a Terus",
   description:
-    "Conheça a Terus Tecnologia — plataforma de Supply Chain Intelligence para varejo, indústria e distribuição no Brasil.",
+    "Conheça a Terus Tecnologia — Terus Varejo, Inteligência da Cadeia de Suprimentos para varejo, indústria e distribuição no Brasil.",
   path: "/sobre",
 });
 
@@ -30,10 +30,10 @@ export default function SobrePage() {
           <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal variant="left">
               <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary">
-                O que é a Terus Platform
+                O que é a Terus Varejo
               </h2>
               <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
-                A Terus Platform integra horizontalmente varejo, indústria e
+                A Terus Varejo integra horizontalmente varejo, indústria e
                 distribuição em tempo real — inteligência operacional com
                 automação, não BI genérico nem integração de dados.
               </p>
@@ -84,7 +84,7 @@ export default function SobrePage() {
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center">
             <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary">
-              Por que Supply Chain Intelligence?
+              Por que Inteligência da Cadeia de Suprimentos?
             </h2>
             <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
               {ABOUT.whySci}

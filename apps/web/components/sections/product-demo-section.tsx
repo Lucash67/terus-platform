@@ -4,7 +4,7 @@ import { ProductDemoPlayer } from "@/components/sections/product-demo-player";
 import { PRODUCT_DEMO } from "@/lib/constants/site-data";
 
 /**
- * Seção do vídeo demo de 60s — Home (após resultados) e Plataforma (após hero).
+ * Seção do vídeo demo de 60s — Home (após resultados) e página Terus Varejo (após hero).
  * O player aceita mídia quando PRODUCT_DEMO.src for preenchido.
  */
 export function ProductDemoSection() {

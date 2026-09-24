@@ -11,7 +11,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Agendar Demonstração",
   description:
-    "Agende uma demonstração executiva da Terus Platform e conheça como eliminar ruptura, automatizar reposição e operar com Supply Chain Intelligence.",
+    "Agende uma demonstração executiva da Terus Varejo e conheça como eliminar ruptura, automatizar reposição e operar com Inteligência da Cadeia de Suprimentos.",
   path: "/solicitar-demo",
 });
 
@@ -203,7 +203,7 @@ export default function SolicitarDemoPage() {
         <Container className="py-12 sm:py-16">
           <Reveal>
             <p className="text-center text-body-md text-text-secondary">
-              Prefere conhecer a plataforma antes?{" "}
+              Prefere conhecer a Terus Varejo antes?{" "}
               <Link
                 href={CTA.secondary.href}
                 className="font-medium text-brand-primary hover:underline"

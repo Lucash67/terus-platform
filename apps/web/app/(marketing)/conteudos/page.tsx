@@ -11,7 +11,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Conteúdos",
   description:
-    "Materiais sobre operação, monitoramento, automação e Supply Chain Intelligence para varejos e distribuidores.",
+    "Materiais sobre operação, monitoramento, automação e Inteligência da Cadeia de Suprimentos para varejos e distribuidores.",
   path: "/conteudos",
 });
 
@@ -33,7 +33,7 @@ export default function ConteudosPage() {
               <span className="text-gradient">operacional Terus</span>
             </h1>
             <p className="mt-4 text-body-lg text-text-secondary">
-              Pilares da plataforma, módulos integrados e cases com resultados
+              Pilares da Terus Varejo, módulos integrados e cases com resultados
               validados — tudo o que você precisa para entender a jornada
               operacional Terus.
             </p>

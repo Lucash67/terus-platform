@@ -9,7 +9,8 @@ import {
 import { OG_IMAGE_PATH, SITE_URL } from "./site-url";
 
 const KEYWORDS = [
-  "Supply Chain Intelligence",
+  "Terus Varejo",
+  "Inteligência da Cadeia de Suprimentos",
   "inteligência operacional",
   "varejo",
   "distribuição",
@@ -17,7 +18,6 @@ const KEYWORDS = [
   "ruptura de gôndola",
   "Winthor",
   "RMS",
-  "Terus Platform",
 ];
 
 interface PageMetadataOptions {
@@ -29,10 +29,10 @@ interface PageMetadataOptions {
 }
 
 function resolveTitle(title: string): string {
-  if (title.includes("Terus Platform")) {
+  if (title.includes("Terus Varejo")) {
     return title;
   }
-  return `${title} | Terus Platform`;
+  return `${title} | Terus Varejo`;
 }
 
 export function createPageMetadata({
@@ -89,7 +89,7 @@ export function createPageMetadata({
 export const rootMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Terus Platform — Supply Chain Intelligence",
+    default: "Terus Varejo — Inteligência da Cadeia de Suprimentos",
     template: "%s",
   },
   description: SITE_DESCRIPTION,
@@ -107,7 +107,7 @@ export const rootMetadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: SITE_NAME,
-    title: "Terus Platform — Supply Chain Intelligence",
+    title: "Terus Varejo — Inteligência da Cadeia de Suprimentos",
     description: SITE_DESCRIPTION,
     images: [
       {
@@ -120,7 +120,7 @@ export const rootMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Terus Platform — Supply Chain Intelligence",
+    title: "Terus Varejo — Inteligência da Cadeia de Suprimentos",
     description: SITE_DESCRIPTION,
     images: [OG_IMAGE_PATH],
   },

@@ -19,9 +19,9 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 // import { ProductDemoSection } from "@/components/sections/product-demo-section";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Plataforma de Onboarding, Ativação e Operação",
+  title: "Onboarding, Ativação e Operação",
   description:
-    "Conheça a Terus Platform — plataforma de Supply Chain Intelligence com integração, diagnóstico, automação e monitoramento em tempo real para varejo e distribuição.",
+    "Conheça a Terus Varejo — Inteligência da Cadeia de Suprimentos com integração, diagnóstico, automação e monitoramento em tempo real para varejo e distribuição.",
   path: "/plataforma",
 });
 
@@ -29,10 +29,10 @@ export default function PlataformaPage() {
   return (
     <>
       <PageHero
-        badge="Plataforma"
+        badge="Terus Varejo"
         title="Jornada completa do cliente"
-        titleAccent="em uma única plataforma"
-        description="Da integração ao monitoramento contínuo da operação, a Terus centraliza onboarding, ativação, execução e acompanhamento em um único ambiente."
+        titleAccent="em um único ambiente"
+        description="Da integração ao monitoramento contínuo da operação, a Terus Varejo centraliza onboarding, ativação, execução e acompanhamento."
       />
 
       <section className="py-16 sm:py-20 lg:py-24">
@@ -201,7 +201,7 @@ export default function PlataformaPage() {
               Monitoramento e automação em tempo real
             </h2>
             <p className="mt-4 text-body-lg text-text-secondary">
-              Após a ativação, a plataforma assume a operação contínua com
+              Após a ativação, a Terus Varejo assume a operação contínua com
               visibilidade completa, alertas automáticos e execução rastreada.
             </p>
           </Reveal>

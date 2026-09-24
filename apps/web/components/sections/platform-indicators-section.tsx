@@ -9,7 +9,7 @@ export function PlatformIndicatorsSection() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
-            Indicadores da plataforma
+            Indicadores da Terus Varejo
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold tracking-tight text-text-primary sm:text-display-lg">
             Performance operacional da jornada

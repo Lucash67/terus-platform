@@ -10,7 +10,7 @@ export function PositioningSection() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
-            Supply Chain Intelligence
+            Inteligência da Cadeia de Suprimentos
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
             Mais que integração — inteligência operacional em tempo real

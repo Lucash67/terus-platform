@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Módulos Terus — Operação Integrada",
   description:
-    "Seis módulos que sustentam toda a jornada operacional — Alert, Strategy, Order, Task, Log e Pulse para supply chain intelligence.",
+    "Seis módulos que sustentam toda a jornada operacional — Alert, Strategy, Order, Task, Log e Pulse para Inteligência da Cadeia de Suprimentos.",
   path: "/modulos",
 });
 

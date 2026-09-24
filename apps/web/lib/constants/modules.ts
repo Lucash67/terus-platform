@@ -17,7 +17,7 @@ export interface ModuleDefinition {
 }
 
 /**
- * Catálogo dos 6 módulos oficiais (nomenclatura da plataforma).
+ * Catálogo dos 6 módulos oficiais (nomenclatura da Terus Varejo).
  * Copy alinhada às soluções reais do site legado terustec.com.br:
  * Alert ← ALERT · Strategy ← STRATEGY · Order ← TASK WEB ·
  * Task ← TASK · Log ← TEAMS · Pulse ← Portal do Cliente.

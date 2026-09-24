@@ -4,7 +4,7 @@ export const CTA = {
     href: "/solicitar-demo",
   },
   secondary: {
-    label: "Explorar plataforma",
+    label: "Conhecer Terus Varejo",
     href: "/plataforma",
   },
 } as const;
@@ -15,7 +15,7 @@ export const WHATSAPP_DEMO_URL = `https://wa.me/558596290044?text=${encodeURICom
 
 export const DEMO_PAGE = {
   badge: "Demonstração comercial",
-  title: "Veja a Terus Platform operando na sua realidade",
+  title: "Veja a Terus Varejo operando na sua realidade",
   description:
     "Demonstração executiva personalizada para operações de varejo e distribuição — sem compromisso, focada em ruptura, reposição e inteligência operacional.",
   urgency:
@@ -26,10 +26,10 @@ export const DEMO_PAGE = {
     {
       title: "Diagnóstico da sua operação",
       description:
-        "Entendemos seu cenário de ERP, lojas e distribuição antes de apresentar a plataforma.",
+        "Entendemos seu cenário de ERP, lojas e distribuição antes de apresentar a Terus Varejo.",
     },
     {
-      title: "Demo ao vivo da plataforma",
+      title: "Demo ao vivo da Terus Varejo",
       description:
         "Visualize alertas, automação de reposição e monitoramento em tempo real — com dados simulados do seu contexto.",
     },
@@ -50,7 +50,7 @@ export const DEMO_PAGE = {
       step: "02",
       title: "Demonstração executiva",
       description:
-        "Sessão de 30–45 minutos com foco em Supply Chain Intelligence, módulos Terus e jornada operacional.",
+        "Sessão de 30–45 minutos com foco em Inteligência da Cadeia de Suprimentos, módulos Terus e jornada operacional.",
     },
     {
       step: "03",
@@ -60,7 +60,7 @@ export const DEMO_PAGE = {
     },
   ],
   demoIncludes: [
-    "Visão geral da arquitetura e pilares da plataforma",
+    "Visão geral da arquitetura e pilares da Terus Varejo",
     "Demonstração dos módulos Alert, Order e Pulse",
     "Integração com ERPs Winthor e RMS homologados",
     "Cases reais da Rede Terus com métricas validadas",

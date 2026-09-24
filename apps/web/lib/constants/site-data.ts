@@ -286,7 +286,7 @@ export const CAMADA_INTEGRACAO = [
     name: "IAproc",
     role: "Inteligência",
     description:
-      "Processa e trata os dados recebidos pelo Agent e transforma resultados em ações efetivas para os módulos da plataforma.",
+      "Processa e trata os dados recebidos pelo Agent e transforma resultados em ações efetivas para os módulos da Terus Varejo.",
   },
   {
     name: "Bond",
@@ -326,7 +326,7 @@ export const INTEGRACOES = [
     type: "API",
     status: "roadmap" as const,
     description:
-      "Endpoints REST para sincronização de estoque, pedidos e alertas — disponível na evolução da plataforma.",
+      "Endpoints REST para sincronização de estoque, pedidos e alertas — disponível na evolução da Terus Varejo.",
     logo: null,
   },
 ];

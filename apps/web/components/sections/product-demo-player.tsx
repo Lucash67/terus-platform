@@ -8,27 +8,27 @@ import { Button } from "@terus/ui";
 import { PRODUCT_DEMO } from "@/lib/constants/site-data";
 
 /**
- * Player do vídeo demo. Com `src` nulo, mostra o stage visual pronto
- * (poster + capítulos) e CTAs — sem retângulo quebrado.
+ * Player do vídeo demo. Com `src` nulo, mostra o stage visual pronto.
+ * Com vídeo: autoplay mudo em loop ao entrar no viewport (política dos browsers).
  */
 export function ProductDemoPlayer() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const stageRef = React.useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = React.useState(false);
   const [activeChapter, setActiveChapter] = React.useState(0);
+  const [autoplayBlocked, setAutoplayBlocked] = React.useState(false);
   const hasVideo = Boolean(PRODUCT_DEMO.src);
 
   function handlePlay() {
     const video = videoRef.current;
     if (!video || !PRODUCT_DEMO.src) return;
-    void video.play();
-    setPlaying(true);
-  }
-
-  function handlePause() {
-    const video = videoRef.current;
-    if (!video) return;
-    video.pause();
-    setPlaying(false);
+    void video.play().then(
+      () => {
+        setPlaying(true);
+        setAutoplayBlocked(false);
+      },
+      () => setAutoplayBlocked(true),
+    );
   }
 
   function seekTo(seconds: number, index: number) {
@@ -36,8 +36,10 @@ export function ProductDemoPlayer() {
     const video = videoRef.current;
     if (!video || !PRODUCT_DEMO.src) return;
     video.currentTime = seconds;
-    void video.play();
-    setPlaying(true);
+    void video.play().then(
+      () => setPlaying(true),
+      () => setAutoplayBlocked(true),
+    );
   }
 
   React.useEffect(() => {
@@ -53,20 +55,67 @@ export function ProductDemoPlayer() {
       setActiveChapter(idx);
     };
 
-    const onEnded = () => setPlaying(false);
-
     video.addEventListener("timeupdate", onTime);
-    video.addEventListener("ended", onEnded);
-    return () => {
-      video.removeEventListener("timeupdate", onTime);
-      video.removeEventListener("ended", onEnded);
-    };
+    return () => video.removeEventListener("timeupdate", onTime);
   }, []);
+
+  // Autoplay ao entrar na vista; pausa ao sair. Respeita reduced-motion.
+  React.useEffect(() => {
+    const video = videoRef.current;
+    const stage = stageRef.current;
+    if (!video || !stage || !PRODUCT_DEMO.src) return;
+
+    const reduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduced) {
+      setAutoplayBlocked(true);
+      return;
+    }
+
+    const tryPlay = () => {
+      video.muted = true;
+      void video.play().then(
+        () => {
+          setPlaying(true);
+          setAutoplayBlocked(false);
+        },
+        () => setAutoplayBlocked(true),
+      );
+    };
+
+    if (typeof IntersectionObserver === "undefined") {
+      tryPlay();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            tryPlay();
+          } else {
+            video.pause();
+            setPlaying(false);
+          }
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, []);
+
+  const showPlayOverlay = !hasVideo || autoplayBlocked;
 
   return (
     <div className="space-y-5">
-      <div className="tr-glow-ring relative overflow-hidden rounded-2xl border border-surface-border bg-surface-elevated-1 shadow-floating">
-        {/* Chrome */}
+      <div
+        ref={stageRef}
+        className="tr-glow-ring relative overflow-hidden rounded-2xl border border-surface-border bg-surface-elevated-1 shadow-floating"
+      >
         <div className="flex items-center justify-between border-b border-surface-border px-4 py-3">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-status-error/80" />
@@ -77,7 +126,7 @@ export function ProductDemoPlayer() {
             Terus · Demo {PRODUCT_DEMO.durationLabel}
           </span>
           <span className="rounded-full bg-brand-primary-dim px-2.5 py-0.5 font-mono text-caption text-brand-primary">
-            {hasVideo ? "Pronto" : "Em produção"}
+            {hasVideo ? (playing ? "Ao vivo" : "Pronto") : "Em produção"}
           </span>
         </div>
 
@@ -87,9 +136,12 @@ export function ProductDemoPlayer() {
               ref={videoRef}
               className="h-full w-full object-cover"
               poster={PRODUCT_DEMO.poster ?? undefined}
+              muted
+              loop
               playsInline
-              preload="metadata"
-              controls={playing}
+              autoPlay
+              preload="auto"
+              controls={playing || autoplayBlocked}
               onPlay={() => setPlaying(true)}
               onPause={() => setPlaying(false)}
             >
@@ -107,7 +159,7 @@ export function ProductDemoPlayer() {
             <DemoPosterFrame />
           )}
 
-          {!playing ? (
+          {showPlayOverlay ? (
             <button
               type="button"
               onClick={hasVideo ? handlePlay : undefined}
@@ -139,20 +191,10 @@ export function ProductDemoPlayer() {
                 </span>
               ) : null}
             </button>
-          ) : (
-            <button
-              type="button"
-              onClick={handlePause}
-              className="sr-only"
-              aria-label="Pausar vídeo"
-            >
-              Pausar
-            </button>
-          )}
+          ) : null}
         </div>
       </div>
 
-      {/* Capítulos */}
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {PRODUCT_DEMO.chapters.map((chapter, index) => {
           const active = activeChapter === index;
@@ -204,7 +246,6 @@ function formatTimestamp(seconds: number): string {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-/** Frame visual interno — usado até existir poster real */
 function DemoPosterFrame() {
   return (
     <div className="absolute inset-0 flex flex-col justify-between bg-surface-elevated-1 p-5 sm:p-8">
@@ -217,7 +258,7 @@ function DemoPosterFrame() {
 
       <div className="relative">
         <p className="font-mono text-caption uppercase tracking-widest text-brand-primary">
-          Supply Chain Intelligence
+          Inteligência da Cadeia de Suprimentos
         </p>
         <p className="mt-2 max-w-md font-display text-heading-lg font-bold text-text-primary sm:text-heading-xl">
           Ruptura detectada → pedido automático em minutos

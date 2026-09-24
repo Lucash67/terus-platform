@@ -9,11 +9,11 @@ export function InstitutionalContentSection() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Jornada operacional da plataforma
+            Jornada operacional da Terus Varejo
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
             Da conexão com o ERP à operação contínua — cinco pilares que
-            estruturam a proposta de valor da Terus Platform.
+            estruturam a proposta de valor da Terus Varejo.
           </p>
         </Reveal>
 

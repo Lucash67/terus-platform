@@ -4,7 +4,7 @@ export const CTA_SECTION = {
   badge: "Próximo passo",
   title: "Transforme sinais da operação em ações automáticas",
   description:
-    "Agende uma demonstração executiva e veja como a Terus Platform elimina ruptura, otimiza capital e automatiza a reposição em toda a cadeia.",
+    "Agende uma demonstração executiva e veja como a Terus Varejo elimina ruptura, otimiza capital e automatiza a reposição em toda a cadeia.",
   trustIndicators: [
     { value: "96%", label: "Digitalização validada" },
     { value: "0,5%", label: "Rejeição ERP" },
@@ -14,7 +14,8 @@ export const CTA_SECTION = {
 
 export const FOOTER_COPY = {
   slogan: "Inteligência que age — não apenas informa.",
-  tagline: "Supply Chain Intelligence para varejo, indústria e distribuição.",
+  tagline:
+    "Inteligência da Cadeia de Suprimentos para varejo, indústria e distribuição.",
 } as const;
 
 export const ENTERPRISE_TRUST = {
@@ -36,12 +37,12 @@ export const PLATFORM_ROADMAP_BADGE = "Roadmap 2026";
 export const ABOUT = {
   hero: {
     badge: "Sobre",
-    title: "Plataforma que protege receita e otimiza capital",
+    title: "Solução que protege receita e otimiza capital",
     description:
-      "A Terus Platform resolve os três desafios de missão crítica no varejo: ruptura de gôndola, excesso de estoque e execução manual inconsistente.",
+      "A Terus Varejo resolve os três desafios de missão crítica no varejo: ruptura de gôndola, excesso de estoque e execução manual inconsistente.",
   },
   story:
-    "Nascemos da operação real — conectando varejos e distribuidores com inteligência que transforma sinais em ações. Evoluímos de integração pontual para uma plataforma completa de Supply Chain Intelligence.",
+    "Nascemos da operação real — conectando varejos e distribuidores com inteligência que transforma sinais em ações. Evoluímos de integração pontual para a Terus Varejo: Inteligência da Cadeia de Suprimentos.",
   whySci:
     "Dados desconectados não resolvem ruptura. Relatórios defasados não protegem receita. A operação precisa de inteligência que age — não apenas informa.",
   security:

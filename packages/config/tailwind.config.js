@@ -1,5 +1,5 @@
 /**
- * Preset oficial de tema da Terus Platform — identidade dark enterprise.
+ * Preset oficial de tema da Terus Varejo — identidade dark enterprise.
  * Fonte única de tokens de cor/tipografia/espaçamento (CLAUDE.md · PROJECT_RULES.md).
  * Os apps consomem via `presets: [require("@terus/config/tailwind.config.js")]`.
  * @type {import('tailwindcss').Config}

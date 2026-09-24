@@ -23,7 +23,8 @@ const organizationJsonLd = {
     name: "Brasil",
   },
   knowsAbout: [
-    "Supply Chain Intelligence",
+    "Terus Varejo",
+    "Inteligência da Cadeia de Suprimentos",
     "Automação de reposição",
     "Inteligência operacional",
     "Varejo",

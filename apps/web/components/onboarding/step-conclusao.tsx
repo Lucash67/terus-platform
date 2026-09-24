@@ -206,7 +206,7 @@ export function StepConclusao() {
               className="font-semibold"
               title="Disponível após o provisionamento do ambiente"
             >
-              Acessar plataforma
+              Acessar Terus Varejo
               <Badge
                 variant="secondary"
                 className="ml-1 border-surface-base/30 bg-surface-base/20 text-surface-base"

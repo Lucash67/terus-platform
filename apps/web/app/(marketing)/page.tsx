@@ -20,7 +20,7 @@ import { SITE_DESCRIPTION } from "@/lib/constants/site";
 // import { ProductDemoSection } from "@/components/sections/product-demo-section";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Terus Platform — Supply Chain Intelligence",
+  title: "Terus Varejo — Inteligência da Cadeia de Suprimentos",
   description: SITE_DESCRIPTION,
   path: "/",
 });

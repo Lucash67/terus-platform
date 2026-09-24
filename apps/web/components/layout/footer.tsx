@@ -36,7 +36,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
             <div>
               <h3 className="font-display text-caption font-semibold uppercase tracking-wider text-text-tertiary">
-                Plataforma
+                Produto
               </h3>
               <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.plataforma.map((link) => (
@@ -112,7 +112,7 @@ export function Footer() {
             reservados.
           </p>
           <p className="text-caption text-text-tertiary">
-            Supply Chain Intelligence · Varejo · Indústria · Distribuição
+            Inteligência da Cadeia de Suprimentos · Varejo · Indústria · Distribuição
           </p>
         </div>
       </Container>

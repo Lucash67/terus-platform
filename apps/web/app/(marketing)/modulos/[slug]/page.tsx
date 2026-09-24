@@ -28,7 +28,7 @@ export function generateMetadata({ params }: ModulePageProps): Metadata {
   if (!module) {
     return createPageMetadata({
       title: "Módulo não encontrado",
-      description: "O módulo solicitado não existe na Terus Platform.",
+      description: "O módulo solicitado não existe na Terus Varejo.",
       path: "/modulos",
       noIndex: true,
     });

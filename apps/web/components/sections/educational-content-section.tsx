@@ -13,7 +13,7 @@ export function EducationalContentSection() {
       <Container className="relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Supply Chain Intelligence na prática
+            Inteligência da Cadeia de Suprimentos na prática
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
             Três capacidades centrais que diferenciam a Terus de ferramentas

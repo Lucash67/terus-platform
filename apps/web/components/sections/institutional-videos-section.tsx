@@ -17,7 +17,7 @@ export function InstitutionalVideosSection() {
             Conheça a Terus
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Vídeos institucionais sobre a plataforma, sua visão e o impacto
+            Vídeos institucionais sobre a Terus Varejo, sua visão e o impacto
             operacional gerado para varejos e distribuidores.
           </p>
         </div>

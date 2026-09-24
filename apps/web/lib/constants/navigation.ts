@@ -4,7 +4,7 @@ export interface NavLink {
 }
 
 export const MAIN_NAV_LINKS: NavLink[] = [
-  { label: "Plataforma", href: "/plataforma" },
+  { label: "Terus Varejo", href: "/plataforma" },
   { label: "Módulos", href: "/modulos" },
   { label: "Ecossistema", href: "/ecossistema" },
   { label: "Cases", href: "/cases" },
@@ -14,7 +14,7 @@ export const MAIN_NAV_LINKS: NavLink[] = [
 
 export const FOOTER_LINKS = {
   plataforma: [
-    { label: "Plataforma", href: "/plataforma" },
+    { label: "Terus Varejo", href: "/plataforma" },
     { label: "Módulos", href: "/modulos" },
     { label: "Ecossistema", href: "/ecossistema" },
   ],

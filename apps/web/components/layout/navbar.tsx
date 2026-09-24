@@ -56,7 +56,7 @@ export function Navbar() {
               disabled
               className="text-text-tertiary"
             >
-              Acessar plataforma
+              Acessar Terus Varejo
             </Button>
             <Button
               size="md"
