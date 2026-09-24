@@ -164,9 +164,26 @@ export function WelcomeHero() {
                 </svg>
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/solicitar-demo">Falar com especialista</Link>
-            </Button>
+            {hasProgress ? (
+              <Button
+                size="lg"
+                variant="outline"
+                type="button"
+                onClick={() => {
+                  const confirmed = window.confirm(
+                    "Recomeçar o onboarding do zero?\n\nTodo o progresso salvo neste navegador será apagado.",
+                  );
+                  if (!confirmed) return;
+                  store.resetOnboarding();
+                }}
+              >
+                Recomeçar do zero
+              </Button>
+            ) : (
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/solicitar-demo">Falar com especialista</Link>
+              </Button>
+            )}
           </div>
 
           <ul

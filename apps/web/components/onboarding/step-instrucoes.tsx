@@ -96,6 +96,12 @@ export function StepInstrucoes() {
     router.push("/onboarding/banco");
   };
 
+  const handleSkip = () => {
+    // Libera a próxima etapa; o diagnóstico aponta o que ainda falta no ERP.
+    confirmarInstrucoes();
+    router.push("/onboarding/banco");
+  };
+
   return (
     <StepShell
       step={3}
@@ -106,7 +112,7 @@ export function StepInstrucoes() {
           <span className="text-gradient">{erpOption?.name}</span>
         </>
       }
-      description="Três passos no seu ambiente e a Terus consegue enxergar o ERP. Encaminhe para o seu time de TI se preferir — tudo é somente-leitura."
+      description="Três passos no seu ambiente e a Terus consegue enxergar o ERP. Encaminhe para o seu time de TI se preferir — tudo é somente-leitura. Pode pular e resolver depois."
       wide
     >
       <ol className="space-y-4">
@@ -181,6 +187,8 @@ export function StepInstrucoes() {
         backHref="/onboarding/integracao"
         continueDisabled={!confirmed}
         onContinue={handleContinue}
+        onSkip={handleSkip}
+        skipLabel="Pular esta etapa"
       />
     </StepShell>
   );

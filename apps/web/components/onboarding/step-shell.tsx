@@ -59,6 +59,9 @@ interface StepNavProps {
   /** Quando definido, o botão de continuar age como submit de formulário. */
   formId?: string;
   onContinue?: () => void;
+  /** Pular etapa (ex.: instruções opcionais / resolver depois). */
+  onSkip?: () => void;
+  skipLabel?: string;
   loading?: boolean;
 }
 
@@ -68,10 +71,12 @@ export function StepNav({
   continueDisabled = false,
   formId,
   onContinue,
+  onSkip,
+  skipLabel = "Pular esta etapa",
   loading = false,
 }: StepNavProps) {
   return (
-    <div className="mt-8 flex items-center justify-between gap-4 border-t border-surface-border pt-6">
+    <div className="mt-8 flex flex-col gap-4 border-t border-surface-border pt-6 sm:flex-row sm:items-center sm:justify-between">
       {backHref ? (
         <Button variant="ghost" size="lg" asChild>
           <Link href={backHref}>
@@ -93,41 +98,56 @@ export function StepNav({
           </Link>
         </Button>
       ) : (
-        <span />
+        <span className="hidden sm:block" />
       )}
-      <Button
-        size="lg"
-        type={formId ? "submit" : "button"}
-        form={formId}
-        disabled={continueDisabled || loading}
-        onClick={onContinue}
-        className="min-w-40 font-semibold shadow-elevated ring-2 ring-brand-primary/15 transition-all hover:ring-brand-primary/30"
-      >
-        {loading ? (
-          <span
-            className="h-4 w-4 rounded-full border-2 border-surface-base/40 border-t-surface-base ob-spin"
-            aria-hidden="true"
-          />
-        ) : (
-          <>
-            {continueLabel}
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              className="h-4 w-4"
+
+      <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center">
+        {onSkip ? (
+          <Button
+            type="button"
+            variant="outline"
+            size="lg"
+            onClick={onSkip}
+            disabled={loading}
+            className="text-text-secondary"
+          >
+            {skipLabel}
+          </Button>
+        ) : null}
+        <Button
+          size="lg"
+          type={formId ? "submit" : "button"}
+          form={formId}
+          disabled={continueDisabled || loading}
+          onClick={onContinue}
+          className="min-w-40 font-semibold shadow-elevated ring-2 ring-brand-primary/15 transition-all hover:ring-brand-primary/30"
+        >
+          {loading ? (
+            <span
+              className="h-4 w-4 rounded-full border-2 border-surface-base/40 border-t-surface-base ob-spin"
               aria-hidden="true"
-            >
-              <path
-                d="M9 6l6 6-6 6"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </>
-        )}
-      </Button>
+            />
+          ) : (
+            <>
+              {continueLabel}
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path
+                  d="M9 6l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </>
+          )}
+        </Button>
+      </div>
     </div>
   );
 }
