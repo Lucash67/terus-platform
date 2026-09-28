@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${dmSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+      className={`light ${dmSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-surface-base font-sans text-text-primary antialiased">

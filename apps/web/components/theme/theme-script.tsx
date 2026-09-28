@@ -1,9 +1,9 @@
 /**
- * Aplica o tema salvo antes do primeiro paint (evita flash).
- * Dark é o tema padrão da marca; "light" só quando o visitante escolher.
+ * O site sempre abre no tema claro. O escuro só existe se o visitante
+ * alternar na sessão — a próxima carga volta ao claro.
  */
 export function ThemeScript() {
-  const script = `(function(){try{if(localStorage.getItem("terus-theme")==="light"){document.documentElement.classList.add("light")}}catch(e){}})();`;
+  const script = `(function(){document.documentElement.classList.add("light");try{localStorage.setItem("terus-theme","light")}catch(e){}})();`;
 
   return <script dangerouslySetInnerHTML={{ __html: script }} />;
 }
