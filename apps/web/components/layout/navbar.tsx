@@ -100,7 +100,11 @@ export function Navbar() {
                 </svg>
               </button>
             ) : (
-              <Button size="sm" asChild className="font-semibold shadow-elevated">
+              <Button
+                size="sm"
+                asChild
+                className="font-semibold shadow-elevated"
+              >
                 <Link href={CTA.primary.href}>{CTA.primary.label}</Link>
               </Button>
             )}

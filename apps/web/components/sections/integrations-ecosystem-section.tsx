@@ -64,8 +64,8 @@ export function IntegrationsEcosystemSection() {
             Do ERP à ação — a base do ecossistema
           </h3>
           <p className="mt-3 text-body-md text-text-secondary">
-            Três componentes que já operam no produto: coleta segura, processamento
-            inteligente e integração com fornecedores e ERP.
+            Três componentes que já operam no produto: coleta segura,
+            processamento inteligente e integração com fornecedores e ERP.
           </p>
         </Reveal>
 
