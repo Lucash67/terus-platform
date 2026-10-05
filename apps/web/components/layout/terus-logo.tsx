@@ -14,9 +14,9 @@ interface TerusLogoProps {
 }
 
 const WORDMARK_SIZE = {
-  sm: { width: 140, height: 29 },
-  md: { width: 168, height: 35 },
-  lg: { width: 220, height: 46 },
+  sm: { width: 160, height: 15 },
+  md: { width: 192, height: 18 },
+  lg: { width: 256, height: 24 },
 } as const;
 
 const MARK_SIZE = {
@@ -26,7 +26,7 @@ const MARK_SIZE = {
 } as const;
 
 /**
- * Logo oficial Terus.TEC (wordmark ou monograma).
+ * Logo oficial Terus.varejo (wordmark) ou monograma Terus.
  * Assets em /public/logos/terus com fundo transparente.
  */
 export function TerusLogo({
@@ -51,13 +51,29 @@ export function TerusLogo({
 
   const dims = WORDMARK_SIZE[size];
   return (
-    <Image
-      src={BRAND.logos.primary}
-      alt={`${BRAND.name} — Tecnologia para Varejo`}
-      width={dims.width}
-      height={dims.height}
-      priority={priority}
-      className={cn("h-auto w-auto object-contain", className)}
-    />
+    <>
+      <Image
+        src={BRAND.logos.primary}
+        alt="Terus Varejo"
+        width={dims.width}
+        height={dims.height}
+        priority={priority}
+        className={cn(
+          "hidden h-auto w-auto object-contain [.light_&]:block",
+          className,
+        )}
+      />
+      <Image
+        src={BRAND.logos.primaryDark}
+        alt="Terus Varejo"
+        width={dims.width}
+        height={dims.height}
+        priority={priority}
+        className={cn(
+          "block h-auto w-auto object-contain [.light_&]:hidden",
+          className,
+        )}
+      />
+    </>
   );
 }

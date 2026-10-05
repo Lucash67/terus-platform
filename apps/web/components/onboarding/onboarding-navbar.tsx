@@ -36,7 +36,7 @@ export function OnboardingNavbar() {
         >
           <div className="flex items-center gap-3">
             <Link href="/" className="shrink-0">
-              <TerusLogo priority />
+              <TerusLogo priority className="w-32 sm:w-auto" />
             </Link>
             <Badge
               variant="secondary"

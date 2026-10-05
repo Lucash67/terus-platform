@@ -1,14 +1,16 @@
 export const BRAND = {
   name: "Terus.TEC",
   logos: {
-    /** Wordmark oficial (fundo transparente) — navbar, footer */
-    primary: "/logos/terus/terus-wordmark.png",
+    /** Wordmark oficial Terus.varejo (fundo transparente) — navbar, footer */
+    primary: "/logos/terus/terus-varejo-wordmark.png",
+    /** Wordmark com "TERUS" branco — tema escuro */
+    primaryDark: "/logos/terus/terus-varejo-wordmark-dark.png",
     /** Monograma colorido — favicon / espaços compactos */
     mark: "/logos/terus/terus-mark.png",
     /** Monograma claro (path branco) — fundos escuros */
     markLight: "/logos/terus/terus-mark-light.png",
-    /** Wordmark em fundo branco — impressão / OG */
-    print: "/logos/terus/terus.jpg",
+    /** Wordmark em fundo branco 1200×630 — impressão / OG */
+    print: "/logos/terus/terus-varejo-og.jpg",
   },
 };
 

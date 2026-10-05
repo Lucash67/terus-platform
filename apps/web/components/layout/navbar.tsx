@@ -29,7 +29,7 @@ export function Navbar() {
             className="shrink-0"
             onClick={() => setMobileOpen(false)}
           >
-            <TerusLogo priority />
+            <TerusLogo priority className="w-32 sm:w-auto" />
           </Link>
 
           {hasNavLinks ? (

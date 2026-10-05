@@ -2,6 +2,6 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://terus-platform-web.vercel.app";
 
-export const OG_IMAGE_PATH = "/logos/terus/terus.jpg";
+export const OG_IMAGE_PATH = "/logos/terus/terus-varejo-og.jpg";
 
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
