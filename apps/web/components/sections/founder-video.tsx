@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { cn } from "@terus/ui";
 
-import { ANALYTICS_EVENTS, track } from "@/lib/analytics";
 import { FOUNDER, type FounderVideoData } from "@/lib/constants/lp";
+import { useAutoplayWithSound } from "@/lib/use-autoplay-with-sound";
 
 interface FounderVideoProps extends FounderVideoData {
   className?: string;
@@ -14,11 +14,8 @@ interface FounderVideoProps extends FounderVideoData {
 }
 
 /**
- * Vídeo vertical do fundador. Começa sozinho quando entra na tela e pausa ao
- * sair; nada do MP4 é baixado antes disso. Tenta tocar com som — browsers só
- * permitem depois de um clique/toque na página; sem isso toca mudo e o som
- * liga no primeiro clique/toque em qualquer lugar. Com reduced-motion, espera
- * o clique.
+ * Vídeo vertical do fundador. Nada do MP4 é baixado antes de entrar na tela;
+ * reprodução e som seguem `useAutoplayWithSound`.
  */
 export function FounderVideo({
   src,
@@ -30,91 +27,11 @@ export function FounderVideo({
 }: FounderVideoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const soundOnRef = useRef(false);
-  const [started, setStarted] = useState(false);
-  const [withSound, setWithSound] = useState(false);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const video = videoRef.current;
-    if (!container || !video) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (typeof IntersectionObserver === "undefined") return;
-
-    let inView = false;
-
-    const markSoundOn = () => {
-      soundOnRef.current = true;
-      video.loop = false;
-      setWithSound(true);
-    };
-
-    const playInView = () => {
-      if (soundOnRef.current) {
-        void video.play().catch(() => undefined);
-        return;
-      }
-      video.muted = false;
-      video.play().then(
-        () => {
-          markSoundOn();
-          setStarted(true);
-        },
-        () => {
-          video.muted = true;
-          void video.play().then(
-            () => setStarted(true),
-            () => undefined,
-          );
-        },
-      );
-    };
-
-    const onFirstInteraction = () => {
-      window.removeEventListener("pointerdown", onFirstInteraction);
-      window.removeEventListener("keydown", onFirstInteraction);
-      if (soundOnRef.current || !inView || video.paused) return;
-      video.muted = false;
-      video.currentTime = 0;
-      markSoundOn();
-      track(ANALYTICS_EVENTS.videoSound, { video: title });
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        inView = entry.isIntersecting;
-        if (inView) playInView();
-        else video.pause();
-      },
-      { threshold: 0.6 },
-    );
-
-    observer.observe(container);
-    window.addEventListener("pointerdown", onFirstInteraction);
-    window.addEventListener("keydown", onFirstInteraction);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("pointerdown", onFirstInteraction);
-      window.removeEventListener("keydown", onFirstInteraction);
-    };
-  }, [title]);
-
-  const playWithSound = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (!soundOnRef.current) {
-      track(ANALYTICS_EVENTS.videoSound, { video: title });
-    }
-    soundOnRef.current = true;
-    video.muted = false;
-    video.loop = false;
-    video.currentTime = 0;
-    setWithSound(true);
-    void video.play().then(
-      () => setStarted(true),
-      () => undefined,
-    );
-  };
+  const { started, withSound, playWithSound } = useAutoplayWithSound({
+    containerRef,
+    videoRef,
+    label: title,
+  });
 
   return (
     <figure className={cn("w-full max-w-xs", className)}>
@@ -137,7 +54,7 @@ export function FounderVideo({
         {!withSound ? (
           <button
             type="button"
-            onClick={playWithSound}
+            onClick={() => playWithSound()}
             aria-label={`Assistir com som: ${title} (${duration})`}
             className="group absolute inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-primary"
           >

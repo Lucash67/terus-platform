@@ -7,40 +7,35 @@ import { Button } from "@terus/ui";
 
 import { CTA } from "@/lib/constants/conversion";
 import { PRODUCT_DEMO } from "@/lib/constants/site-data";
+import { useAutoplayWithSound } from "@/lib/use-autoplay-with-sound";
 
 /**
  * Player do vídeo demo. Com `src` nulo, mostra o stage visual pronto.
- * Com vídeo: autoplay mudo em loop ao entrar no viewport (política dos browsers).
+ * Com vídeo: reprodução e som seguem `useAutoplayWithSound`.
  */
 export function ProductDemoPlayer() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const stageRef = React.useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = React.useState(false);
   const [activeChapter, setActiveChapter] = React.useState(0);
-  const [autoplayBlocked, setAutoplayBlocked] = React.useState(false);
   const hasVideo = Boolean(PRODUCT_DEMO.src);
-
-  function handlePlay() {
-    const video = videoRef.current;
-    if (!video || !PRODUCT_DEMO.src) return;
-    void video.play().then(
-      () => {
-        setPlaying(true);
-        setAutoplayBlocked(false);
-      },
-      () => setAutoplayBlocked(true),
-    );
-  }
+  const { started, withSound, playWithSound } = useAutoplayWithSound({
+    containerRef: stageRef,
+    videoRef,
+    label: PRODUCT_DEMO.eyebrow,
+    threshold: 0.35,
+  });
 
   function seekTo(seconds: number, index: number) {
     setActiveChapter(index);
     const video = videoRef.current;
     if (!video || !PRODUCT_DEMO.src) return;
+    if (!withSound) {
+      playWithSound(seconds);
+      return;
+    }
     video.currentTime = seconds;
-    void video.play().then(
-      () => setPlaying(true),
-      () => setAutoplayBlocked(true),
-    );
+    void video.play().catch(() => undefined);
   }
 
   React.useEffect(() => {
@@ -60,56 +55,7 @@ export function ProductDemoPlayer() {
     return () => video.removeEventListener("timeupdate", onTime);
   }, []);
 
-  // Autoplay ao entrar na vista; pausa ao sair. Respeita reduced-motion.
-  React.useEffect(() => {
-    const video = videoRef.current;
-    const stage = stageRef.current;
-    if (!video || !stage || !PRODUCT_DEMO.src) return;
-
-    const reduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduced) {
-      setAutoplayBlocked(true);
-      return;
-    }
-
-    const tryPlay = () => {
-      video.muted = true;
-      void video.play().then(
-        () => {
-          setPlaying(true);
-          setAutoplayBlocked(false);
-        },
-        () => setAutoplayBlocked(true),
-      );
-    };
-
-    if (typeof IntersectionObserver === "undefined") {
-      tryPlay();
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            tryPlay();
-          } else {
-            video.pause();
-            setPlaying(false);
-          }
-        }
-      },
-      { threshold: 0.35 },
-    );
-
-    observer.observe(stage);
-    return () => observer.disconnect();
-  }, []);
-
-  const showPlayOverlay = !hasVideo || autoplayBlocked;
+  const showPlayOverlay = !hasVideo || !started;
 
   return (
     <div className="space-y-5">
@@ -140,9 +86,8 @@ export function ProductDemoPlayer() {
               muted
               loop
               playsInline
-              autoPlay
-              preload="auto"
-              controls={playing || autoplayBlocked}
+              preload="metadata"
+              controls={withSound}
               onPlay={() => setPlaying(true)}
               onPause={() => setPlaying(false)}
             >
@@ -163,7 +108,7 @@ export function ProductDemoPlayer() {
           {showPlayOverlay ? (
             <button
               type="button"
-              onClick={hasVideo ? handlePlay : undefined}
+              onClick={hasVideo ? () => playWithSound() : undefined}
               disabled={!hasVideo}
               aria-label={
                 hasVideo
@@ -191,6 +136,30 @@ export function ProductDemoPlayer() {
                   </span>
                 </span>
               ) : null}
+            </button>
+          ) : null}
+
+          {hasVideo && started && !withSound ? (
+            <button
+              type="button"
+              onClick={() => playWithSound()}
+              className="absolute right-3 top-3 flex items-center gap-2 rounded-full bg-brand-primary px-3 py-1.5 font-mono text-caption font-semibold text-surface-base shadow-glow transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M11 5 6 9H2v6h4l5 4V5z" />
+                <path d="M15.5 8.5a5 5 0 010 7" />
+                <path d="M19 5a10 10 0 010 14" />
+              </svg>
+              Ativar som
             </button>
           ) : null}
         </div>
