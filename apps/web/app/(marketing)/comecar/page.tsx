@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Badge, Button } from "@terus/ui";
 
 import { PreCadastroForm } from "@/components/conversion/pre-cadastro-form";
@@ -144,13 +143,15 @@ export default function SolicitarDemoPage() {
         <Container className="py-12 sm:py-16">
           <Reveal>
             <p className="text-center text-body-md text-text-secondary">
-              Prefere conhecer a Terus Varejo antes?{" "}
-              <Link
+              Prefere conversar antes de preencher?{" "}
+              <a
                 href={CTA.secondary.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-medium text-brand-primary hover:underline"
               >
                 {CTA.secondary.label}
-              </Link>
+              </a>
             </p>
           </Reveal>
         </Container>

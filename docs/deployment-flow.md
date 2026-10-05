@@ -138,7 +138,7 @@ Executar após push em `main` (~1 minuto para deploy Vercel).
 
 ### Validar rotas críticas
 
-- [ ] `/plataforma`
+- [ ] `/plataforma` redireciona para `/`
 - [ ] `/modulos` + `/modulos/alert`
 - [ ] `/cases`
 - [ ] `/conteudos`

@@ -21,7 +21,7 @@ export default function ModulosPage() {
         titleAccent="rede, loja e fornecedor"
         description="Comece pelo ciclo de detectar, executar e medir. Expanda para logística, produção própria, fornecedores e exposição quando a operação pedir."
       />
-      <ModulesSection showViewAll={false} />
+      <ModulesSection />
       <CtaSection />
     </>
   );

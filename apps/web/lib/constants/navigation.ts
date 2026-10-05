@@ -12,7 +12,6 @@ export const LP_NAV_MODE = true;
 
 /** Abas arquivadas — não excluir; serão reativadas na expansão do site */
 export const MAIN_NAV_LINKS_ARCHIVED: NavLink[] = [
-  { label: "Terus Varejo", href: "/plataforma" },
   { label: "Módulos", href: "/modulos" },
   { label: "Ecossistema", href: "/ecossistema" },
   { label: "Cases", href: "/cases" },
@@ -27,7 +26,6 @@ export const MAIN_NAV_LINKS: NavLink[] = LP_NAV_MODE
 
 export const FOOTER_LINKS_ARCHIVED = {
   plataforma: [
-    { label: "Terus Varejo", href: "/plataforma" },
     { label: "Módulos", href: "/modulos" },
     { label: "Ecossistema", href: "/ecossistema" },
   ],

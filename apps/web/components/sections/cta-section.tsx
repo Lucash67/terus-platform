@@ -59,7 +59,13 @@ export function CtaSection({ className }: CtaSectionProps) {
                   asChild
                   className="w-full border-surface-border bg-surface-base/80 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/30 hover:bg-brand-primary/5 sm:w-auto"
                 >
-                  <Link href={CTA.secondary.href}>{CTA.secondary.label}</Link>
+                  <a
+                    href={CTA.secondary.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {CTA.secondary.label}
+                  </a>
                 </Button>
               </div>
 

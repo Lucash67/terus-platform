@@ -176,7 +176,7 @@ apps/web/
 | Rota | Página | Renderização |
 |------|--------|--------------|
 | `/` | Home (16 seções) | Static |
-| `/plataforma` | Arquitetura e pilares | Static |
+| `/plataforma` | Removida — redireciona para `/` | Redirect 308 |
 | `/modulos` | Grid dos 6 módulos | Static |
 | `/modulos/alert` | Terus Alert | SSG |
 | `/modulos/strategy` | Terus Strategy | SSG |

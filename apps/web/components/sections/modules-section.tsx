@@ -1,10 +1,7 @@
-import Link from "next/link";
-
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { Reveal } from "@/components/motion/reveal";
 import { ModuleCard } from "@/components/sections/module-card";
-import { CTA } from "@/lib/constants/conversion";
 import { MODULES, type ModuleGroup } from "@/lib/constants/modules";
 
 const MODULE_GROUPS: { id: ModuleGroup; label: string }[] = [
@@ -13,13 +10,11 @@ const MODULE_GROUPS: { id: ModuleGroup; label: string }[] = [
 ];
 
 interface ModulesSectionProps {
-  showViewAll?: boolean;
   title?: string;
   description?: string;
 }
 
 export function ModulesSection({
-  showViewAll = true,
   title = "Comece pelo essencial. Expanda quando quiser.",
   description = "Quatro módulos formam o ciclo de detectar, executar e medir. Os outros quatro levam a Terus para a logística, a produção, os fornecedores e a exposição.",
 }: ModulesSectionProps) {
@@ -30,7 +25,7 @@ export function ModulesSection({
         aria-hidden="true"
       />
       <Container className="relative">
-        <Reveal className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <Reveal>
           <div className="max-w-2xl">
             <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
               Módulos Terus
@@ -42,14 +37,6 @@ export function ModulesSection({
               {description}
             </p>
           </div>
-          {showViewAll && (
-            <Link
-              href={CTA.secondary.href}
-              className="shrink-0 text-body-md font-semibold text-brand-primary hover:underline"
-            >
-              {CTA.secondary.label} →
-            </Link>
-          )}
         </Reveal>
 
         {MODULE_GROUPS.map((group) => (

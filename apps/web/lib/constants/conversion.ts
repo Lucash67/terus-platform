@@ -1,15 +1,18 @@
+export const WHATSAPP_NUMBER = "5585997384940";
+
 export const CTA = {
   primary: {
     label: "Começar com a minha rede",
     href: "/comecar",
   },
+  /** Contato rápido: abre o WhatsApp comercial em nova aba */
   secondary: {
-    label: "Conhecer Terus Varejo",
-    href: "/plataforma",
+    label: "Falar agora pelo WhatsApp",
+    href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      "Olá! Vim pelo site da Terus Varejo e quero falar com a equipe.",
+    )}`,
   },
 } as const;
-
-export const WHATSAPP_NUMBER = "5585997384940";
 
 export const WHATSAPP_DEMO_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Olá! Quero agendar uma demonstração da Terus Varejo.\nERP da rede: \nNúmero de lojas: ",

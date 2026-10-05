@@ -48,7 +48,13 @@ export function CtaButtons({
               "border-text-primary/30 bg-text-primary/10 text-text-primary hover:bg-text-primary/20 hover:text-text-primary",
           )}
         >
-          <Link href={CTA.secondary.href}>{CTA.secondary.label}</Link>
+          <a
+            href={CTA.secondary.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {CTA.secondary.label}
+          </a>
         </Button>
       ) : null}
     </div>

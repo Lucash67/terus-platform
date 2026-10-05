@@ -181,44 +181,6 @@ export const PERSONAS: {
   ],
 };
 
-export const PLATAFORMA = {
-  badge: "Plataforma",
-  title: "Dois portais e um app",
-  titleAccent: "sobre o mesmo dado da rede",
-  description:
-    "O Portal Terus Varejo para quem decide e compra, o Portal do Fornecedor para indústria e distribuidor, e o Terus Task na mão de quem executa na loja.",
-  surfaces: [
-    {
-      name: "Portal Terus Varejo",
-      audience: "Diretoria, compradores e gestão de loja",
-      bullets: [
-        "Painel de alertas da rede e por filial",
-        "Mesa do comprador organizada por fornecedor",
-        "Metas, efetividade e valor capturado por loja",
-      ],
-    },
-    {
-      name: "Portal do Fornecedor",
-      audience: "Indústria e distribuidor",
-      bullets: [
-        "Alertas e sell-out dos seus SKUs em cada rede",
-        "Pedidos aprovados e gravados no seu ERP",
-        "Negociação de margem e devolução de excesso",
-      ],
-    },
-    {
-      name: "App Terus Task",
-      audience: "Operação de loja",
-      bullets: [
-        "Fila priorizada por retorno em R$",
-        "Roteiro guiado com foto de evidência",
-        "Recebimento e inventário com contagem cega",
-      ],
-      note: "Android 8+ e iOS 15+",
-    },
-  ],
-} as const;
-
 export const PONTE_FORNECEDOR = {
   badge: "Varejo + fornecedor",
   title: "O pedido sai da rede e entra no ERP do fornecedor",
