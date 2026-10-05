@@ -7,6 +7,7 @@ import type { z } from "zod";
 import { preCadastroSchema } from "@terus/schemas";
 import { Button, Input, Label, Select, cn } from "@terus/ui";
 
+import { ANALYTICS_EVENTS, track } from "@/lib/analytics";
 import {
   DEMO_PAGE,
   PRE_CADASTRO_ERPS,
@@ -25,6 +26,13 @@ function maskPhone(value: string): string {
   return digits
     .replace(/^(\d{2})(\d)/, "($1) $2")
     .replace(/(\d{5})(\d)/, "$1-$2");
+}
+
+function storeRange(count: number): string {
+  if (count <= 5) return "1-5";
+  if (count <= 20) return "6-20";
+  if (count <= 50) return "21-50";
+  return "50+";
 }
 
 function buildWhatsappUrl(data: PreCadastro): string {
@@ -83,6 +91,10 @@ export function PreCadastroForm({ className }: { className?: string }) {
   });
 
   const onSubmit = (data: PreCadastro) => {
+    track(ANALYTICS_EVENTS.preCadastro, {
+      erp: data.erp,
+      lojas: storeRange(data.storeCount),
+    });
     const url = buildWhatsappUrl(data);
     const opened = window.open(url, "_blank", "noopener,noreferrer");
     if (!opened) window.location.href = url;

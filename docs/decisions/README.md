@@ -12,6 +12,7 @@ Este diretório contém as Architecture Decision Records da plataforma Terus.
 - **ADR-006** - Celery + Redis para Filas
 - **ADR-007** - D4Sign para Contratos Digitais
 - **ADR-008** - Cloudflare para CDN, WAF e DNS
+- **ADR-009** - Plausible para analytics do site
 
 ## Template
 

@@ -7,6 +7,7 @@ import { Button, cn } from "@terus/ui";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { PlatformScreenshot } from "@/components/sections/platform-screenshot";
+import { ANALYTICS_EVENTS, track } from "@/lib/analytics";
 import { CTA } from "@/lib/constants/conversion";
 import { PLATFORM_TOUR, type TourChapter } from "@/lib/constants/lp";
 
@@ -197,6 +198,15 @@ export function PlatformTourSection() {
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
+
+  const seenRef = React.useRef(new Set<number>());
+  React.useEffect(() => {
+    const scrollTrack = trackRef.current;
+    if (!scrollTrack || scrollTrack.getBoundingClientRect().top > 0) return;
+    if (seenRef.current.has(active)) return;
+    seenRef.current.add(active);
+    track(ANALYTICS_EVENTS.tourChapter, { capitulo: CHAPTERS[active].label });
+  }, [active]);
 
   const goTo = (index: number) => {
     const track = trackRef.current;

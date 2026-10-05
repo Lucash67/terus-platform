@@ -18,11 +18,12 @@
 
 - Em conflito, a wiki vence. Atualize este arquivo para refletir a wiki.
 - Site e materiais só exibem fatos da wiki ou confirmados pela organização.
-  Achismo (prazo de resposta, SLA, %, certificação, "tempo real", "elimina ruptura") é PROIBIDO.
+  Achismo (prazo de resposta, SLA, %, certificação, "elimina ruptura") é PROIBIDO.
 - Sem confirmação, a saída padrão é remover ou usar linguagem que não promete.
 - Fatos já confirmados: Rodrigo é Fundador e CEO; WhatsApp comercial (85) 99738-4940;
   o case com indicadores de digitalização/rejeição/fill rate é do Cometa Supermercados;
-  "+20 empresas na Rede Terus" mantido. ERP de cada cliente NÃO confirmado — não exibir.
+  "+20 empresas na Rede Terus" mantido; "tempo real" liberado (o próprio produto usa).
+ ERP de cada cliente NÃO confirmado — não exibir.
 
 ---
 

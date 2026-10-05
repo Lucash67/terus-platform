@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 
+import { Analytics } from "@/components/analytics/analytics";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { rootMetadata } from "@/lib/seo/metadata";
@@ -45,6 +46,7 @@ export default function RootLayout({
         <ThemeScript />
         <JsonLd />
         {children}
+        <Analytics />
       </body>
     </html>
   );

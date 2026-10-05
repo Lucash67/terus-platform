@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@terus/ui";
 
+import { ANALYTICS_EVENTS, track } from "@/lib/analytics";
 import { FOUNDER, type FounderVideoData } from "@/lib/constants/lp";
 
 interface FounderVideoProps extends FounderVideoData {
@@ -61,6 +62,7 @@ export function FounderVideo({
     const video = videoRef.current;
     if (!video) return;
     userStartedRef.current = true;
+    track(ANALYTICS_EVENTS.videoSound, { video: title });
     video.muted = false;
     video.loop = false;
     video.currentTime = 0;

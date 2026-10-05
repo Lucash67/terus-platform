@@ -6,6 +6,7 @@ import { ModulesSection } from "@/components/sections/modules-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { PlatformSurfacesSection } from "@/components/sections/platform-surfaces-section";
 import { PlatformTourSection } from "@/components/sections/platform-tour-section";
+import { TaskAppSection } from "@/components/sections/task-app-section";
 import { PositioningSection } from "@/components/sections/positioning-section";
 import { ReliabilitySection } from "@/components/sections/reliability-section";
 import { PLATAFORMA } from "@/lib/constants/lp";
@@ -29,6 +30,7 @@ export default function PlataformaPage() {
       />
       <PlatformSurfacesSection />
       <PlatformTourSection />
+      <TaskAppSection />
       <PositioningSection />
       <ModulesSection />
       <ErpTickerSection />

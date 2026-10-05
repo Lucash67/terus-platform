@@ -422,6 +422,45 @@ export const PLATFORM_TOUR: {
   ],
 };
 
+export interface AppPoster {
+  image: string;
+  alt: string;
+  label: string;
+}
+
+export const TASK_APP = {
+  badge: "App Terus Task",
+  title: "A correção chega na gôndola",
+  titleAccent: "pelo celular da loja",
+  description:
+    "O portal aponta o problema; o Terus Task leva o operador até ele. Um produto de cada vez, com o roteiro na tela e a leitura do código de barras para confirmar.",
+  bullets: [
+    "Rotinas por departamento e seção",
+    "Coletar no depósito e abastecer a gôndola",
+    "Presença, exposição, destaque e retirada de oferta",
+    "Recebimento por gaiola ou palete, com status em tempo real",
+  ],
+  posters: [
+    {
+      image: "/app-task/task-setor.jpg",
+      alt: "Tela inicial do Terus Task com departamento, seção e as rotinas da loja",
+      label: "Por setor",
+    },
+    {
+      image: "/app-task/task-tarefa.jpg",
+      alt: "Tarefa guiada no Terus Task com estoque, preço, atividades pendentes e leitura do produto",
+      label: "Tarefa guiada",
+    },
+    {
+      image: "/app-task/task-coleta.jpg",
+      alt: "Fluxo de coleta e abastecimento no Terus Task com leitura de código de barras",
+      label: "Coleta e abastecimento",
+    },
+  ] satisfies AppPoster[],
+  posterWidth: 472,
+  posterHeight: 1024,
+} as const;
+
 export const INTEGRATION_HEALTH = {
   badge: "Saúde da Integração",
   title: "Uma nota de 0 a 100 para cada parceria",
