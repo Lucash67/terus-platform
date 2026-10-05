@@ -21,9 +21,9 @@ export const SITE_DESCRIPTION =
 
 export const HERO = {
   headline: "Sua gôndola perde venda todo dia.",
-  headlineAccent: "A Terus encontra, a loja corrige e o R$ volta.",
+  headlineAccent: "A Terus traz de volta.",
   description:
-    "Alertas de ruptura, excesso e margem viram uma fila guiada no app da loja — ordenada pelo valor em R$ que cada produto pode recuperar. E o pedido de reposição chega ao fornecedor direto no ERP dele.",
+    "A Terus encontra a ruptura, a loja corrige guiada pelo app e você vê o R$ recuperado. Alertas de ruptura, excesso e margem viram uma fila ordenada pelo valor de cada produto — e o pedido de reposição chega direto no ERP do fornecedor.",
   highlights: [
     "13 tipos de alerta: ruptura, excesso, sem venda, oferta e margem",
     "Fila da loja priorizada por retorno em R$, com foto de evidência",

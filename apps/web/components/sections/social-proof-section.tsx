@@ -111,7 +111,7 @@ export function SocialProofSection() {
                           <span className="text-body-sm text-text-secondary">
                             {item.label}
                           </span>
-                          <span className="font-display text-heading-sm font-semibold text-text-tertiary line-through decoration-text-tertiary/50">
+                          <span className="font-display text-heading-md font-semibold text-text-tertiary line-through decoration-text-tertiary/50">
                             {item.value}
                           </span>
                         </li>
@@ -131,7 +131,7 @@ export function SocialProofSection() {
                           <span className="text-body-sm text-text-secondary">
                             {item.label}
                           </span>
-                          <span className="font-display text-heading-sm font-bold text-brand-primary">
+                          <span className="font-display text-heading-md font-bold text-brand-primary">
                             {item.value}
                           </span>
                         </li>
@@ -189,7 +189,7 @@ export function SocialProofSection() {
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-brand-primary-dim font-mono text-caption font-bold text-brand-primary">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-4 font-display text-heading-sm font-semibold text-text-primary">
+              <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary">
                 {pillar.title}
               </h3>
               <p className="mt-2 text-body-sm leading-relaxed text-text-secondary">

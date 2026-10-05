@@ -770,10 +770,25 @@ export const DISTRIBUIDORES: RedeCompany[] = [
   },
 ];
 
+const uniqueBySlug = (companies: RedeCompany[]): RedeCompany[] =>
+  companies.filter(
+    (company, index) =>
+      companies.findIndex((other) => other.slug === company.slug) === index,
+  );
+
 export const REDE_TERUS = {
-  varejos: VAREJOS,
-  distribuidores: DISTRIBUIDORES,
+  varejos: uniqueBySlug(VAREJOS),
+  distribuidores: uniqueBySlug(DISTRIBUIDORES),
 };
+
+export const CLIENT_LOGOS = [
+  ...REDE_TERUS.varejos,
+  ...REDE_TERUS.distribuidores,
+].flatMap((company) =>
+  company.logos.primary
+    ? [{ name: company.name, logo: company.logos.primary }]
+    : [],
+);
 
 /**
  * Vídeo demo do produto — versão curta (10s) no ar;
