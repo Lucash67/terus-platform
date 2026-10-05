@@ -72,17 +72,14 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
       <div className="flex items-center justify-between">
         <PreviewBar height="h-4" width="w-24" />
         <span className="rounded-full bg-status-error-dim px-2 py-0.5 text-caption font-medium text-status-error">
-          3 alertas
+          pendentes
         </span>
       </div>
       {[
-        { label: "Ruptura · Loja Centro", time: "agora", type: "error" },
-        {
-          label: "Estoque crítico · SKU #2841",
-          time: "2 min",
-          type: "warning",
-        },
-        { label: "Reposição automática", time: "4 min", type: "success" },
+        { label: "PER · Produtos em ruptura", time: "38", type: "error" },
+        { label: "PRR · Risco de ruptura", time: "52", type: "warning" },
+        { label: "PMN · Margem negativa", time: "11", type: "error" },
+        { label: "PEE · Excesso de estoque", time: "64", type: "success" },
       ].map((alert) => (
         <div
           key={alert.label}
@@ -111,14 +108,14 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
   strategy: (
     <PreviewShell>
       <div className="grid grid-cols-3 gap-2">
-        {["Fill Rate", "Ruptura", "Capital"].map((kpi, i) => (
+        {["Meta", "Vendas", "vs. ano ant."].map((kpi, i) => (
           <div
             key={kpi}
             className="rounded-lg border border-surface-border bg-surface-base p-2 text-center"
           >
             <p className="text-caption text-text-tertiary">{kpi}</p>
             <p className="font-display text-body-sm font-bold text-brand-primary">
-              {["96%", "−40%", "−18%"][i]}
+              {["Loja", "Seção", "YoY"][i]}
             </p>
           </div>
         ))}
@@ -138,9 +135,9 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
     <PreviewShell>
       <PreviewBar height="h-4" width="w-32" />
       {[
-        { sku: "SKU #1842", qty: "24 un.", status: "Aprovado" },
-        { sku: "SKU #2901", qty: "12 un.", status: "Pendente" },
-        { sku: "SKU #3310", qty: "48 un.", status: "Automático" },
+        { sku: "Pedido #1842", qty: "24 itens", status: "Aprovado" },
+        { sku: "Pedido #2901", qty: "12 itens", status: "Em análise" },
+        { sku: "Pedido #3310", qty: "48 itens", status: "Faturado" },
       ].map((row) => (
         <div
           key={row.sku}
@@ -160,9 +157,9 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
   task: (
     <PreviewShell>
       {[
-        { task: "Reposição gôndola · Aisle 4", priority: "Alta" },
-        { task: "Conferência estoque · Setor B", priority: "Média" },
-        { task: "Etiquetagem promocional", priority: "Baixa" },
+        { task: "Verificar presença · Mercearia", priority: "Alto R$" },
+        { task: "Coletar e abastecer · Bebidas", priority: "Médio R$" },
+        { task: "Destacar oferta · DPH", priority: "Baixo R$" },
       ].map((item) => (
         <div
           key={item.task}
@@ -181,14 +178,62 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
       ))}
     </PreviewShell>
   ),
-  log: (
+  unitization: (
+    <TimelinePreview
+      entries={[
+        { action: "Gaiola #0412 separada", actor: "CD" },
+        { action: "Remetida para a loja", actor: "Expedição" },
+        { action: "Recebida na loja · contagem cega", actor: "Terus Task" },
+      ]}
+    />
+  ),
+  production: (
+    <TimelinePreview
+      entries={[
+        { action: "Pedido da loja calculado · Padaria", actor: "Loja" },
+        { action: "Ordem de produção liberada", actor: "Centro" },
+        { action: "Transferência para a loja", actor: "Expedição" },
+      ]}
+    />
+  ),
+  chain: (
+    <StatGridPreview
+      stats={[
+        { label: "Atendimento", value: "Score A", ok: true },
+        { label: "Prazo", value: "No prazo", ok: true },
+        { label: "Integração", value: "OK", ok: true },
+        { label: "Ruptura", value: "Atenção", ok: false },
+      ]}
+    />
+  ),
+  vitrine: (
+    <PreviewShell>
+      <div className="grid grid-cols-4 gap-1.5">
+        {Array.from({ length: 12 }, (_, i) => (
+          <div
+            key={i}
+            className={cn(
+              "h-8 rounded-sm border border-surface-border module-preview-bar",
+              i % 5 === 2 ? "bg-status-warning/20" : "bg-brand-primary/15",
+            )}
+            style={{ animationDelay: `${i * 60}ms` }}
+          />
+        ))}
+      </div>
+      <PreviewBar height="h-2" width="w-2/3" delay={200} />
+    </PreviewShell>
+  ),
+};
+
+function TimelinePreview({
+  entries,
+}: {
+  entries: { action: string; actor: string }[];
+}) {
+  return (
     <PreviewShell>
       <PreviewBar height="h-3" width="w-28" delay={0} />
-      {[
-        { action: "Pedido #31881 rastreado", actor: "Sistema" },
-        { action: "Tarefa concluída · Loja Norte", actor: "Operador" },
-        { action: "Auditoria registrada", actor: "Terus Log" },
-      ].map((entry) => (
+      {entries.map((entry) => (
         <div
           key={entry.action}
           className="flex items-start gap-2 border-l-2 border-brand-primary/30 pl-3"
@@ -202,16 +247,18 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
         </div>
       ))}
     </PreviewShell>
-  ),
-  pulse: (
+  );
+}
+
+function StatGridPreview({
+  stats,
+}: {
+  stats: { label: string; value: string; ok: boolean }[];
+}) {
+  return (
     <PreviewShell>
       <div className="grid grid-cols-2 gap-2">
-        {[
-          { label: "Integrações", value: "4/4", ok: true },
-          { label: "Módulos ativos", value: "6/6", ok: true },
-          { label: "Saúde ERP", value: "99.8%", ok: true },
-          { label: "Ações pendentes", value: "3", ok: false },
-        ].map((stat) => (
+        {stats.map((stat) => (
           <div
             key={stat.label}
             className="rounded-lg border border-surface-border bg-surface-base p-2.5"
@@ -230,5 +277,5 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
       </div>
       <PreviewBar height="h-2" width="w-full" delay={200} />
     </PreviewShell>
-  ),
-};
+  );
+}

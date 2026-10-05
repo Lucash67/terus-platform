@@ -8,17 +8,10 @@ import {
 } from "@/lib/constants/site-data";
 
 function ErpChip({ erp }: { erp: ErpEcosystemItem }) {
-  const homologado = erp.status === "homologado";
+  const varejo = erp.side === "varejo";
 
   return (
-    <div
-      className={[
-        "group flex w-72 shrink-0 items-center gap-4 rounded-xl border px-5 py-4 transition-all duration-300",
-        homologado
-          ? "border-brand-primary/35 bg-brand-primary/5 hover:shadow-glow-sm"
-          : "border-surface-border bg-surface-elevated-1 hover:border-brand-primary/30",
-      ].join(" ")}
-    >
+    <div className="group flex w-72 shrink-0 items-center gap-4 rounded-xl border border-brand-primary/35 bg-brand-primary/5 px-5 py-4 transition-all duration-300 hover:shadow-glow-sm">
       <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-surface-border bg-surface-elevated-2 font-display text-heading-md font-bold text-brand-primary">
         {erp.logo ? (
           <Image
@@ -43,12 +36,12 @@ function ErpChip({ erp }: { erp: ErpEcosystemItem }) {
       <span
         className={[
           "shrink-0 rounded-full px-2 py-0.5 font-mono text-caption uppercase tracking-wider",
-          homologado
+          varejo
             ? "bg-status-success-dim text-status-success"
-            : "bg-status-neutral-dim text-text-tertiary",
+            : "bg-brand-primary-dim text-brand-primary",
         ].join(" ")}
       >
-        {homologado ? "OK" : "soon"}
+        {varejo ? "Varejo" : "Fornec."}
       </span>
     </div>
   );
@@ -76,13 +69,13 @@ function TickerRow({
 }
 
 /**
- * Ticker duplo de ERPs — fileiras deslizando em direções opostas,
- * com status de homologação. Pausa no hover.
+ * Ticker duplo de ERPs — fileira do varejo e fileira do fornecedor,
+ * deslizando em direções opostas. Pausa no hover.
  */
 export function ErpTickerSection() {
-  const half = Math.ceil(ERP_ECOSYSTEM.length / 2);
-  const rowA = ERP_ECOSYSTEM.slice(0, half);
-  const rowB = ERP_ECOSYSTEM.slice(half);
+  const rowA = ERP_ECOSYSTEM.filter((erp) => erp.side === "varejo");
+  const fornecedor = ERP_ECOSYSTEM.filter((erp) => erp.side === "fornecedor");
+  const rowB = [...fornecedor, ...fornecedor];
 
   return (
     <section className="section-rhythm-alt relative overflow-hidden">
@@ -96,11 +89,11 @@ export function ErpTickerSection() {
             Ecossistema ERP
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Conectada aos ERPs que movem o varejo
+            Funciona com o ERP que você já usa
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Winthor e RMS homologados em ambiente produtivo — e o roadmap de
-            integração avançando sobre os principais ERPs do mercado.
+            Sem trocar de sistema. A Terus lê o ERP da rede e grava o pedido no
+            ERP do fornecedor — integrações em produção hoje.
           </p>
         </Reveal>
       </Container>
@@ -127,9 +120,9 @@ export function ErpTickerSection() {
       <Container className="relative">
         <Reveal delay={200} className="mt-10 text-center">
           <p className="font-mono text-caption uppercase tracking-widest text-text-tertiary">
-            <span className="text-status-success">OK</span> homologado em
-            produção · <span className="text-text-secondary">soon</span> em
-            roadmap de integração
+            <span className="text-status-success">Varejo</span> captura do ERP
+            da rede · <span className="text-brand-primary">Fornec.</span> pedido
+            gravado no ERP do fornecedor
           </p>
         </Reveal>
       </Container>

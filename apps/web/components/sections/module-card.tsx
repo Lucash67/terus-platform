@@ -52,22 +52,41 @@ const MODULE_ICONS: Record<string, ReactNode> = {
       fill="none"
     />
   ),
-  log: (
+  unitization: (
     <path
-      d="M6 4h12v16H6zM9 8h6M9 12h6M9 16h4"
+      d="M4 8l8-4 8 4v8l-8 4-8-4V8zm0 0l8 4 8-4M12 12v8"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
+  ),
+  production: (
+    <path
+      d="M4 20V10l5 3V10l5 3V6h6v14H4zm4-3h2m4 0h2"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
+  ),
+  chain: (
+    <path
+      d="M10 14a4 4 0 005.66 0l3-3a4 4 0 00-5.66-5.66l-1 1M14 10a4 4 0 00-5.66 0l-3 3a4 4 0 005.66 5.66l1-1"
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"
       fill="none"
     />
   ),
-  pulse: (
+  vitrine: (
     <path
-      d="M4 12h4l2-6 4 12 2-6h4"
+      d="M4 4h16v16H4zM4 10h16M4 15h16M10 4v16"
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"
-      strokeLinejoin="round"
       fill="none"
     />
   ),

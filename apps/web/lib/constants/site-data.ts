@@ -273,7 +273,7 @@ export const PROVA_SOCIAL_PILARES = [
 
 /**
  * Camada de integração do produto real (legado: Agent, IAproc, Bond).
- * Infraestrutura que alimenta Alert, Strategy, Order, Task, Log e Pulse.
+ * Infraestrutura que alimenta os módulos da Terus Varejo.
  */
 export const CAMADA_INTEGRACAO = [
   {
@@ -296,93 +296,99 @@ export const CAMADA_INTEGRACAO = [
   },
 ] as const;
 
+/** Como a integração funciona na prática (wiki: manuais de integração). */
 export const INTEGRACOES = [
   {
-    name: "Winthor",
-    type: "ERP",
+    name: "Captura direta",
+    type: "Varejo",
     status: "homologado" as const,
     description:
-      "Integração nativa homologada para varejo e distribuição — conexão validada em ambiente produtivo.",
+      "Conexão ao banco do ERP da rede (Oracle, PostgreSQL) ou à API do sistema — RMS, Consinco, VR, CISS Poder, RPInfo.",
     logo: null,
   },
   {
-    name: "RMS",
-    type: "ERP",
+    name: "Pedido no ERP",
+    type: "Fornecedor",
     status: "homologado" as const,
     description:
-      "Conexão validada para operações de varejo em escala, com diagnóstico automatizado de permissões.",
+      "O pedido aprovado no portal entra no ERP do distribuidor ou da indústria — Winthor, Sankhya e VitSis.",
     logo: null,
   },
   {
-    name: "Assistente de Integração",
-    type: "Conector",
+    name: "Script pronto",
+    type: "TI do cliente",
     status: "ativo" as const,
     description:
-      "Configuração guiada para conexão segura com ERPs homologados, do cadastro ao go-live.",
+      "A Terus entrega o checklist e o script de permissões para o DBA colar. Sem desenvolvimento do lado do cliente.",
     logo: null,
   },
   {
-    name: "API Terus",
-    type: "API",
-    status: "roadmap" as const,
+    name: "Onboarding guiado",
+    type: "Ativação",
+    status: "ativo" as const,
     description:
-      "Endpoints REST para sincronização de estoque, pedidos e alertas — disponível na evolução da Terus Varejo.",
+      "Do cadastro à primeira carga, com diagnóstico de conexão e permissões antes de ativar os módulos.",
     logo: null,
   },
 ];
 
 /**
- * Ecossistema de ERPs exibido no ticker animado da Home.
- * `logo` aponta para /logos/erps/*.png quando o arquivo oficial existir;
- * sem arquivo, o chip renderiza o wordmark tipográfico.
+ * ERPs com integração documentada (wiki.terus.tec.br/varejo).
+ * `logo` aponta para /logos/erps/* quando o arquivo oficial existir;
+ * sem arquivo, o chip renderiza a inicial tipográfica.
  */
 export interface ErpEcosystemItem {
   name: string;
   vendor: string;
-  status: "homologado" | "roadmap";
+  side: "varejo" | "fornecedor";
   logo: string | null;
 }
 
 export const ERP_ECOSYSTEM: ErpEcosystemItem[] = [
-  { name: "Winthor", vendor: "TOTVS", status: "homologado", logo: null },
-  { name: "RMS", vendor: "TOTVS", status: "homologado", logo: null },
-  { name: "Protheus", vendor: "TOTVS", status: "roadmap", logo: null },
-  { name: "Consinco", vendor: "TOTVS", status: "roadmap", logo: null },
-  { name: "SAP S/4HANA", vendor: "SAP", status: "roadmap", logo: null },
-  { name: "Oracle Retail", vendor: "Oracle", status: "roadmap", logo: null },
-  { name: "Linx", vendor: "Linx", status: "roadmap", logo: null },
-  { name: "Sysmo", vendor: "Sysmo", status: "roadmap", logo: null },
-  { name: "Bluesoft", vendor: "Bluesoft", status: "roadmap", logo: null },
-  { name: "Tek-System", vendor: "Tek-System", status: "roadmap", logo: null },
+  { name: "RMS", vendor: "TOTVS · Linha RMS", side: "varejo", logo: null },
+  {
+    name: "Consinco",
+    vendor: "TOTVS · Linha Consinco",
+    side: "varejo",
+    logo: null,
+  },
+  { name: "VR Software", vendor: "PostgreSQL", side: "varejo", logo: null },
+  { name: "CISS Poder", vendor: "API Integrim", side: "varejo", logo: null },
+  { name: "RPInfo", vendor: "API REST", side: "varejo", logo: null },
+  { name: "API REST", vendor: "JWT ou chave", side: "varejo", logo: null },
+  { name: "Winthor", vendor: "TOTVS", side: "fornecedor", logo: null },
+  { name: "Sankhya", vendor: "Gateway REST", side: "fornecedor", logo: null },
+  { name: "VitSis", vendor: "Firebird", side: "fornecedor", logo: null },
 ];
 
+/** Segurança da integração — fatos dos manuais técnicos da wiki. */
 export const PILARES_CONFIABILIDADE = [
   {
-    name: "Auditoria imutável",
+    name: "Só leitura no ERP da rede",
     status: "ativo" as const,
     description:
-      "Registro de operações críticas em trilha imutável para conformidade e rastreabilidade ponta a ponta.",
+      "A Terus não grava pedido, não altera cadastro e não apaga nada no ERP do varejo. Só SELECT.",
     logo: null,
   },
   {
-    name: "Vault de credenciais",
+    name: "Sem VPN",
     status: "ativo" as const,
     description:
-      "Armazenamento seguro de credenciais de cliente com TTL de 5 minutos e revogação automática após uso.",
+      "Conexão a partir de um IP fixo da Terus, liberado no firewall do cliente. Nada instalado na rede.",
     logo: null,
   },
   {
-    name: "Multi-tenant isolado",
+    name: "Usuário dedicado",
     status: "ativo" as const,
     description:
-      "Isolamento por schema dedicado — cada cliente opera em ambiente segregado no PostgreSQL.",
+      "Usuário de aplicação com permissões mínimas — nunca administrador nem dono do banco.",
     logo: null,
   },
   {
-    name: "LGPD",
+    name: "Credencial protegida",
     status: "conformidade" as const,
     description:
-      "Arquitetura desenhada para proteção de dados, governança de acesso e auditoria de operações sensíveis.",
+      "Senha enviada por canal seguro e dados de cliente borrados em toda documentação. LGPD na prática.",
     logo: null,
   },
 ];

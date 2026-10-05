@@ -87,18 +87,17 @@ export function HeroSection() {
 
             {/* Trust stats strip */}
             <div className="hero-fade-in mt-12 grid grid-cols-2 gap-6 border-t border-surface-border pt-8 sm:grid-cols-4">
-              {HERO.trustStats.map((stat, index) => (
+              {HERO.trustStats.map((stat) => (
                 <div key={stat.label} className="text-center lg:text-left">
                   <p className="font-display text-heading-lg font-bold text-brand-primary">
-                    {index === 0 ? (
-                      <CountUp value={40} suffix="%" immediate />
-                    ) : index === 1 ? (
-                      <CountUp value={5} prefix="< " suffix="min" immediate />
-                    ) : index === 2 ? (
-                      <CountUp value={6} immediate />
-                    ) : (
-                      stat.value
-                    )}
+                    <CountUp
+                      value={stat.value}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                      decimals={stat.decimals}
+                      locale
+                      immediate
+                    />
                   </p>
                   <p className="mt-0.5 text-caption text-text-tertiary">
                     {stat.label}

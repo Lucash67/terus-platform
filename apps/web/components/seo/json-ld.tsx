@@ -1,3 +1,4 @@
+import { MODULES } from "@/lib/constants/modules";
 import {
   BRAND,
   SITE_DESCRIPTION,
@@ -46,14 +47,7 @@ const softwareApplicationJsonLd = {
     availability: "https://schema.org/OnlineOnly",
     url: `${SITE_URL}/solicitar-demo`,
   },
-  featureList: [
-    "Terus Alert",
-    "Terus Strategy",
-    "Terus Order",
-    "Terus Task",
-    "Terus Log",
-    "Terus Pulse",
-  ],
+  featureList: MODULES.map((module) => module.name),
   provider: {
     "@type": "Organization",
     name: "Terus Tecnologia",

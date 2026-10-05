@@ -5,29 +5,29 @@ import { Badge } from "@terus/ui";
 import { CountUp } from "@/components/motion/count-up";
 
 const METRICS = [
-  { label: "Alertas ativos", value: 12, trend: "+3" },
-  { label: "Pedidos automáticos", value: 847, trend: "hoje" },
-  { label: "Lojas monitoradas", value: 156, trend: "live" },
+  { label: "Alertas pendentes", value: 165, trend: "13 tipos" },
+  { label: "Atividades na loja", value: 42, trend: "Alto R$" },
+  { label: "Itens corrigidos", value: 318, trend: "com foto" },
 ] as const;
 
 const ALERTS = [
   {
+    type: "error" as const,
+    title: "PER · Em ruptura",
+    detail: "Mercearia · vendia e zerou",
+    time: "Alto",
+  },
+  {
     type: "warning" as const,
-    title: "Ruptura detectada",
-    detail: "Loja Centro · SKU #2841",
-    time: "agora",
+    title: "PSV-QUEDA · Queda de venda",
+    detail: "Bebidas · estoque em casa",
+    time: "Médio",
   },
   {
     type: "success" as const,
-    title: "Reposição automática",
-    detail: "Distribuidor Norte · 24 un.",
-    time: "2 min",
-  },
-  {
-    type: "error" as const,
-    title: "Estoque crítico",
-    detail: "Loja Sul · 3 SKUs",
-    time: "4 min",
+    title: "PO · Oferta sem destaque",
+    detail: "DPH · cartaz pendente",
+    time: "Baixo",
   },
 ] as const;
 
@@ -58,7 +58,7 @@ export function HeroDashboardPreview() {
           <div className="flex items-center gap-2">
             <span className="hero-live-pulse h-2 w-2 rounded-full bg-status-success" />
             <span className="font-mono text-caption font-medium text-text-secondary">
-              Terus Pulse · Operação ao vivo
+              Portal Terus Varejo
             </span>
           </div>
           <Badge variant="success" className="text-caption">
@@ -100,7 +100,7 @@ export function HeroDashboardPreview() {
             {/* Alert feed */}
             <div className="rounded-lg border border-surface-border bg-surface-elevated-1 p-3">
               <p className="mb-2 font-mono text-caption font-medium uppercase tracking-wider text-text-tertiary">
-                Alertas em tempo real
+                Fila por retorno em R$
               </p>
               <ul className="space-y-2">
                 {ALERTS.map((alert, index) => (
@@ -131,7 +131,7 @@ export function HeroDashboardPreview() {
             {/* Mini chart */}
             <div className="rounded-lg border border-surface-border bg-surface-elevated-1 p-3">
               <p className="mb-2 font-mono text-caption font-medium uppercase tracking-wider text-text-tertiary">
-                Demanda vs estoque
+                Venda recuperada
               </p>
               <div className="flex h-24 items-end justify-between gap-1.5 pt-2">
                 {CHART_BARS.map((height, index) => (
@@ -165,15 +165,15 @@ export function HeroDashboardPreview() {
 function HubFlow() {
   return (
     <div className="flex flex-col items-center gap-1.5">
-      <FlowNode label="Varejo" sublabel="12 lojas" />
+      <FlowNode label="Loja" sublabel="Terus Task" />
       <FlowConnector direction="up" />
 
       <div className="flex w-full items-center justify-between gap-1">
-        <FlowNode label="Distribuidor" sublabel="3 parceiros" />
+        <FlowNode label="Comprador" sublabel="Alert · Order" />
         <FlowConnector direction="left" />
-        <FlowNode label="Terus" sublabel="Inteligência" highlight />
+        <FlowNode label="Terus" sublabel="Portal" highlight />
         <FlowConnector direction="right" />
-        <FlowNode label="Indústria" sublabel="fornecedores" />
+        <FlowNode label="Fornecedor" sublabel="pedido no ERP" />
       </div>
     </div>
   );

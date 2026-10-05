@@ -33,11 +33,13 @@ export const FOOTER_LINKS_ARCHIVED = {
   ],
   modulos: [
     { label: "Terus Alert", href: "/modulos/alert" },
-    { label: "Terus Strategy", href: "/modulos/strategy" },
     { label: "Terus Order", href: "/modulos/order" },
     { label: "Terus Task", href: "/modulos/task" },
-    { label: "Terus Log", href: "/modulos/log" },
-    { label: "Terus Pulse", href: "/modulos/pulse" },
+    { label: "Terus Strategy", href: "/modulos/strategy" },
+    { label: "Terus Unitization", href: "/modulos/unitization" },
+    { label: "Terus Production", href: "/modulos/production" },
+    { label: "Terus Chain", href: "/modulos/chain" },
+    { label: "Terus Vitrine", href: "/modulos/vitrine" },
   ],
   sobre: [{ label: "Sobre", href: "/sobre" }],
 } as const;

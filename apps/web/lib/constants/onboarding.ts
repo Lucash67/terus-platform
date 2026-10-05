@@ -269,31 +269,41 @@ export const TERUS_MODULES: TerusModuleDef[] = [
   {
     id: "alert",
     name: "Terus Alert",
-    tagline: "Alertas que impactam a performance da loja",
-  },
-  {
-    id: "strategy",
-    name: "Terus Strategy",
-    tagline: "Painéis estratégicos para decisão",
+    tagline: "Alertas e mesa do comprador",
   },
   {
     id: "order",
     name: "Terus Order",
-    tagline: "Pedidos, reposição e correção de estoque",
+    tagline: "Reposição, devoluções e fornecedores conectados",
   },
   {
     id: "task",
     name: "Terus Task",
-    tagline: "Atividades guiadas para o encarregado",
+    tagline: "App da loja com fila por retorno em R$",
   },
   {
-    id: "log",
-    name: "Terus Log",
-    tagline: "Equipes, execuções e evidências",
+    id: "strategy",
+    name: "Terus Strategy",
+    tagline: "Metas, vendas, compras e estoque",
   },
   {
-    id: "pulse",
-    name: "Terus Pulse",
-    tagline: "Portal de gestão da operação",
+    id: "unitization",
+    name: "Terus Unitization",
+    tagline: "Etiquetas e rastreio de cargas",
+  },
+  {
+    id: "production",
+    name: "Terus Production",
+    tagline: "Produção própria da rede",
+  },
+  {
+    id: "chain",
+    name: "Terus Chain",
+    tagline: "Avaliação de fornecedores e saúde da integração",
+  },
+  {
+    id: "vitrine",
+    name: "Terus Vitrine",
+    tagline: "Gestão de espaço e exposição",
   },
 ];

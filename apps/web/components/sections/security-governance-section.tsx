@@ -13,14 +13,14 @@ const SECURITY_GOVERNANCE_ITEMS = [
       "Políticas de acesso, auditoria imutável e segregação de ambientes por tenant.",
   },
   {
-    title: "SLA e Disponibilidade",
+    title: "Saúde da integração",
     description:
-      "Infraestrutura projetada para operações 24/7 com monitoramento contínuo de saúde.",
+      "Completude e atraso de cada carga acompanhados no portal, com diagnóstico pela equipe Terus.",
   },
   {
     title: "Proteção de Dados",
     description:
-      "Conformidade LGPD by design — credenciais exclusivamente via Vault, sem exposição em logs.",
+      "Só leitura no ERP da rede, usuário com permissões mínimas e senha enviada por canal seguro.",
   },
 ];
 

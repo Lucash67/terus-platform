@@ -2,9 +2,9 @@
 
 export const CTA_SECTION = {
   badge: "Próximo passo",
-  title: "Transforme sinais da operação em ações automáticas",
+  title: "Descubra quanto a sua rede está deixando na gôndola",
   description:
-    "Agende uma demonstração executiva e veja como a Terus Varejo elimina ruptura, otimiza capital e automatiza a reposição em toda a cadeia.",
+    "Na demonstração mostramos os alertas, a fila da loja e o pedido chegando ao fornecedor — com o ERP que você já usa.",
   trustIndicators: [
     { value: "96%", label: "Digitalização validada" },
     { value: "0,5%", label: "Rejeição ERP" },
@@ -19,10 +19,10 @@ export const FOOTER_COPY = {
 } as const;
 
 export const ENTERPRISE_TRUST = {
-  badge: "Confiabilidade",
-  title: "Infraestrutura enterprise para operações críticas",
+  badge: "Segurança",
+  title: "Uma integração que o seu TI aprova",
   description:
-    "Segurança, isolamento e governança implementados na arquitetura — prontos para escala e conformidade operacional.",
+    "A Terus lê o ERP da rede sem alterar nada, sem VPN e com permissões mínimas. O checklist e o script vão prontos para o DBA.",
 } as const;
 
 export const SOCIAL_PROOF = {

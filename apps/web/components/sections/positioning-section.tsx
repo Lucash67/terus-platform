@@ -10,14 +10,14 @@ export function PositioningSection() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
-            Inteligência da Cadeia de Suprimentos
+            Como funciona
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Mais que integração — inteligência operacional em tempo real
+            Detecta, executa e mede — em reais
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            A Terus não conecta dados. Ela transforma sinais da operação em
-            ações automáticas que protegem receita e otimizam capital.
+            Relatório não repõe gôndola. A Terus transforma cada alerta em uma
+            atividade na loja e mostra se a venda voltou.
           </p>
         </Reveal>
 

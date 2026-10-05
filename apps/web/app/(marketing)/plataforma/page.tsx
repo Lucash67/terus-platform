@@ -72,7 +72,7 @@ export default function PlataformaPage() {
             </h2>
             <p className="mt-4 text-body-lg text-text-secondary">
               A infraestrutura que coleta, processa e integra dados — a base
-              real que alimenta Alert, Strategy, Order, Task, Log e Pulse.
+              real que alimenta os módulos da Terus Varejo.
             </p>
           </Reveal>
 
@@ -211,11 +211,12 @@ export default function PlataformaPage() {
               {
                 title: "Monitoramento",
                 description:
-                  "Visibilidade 24/7 da operação com dashboards executivos",
+                  "Painel de alertas da rede e resumo do dia para a diretoria",
               },
               {
                 title: "Alertas",
-                description: "Detecção de anomalias e rupturas em tempo real",
+                description:
+                  "Ruptura, excesso, sem venda, oferta e margem por loja",
               },
               {
                 title: "Automações",
@@ -383,7 +384,7 @@ export default function PlataformaPage() {
               },
               {
                 title: "Operação Monitorada",
-                description: "Visibilidade 24/7 de toda a jornada operacional",
+                description: "Saúde da integração e completude de cada carga",
               },
             ].map((item, index) => (
               <Reveal key={item.title} delay={Math.min(index * 70, 490)}>

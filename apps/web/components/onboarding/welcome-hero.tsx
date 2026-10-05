@@ -34,7 +34,7 @@ function FlowDiagram() {
           {[
             { label: "Seu ERP", sub: "Winthor · RMS" },
             { label: "Terus", sub: "Diagnóstico + Sync" },
-            { label: "Operação", sub: "6 módulos ativos" },
+            { label: "Operação", sub: "Módulos contratados" },
           ].map((node, index) => (
             <div key={node.label} className="flex flex-1 items-center gap-2">
               {index > 0 && (

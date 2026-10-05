@@ -1,10 +1,10 @@
 import { Container } from "@/components/layout/container";
 
 const STATS = [
-  { value: "40%", label: "Redução de ruptura" },
-  { value: "< 5min", label: "Detecção de anomalias" },
-  { value: "6", label: "Módulos integrados" },
-  { value: "24/7", label: "Monitoramento contínuo" },
+  { value: "96%", label: "Pedidos digitalizados" },
+  { value: "0,5%", label: "Rejeição no ERP" },
+  { value: "13", label: "Tipos de alerta" },
+  { value: "+20", label: "Empresas na Rede Terus" },
 ];
 
 export function StatsSection() {

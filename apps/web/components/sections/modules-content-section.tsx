@@ -13,8 +13,8 @@ export function ModulesContentSection() {
             Conteúdos por módulo
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Seis módulos integrados que compõem o ecossistema operacional Terus
-            — explore cada um em detalhe.
+            Os módulos que compõem o portal Terus Varejo — explore cada um em
+            detalhe.
           </p>
         </Reveal>
 

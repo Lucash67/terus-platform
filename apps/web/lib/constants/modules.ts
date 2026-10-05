@@ -1,14 +1,19 @@
 export type ModuleSlug =
   | "alert"
-  | "strategy"
   | "order"
   | "task"
-  | "log"
-  | "pulse";
+  | "strategy"
+  | "unitization"
+  | "production"
+  | "chain"
+  | "vitrine";
+
+export type ModuleGroup = "core" | "expansao";
 
 export interface ModuleDefinition {
   slug: ModuleSlug;
   name: string;
+  group: ModuleGroup;
   tagline: string;
   description: string;
   features: string[];
@@ -17,101 +22,137 @@ export interface ModuleDefinition {
 }
 
 /**
- * Catálogo dos 6 módulos oficiais (nomenclatura da Terus Varejo).
- * Copy alinhada às soluções reais do site legado terustec.com.br:
- * Alert ← ALERT · Strategy ← STRATEGY · Order ← TASK WEB ·
- * Task ← TASK · Log ← TEAMS · Pulse ← Portal do Cliente.
+ * Catálogo de módulos da Terus Varejo — espelha os blocos do portal
+ * documentados em wiki.terus.tec.br/varejo.
  */
 export const MODULES: ModuleDefinition[] = [
   {
     slug: "alert",
     name: "Terus Alert",
-    tagline: "Alertas que impactam a performance da loja",
+    group: "core",
+    tagline: "O que está tirando venda da loja, hoje",
     description:
-      "Painel com os principais problemas que atingem as lojas do varejo — ruptura, exposição, precificação e oferta. Cada alerta lista os produtos envolvidos e alimenta as ferramentas de execução (Task e Order).",
+      "Painel de alertas da rede e da filial — ruptura, risco de ruptura, excesso, sem venda, queda, oferta, preço e margem. O comprador tem a própria mesa, só com a carteira dele.",
     features: [
-      "Cerca de 12 alertas ligados à performance da loja",
-      "Detalhamento por produto do que prejudica o resultado",
-      "Encaminhamento para execução no Task e no Order",
-      "Visão de manutenção e prevenção operacional",
+      "13 tipos de alerta: ruptura, excesso, sem venda, queda, margem negativa e mais",
+      "Mesa do comprador: carteira, mix, divergência de custo e produtos sem giro 30+ dias",
+      "Detalhe por produto, filial, seção e dias sem venda",
+      "Resumo do dia para a diretoria",
     ],
-    metric: "~12",
-    metricLabel: "Alertas operacionais por loja",
-  },
-  {
-    slug: "strategy",
-    name: "Terus Strategy",
-    tagline: "Painéis estratégicos para a sala de reunião",
-    description:
-      "Painéis de informações estratégicas e gerenciais formatados de forma simples — pensados para responder às perguntas que o varejo faz em mesa redonda, com velocidade para apoiar a tomada de decisão.",
-    features: [
-      "Uma pergunta de negócio, um painel dedicado",
-      "Visão para varejo, fornecedores e encarregados",
-      "Acesso e leitura facilitados das informações",
-      "Respostas rápidas para decisão gerencial",
-    ],
-    metric: "1:1",
-    metricLabel: "Pergunta → painel dedicado",
+    metric: "13",
+    metricLabel: "Tipos de alerta operacional",
   },
   {
     slug: "order",
     name: "Terus Order",
-    tagline: "Pedidos, reposição e correção de estoque",
+    group: "core",
+    tagline: "Reposição que chega ao fornecedor — e ao ERP dele",
     description:
-      "Área web para atuar sobre necessidades de correção e ajuste: pedido de compra, solicitação de reabastecimento ao CD, bloqueio de compra em excesso e inativação de produtos descontinuados — com evidência e prazo.",
+      "Sugestão de compra com base em estoque, venda e parâmetros da rede. O comprador revisa, envia, e o fornecedor aprova o pedido que cai direto no ERP dele — com NF e rastreio.",
     features: [
-      "Filtro por departamento, seção, fornecedor ou alerta",
-      "Pedido de compra e reposição ao Centro de Distribuição",
-      "Bloqueio de compra em produtos com excesso de estoque",
-      "Evidências e alerta quando a atividade não conclui no prazo",
+      "Pedido de reposição sugerido por estoque e venda",
+      "Fornecedor aprova e o pedido entra no ERP dele (Winthor, Sankhya, VitSis)",
+      "Devolução de excesso com contagem cega na loja",
+      "Negociação de margem, sell-in e sell-out",
     ],
-    metric: "CD+",
-    metricLabel: "Compra, CD e bloqueio",
+    metric: "0,5%",
+    metricLabel: "Rejeição de pedido no ERP (case)",
   },
   {
     slug: "task",
     name: "Terus Task",
-    tagline: "Atividades guiadas para o encarregado na loja",
+    group: "core",
+    tagline: "A loja corrige primeiro o que mais devolve dinheiro",
     description:
-      "Aplicativo mobile que guia, de forma ordenada e prioritária, as atividades do encarregado: abastecimento, correção de exposição, etiqueta de preço e destaque de oferta — com evidência de cada execução.",
+      "App da loja que conduz o operador, um produto de cada vez: abastecer a gôndola, corrigir a exposição, destacar e retirar oferta. A fila é ordenada pelo valor em R$ que cada item pode recuperar.",
     features: [
-      "Priorização das atividades mais importantes do dia",
-      "Verificação de exposição, abastecimento e preço",
-      "Destaque correto de produtos em oferta",
-      "Evidências geradas em toda atividade executada",
+      "Fila priorizada por retorno em R$ (Alto, Médio, Baixo)",
+      "Roteiro guiado com leitura do código de barras e foto de evidência",
+      "Coletar e abastecer, presença e exposição, ofertas e inventário",
+      "Portal mede R$ antes e depois, acerto e reincidência",
     ],
-    metric: "App",
-    metricLabel: "Execução guiada na loja",
+    metric: "R$",
+    metricLabel: "Fila ordenada por valor recuperável",
   },
   {
-    slug: "log",
-    name: "Terus Log",
-    tagline: "Acompanhamento de equipes e evidências",
+    slug: "strategy",
+    name: "Terus Strategy",
+    group: "core",
+    tagline: "Metas, vendas, compras e estoque em um painel",
     description:
-      "Visão do fluxo de execução das equipes: atividades concluídas ou abandonadas, evidências do que foi feito, filtros por encarregado ou produto — para acompanhar e medir a operação em loja.",
+      "Inteligência comercial da rede: metas por comprador, seção e loja; vendas vs. ano anterior; entradas; posição e ranking de estoque; ruptura e nível de serviço.",
     features: [
-      "Execuções e abandonos de atividades em um só lugar",
-      "Evidências de todo o fluxo do que foi executado",
-      "Filtros e busca por encarregado ou produto",
-      "Medição do desempenho das equipes de loja",
+      "Definição e acompanhamento de metas",
+      "Vendas por loja, categoria e vs. ano anterior",
+      "Ranking de estoque com o excesso caro no topo",
+      "Ruptura, nível de serviço e divergência de inventário",
     ],
-    metric: "100%",
-    metricLabel: "Evidência da execução",
+    metric: "YoY",
+    metricLabel: "Tendência para decidir",
   },
   {
-    slug: "pulse",
-    name: "Terus Pulse",
-    tagline: "Portal de gestão, execução e acompanhamento",
+    slug: "unitization",
+    name: "Terus Unitization",
+    group: "expansao",
+    tagline: "Da gaiola no CD até a entrada na loja",
     description:
-      "Centro de administração e operação do varejo: usuários, atribuições e metas; Strategy e Alert; acompanhamento de atividades e evidências; aprovação de sugestões de reposição do CD ou do fornecedor.",
+      "Quebra o pedido em volumes, imprime a etiqueta de gaiola ou palete e rastreia cada volume do depósito até a loja — com contagem cega no recebimento.",
     features: [
-      "Gestão de usuários, atribuições e metas",
-      "Acesso a Strategy e Alert no mesmo ambiente",
-      "Acompanhamento de atividades e evidências",
-      "Aprovação de sugestões de reposição (CD ou fornecedor)",
+      "Etiquetas de gaiola e palete",
+      "Rastreamento de cargas: separado, em trânsito, recebido",
+      "Separação prevista × realizada",
+      "Recebimento no app com contagem cega",
     ],
-    metric: "1",
-    metricLabel: "Portal de gestão da operação",
+    metric: "CD→Loja",
+    metricLabel: "Volume rastreado",
+  },
+  {
+    slug: "production",
+    name: "Terus Production",
+    group: "expansao",
+    tagline: "Padaria, açougue e rotisseria sob controle",
+    description:
+      "Produção própria da rede: a loja pede, o centro planeja e produz, transfere e o estoque da produção acompanha — da padaria ao açougue.",
+    features: [
+      "Pedidos da loja calculados e aprovados",
+      "Planejamento e ordens de produção",
+      "Rotas de abastecimento e transferências",
+      "Estoque da produção",
+    ],
+    metric: "PA",
+    metricLabel: "Produção e abastecimento",
+  },
+  {
+    slug: "chain",
+    name: "Terus Chain",
+    group: "expansao",
+    tagline: "Score dos fornecedores e saúde dos dados",
+    description:
+      "Avaliação de fornecedores (atendimento, ruptura, prazo) para a reunião comercial e monitoramento da qualidade da integração com o ERP.",
+    features: [
+      "Ranking de fornecedores na rede",
+      "Resultado da integração por ciclo",
+      "Saúde da integração: completude e atraso",
+      "Conferência ERP × Terus",
+    ],
+    metric: "Score",
+    metricLabel: "Desempenho do fornecedor",
+  },
+  {
+    slug: "vitrine",
+    name: "Terus Vitrine",
+    group: "expansao",
+    tagline: "Gestão de espaço e exposição da loja",
+    description:
+      "Mapa de exposição por filial, medidas e foto de cada SKU e replicação do layout de uma loja modelo para outra.",
+    features: [
+      "Mapa de exposição por gôndola",
+      "Medidas e foto do SKU",
+      "Replicar layout entre lojas",
+      "Auditoria da vitrine pelo app",
+    ],
+    metric: "Layout",
+    metricLabel: "Exposição planejada",
   },
 ];
 

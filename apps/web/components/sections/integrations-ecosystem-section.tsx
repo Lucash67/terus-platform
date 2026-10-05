@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { CAMADA_INTEGRACAO, INTEGRACOES } from "@/lib/constants/site-data";
 
 const STATUS_LABELS = {
-  homologado: { label: "Homologado", variant: "success" as const },
+  homologado: { label: "Em produção", variant: "success" as const },
   ativo: { label: "Ativo", variant: "default" as const },
   roadmap: { label: "Roadmap", variant: "secondary" as const },
 };
@@ -17,14 +17,14 @@ export function IntegrationsEcosystemSection() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
-            Ecossistema
+            Integração
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Integrações e camada que alimenta a operação
+            Do ERP da rede ao ERP do fornecedor
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            ERPs homologados e a infraestrutura real que coleta, processa e
-            integra dados — Agent, IAproc e Bond — antes de chegar aos módulos.
+            A Terus captura os dados da rede, gera alertas e atividades, e grava
+            o pedido aprovado no sistema do fornecedor — sem planilha no meio.
           </p>
         </Reveal>
 

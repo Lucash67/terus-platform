@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Módulos Terus — Operação Integrada",
   description:
-    "Seis módulos que sustentam toda a jornada operacional — Alert, Strategy, Order, Task, Log e Pulse para Inteligência da Cadeia de Suprimentos.",
+    "Alert, Order, Task e Strategy formam o ciclo da gôndola; Unitization, Production, Chain e Vitrine expandem para logística, produção, fornecedores e exposição.",
   path: "/modulos",
 });
 
@@ -17,9 +17,9 @@ export default function ModulosPage() {
     <>
       <PageHero
         badge="Operação"
-        title="Seis módulos integrados para"
-        titleAccent="operação contínua"
-        description="Cada módulo sustenta uma etapa da jornada operacional — do onboarding ao monitoramento contínuo, em um ambiente unificado."
+        title="Oito módulos, um só portal para"
+        titleAccent="rede, loja e fornecedor"
+        description="Comece pelo ciclo de detectar, executar e medir. Expanda para logística, produção própria, fornecedores e exposição quando a operação pedir."
       />
       <ModulesSection showViewAll={false} />
       <CtaSection />
