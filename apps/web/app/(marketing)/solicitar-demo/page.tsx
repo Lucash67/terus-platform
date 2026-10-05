@@ -2,23 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge, Button } from "@terus/ui";
 
+import { PreCadastroForm } from "@/components/conversion/pre-cadastro-form";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { FounderVideoSection } from "@/components/sections/founder-video-section";
-import { CTA, DEMO_PAGE, WHATSAPP_DEMO_URL } from "@/lib/constants/conversion";
+import { CTA, DEMO_PAGE } from "@/lib/constants/conversion";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Agendar Demonstração",
+  title: "Comece com a sua rede",
   description:
-    "Agende uma demonstração da Terus Varejo e veja como encontrar e corrigir ruptura, excesso e margem na loja, com pedido de reposição direto no ERP do fornecedor.",
+    "Pré-cadastro da Terus Varejo: conte qual ERP a rede usa e quantas lojas tem, e nossa equipe retoma com você pelo WhatsApp.",
   path: "/solicitar-demo",
 });
 
 export default function SolicitarDemoPage() {
   return (
     <>
-      {/* Hero de conversão */}
       <section className="relative overflow-hidden border-b border-surface-border bg-gradient-to-b from-brand-primary/5 via-surface-base to-surface-base">
         <div
           className="tr-grid-bg pointer-events-none absolute inset-0"
@@ -29,58 +29,29 @@ export default function SolicitarDemoPage() {
           aria-hidden="true"
         />
         <Container className="relative py-16 sm:py-24">
-          <div className="hero-fade-in mx-auto max-w-3xl text-center">
-            <Badge
-              variant="secondary"
-              className="border border-brand-primary/20 bg-brand-primary/5 text-brand-primary"
-            >
-              {DEMO_PAGE.badge}
-            </Badge>
-            <h1 className="mt-6 font-display text-display-lg font-bold tracking-tight text-text-primary sm:text-display-xl">
-              {DEMO_PAGE.title}
-            </h1>
-            <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
-              {DEMO_PAGE.description}
-            </p>
-            <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-status-success/30 bg-status-success-dim px-4 py-1.5 font-mono text-caption font-semibold uppercase tracking-widest text-status-success">
-              <span
-                className="hero-live-pulse h-1.5 w-1.5 rounded-full bg-status-success"
-                aria-hidden="true"
-              />
-              {DEMO_PAGE.trustLine}
-            </p>
-          </div>
-
-          <div className="hero-fade-in-delay mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-3">
-            {DEMO_PAGE.valueProps.map((prop) => (
-              <div
-                key={prop.title}
-                className="card-interactive rounded-xl border border-surface-border bg-surface-elevated-1/80 p-6 text-center"
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr_32rem]">
+            <div className="hero-fade-in text-center lg:text-left">
+              <Badge
+                variant="secondary"
+                className="border border-brand-primary/20 bg-brand-primary/5 text-brand-primary"
               >
-                <h2 className="font-display text-heading-md font-semibold text-text-primary">
-                  {prop.title}
-                </h2>
-                <p className="mt-3 text-body-sm text-text-secondary">
-                  {prop.description}
-                </p>
-              </div>
-            ))}
-          </div>
+                {DEMO_PAGE.badge}
+              </Badge>
+              <h1 className="mt-6 font-display text-display-lg font-bold tracking-tight text-text-primary sm:text-display-xl">
+                {DEMO_PAGE.title}{" "}
+                <span className="text-gradient">{DEMO_PAGE.titleAccent}</span>
+              </h1>
+              <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
+                {DEMO_PAGE.description}
+              </p>
+              <p className="mt-6 font-mono text-caption font-semibold uppercase tracking-widest text-text-tertiary">
+                {DEMO_PAGE.trustLine}
+              </p>
+            </div>
 
-          <div className="hero-fade-in-delay mx-auto mt-10 max-w-xl text-center">
-            <Button
-              size="lg"
-              asChild
-              className="w-full font-semibold shadow-glow-sm transition-shadow duration-300 hover:shadow-glow sm:w-auto"
-            >
-              <a
-                href={WHATSAPP_DEMO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {DEMO_PAGE.whatsappLabel}
-              </a>
-            </Button>
+            <div id="pre-cadastro" className="hero-fade-in-delay scroll-mt-24">
+              <PreCadastroForm />
+            </div>
           </div>
         </Container>
       </section>
@@ -92,18 +63,11 @@ export default function SolicitarDemoPage() {
             asChild
             className="font-semibold shadow-glow-sm transition-shadow duration-300 hover:shadow-glow"
           >
-            <a
-              href={WHATSAPP_DEMO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {DEMO_PAGE.whatsappLabel}
-            </a>
+            <a href="#pre-cadastro">{DEMO_PAGE.form.title}</a>
           </Button>
         </div>
       </FounderVideoSection>
 
-      {/* Processo após envio */}
       <section className="border-b border-surface-border">
         <Container className="py-16 sm:py-20">
           <Reveal className="mx-auto max-w-2xl text-center">
@@ -137,76 +101,45 @@ export default function SolicitarDemoPage() {
         </Container>
       </section>
 
-      {/* O que inclui a demo */}
       <section className="relative overflow-hidden border-b border-surface-border bg-surface-elevated-1">
         <Container className="relative py-16 sm:py-20">
-          <div className="mx-auto grid max-w-4xl gap-10 lg:grid-cols-2 lg:items-center">
-            <Reveal variant="left">
-              <h2 className="font-display text-heading-xl font-bold text-text-primary">
-                O que você verá na demonstração
-              </h2>
-              <p className="mt-4 text-body-md text-text-secondary">
-                O produto funcionando, não slides institucionais.
-              </p>
-              <ul className="mt-6 space-y-3">
-                {DEMO_PAGE.demoIncludes.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-body-md text-text-secondary"
-                  >
-                    <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-primary-dim">
-                      <svg
-                        className="h-3 w-3 text-brand-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-
-            <Reveal
-              variant="scale"
-              delay={100}
-              className="cta-gradient tr-glow-ring rounded-xl border border-brand-primary/20 p-8 text-center text-surface-base shadow-glow"
-            >
-              <h3 className="font-display text-heading-lg font-bold">
-                Pronto para começar?
-              </h3>
-              <p className="mt-3 text-body-md text-surface-base/80">
-                Fale com a nossa equipe comercial pelo WhatsApp e agende a sua
-                demonstração.
-              </p>
-              <Button
-                size="lg"
-                asChild
-                className="mt-6 w-full bg-surface-base font-semibold text-brand-primary hover:bg-surface-elevated-1"
-              >
-                <a
-                  href={WHATSAPP_DEMO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+          <Reveal className="mx-auto max-w-2xl">
+            <h2 className="font-display text-heading-xl font-bold text-text-primary">
+              O que você verá na demonstração
+            </h2>
+            <p className="mt-4 text-body-md text-text-secondary">
+              O produto funcionando, não slides institucionais.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {DEMO_PAGE.demoIncludes.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-body-md text-text-secondary"
                 >
-                  {DEMO_PAGE.whatsappLabel}
-                </a>
-              </Button>
-            </Reveal>
-          </div>
+                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-primary-dim">
+                    <svg
+                      className="h-3 w-3 text-brand-primary"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </Container>
       </section>
 
-      {/* Fallback exploratório */}
       <section>
         <Container className="py-12 sm:py-16">
           <Reveal>

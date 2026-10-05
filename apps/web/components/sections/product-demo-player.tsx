@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@terus/ui";
 
+import { CTA } from "@/lib/constants/conversion";
 import { PRODUCT_DEMO } from "@/lib/constants/site-data";
 
 /**
@@ -230,7 +231,7 @@ export function ProductDemoPlayer() {
 
       <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Button asChild size="lg">
-          <Link href="/solicitar-demo">Agendar demonstração</Link>
+          <Link href={CTA.primary.href}>{CTA.primary.label}</Link>
         </Button>
         <Button asChild variant="outline" size="lg">
           <Link href="/onboarding">Começar onboarding</Link>

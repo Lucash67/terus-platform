@@ -1,6 +1,6 @@
 export const CTA = {
   primary: {
-    label: "Agendar demonstração",
+    label: "Começar com a minha rede",
     href: "/solicitar-demo",
   },
   secondary: {
@@ -9,40 +9,41 @@ export const CTA = {
   },
 } as const;
 
-export const WHATSAPP_DEMO_URL = `https://wa.me/5585997384940?text=${encodeURIComponent(
+export const WHATSAPP_NUMBER = "5585997384940";
+
+export const WHATSAPP_DEMO_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Olá! Quero agendar uma demonstração da Terus Varejo.\nERP da rede: \nNúmero de lojas: ",
 )}`;
 
+export const PRE_CADASTRO_ERPS = [
+  { id: "rms", label: "RMS" },
+  { id: "consinco", label: "Consinco" },
+  { id: "vr", label: "VR Software" },
+  { id: "ciss", label: "CISS Poder" },
+  { id: "rpinfo", label: "RPInfo" },
+  { id: "outro", label: "Outro ERP" },
+] as const;
+
 export const DEMO_PAGE = {
-  badge: "Demonstração comercial",
-  title: "Veja quanto a sua gôndola está deixando na mesa",
+  badge: "Pré-cadastro",
+  title: "Comece com a sua rede",
+  titleAccent: "em menos de um minuto",
   description:
-    "Uma conversa para mostrar como encontramos ruptura, excesso e problemas de margem, colocamos a correção na mão da loja e medimos o R$ recuperado.",
+    "Conte qual ERP a rede usa e quantas lojas tem. Os dados seguem pelo WhatsApp para a nossa equipe, que retoma com você o próximo passo.",
   trustLine: "RMS · Consinco · VR · CISS · RPInfo · Winthor · Sankhya · VitSis",
-  whatsappLabel: "Agendar demonstração via WhatsApp",
-  valueProps: [
-    {
-      title: "Entendemos a sua operação",
-      description:
-        "Antes de apresentar, olhamos o seu ERP, o número de lojas e como a reposição funciona hoje.",
-    },
-    {
-      title: "Portal e app em uso real",
-      description:
-        "Você vê os alertas da rede, a fila da loja priorizada por R$ e o pedido chegando no ERP do fornecedor.",
-    },
-    {
-      title: "Próximos passos claros",
-      description:
-        "Saia sabendo o que a integração exige do seu TI, quais módulos começar e como medir o retorno.",
-    },
-  ],
+  form: {
+    title: "Pré-cadastro da rede",
+    submit: "Enviar pelo WhatsApp",
+    privacy:
+      "Não pedimos senha nem acesso ao banco nesta etapa. A integração é combinada depois, com o seu TI.",
+    sent: "Abrimos o WhatsApp com os seus dados. É só tocar em enviar.",
+  },
   processSteps: [
     {
       step: "01",
-      title: "Contato pelo WhatsApp",
+      title: "Pré-cadastro",
       description:
-        "Você conta qual ERP a rede usa e quantas lojas tem. Nossa equipe comercial confirma o horário.",
+        "Você envia nome, rede, ERP e número de lojas pelo WhatsApp. Nossa equipe comercial responde por lá.",
     },
     {
       step: "02",

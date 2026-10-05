@@ -100,10 +100,10 @@ export function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/solicitar-demo"
+                      href={CTA.primary.href}
                       className="text-body-sm font-medium text-brand-primary transition-colors duration-200 hover:text-brand-primary-hover"
                     >
-                      Agendar demonstração
+                      {CTA.primary.label}
                     </Link>
                   </li>
                   {FOOTER_LINKS.sobre.map((link) => (

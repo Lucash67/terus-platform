@@ -16,7 +16,7 @@ export function StickyDemoCta() {
   return (
     <div
       className="tr-glass fixed bottom-0 left-0 right-0 z-40 border-t border-surface-border p-4 shadow-floating lg:hidden"
-      aria-label="Agendar demonstração"
+      aria-label={CTA.primary.label}
     >
       <Button size="lg" asChild className="w-full font-semibold shadow-glow-sm">
         <Link href={CTA.primary.href}>{CTA.primary.label}</Link>

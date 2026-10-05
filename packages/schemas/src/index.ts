@@ -22,7 +22,10 @@ export const onboardingStep1Schema = z.object({
 
 export const phoneSchema = z
   .string()
-  .regex(/^\(\d{2}\)\s?\d{4,5}-\d{4}$/, "Telefone inválido — use (00) 00000-0000");
+  .regex(
+    /^\(\d{2}\)\s?\d{4,5}-\d{4}$/,
+    "Telefone inválido — use (00) 00000-0000",
+  );
 
 export const onboardingSegmentSchema = z.enum([
   "retail",
@@ -45,6 +48,28 @@ export const onboardingCadastroSchema = z.object({
     .int("Informe um número inteiro")
     .min(1, "Mínimo de 1 loja")
     .max(10000, "Valor acima do limite"),
+});
+
+// Pré-cadastro do site (enviado ao WhatsApp comercial)
+export const preCadastroErpSchema = z.enum([
+  "rms",
+  "consinco",
+  "vr",
+  "ciss",
+  "rpinfo",
+  "outro",
+]);
+
+export const preCadastroSchema = z.object({
+  contactName: z.string().trim().min(3, "Informe o seu nome"),
+  companyName: z.string().trim().min(2, "Informe o nome da rede"),
+  erp: preCadastroErpSchema,
+  storeCount: z.coerce
+    .number({ invalid_type_error: "Informe o número de lojas" })
+    .int("Informe um número inteiro")
+    .min(1, "Informe o número de lojas")
+    .max(10000, "Valor acima do limite"),
+  phone: phoneSchema,
 });
 
 // Etapa 4 — Configuração de conexão com o banco do ERP
