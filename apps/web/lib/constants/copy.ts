@@ -22,7 +22,7 @@ export const ENTERPRISE_TRUST = {
   badge: "Segurança",
   title: "Uma integração que o seu TI aprova",
   description:
-    "A Terus lê o ERP da rede sem alterar nada, sem VPN e com permissões mínimas. O checklist e o script vão prontos para o DBA.",
+    "Lemos o ERP da rede sem alterar nada, sem VPN e com permissões mínimas. O checklist e o script vão prontos para o DBA.",
 } as const;
 
 export const SOCIAL_PROOF = {
@@ -35,14 +35,14 @@ export const SOCIAL_PROOF = {
 export const ABOUT = {
   hero: {
     badge: "Sobre",
-    title: "A Terus conecta a rede, a loja e o fornecedor",
+    title: "Conectamos a rede, a loja e o fornecedor",
     description:
       "Para que o produto comprado chegue à gôndola, esteja bem exposto e venda.",
   },
   whatIs: {
-    title: "O que a Terus Varejo faz",
+    title: "O que fazemos",
     paragraphs: [
-      "Encontra o que está tirando venda da loja — ruptura, excesso, produto sem venda, oferta e margem — e transforma cada problema em uma atividade para quem está na ponta.",
+      "Encontramos o que está tirando venda da loja — ruptura, excesso, produto sem venda, oferta e margem — e transformamos cada problema em uma atividade para quem está na ponta.",
       "O pedido de reposição sai da rede e entra direto no ERP do fornecedor. E a rede acompanha, em reais, o quanto foi recuperado.",
     ],
   },

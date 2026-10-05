@@ -92,8 +92,8 @@ export function ErpTickerSection() {
             Funciona com o ERP que você já usa
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Sem trocar de sistema. A Terus lê o ERP da rede e grava o pedido no
-            ERP do fornecedor — integrações em produção hoje.
+            Sem trocar de sistema. Nós lemos o ERP da rede e gravamos o pedido
+            no ERP do fornecedor — integrações em produção hoje.
           </p>
         </Reveal>
       </Container>

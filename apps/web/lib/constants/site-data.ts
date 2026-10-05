@@ -319,7 +319,7 @@ export const INTEGRACOES = [
     type: "TI do cliente",
     status: "ativo" as const,
     description:
-      "A Terus entrega o checklist e o script de permissões para o DBA colar. Sem desenvolvimento do lado do cliente.",
+      "Entregamos o checklist e o script de permissões para o DBA colar. Sem desenvolvimento do lado do cliente.",
     logo: null,
   },
   {
@@ -327,7 +327,7 @@ export const INTEGRACOES = [
     type: "Ativação",
     status: "ativo" as const,
     description:
-      "Do checklist à primeira carga, com a equipe Terus validando conexão e permissões antes de ativar os módulos.",
+      "Do checklist à primeira carga, com a nossa equipe validando conexão e permissões antes de ativar os módulos.",
     logo: null,
   },
 ];
@@ -362,7 +362,7 @@ export const PILARES_CONFIABILIDADE = [
     name: "Só leitura no ERP da rede",
     status: "ativo" as const,
     description:
-      "A Terus não grava pedido, não altera cadastro e não apaga nada no ERP do varejo. Só SELECT.",
+      "Não gravamos pedido, não alteramos cadastro e não apagamos nada no ERP do varejo. Só SELECT.",
     logo: null,
   },
   {

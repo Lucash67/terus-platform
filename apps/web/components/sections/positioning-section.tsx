@@ -13,11 +13,11 @@ export function PositioningSection() {
             Como funciona
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Detecta, executa e mede — em reais
+            Detectamos, executamos e medimos — em reais
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Relatório não repõe gôndola. A Terus transforma cada alerta em uma
-            atividade na loja e mostra se a venda voltou.
+            Relatório não repõe gôndola. Nós transformamos cada alerta em uma
+            atividade na loja e mostramos se a venda voltou.
           </p>
         </Reveal>
 

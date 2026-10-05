@@ -19,13 +19,13 @@ export const SITE_NAME = "Terus Varejo";
 export const SITE_TAGLINE = "Inteligência da Cadeia de Suprimentos";
 
 export const SITE_DESCRIPTION =
-  "Terus Varejo mostra o que está tirando venda da sua loja, guia a equipe a corrigir primeiro o que mais devolve dinheiro e mede quanto voltou — conectando varejo, indústria e distribuição.";
+  "Mostramos o que está tirando venda da sua loja, guiamos a equipe a corrigir primeiro o que mais devolve dinheiro e medimos quanto voltou — conectando varejo, indústria e distribuição.";
 
 export const HERO = {
   headline: "Sua gôndola perde venda todo dia.",
-  headlineAccent: "A Terus traz de volta.",
+  headlineAccent: "Nós trazemos de volta.",
   description:
-    "A Terus encontra a ruptura, a loja corrige guiada pelo app e você vê o R$ recuperado. Alertas de ruptura, excesso e margem viram uma fila ordenada pelo valor de cada produto — e o pedido de reposição chega direto no ERP do fornecedor.",
+    "Nós encontramos a ruptura, a loja corrige guiada pelo app e você vê o R$ recuperado. Alertas de ruptura, excesso e margem viram uma fila ordenada pelo valor de cada produto — e o pedido de reposição chega direto no ERP do fornecedor.",
   highlights: [
     "13 tipos de alerta: ruptura, excesso, sem venda, oferta e margem",
     "Fila da loja priorizada por retorno em R$, com foto de evidência",

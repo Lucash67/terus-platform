@@ -17,7 +17,7 @@ export const DEMO_PAGE = {
   badge: "Demonstração comercial",
   title: "Veja quanto a sua gôndola está deixando na mesa",
   description:
-    "Uma conversa para mostrar como a Terus encontra ruptura, excesso e problemas de margem, coloca a correção na mão da loja e mede o R$ recuperado.",
+    "Uma conversa para mostrar como encontramos ruptura, excesso e problemas de margem, colocamos a correção na mão da loja e medimos o R$ recuperado.",
   trustLine: "RMS · Consinco · VR · CISS · RPInfo · Winthor · Sankhya · VitSis",
   whatsappLabel: "Agendar demonstração via WhatsApp",
   valueProps: [
@@ -42,7 +42,7 @@ export const DEMO_PAGE = {
       step: "01",
       title: "Contato pelo WhatsApp",
       description:
-        "Você conta qual ERP a rede usa e quantas lojas tem. A equipe comercial confirma o horário.",
+        "Você conta qual ERP a rede usa e quantas lojas tem. Nossa equipe comercial confirma o horário.",
     },
     {
       step: "02",

@@ -79,7 +79,7 @@ export function RedeTerusSection() {
             Empresas que fazem parte da Rede Terus
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            A Terus conecta varejos e distribuidores em uma jornada operacional
+            Conectamos varejos e distribuidores em uma jornada operacional
             integrada, formando uma rede preparada para monitorar, executar e
             evoluir operações em escala.
           </p>

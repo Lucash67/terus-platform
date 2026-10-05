@@ -94,7 +94,7 @@ export const FOUNDER_SECTION = {
   badge: "Do fundador",
   title: "Quanto dinheiro a sua rede deixa na mesa todo dia?",
   description:
-    "Em 50 segundos, o Rodrigo mostra onde a venda se perde entre o depósito e a gôndola — e como a Terus transforma cada problema em uma ação.",
+    "Em 50 segundos, explicamos onde a venda se perde entre o depósito e a gôndola — e como transformamos cada problema em uma ação.",
   questions: [
     "O produto que chegou na loja está exposto como o cliente espera?",
     "Quando há problema, você sabe quanto está deixando de faturar?",
@@ -256,12 +256,12 @@ export const FAQ = {
     {
       question: "Preciso trocar de ERP?",
       answer:
-        "Não. A Terus se conecta ao ERP que a rede já usa — RMS, Consinco, VR Software, CISS Poder, RPInfo ou API REST. Do lado do fornecedor, Winthor, Sankhya e VitSis.",
+        "Não. Nós nos conectamos ao ERP que a rede já usa — RMS, Consinco, VR Software, CISS Poder, RPInfo ou API REST. Do lado do fornecedor, Winthor, Sankhya e VitSis.",
     },
     {
       question: "A Terus altera alguma coisa no meu banco de dados?",
       answer:
-        "Não. No ERP da rede a Terus só lê: não grava pedido, não altera cadastro e não apaga nenhuma tabela. O usuário de integração tem permissões mínimas e nunca é administrador.",
+        "Não. No ERP da rede nós só lemos: não gravamos pedido, não alteramos cadastro e não apagamos nenhuma tabela. O usuário de integração tem permissões mínimas e nunca é administrador.",
     },
     {
       question: "O que o meu TI precisa fazer?",

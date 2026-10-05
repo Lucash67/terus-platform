@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Sobre a Terus",
   description:
-    "A Terus conecta a rede, a loja e o fornecedor para que o produto comprado chegue à gôndola, esteja bem exposto e venda.",
+    "Conectamos a rede, a loja e o fornecedor para que o produto comprado chegue à gôndola, esteja bem exposto e venda.",
   path: "/sobre",
 });
 

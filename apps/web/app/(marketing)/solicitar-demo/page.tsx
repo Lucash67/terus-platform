@@ -185,7 +185,7 @@ export default function SolicitarDemoPage() {
                 Pronto para começar?
               </h3>
               <p className="mt-3 text-body-md text-surface-base/80">
-                Fale com a equipe comercial pelo WhatsApp e agende a sua
+                Fale com a nossa equipe comercial pelo WhatsApp e agende a sua
                 demonstração.
               </p>
               <Button
