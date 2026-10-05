@@ -54,7 +54,59 @@ export interface Persona {
   title: string;
   description: string;
   bullets: string[];
+  video?: FounderVideoData;
 }
+
+export interface FounderVideoData {
+  src: string;
+  poster: string;
+  title: string;
+  duration: string;
+}
+
+export const FOUNDER = {
+  name: "Rodrigo",
+  role: "Fundador e CEO da Terus",
+} as const;
+
+export const FOUNDER_VIDEOS = {
+  dinheiroNaMesa: {
+    src: "/videos/rodrigo-dinheiro-na-mesa.mp4",
+    poster: "/videos/rodrigo-dinheiro-na-mesa.jpg",
+    title: "Quanto dinheiro você está deixando na mesa?",
+    duration: "52s",
+  },
+  comprador: {
+    src: "/videos/rodrigo-comprador.mp4",
+    poster: "/videos/rodrigo-comprador.jpg",
+    title: "O cuidado do comprador não termina no pedido",
+    duration: "1min",
+  },
+  fornecedor: {
+    src: "/videos/rodrigo-fornecedor.mp4",
+    poster: "/videos/rodrigo-fornecedor.jpg",
+    title: "Vender e entregar é só uma parte",
+    duration: "1min15",
+  },
+} satisfies Record<string, FounderVideoData>;
+
+export const FOUNDER_SECTION = {
+  badge: "Do fundador",
+  title: "Quanto dinheiro a sua rede deixa na mesa todo dia?",
+  description:
+    "Em 50 segundos, o Rodrigo mostra onde a venda se perde entre o depósito e a gôndola — e como a Terus transforma cada problema em uma ação.",
+  questions: [
+    "O produto que chegou na loja está exposto como o cliente espera?",
+    "Quando há problema, você sabe quanto está deixando de faturar?",
+    "O encarregado e o promotor sabem exatamente onde agir?",
+  ],
+} as const;
+
+export const SUPPLIER_QUOTE = {
+  quote: "Vender e entregar é só uma parte dessa relação.",
+  description:
+    "O pedido do varejo chega certo no sistema do fornecedor, sem redigitação, e o promotor recebe no app os produtos que não estão vendendo como deveriam.",
+} as const;
 
 export const PERSONAS: {
   badge: string;
@@ -92,6 +144,7 @@ export const PERSONAS: {
         "Pedido de reposição sugerido por estoque e venda",
         "Aprovação de devoluções de excesso",
       ],
+      video: FOUNDER_VIDEOS.comprador,
     },
     {
       id: "loja",

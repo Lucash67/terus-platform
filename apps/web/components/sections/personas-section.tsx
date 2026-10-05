@@ -5,6 +5,7 @@ import { cn } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
+import { FounderVideo } from "@/components/sections/founder-video";
 import { PERSONAS } from "@/lib/constants/lp";
 
 export function PersonasSection() {
@@ -62,7 +63,12 @@ export function PersonasSection() {
             role="tabpanel"
             id={`persona-panel-${active.id}`}
             aria-labelledby={`persona-tab-${active.id}`}
-            className="mx-auto mt-8 grid max-w-4xl gap-8 rounded-xl border border-surface-border bg-surface-base p-6 sm:p-10 lg:grid-cols-2"
+            className={cn(
+              "mx-auto mt-8 grid gap-8 rounded-xl border border-surface-border bg-surface-base p-6 sm:p-10",
+              active.video
+                ? "max-w-5xl lg:grid-cols-[1fr_1fr_15rem]"
+                : "max-w-4xl lg:grid-cols-2",
+            )}
           >
             <div>
               <h3 className="font-display text-heading-lg font-bold text-text-primary">
@@ -97,6 +103,14 @@ export function PersonasSection() {
                 </li>
               ))}
             </ul>
+            {active.video ? (
+              <FounderVideo
+                key={active.video.src}
+                {...active.video}
+                className="mx-auto max-w-[15rem]"
+                sizes="240px"
+              />
+            ) : null}
           </div>
         </Reveal>
       </Container>

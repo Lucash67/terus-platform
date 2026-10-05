@@ -4,6 +4,7 @@ import { Badge, Button } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
+import { FounderVideoSection } from "@/components/sections/founder-video-section";
 import { CTA, DEMO_PAGE, WHATSAPP_DEMO_URL } from "@/lib/constants/conversion";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
@@ -86,6 +87,27 @@ export default function SolicitarDemoPage() {
           </div>
         </Container>
       </section>
+
+      <FounderVideoSection>
+        <div className="mt-10 flex flex-col items-center gap-3 lg:items-start">
+          <Button
+            size="lg"
+            asChild
+            className="font-semibold shadow-glow-sm transition-shadow duration-300 hover:shadow-glow"
+          >
+            <a
+              href={WHATSAPP_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {DEMO_PAGE.whatsappLabel}
+            </a>
+          </Button>
+          <p className="text-body-sm text-text-tertiary">
+            {DEMO_PAGE.responseTime}
+          </p>
+        </div>
+      </FounderVideoSection>
 
       {/* Processo após envio */}
       <section className="border-b border-surface-border">

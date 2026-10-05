@@ -1,6 +1,11 @@
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
-import { PONTE_FORNECEDOR } from "@/lib/constants/lp";
+import { FounderVideo } from "@/components/sections/founder-video";
+import {
+  FOUNDER_VIDEOS,
+  PONTE_FORNECEDOR,
+  SUPPLIER_QUOTE,
+} from "@/lib/constants/lp";
 
 export function SupplierBridgeSection() {
   return (
@@ -60,6 +65,28 @@ export function SupplierBridgeSection() {
               </li>
             ))}
           </ul>
+        </Reveal>
+
+        <Reveal
+          variant="scale"
+          delay={120}
+          className="mx-auto mt-16 grid max-w-4xl items-center gap-10 rounded-2xl border border-surface-border bg-surface-elevated-1/60 p-6 sm:p-10 md:grid-cols-[15rem_1fr]"
+        >
+          <FounderVideo
+            {...FOUNDER_VIDEOS.fornecedor}
+            className="mx-auto max-w-[15rem]"
+            sizes="240px"
+          />
+          <blockquote className="text-center md:text-left">
+            <p className="font-display text-heading-lg font-bold leading-snug text-text-primary sm:text-heading-xl">
+              <span className="text-brand-primary">“</span>
+              {SUPPLIER_QUOTE.quote}
+              <span className="text-brand-primary">”</span>
+            </p>
+            <p className="mt-4 text-body-md leading-relaxed text-text-secondary">
+              {SUPPLIER_QUOTE.description}
+            </p>
+          </blockquote>
         </Reveal>
       </Container>
     </section>

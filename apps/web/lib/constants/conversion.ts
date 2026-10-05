@@ -9,7 +9,7 @@ export const CTA = {
   },
 } as const;
 
-export const WHATSAPP_DEMO_URL = `https://wa.me/558596290044?text=${encodeURIComponent(
+export const WHATSAPP_DEMO_URL = `https://wa.me/5585997384940?text=${encodeURIComponent(
   "Olá! Quero agendar uma demonstração da Terus Varejo.\nERP da rede: \nNúmero de lojas: ",
 )}`;
 

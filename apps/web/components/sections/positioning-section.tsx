@@ -6,7 +6,7 @@ const PILLAR_VARIANTS = ["left", "up", "right"] as const;
 
 export function PositioningSection() {
   return (
-    <section className="section-rhythm-alt">
+    <section className="section-rhythm">
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
