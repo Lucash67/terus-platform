@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { CtaSection } from "@/components/sections/cta-section";
-import { InstitutionalContentSection } from "@/components/sections/institutional-content-section";
 import { EducationalContentSection } from "@/components/sections/educational-content-section";
 import { ModulesContentSection } from "@/components/sections/modules-content-section";
 import { CasesResultsSection } from "@/components/sections/cases-results-section";
@@ -41,7 +40,6 @@ export default function ConteudosPage() {
         </Container>
       </section>
 
-      <InstitutionalContentSection />
       <EducationalContentSection />
       <ModulesContentSection />
       <CasesResultsSection />

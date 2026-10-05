@@ -16,6 +16,8 @@ import { RedeTerusSection } from "@/components/sections/rede-terus-section";
 import { ReliabilitySection } from "@/components/sections/reliability-section";
 import { SocialProofSection } from "@/components/sections/social-proof-section";
 import { SupplierBridgeSection } from "@/components/sections/supplier-bridge-section";
+import { OnboardingSlotSection } from "@/components/sections/onboarding-slot-section";
+import { ONBOARDING_ENABLED } from "@/lib/feature-flags";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { SITE_DESCRIPTION } from "@/lib/constants/site";
 
@@ -46,6 +48,7 @@ export default function HomePage() {
       <SocialProofSection />
       <RedeTerusSection />
       <ReliabilitySection />
+      {ONBOARDING_ENABLED ? <OnboardingSlotSection /> : null}
       <FaqSection />
       <CtaSection />
     </>

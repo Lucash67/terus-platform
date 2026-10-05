@@ -48,9 +48,11 @@ export default function CasesPage() {
                   <Badge variant="outline" className="text-caption capitalize">
                     {c.category}
                   </Badge>
-                  <Badge variant="secondary" className="text-caption">
-                    ERP: {c.erp}
-                  </Badge>
+                  {c.erp ? (
+                    <Badge variant="secondary" className="text-caption">
+                      ERP: {c.erp}
+                    </Badge>
+                  ) : null}
                 </div>
                 <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg leading-tight">
                   {c.title}

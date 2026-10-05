@@ -32,19 +32,18 @@ export const SOCIAL_PROOF = {
     "Indicadores validados em ambiente produtivo — do antes ao depois, com pedidos rastreáveis e evidência operacional.",
 } as const;
 
-export const PLATFORM_ROADMAP_BADGE = "Roadmap 2026";
-
 export const ABOUT = {
   hero: {
     badge: "Sobre",
-    title: "Solução que protege receita e otimiza capital",
+    title: "A Terus conecta a rede, a loja e o fornecedor",
     description:
-      "A Terus Varejo resolve os três desafios de missão crítica no varejo: ruptura de gôndola, excesso de estoque e execução manual inconsistente.",
+      "Para que o produto comprado chegue à gôndola, esteja bem exposto e venda.",
   },
-  story:
-    "Nascemos da operação real — conectando varejos e distribuidores com inteligência que transforma sinais em ações. Evoluímos de integração pontual para a Terus Varejo: Inteligência da Cadeia de Suprimentos.",
-  whySci:
-    "Dados desconectados não resolvem ruptura. Relatórios defasados não protegem receita. A operação precisa de inteligência que age — não apenas informa.",
-  security:
-    "Compromisso com segurança, governança e confiabilidade operacional — controles técnicos implementados na arquitetura e conformidade LGPD by design.",
+  whatIs: {
+    title: "O que a Terus Varejo faz",
+    paragraphs: [
+      "Encontra o que está tirando venda da loja — ruptura, excesso, produto sem venda, oferta e margem — e transforma cada problema em uma atividade para quem está na ponta.",
+      "O pedido de reposição sai da rede e entra direto no ERP do fornecedor. E a rede acompanha, em reais, o quanto foi recuperado.",
+    ],
+  },
 } as const;

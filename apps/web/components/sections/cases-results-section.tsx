@@ -32,9 +32,11 @@ export function CasesResultsSection() {
                 <Badge variant="outline" className="text-caption capitalize">
                   {content.category}
                 </Badge>
-                <Badge variant="secondary" className="text-caption">
-                  ERP: {content.erp}
-                </Badge>
+                {content.erp ? (
+                  <Badge variant="secondary" className="text-caption">
+                    ERP: {content.erp}
+                  </Badge>
+                ) : null}
               </div>
 
               <h3 className="mt-4 font-display text-heading-lg font-bold text-brand-primary">

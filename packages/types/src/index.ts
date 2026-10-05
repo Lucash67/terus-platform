@@ -90,7 +90,7 @@ export interface CaseStudy {
   title: string;
   company: string | null;
   category: "varejo" | "distribuidor";
-  erp: string;
+  erp: string | null;
   challenge: string;
   implementation: string;
   results: string;

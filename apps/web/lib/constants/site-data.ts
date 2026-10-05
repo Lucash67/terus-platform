@@ -239,10 +239,10 @@ export const DEPOIMENTOS: {
 
 export const CASES_DE_SUCESSO = [
   {
-    title: "Crescimento operacional na Rede Terus",
-    company: "Distribuidor homologado · ERP Winthor",
+    title: "Cometa Supermercados",
+    company: "Cometa Supermercados",
     description:
-      "Adoção da jornada operacional Terus integrada ao Winthor, com foco em digitalização de pedidos, redução de rejeição ERP e elevação do Fill Rate.",
+      "Adoção da jornada operacional Terus, com foco em digitalização de pedidos, redução de rejeição ERP e elevação do Fill Rate.",
     results:
       "Digitalização até 96%, Rejeição ERP 0,5%, Fill Rate 96%, ticket médio +34%, receita +38%, 31.881 pedidos rastreáveis.",
     image: null,
@@ -267,7 +267,7 @@ export const PROVA_SOCIAL_PILARES = [
   {
     title: "Varejo + fornecedor na mesma jornada",
     description:
-      "Integração segura com indústria e distribuição: pedidos automatizados, painéis de alerta no PDV e Task para correção na gôndola.",
+      "O pedido de reposição chega no ERP do fornecedor, o promotor vê os produtos que precisam de atenção e a loja corrige a gôndola pelo Terus Task.",
   },
 ] as const;
 
@@ -323,11 +323,11 @@ export const INTEGRACOES = [
     logo: null,
   },
   {
-    name: "Onboarding guiado",
+    name: "Implantação acompanhada",
     type: "Ativação",
     status: "ativo" as const,
     description:
-      "Do cadastro à primeira carga, com diagnóstico de conexão e permissões antes de ativar os módulos.",
+      "Do checklist à primeira carga, com a equipe Terus validando conexão e permissões antes de ativar os módulos.",
     logo: null,
   },
 ];
@@ -798,14 +798,14 @@ export const PRODUCT_DEMO = {
   eyebrow: "Demo do produto",
   title: "Veja a Terus em 10 segundos",
   description:
-    "Do hub da Terus saem alertas e pedidos para varejo, distribuição e indústria — em tempo real.",
+    "Do hub da Terus saem alertas para a loja e pedidos para o fornecedor.",
   durationLabel: "10s",
   /** Caminho público do MP4/WebM — null até o arquivo existir */
   src: "/videos/demo-produto-10s.mp4" as string | null,
   /** Poster 16:9 — null usa o frame visual do próprio componente */
   poster: null as string | null,
   chapters: [
-    { at: 0, label: "Ruptura", hint: "Alerta em tempo real" },
+    { at: 0, label: "Ruptura", hint: "Alerta na fila da loja" },
     { at: 2, label: "Hub Terus", hint: "Inteligência no centro" },
     { at: 4, label: "Ação", hint: "Pedido automático" },
   ],
@@ -851,19 +851,19 @@ export const CONTEUDOS_MODULOS: {
 
 export const CONTEUDOS_CASES: CaseStudy[] = [
   {
-    slug: "crescimento-operacional-distribuidor-terus",
-    title: "Crescimento operacional em distribuidor da Rede Terus",
-    company: null,
-    category: "distribuidor",
-    erp: "Winthor",
+    slug: "cometa-supermercados",
+    title: "Cometa Supermercados: pedidos digitais e menos rejeição no ERP",
+    company: "Cometa Supermercados",
+    category: "varejo",
+    erp: null,
     challenge:
       "Baixa digitalização, alto índice de rejeição ERP e baixo atendimento de pedidos.",
-    implementation: "Adoção da jornada operacional Terus integrada ao Winthor.",
+    implementation: "Adoção da jornada operacional Terus.",
     results:
       "Digitalização de até 96% dos pedidos, Rejeição ERP reduzida para 0,5%, Fill Rate elevado para 96%, Ticket médio +34%, Receita processada +38%, Mais de 31 mil pedidos rastreáveis.",
     thumbnail: null,
     description:
-      "Crescimento operacional em distribuidor da Rede Terus obtendo digitalização de até 96%.",
+      "Como o Cometa Supermercados chegou a até 96% dos pedidos digitais com a Terus.",
     beforeAfterIndicators: {
       antes: [
         { label: "Digitalização do canal", value: "0%" },

@@ -63,14 +63,6 @@ export function SocialProofSection() {
               aria-hidden="true"
             />
             <p className="font-mono text-caption uppercase tracking-wider text-text-tertiary">
-              ERP{" "}
-              <span className="font-semibold text-text-primary">Winthor</span>
-            </p>
-            <span
-              className="hidden h-4 w-px bg-surface-border sm:block"
-              aria-hidden="true"
-            />
-            <p className="font-mono text-caption uppercase tracking-wider text-text-tertiary">
               <span className="font-semibold text-text-primary">31.881</span>{" "}
               pedidos auditados
             </p>
@@ -88,9 +80,11 @@ export function SocialProofSection() {
                 <h3 className="mt-2 font-display text-heading-lg font-bold text-text-primary sm:text-heading-xl">
                   {featuredCase.title}
                 </h3>
-                <p className="mt-2 font-mono text-caption uppercase tracking-wider text-text-tertiary">
-                  Distribuidor homologado · ERP {featuredCase.erp}
-                </p>
+                {featuredCase.company ? (
+                  <p className="mt-2 font-mono text-caption uppercase tracking-wider text-text-tertiary">
+                    Cliente Terus · {featuredCase.company}
+                  </p>
+                ) : null}
                 <p className="mt-4 max-w-2xl text-body-md leading-relaxed text-text-secondary">
                   {featuredCase.challenge} {featuredCase.implementation}
                 </p>

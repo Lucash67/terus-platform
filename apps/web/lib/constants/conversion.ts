@@ -17,9 +17,8 @@ export const DEMO_PAGE = {
   badge: "Demonstração comercial",
   title: "Veja quanto a sua gôndola está deixando na mesa",
   description:
-    "Uma conversa de 30 a 45 minutos, sem compromisso, para mostrar como a Terus encontra ruptura, excesso e problemas de margem, coloca a correção na mão da loja e mede o R$ recuperado.",
+    "Uma conversa para mostrar como a Terus encontra ruptura, excesso e problemas de margem, coloca a correção na mão da loja e mede o R$ recuperado.",
   trustLine: "RMS · Consinco · VR · CISS · RPInfo · Winthor · Sankhya · VitSis",
-  responseTime: "Resposta da equipe comercial em até 1 dia útil",
   whatsappLabel: "Agendar demonstração via WhatsApp",
   valueProps: [
     {
@@ -49,7 +48,7 @@ export const DEMO_PAGE = {
       step: "02",
       title: "Demonstração",
       description:
-        "Sessão de 30 a 45 minutos com alertas, fila da loja, pedidos e métricas de efetividade.",
+        "Apresentação dos alertas, da fila da loja, dos pedidos e das métricas de efetividade.",
     },
     {
       step: "03",

@@ -261,7 +261,7 @@ function DemoPosterFrame() {
           Inteligência da Cadeia de Suprimentos
         </p>
         <p className="mt-2 max-w-md font-display text-heading-lg font-bold text-text-primary sm:text-heading-xl">
-          Ruptura detectada → pedido automático em minutos
+          Ruptura detectada → correção na loja e pedido no fornecedor
         </p>
       </div>
 

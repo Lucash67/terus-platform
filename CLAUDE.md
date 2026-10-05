@@ -6,20 +6,46 @@
 
 ---
 
+## FONTE DA VERDADE (prioridade máxima)
+
+**A wiki do produto — https://wiki.terus.tec.br/varejo — é a fonte central de informação verídica.**
+
+```
+1. Wiki Terus Varejo        → produto, módulos, alertas, integrações, ERPs, fluxos
+2. Confirmação da organização → números, clientes, cases, promessas comerciais
+3. Este arquivo e PROJECT_RULES.md → padrões técnicos, valem onde não contradizem 1 e 2
+```
+
+- Em conflito, a wiki vence. Atualize este arquivo para refletir a wiki.
+- Site e materiais só exibem fatos da wiki ou confirmados pela organização.
+  Achismo (prazo de resposta, SLA, %, certificação, "tempo real", "elimina ruptura") é PROIBIDO.
+- Sem confirmação, a saída padrão é remover ou usar linguagem que não promete.
+- Fatos já confirmados: Rodrigo é Fundador e CEO; WhatsApp comercial (85) 99738-4940;
+  o case com indicadores de digitalização/rejeição/fill rate é do Cometa Supermercados;
+  "+20 empresas na Rede Terus" mantido. ERP de cada cliente NÃO confirmado — não exibir.
+
+---
+
 ## PRODUTO
 
 **Terus Tecnologia** é uma plataforma SaaS de **Supply Chain Intelligence**.
 Integra varejo, indústria e distribuição em tempo real. Resolve ruptura de gôndola,
 excesso de estoque e automação de reposição.
 
-**Posicionamento obrigatório:** "Supply Chain Intelligence" — nunca "integração de dados".
+**Posicionamento obrigatório:** "Supply Chain Intelligence" (no site em português: "Inteligência da Cadeia de Suprimentos") — nunca "integração de dados".
 
 **Módulos oficiais (nomenclatura definitiva, conforme wiki.terus.tec.br/varejo):**
 - Essenciais: Terus Alert · Terus Order · Terus Task · Terus Strategy
 - Expansão: Terus Unitization · Terus Production · Terus Chain · Terus Vitrine
 
 **Critério de sucesso do MVP:**
-> Cliente varejo com ERP Winthor ou RMS completa o onboarding sem intervenção manual da Terus.
+> Cliente varejo com ERP documentado na wiki (RMS, Consinco, VR Software, CISS Poder, RPInfo ou API REST)
+> completa o onboarding sem intervenção manual da Terus.
+> Winthor, Sankhya e VitSis são ERPs do lado do fornecedor (recebem o pedido).
+
+**Onboarding self-service:** oculto em produção até ficar pronto (flag `NEXT_PUBLIC_ONBOARDING_ENABLED`,
+ver `apps/web/lib/feature-flags.ts`). Responsável pelo funil: Rodrigo. O espaço na home já existe
+(`OnboardingSlotSection`), visível em desenvolvimento.
 
 ---
 
@@ -54,9 +80,10 @@ mypy              Strict mode.
 ```
 PostgreSQL 16     Schema-per-tenant. RLS como única proteção PROIBIDO.
 HashiCorp Vault   Credenciais de cliente. NUNCA em variável de ambiente.
-Cloudflare        CDN, WAF, DNS, R2 storage.
+Vercel            Hospedagem do site (apps/web). Push no main publica em produção.
+Cloudflare        DNS, WAF; R2 quando a mídia do site crescer (hoje vídeos em apps/web/public).
 D4Sign            Contratos digitais. DocuSign PROIBIDO.
-Sanity            CMS headless para módulos e cases.
+Sanity            CMS headless — futuro. Hoje o conteúdo vive em apps/web/lib/constants.
 Sentry            Error tracking desde Sprint 0.
 Plausible/PostHog Analytics. Google Analytics PROIBIDO.
 ```
@@ -290,6 +317,9 @@ SSR  → Status, Onboarding/*, Admin/*
 ```
 
 ### Design Tokens de Cor (obrigatórios)
+
+Valores abaixo = tema escuro. O site também tem tema claro (classe `.light`, padrão atual),
+com os mesmos nomes de token redefinidos em `apps/web/app/globals.css`. Use sempre o token.
 ```css
 --surface-base:          #050A14   /* background raiz */
 --surface-elevated-1:    #0A1628   /* cards primários */
@@ -409,6 +439,11 @@ develop   → staging (protegido, 1 aprovação)
 feat/*    fix/*    chore/*    docs/*    test/*    refactor/*
 ```
 
+**Exceção — site de marketing (apps/web, rotas públicas):** pode ir direto ao `main` com
+aprovação explícita do responsável no momento do push. Antes: prettier, `pnpm lint` e
+`pnpm build` em apps/web (erro de Prettier quebra o build da Vercel). A regra de 2
+aprovações continua para backend, onboarding e área autenticada.
+
 ### Sprints MVP
 ```
 Sprint 0  (sem 1–2)   Fundação: ambiente, CI, banco, health endpoint
@@ -457,11 +492,12 @@ Sprint 6  (sem 13–14) Contratos + Provisionamento + MVP Go Live
 ❌ Alterar ADRs
 ❌ Criar tabela não especificada na arquitetura
 ❌ Modificar políticas do Vault
-❌ Fazer deploy de qualquer natureza
+❌ Fazer deploy sem aprovação explícita do responsável
 ❌ Adicionar biblioteca fora da stack
 ❌ Criar rota fora do sitemap
 ❌ Modificar migrations já commitadas
-❌ Alterar regras deste documento ou do PROJECT_RULES.md
+❌ Alterar regras deste documento sem autorização humana (atualizar para refletir a wiki é permitido)
+❌ Exibir no site informação que não esteja na wiki ou confirmada pela organização
 ❌ Gerar código que viole qualquer anti-padrão listado acima
 ```
 
@@ -476,7 +512,8 @@ Sprint 6  (sem 13–14) Contratos + Provisionamento + MVP Go Live
 ## REFERÊNCIAS
 
 ```
-PROJECT_RULES.md          → Constituição técnica completa (fonte de verdade)
+wiki.terus.tec.br/varejo  → FONTE CENTRAL de informação do produto (prevalece)
+PROJECT_RULES.md          → Constituição técnica (padrões de código; subordinada à wiki)
 docs/architecture/fase-1  → Arquitetura do produto, sitemap, jornadas
 docs/architecture/fase-2  → UX/UI, wireframes, design system
 docs/architecture/fase-3  → Arquitetura técnica detalhada

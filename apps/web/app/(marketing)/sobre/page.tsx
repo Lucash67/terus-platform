@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 
 import { Container } from "@/components/layout/container";
-import { CtaSection } from "@/components/sections/cta-section";
-import { PageHero } from "@/components/sections/page-hero";
-import { ReliabilitySection } from "@/components/sections/reliability-section";
 import { Reveal } from "@/components/motion/reveal";
-import { COMPANY_VALUES } from "@/lib/constants/site";
+import { CtaSection } from "@/components/sections/cta-section";
+import { FounderVideoSection } from "@/components/sections/founder-video-section";
+import { PageHero } from "@/components/sections/page-hero";
+import { RedeTerusSection } from "@/components/sections/rede-terus-section";
+import { ReliabilitySection } from "@/components/sections/reliability-section";
 import { ABOUT } from "@/lib/constants/copy";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Sobre a Terus",
   description:
-    "Conheça a Terus Tecnologia — Terus Varejo, Inteligência da Cadeia de Suprimentos para varejo, indústria e distribuição no Brasil.",
+    "A Terus conecta a rede, a loja e o fornecedor para que o produto comprado chegue à gôndola, esteja bem exposto e venda.",
   path: "/sobre",
 });
 
@@ -27,74 +28,25 @@ export default function SobrePage() {
 
       <section className="section-rhythm">
         <Container>
-          <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2 lg:gap-16">
-            <Reveal variant="left">
-              <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary">
-                O que é a Terus Varejo
-              </h2>
-              <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
-                A Terus Varejo integra horizontalmente varejo, indústria e
-                distribuição em tempo real — inteligência operacional com
-                automação, não BI genérico nem integração de dados.
-              </p>
-              <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
-                Nossa missão é permitir que operações detectem rupturas,
-                automatizem reposições e executem ações em loja com
-                rastreabilidade completa.
-              </p>
-            </Reveal>
-            <Reveal variant="right" delay={100}>
-              <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary">
-                Nossa história
-              </h2>
-              <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
-                {ABOUT.story}
-              </p>
-            </Reveal>
-          </div>
-        </Container>
-      </section>
-
-      <section className="section-rhythm-alt relative overflow-hidden">
-        <div
-          className="tr-grid-bg pointer-events-none absolute inset-0"
-          aria-hidden="true"
-        />
-        <Container className="relative">
-          <div className="grid gap-6 md:grid-cols-3">
-            {COMPANY_VALUES.map((value, index) => (
-              <Reveal
-                key={value.title}
-                delay={index * 70}
-                className="card-interactive rounded-xl border border-surface-border bg-surface-base p-8"
-              >
-                <h3 className="font-display text-heading-md font-semibold text-brand-primary">
-                  {value.title}
-                </h3>
-                <p className="mt-4 text-body-md leading-relaxed text-text-secondary">
-                  {value.description}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="section-rhythm">
-        <Container>
           <Reveal className="mx-auto max-w-3xl text-center">
             <h2 className="font-display text-heading-xl font-bold tracking-tight text-text-primary">
-              Por que Inteligência da Cadeia de Suprimentos?
+              {ABOUT.whatIs.title}
             </h2>
-            <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
-              {ABOUT.whySci}
-            </p>
+            {ABOUT.whatIs.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="mt-6 text-body-lg leading-relaxed text-text-secondary"
+              >
+                {paragraph}
+              </p>
+            ))}
           </Reveal>
         </Container>
       </section>
 
+      <FounderVideoSection />
+      <RedeTerusSection />
       <ReliabilitySection />
-
       <CtaSection />
     </>
   );

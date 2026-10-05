@@ -1,6 +1,9 @@
 # PROJECT_RULES.md
 # Constituição Técnica da Plataforma Terus Tecnologia
 
+> **Atualização:** a fonte central de informação do produto é a wiki https://wiki.terus.tec.br/varejo.
+> Este documento define padrões técnicos e vale onde não contradiz a wiki. Ver `CLAUDE.md` › Fonte da verdade.
+>
 > **Este documento é a fonte única de verdade para todo desenvolvimento da plataforma Terus.**
 > Toda IA (Windsurf, Claude Code, Cursor ou equivalente), todo desenvolvedor e todo revisor
 > deve obedecer este documento integralmente. Nenhuma decisão arquitetural, de design,

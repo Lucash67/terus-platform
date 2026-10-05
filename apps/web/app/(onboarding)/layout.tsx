@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { OnboardingNavbar } from "@/components/onboarding/onboarding-navbar";
 import { OnboardingStepper } from "@/components/onboarding/onboarding-stepper";
+import { ONBOARDING_ENABLED } from "@/lib/feature-flags";
 
 export const metadata: Metadata = {
   title: {
@@ -16,6 +18,8 @@ export default function OnboardingLayout({
 }: {
   children: React.ReactNode;
 }) {
+  if (!ONBOARDING_ENABLED) notFound();
+
   return (
     <div className="ob-bg relative flex min-h-screen flex-col overflow-x-clip">
       {/* Camada de fundo animada */}

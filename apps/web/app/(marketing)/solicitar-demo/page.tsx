@@ -81,15 +81,12 @@ export default function SolicitarDemoPage() {
                 {DEMO_PAGE.whatsappLabel}
               </a>
             </Button>
-            <p className="mt-4 text-body-sm text-text-tertiary">
-              {DEMO_PAGE.responseTime}
-            </p>
           </div>
         </Container>
       </section>
 
       <FounderVideoSection>
-        <div className="mt-10 flex flex-col items-center gap-3 lg:items-start">
+        <div className="mt-10 flex justify-center lg:justify-start">
           <Button
             size="lg"
             asChild
@@ -103,9 +100,6 @@ export default function SolicitarDemoPage() {
               {DEMO_PAGE.whatsappLabel}
             </a>
           </Button>
-          <p className="text-body-sm text-text-tertiary">
-            {DEMO_PAGE.responseTime}
-          </p>
         </div>
       </FounderVideoSection>
 
@@ -191,8 +185,8 @@ export default function SolicitarDemoPage() {
                 Pronto para começar?
               </h3>
               <p className="mt-3 text-body-md text-surface-base/80">
-                Fale diretamente com nossa equipe comercial pelo WhatsApp — o
-                canal mais rápido para agendar sua demonstração.
+                Fale com a equipe comercial pelo WhatsApp e agende a sua
+                demonstração.
               </p>
               <Button
                 size="lg"
@@ -207,9 +201,6 @@ export default function SolicitarDemoPage() {
                   {DEMO_PAGE.whatsappLabel}
                 </a>
               </Button>
-              <p className="mt-4 text-caption text-surface-base/70">
-                {DEMO_PAGE.responseTime}
-              </p>
             </Reveal>
           </div>
         </Container>
