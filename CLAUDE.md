@@ -22,7 +22,9 @@
 - Sem confirmação, a saída padrão é remover ou usar linguagem que não promete.
 - Fatos já confirmados: Rodrigo é Fundador e CEO; WhatsApp comercial (85) 99738-4940;
   o case com indicadores de digitalização/rejeição/fill rate é do Cometa Supermercados;
-  "+20 empresas na Rede Terus" mantido; "tempo real" liberado (o próprio produto usa).
+  "+20 empresas na Rede Terus" mantido; "tempo real" liberado (o próprio produto usa);
+ vídeos gravados pelo Rodrigo podem ir ao ar como estão (a fala é dele), mas o texto do
+ site continua sem prometer "elimina ruptura".
  ERP de cada cliente NÃO confirmado — não exibir.
 
 ---

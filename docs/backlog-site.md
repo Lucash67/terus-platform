@@ -18,10 +18,6 @@ Itens combinados que dependem de material ou decisão. Remova o item quando entr
 
 - **Endereço do pré-cadastro.** Hoje em `/solicitar-demo`. Proposta: `/comecar`, com
   redirecionamento permanente do endereço antigo. Rota nova precisa de aprovação.
-- **Quarto vídeo do Rodrigo** (gravação de 57 s, camisa cinza). Diz "eliminar o principal
-  fantasma da cadeia do varejo, que é a ruptura", e a regra do site proíbe "elimina ruptura".
-  Publicar como está, cortar o trecho ou não usar.
-
 ## Fora do site (time de produto)
 
 - Portal escreve "Godula" em vez de "Gôndola".

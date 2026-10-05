@@ -88,6 +88,12 @@ export const FOUNDER_VIDEOS = {
     title: "Vender e entregar é só uma parte",
     duration: "1min15",
   },
+  institucional: {
+    src: "/videos/rodrigo-institucional.mp4",
+    poster: "/videos/rodrigo-institucional.jpg",
+    title: "Tecnologia que vira resultado",
+    duration: "57s",
+  },
 } satisfies Record<string, FounderVideoData>;
 
 export const FOUNDER_SECTION = {
