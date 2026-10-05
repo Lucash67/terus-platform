@@ -14,9 +14,11 @@ interface FounderVideoProps extends FounderVideoData {
 }
 
 /**
- * Vídeo vertical do fundador. Começa sozinho, mudo, quando entra na tela
- * (browsers só liberam autoplay sem som) e pausa ao sair. Nada do MP4 é
- * baixado antes disso. Com reduced-motion, espera o clique.
+ * Vídeo vertical do fundador. Começa sozinho quando entra na tela e pausa ao
+ * sair; nada do MP4 é baixado antes disso. Tenta tocar com som — browsers só
+ * permitem depois de um clique/toque na página; sem isso toca mudo e o som
+ * liga no primeiro clique/toque em qualquer lugar. Com reduced-motion, espera
+ * o clique.
  */
 export function FounderVideo({
   src,
@@ -28,7 +30,7 @@ export function FounderVideo({
 }: FounderVideoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const userStartedRef = useRef(false);
+  const soundOnRef = useRef(false);
   const [started, setStarted] = useState(false);
   const [withSound, setWithSound] = useState(false);
 
@@ -39,30 +41,71 @@ export function FounderVideo({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (typeof IntersectionObserver === "undefined") return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (!userStartedRef.current) video.muted = true;
+    let inView = false;
+
+    const markSoundOn = () => {
+      soundOnRef.current = true;
+      video.loop = false;
+      setWithSound(true);
+    };
+
+    const playInView = () => {
+      if (soundOnRef.current) {
+        void video.play().catch(() => undefined);
+        return;
+      }
+      video.muted = false;
+      video.play().then(
+        () => {
+          markSoundOn();
+          setStarted(true);
+        },
+        () => {
+          video.muted = true;
           void video.play().then(
             () => setStarted(true),
             () => undefined,
           );
-        } else {
-          video.pause();
-        }
+        },
+      );
+    };
+
+    const onFirstInteraction = () => {
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+      if (soundOnRef.current || !inView || video.paused) return;
+      video.muted = false;
+      video.currentTime = 0;
+      markSoundOn();
+      track(ANALYTICS_EVENTS.videoSound, { video: title });
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        if (inView) playInView();
+        else video.pause();
       },
       { threshold: 0.6 },
     );
 
     observer.observe(container);
-    return () => observer.disconnect();
-  }, []);
+    window.addEventListener("pointerdown", onFirstInteraction);
+    window.addEventListener("keydown", onFirstInteraction);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+    };
+  }, [title]);
 
   const playWithSound = () => {
     const video = videoRef.current;
     if (!video) return;
-    userStartedRef.current = true;
-    track(ANALYTICS_EVENTS.videoSound, { video: title });
+    if (!soundOnRef.current) {
+      track(ANALYTICS_EVENTS.videoSound, { video: title });
+    }
+    soundOnRef.current = true;
     video.muted = false;
     video.loop = false;
     video.currentTime = 0;
