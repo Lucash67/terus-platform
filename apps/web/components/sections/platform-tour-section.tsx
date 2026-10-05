@@ -12,8 +12,20 @@ import { CTA } from "@/lib/constants/conversion";
 import { PLATFORM_TOUR, type TourChapter } from "@/lib/constants/lp";
 
 const CHAPTERS = PLATFORM_TOUR.chapters;
-const SCROLL_PER_CHAPTER_VH = 70;
+/** ~5 giros de roda do mouse por tela */
+const SCROLL_PER_CHAPTER_VH = 45;
 const MAX_TILT_DEG = 18;
+/** Fração de cada capítulo usada na troca de tela, de cada lado da fronteira */
+const FADE = 0.12;
+const FOCUS_ZOOM = 0.18;
+const DRIFT_ZOOM = 0.06;
+
+const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
+
+function smoothstep(from: number, to: number, value: number) {
+  const t = clamp01((value - from) / (to - from));
+  return t * t * (3 - 2 * t);
+}
 
 function LockIcon({ className }: { className?: string }) {
   return (
@@ -62,14 +74,9 @@ function BrowserFrame({
   );
 }
 
-function LockedOverlay({ visible }: { visible: boolean }) {
+function LockedOverlay() {
   return (
-    <div
-      className={cn(
-        "absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-500",
-        visible ? "visible opacity-100" : "invisible opacity-0",
-      )}
-    >
+    <div className="absolute inset-0 flex items-center justify-center p-6">
       <div className="max-w-sm rounded-2xl border border-surface-border bg-surface-elevated-1/95 p-6 text-center shadow-elevated backdrop-blur">
         <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-brand-primary-dim text-brand-primary">
           <LockIcon className="h-5 w-5" />
@@ -85,33 +92,46 @@ function LockedOverlay({ visible }: { visible: boolean }) {
   );
 }
 
+interface ScreenRefs {
+  screen: (el: HTMLDivElement | null) => void;
+  zoom: (el: HTMLDivElement | null) => void;
+  ring: (el: HTMLSpanElement | null) => void;
+}
+
+/**
+ * Tela do tour. Sem `refs` fica estática (mobile); com `refs`, opacidade,
+ * deslocamento, zoom e destaque são escritos pelo scroll da seção.
+ */
 function TourScreen({
   chapter,
-  active,
-  zoom,
   sizes,
+  initiallyVisible = true,
+  refs,
 }: {
   chapter: TourChapter;
-  active: boolean;
-  zoom: boolean;
   sizes: string;
+  initiallyVisible?: boolean;
+  refs?: ScreenRefs;
 }) {
   const { focus, screen } = chapter;
   const wide = screen.height / screen.width < 0.5;
-  const zoomed = zoom && active && Boolean(focus);
+  const animated = Boolean(refs);
 
   return (
     <div
-      aria-hidden={!active}
+      ref={refs?.screen}
       className={cn(
-        "absolute inset-0 transition-opacity duration-700",
-        active ? "opacity-100" : "opacity-0",
+        "absolute inset-0",
+        animated &&
+          "transition-[opacity,transform] duration-150 ease-out will-change-[opacity,transform]",
       )}
+      style={animated ? { opacity: initiallyVisible ? 1 : 0 } : undefined}
     >
       <div
+        ref={refs?.zoom}
         className={cn(
-          "absolute inset-0 transition-transform duration-[1600ms] ease-out motion-reduce:!scale-100",
-          zoomed ? "scale-[1.18] delay-500" : "scale-100",
+          "absolute inset-0",
+          animated && "transition-transform duration-150 ease-out",
         )}
         style={{
           transformOrigin: focus
@@ -127,13 +147,12 @@ function TourScreen({
             wide ? "object-contain p-6" : "object-cover object-top",
           )}
         />
-        {focus ? (
+        {focus && animated ? (
           <span
-            className={cn(
-              "pointer-events-none absolute rounded-lg border-2 border-brand-primary shadow-glow transition-opacity duration-500",
-              zoomed ? "opacity-100 delay-1000" : "opacity-0",
-            )}
+            ref={refs?.ring}
+            className="pointer-events-none absolute rounded-lg border-2 border-brand-primary shadow-glow transition-opacity duration-150"
             style={{
+              opacity: 0,
               left: `${focus.left}%`,
               top: `${focus.top}%`,
               width: `${focus.width}%`,
@@ -142,7 +161,7 @@ function TourScreen({
           />
         ) : null}
       </div>
-      {chapter.locked ? <LockedOverlay visible={active} /> : null}
+      {chapter.locked ? <LockedOverlay /> : null}
     </div>
   );
 }
@@ -150,6 +169,10 @@ function TourScreen({
 export function PlatformTourSection() {
   const trackRef = React.useRef<HTMLDivElement>(null);
   const stageRef = React.useRef<HTMLDivElement>(null);
+  const screenEls = React.useRef<(HTMLDivElement | null)[]>([]);
+  const zoomEls = React.useRef<(HTMLDivElement | null)[]>([]);
+  const ringEls = React.useRef<(HTMLSpanElement | null)[]>([]);
+  const barEls = React.useRef<(HTMLSpanElement | null)[]>([]);
   const [active, setActive] = React.useState(0);
 
   React.useEffect(() => {
@@ -160,6 +183,7 @@ export function PlatformTourSection() {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const last = CHAPTERS.length - 1;
     let frame = 0;
 
     const update = () => {
@@ -167,13 +191,44 @@ export function PlatformTourSection() {
       const rect = track.getBoundingClientRect();
       const viewport = window.innerHeight;
       const travel = rect.height - viewport;
-      const progress =
-        travel > 0 ? Math.min(Math.max(-rect.top / travel, 0), 1) : 0;
-      const index = Math.min(
-        CHAPTERS.length - 1,
-        Math.floor(progress * CHAPTERS.length),
-      );
+      const progress = travel > 0 ? clamp01(-rect.top / travel) : 0;
+      const position = progress * CHAPTERS.length;
+      const index = Math.min(last, Math.floor(position));
       setActive((current) => (current === index ? current : index));
+
+      CHAPTERS.forEach((chapter, i) => {
+        const local = position - i;
+        const enter = i === 0 ? 1 : smoothstep(-FADE, FADE, local);
+        const exit = i === last ? 1 : 1 - smoothstep(1 - FADE, 1 + FADE, local);
+        const visible = Math.min(enter, exit);
+
+        const screen = screenEls.current[i];
+        if (screen) {
+          const shift = reduceMotion ? 0 : (1 - enter) * 6 - (1 - exit) * 6;
+          screen.style.opacity = String(visible);
+          screen.style.transform = `translateY(${shift}%) scale(${reduceMotion ? 1 : 0.97 + 0.03 * visible})`;
+          screen.style.visibility = visible < 0.01 ? "hidden" : "visible";
+          screen.style.pointerEvents = visible > 0.5 ? "auto" : "none";
+        }
+
+        const zoom = zoomEls.current[i];
+        if (zoom) {
+          const amount = reduceMotion
+            ? 0
+            : chapter.focus
+              ? FOCUS_ZOOM * smoothstep(0.05, 0.5, local)
+              : DRIFT_ZOOM * clamp01(local);
+          zoom.style.transform = `scale(${1 + amount})`;
+        }
+
+        const ring = ringEls.current[i];
+        if (ring) {
+          ring.style.opacity = String(smoothstep(0.3, 0.55, local) * exit);
+        }
+
+        const bar = barEls.current[i];
+        if (bar) bar.style.transform = `scaleX(${clamp01(local)})`;
+      });
 
       const enter = reduceMotion
         ? 1
@@ -252,12 +307,7 @@ export function PlatformTourSection() {
                 {chapter.description}
               </p>
               <BrowserFrame className="mt-5">
-                <TourScreen
-                  chapter={chapter}
-                  active
-                  zoom={false}
-                  sizes="100vw"
-                />
+                <TourScreen chapter={chapter} sizes="100vw" />
               </BrowserFrame>
             </Reveal>
           ))}
@@ -284,7 +334,7 @@ export function PlatformTourSection() {
                       onClick={() => goTo(index)}
                       aria-current={isActive ? "step" : undefined}
                       className={cn(
-                        "w-full rounded-xl border px-5 py-4 text-left transition-all duration-500",
+                        "w-full rounded-xl border px-5 py-4 text-left transition-all duration-300",
                         isActive
                           ? "border-brand-primary/40 bg-surface-elevated-1 shadow-elevated"
                           : "border-transparent hover:bg-surface-elevated-1/60",
@@ -306,7 +356,7 @@ export function PlatformTourSection() {
                       </span>
                       <span
                         className={cn(
-                          "grid transition-[grid-template-rows] duration-500",
+                          "grid transition-[grid-template-rows] duration-300",
                           isActive ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
                         )}
                       >
@@ -316,6 +366,18 @@ export function PlatformTourSection() {
                           </span>
                           <span className="mt-2 block text-body-sm leading-relaxed text-text-secondary">
                             {chapter.description}
+                          </span>
+                          <span
+                            className="mt-4 block h-0.5 overflow-hidden rounded-full bg-surface-border"
+                            aria-hidden="true"
+                          >
+                            <span
+                              ref={(el) => {
+                                barEls.current[index] = el;
+                              }}
+                              className="block h-full origin-left bg-brand-primary transition-transform duration-150 ease-out"
+                              style={{ transform: "scaleX(0)" }}
+                            />
                           </span>
                         </span>
                       </span>
@@ -335,9 +397,19 @@ export function PlatformTourSection() {
                     <TourScreen
                       key={chapter.id}
                       chapter={chapter}
-                      active={index === active}
-                      zoom
+                      initiallyVisible={index === 0}
                       sizes="(min-width: 1280px) 60vw, 55vw"
+                      refs={{
+                        screen: (el) => {
+                          screenEls.current[index] = el;
+                        },
+                        zoom: (el) => {
+                          zoomEls.current[index] = el;
+                        },
+                        ring: (el) => {
+                          ringEls.current[index] = el;
+                        },
+                      }}
                     />
                   ))}
                 </BrowserFrame>
