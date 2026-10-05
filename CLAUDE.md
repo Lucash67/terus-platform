@@ -14,8 +14,9 @@ excesso de estoque e automação de reposição.
 
 **Posicionamento obrigatório:** "Supply Chain Intelligence" — nunca "integração de dados".
 
-**Módulos oficiais (nomenclatura definitiva):**
-- Terus Alert · Terus Strategy · Terus Order · Terus Task · Terus Log · Terus Pulse
+**Módulos oficiais (nomenclatura definitiva, conforme wiki.terus.tec.br/varejo):**
+- Essenciais: Terus Alert · Terus Order · Terus Task · Terus Strategy
+- Expansão: Terus Unitization · Terus Production · Terus Chain · Terus Vitrine
 
 **Critério de sucesso do MVP:**
 > Cliente varejo com ERP Winthor ou RMS completa o onboarding sem intervenção manual da Terus.
