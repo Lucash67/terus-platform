@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
 
 import { CtaSection } from "@/components/sections/cta-section";
-import { EcosystemSection } from "@/components/sections/ecosystem-section";
 import { ErpTickerSection } from "@/components/sections/erp-ticker-section";
+import { FaqSection } from "@/components/sections/faq-section";
 import { HeroSection } from "@/components/sections/hero-section";
-import { ModulesSection } from "@/components/sections/modules-section";
-import { PlatformIndicatorsSection } from "@/components/sections/platform-indicators-section";
-import { CompaniesSection } from "@/components/sections/companies-section";
-import { SocialProofSection } from "@/components/sections/social-proof-section";
-import { ReliabilitySection } from "@/components/sections/reliability-section";
 import { IntegrationsEcosystemSection } from "@/components/sections/integrations-ecosystem-section";
+import { ModulesSection } from "@/components/sections/modules-section";
+import { PainSection } from "@/components/sections/pain-section";
+import { PersonasSection } from "@/components/sections/personas-section";
 import { PositioningSection } from "@/components/sections/positioning-section";
-import { RedeTerusSection } from "@/components/sections/rede-terus-section";
 import { RealResultsSection } from "@/components/sections/real-results-section";
+import { RedeTerusSection } from "@/components/sections/rede-terus-section";
+import { ReliabilitySection } from "@/components/sections/reliability-section";
+import { SocialProofSection } from "@/components/sections/social-proof-section";
+import { SupplierBridgeSection } from "@/components/sections/supplier-bridge-section";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { SITE_DESCRIPTION } from "@/lib/constants/site";
 
+// Fora da LP por ora (repetiam conteúdo): EcosystemSection,
+// PlatformIndicatorsSection, CompaniesSection.
 // ProductDemoSection ocultada até haver vídeo real do produto.
-// import { ProductDemoSection } from "@/components/sections/product-demo-section";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Terus Varejo — Inteligência da Cadeia de Suprimentos",
@@ -30,16 +32,17 @@ export default function HomePage() {
     <>
       <HeroSection />
       <RealResultsSection />
+      <PainSection />
       <PositioningSection />
+      <PersonasSection />
       <ModulesSection />
-      <EcosystemSection />
+      <SupplierBridgeSection />
       <ErpTickerSection />
       <IntegrationsEcosystemSection />
-      <PlatformIndicatorsSection />
-      <CompaniesSection />
-      <RedeTerusSection />
       <SocialProofSection />
+      <RedeTerusSection />
       <ReliabilitySection />
+      <FaqSection />
       <CtaSection />
     </>
   );

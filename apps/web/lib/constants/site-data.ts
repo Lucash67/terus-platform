@@ -345,13 +345,8 @@ export interface ErpEcosystemItem {
 }
 
 export const ERP_ECOSYSTEM: ErpEcosystemItem[] = [
-  { name: "RMS", vendor: "TOTVS · Linha RMS", side: "varejo", logo: null },
-  {
-    name: "Consinco",
-    vendor: "TOTVS · Linha Consinco",
-    side: "varejo",
-    logo: null,
-  },
+  { name: "RMS", vendor: "TOTVS", side: "varejo", logo: null },
+  { name: "Consinco", vendor: "TOTVS", side: "varejo", logo: null },
   { name: "VR Software", vendor: "PostgreSQL", side: "varejo", logo: null },
   { name: "CISS Poder", vendor: "API Integrim", side: "varejo", logo: null },
   { name: "RPInfo", vendor: "API REST", side: "varejo", logo: null },
