@@ -10,60 +10,59 @@ export const CTA = {
 } as const;
 
 export const WHATSAPP_DEMO_URL = `https://wa.me/558596290044?text=${encodeURIComponent(
-  "Olá! Gostaria de agendar uma demonstração da Terus Varejo. Operamos com ERP Winthor/RMS e quero conhecer a solução de Inteligência da Cadeia de Suprimentos.",
+  "Olá! Quero agendar uma demonstração da Terus Varejo.\nERP da rede: \nNúmero de lojas: ",
 )}`;
 
 export const DEMO_PAGE = {
   badge: "Demonstração comercial",
-  title: "Veja a Terus Varejo operando na sua realidade",
+  title: "Veja quanto a sua gôndola está deixando na mesa",
   description:
-    "Demonstração executiva personalizada para operações de varejo e distribuição — sem compromisso, focada em ruptura, reposição e inteligência operacional.",
-  urgency:
-    "Vagas limitadas por semana para garantir atendimento consultivo de qualidade.",
+    "Uma conversa de 30 a 45 minutos, sem compromisso, para mostrar como a Terus encontra ruptura, excesso e problemas de margem, coloca a correção na mão da loja e mede o R$ recuperado.",
+  trustLine: "RMS · Consinco · VR · CISS · RPInfo · Winthor · Sankhya · VitSis",
   responseTime: "Resposta da equipe comercial em até 1 dia útil",
   whatsappLabel: "Agendar demonstração via WhatsApp",
   valueProps: [
     {
-      title: "Diagnóstico da sua operação",
+      title: "Entendemos a sua operação",
       description:
-        "Entendemos seu cenário de ERP, lojas e distribuição antes de apresentar a Terus Varejo.",
+        "Antes de apresentar, olhamos o seu ERP, o número de lojas e como a reposição funciona hoje.",
     },
     {
-      title: "Demo ao vivo da Terus Varejo",
+      title: "Portal e app em uso real",
       description:
-        "Visualize alertas, automação de reposição e monitoramento em tempo real — com dados simulados do seu contexto.",
+        "Você vê os alertas da rede, a fila da loja priorizada por R$ e o pedido chegando no ERP do fornecedor.",
     },
     {
       title: "Próximos passos claros",
       description:
-        "Saia da conversa sabendo escopo, cronograma de integração e ROI operacional esperado.",
+        "Saia sabendo o que a integração exige do seu TI, quais módulos começar e como medir o retorno.",
     },
   ],
   processSteps: [
     {
       step: "01",
-      title: "Contato inicial",
+      title: "Contato pelo WhatsApp",
       description:
-        "Você envia sua solicitação via WhatsApp. Nossa equipe confirma perfil e ERP em até 1 dia útil.",
+        "Você conta qual ERP a rede usa e quantas lojas tem. A equipe comercial confirma o horário.",
     },
     {
       step: "02",
-      title: "Demonstração executiva",
+      title: "Demonstração",
       description:
-        "Sessão de 30–45 minutos com foco em Inteligência da Cadeia de Suprimentos, módulos Terus e jornada operacional.",
+        "Sessão de 30 a 45 minutos com alertas, fila da loja, pedidos e métricas de efetividade.",
     },
     {
       step: "03",
-      title: "Proposta e onboarding",
+      title: "Proposta e integração",
       description:
-        "Apresentamos plano de integração, cronograma e condições comerciais para ativação autônoma.",
+        "Plano com script de acesso só leitura, liberação de IP sem VPN e onboarding guiado.",
     },
   ],
   demoIncludes: [
-    "Visão geral da arquitetura e pilares da Terus Varejo",
-    "Demonstração dos módulos Alert, Order e Pulse",
-    "Integração com ERPs Winthor e RMS homologados",
-    "Cases reais da Rede Terus com métricas validadas",
-    "Sessão de perguntas com especialista comercial",
+    "Terus Alert: 13 tipos de alerta de ruptura, excesso, venda e margem",
+    "Terus Task: a fila da loja ordenada pelo R$ que cada correção recupera",
+    "Terus Order: pedido de reposição gravado direto no ERP do fornecedor",
+    "Métricas de efetividade: R$ antes e depois, acerto e reincidência",
+    "Como funciona a integração: só leitura, sem VPN, usuário dedicado",
   ],
 } as const;

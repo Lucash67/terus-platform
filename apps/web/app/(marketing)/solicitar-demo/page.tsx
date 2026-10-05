@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge, Button } from "@terus/ui";
 
-import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { CTA, DEMO_PAGE, WHATSAPP_DEMO_URL } from "@/lib/constants/conversion";
@@ -11,7 +10,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Agendar Demonstração",
   description:
-    "Agende uma demonstração executiva da Terus Varejo e conheça como eliminar ruptura, automatizar reposição e operar com Inteligência da Cadeia de Suprimentos.",
+    "Agende uma demonstração da Terus Varejo e veja como encontrar e corrigir ruptura, excesso e margem na loja, com pedido de reposição direto no ERP do fornecedor.",
   path: "/solicitar-demo",
 });
 
@@ -42,12 +41,12 @@ export default function SolicitarDemoPage() {
             <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
               {DEMO_PAGE.description}
             </p>
-            <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-status-warning/30 bg-status-warning-dim px-4 py-1.5 font-mono text-caption font-semibold uppercase tracking-widest text-status-warning">
+            <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-status-success/30 bg-status-success-dim px-4 py-1.5 font-mono text-caption font-semibold uppercase tracking-widest text-status-success">
               <span
-                className="hero-live-pulse h-1.5 w-1.5 rounded-full bg-status-warning"
+                className="hero-live-pulse h-1.5 w-1.5 rounded-full bg-status-success"
                 aria-hidden="true"
               />
-              {DEMO_PAGE.urgency}
+              {DEMO_PAGE.trustLine}
             </p>
           </div>
 
@@ -84,9 +83,6 @@ export default function SolicitarDemoPage() {
             <p className="mt-4 text-body-sm text-text-tertiary">
               {DEMO_PAGE.responseTime}
             </p>
-            <div className="mt-6">
-              <CtaButtons size="md" showSecondary />
-            </div>
           </div>
         </Container>
       </section>
@@ -134,8 +130,7 @@ export default function SolicitarDemoPage() {
                 O que você verá na demonstração
               </h2>
               <p className="mt-4 text-body-md text-text-secondary">
-                Sessão consultiva focada em resultado operacional — não apenas
-                slides institucionais.
+                O produto funcionando, não slides institucionais.
               </p>
               <ul className="mt-6 space-y-3">
                 {DEMO_PAGE.demoIncludes.map((item) => (

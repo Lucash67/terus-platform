@@ -8,7 +8,7 @@ const HUB = {
   id: "terus",
   label: "Terus",
   sublabel: "Inteligência",
-  detail: "Alert · Order · Pulse",
+  detail: "Alert · Order · Task",
   x: 400,
   y: 150,
 } as const;
