@@ -10,6 +10,7 @@ import { IntegrationsEcosystemSection } from "@/components/sections/integrations
 import { ModulesSection } from "@/components/sections/modules-section";
 import { PainSection } from "@/components/sections/pain-section";
 import { PersonasSection } from "@/components/sections/personas-section";
+import { PlatformTourSection } from "@/components/sections/platform-tour-section";
 import { PositioningSection } from "@/components/sections/positioning-section";
 import { RealResultsSection } from "@/components/sections/real-results-section";
 import { RedeTerusSection } from "@/components/sections/rede-terus-section";
@@ -39,6 +40,7 @@ export default function HomePage() {
       <RealResultsSection />
       <PainSection />
       <FounderVideoSection />
+      <PlatformTourSection />
       <PositioningSection />
       <PersonasSection />
       <ModulesSection />

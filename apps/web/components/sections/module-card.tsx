@@ -7,12 +7,16 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  cn,
 } from "@terus/ui";
 
+import { PlatformScreenshot } from "@/components/sections/platform-screenshot";
 import type { ModuleDefinition } from "@/lib/constants/modules";
 
 interface ModuleCardProps {
   module: ModuleDefinition;
+  /** Exibe a tela do portal (ou o ícone, se o módulo não tiver tela) no topo */
+  withMedia?: boolean;
 }
 
 const MODULE_ICONS: Record<string, ReactNode> = {
@@ -92,10 +96,61 @@ const MODULE_ICONS: Record<string, ReactNode> = {
   ),
 };
 
-export function ModuleCard({ module }: ModuleCardProps) {
+function ModuleMedia({ module }: { module: ModuleDefinition }) {
+  return (
+    <div className="relative aspect-[16/9] overflow-hidden border-b border-surface-border bg-surface-elevated-2">
+      {module.screen ? (
+        <>
+          <PlatformScreenshot
+            screen={module.screen}
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            className="h-full w-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105"
+          />
+          {module.screen.locked ? (
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="flex items-center gap-2 rounded-full border border-surface-border bg-surface-elevated-1/95 px-3 py-1.5 font-mono text-caption text-text-secondary shadow-elevated">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-3.5 w-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <rect x="5" y="11" width="14" height="10" rx="2" />
+                  <path d="M8 11V7a4 4 0 018 0v4" />
+                </svg>
+                Na demonstração
+              </span>
+            </span>
+          ) : null}
+        </>
+      ) : (
+        <div className="tr-grid-bg absolute inset-0 flex items-center justify-center text-brand-primary">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-12 w-12 opacity-60"
+            aria-hidden="true"
+          >
+            {MODULE_ICONS[module.slug]}
+          </svg>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function ModuleCard({ module, withMedia = false }: ModuleCardProps) {
   return (
     <Link href={`/modulos/${module.slug}`} className="group block h-full">
-      <Card className="card-interactive h-full shadow-sm transition-all duration-300 hover:shadow-elevated">
+      <Card
+        className={cn(
+          "card-interactive h-full shadow-sm transition-all duration-300 hover:shadow-elevated",
+          withMedia && "overflow-hidden",
+        )}
+      >
+        {withMedia ? <ModuleMedia module={module} /> : null}
         <CardHeader>
           <div className="mb-4 flex items-start justify-between">
             <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-primary-dim text-brand-primary transition-all duration-300 group-hover:bg-brand-primary group-hover:text-surface-base group-hover:shadow-glow-sm">

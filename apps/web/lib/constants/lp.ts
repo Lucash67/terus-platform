@@ -290,3 +290,151 @@ export const FAQ = {
     },
   ],
 } as const;
+
+/** Área em % da tela que recebe zoom e destaque no tour. */
+export interface ScreenFocus {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+}
+
+export interface PlatformScreen {
+  /** Base do arquivo em /public/plataforma: `{image}-light.webp` e `{image}-dark.webp` */
+  image: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+export interface TourChapter {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  screen: PlatformScreen;
+  focus?: ScreenFocus;
+  locked?: boolean;
+}
+
+export const PLATFORM_SCREENS = {
+  alertboard: {
+    image: "alertboard",
+    width: 1920,
+    height: 1200,
+    alt: "AlertBoard do Portal Terus Varejo com os tipos de alerta e a quantidade de produtos em cada um",
+  },
+  estoque: {
+    image: "estoque",
+    width: 1920,
+    height: 1200,
+    alt: "Tela de estoque com produtos em ruptura, saldo, saída média, cobertura e última venda",
+  },
+  ranking: {
+    image: "ranking",
+    width: 1800,
+    height: 598,
+    alt: "Ranking de estoque por seção e por fornecedor",
+  },
+  gestao: {
+    image: "gestao",
+    width: 1920,
+    height: 1200,
+    alt: "Gestão de alertas com pendentes, executados e reincidências por tipo de alerta",
+  },
+  briefing: {
+    image: "briefing",
+    width: 1920,
+    height: 1200,
+    alt: "Briefing do Dono com os indicadores desfocados",
+  },
+  monitor: {
+    image: "monitor",
+    width: 1920,
+    height: 1200,
+    alt: "Monitor de Execução com valor capturado e valor deixado na mesa, desfocado",
+  },
+} satisfies Record<string, PlatformScreen>;
+
+export const PLATFORM_TOUR: {
+  badge: string;
+  title: string;
+  titleAccent: string;
+  description: string;
+  note: string;
+  lockedTitle: string;
+  lockedCta: string;
+  chapters: TourChapter[];
+} = {
+  badge: "Por dentro da Terus",
+  title: "Veja a sua rede",
+  titleAccent: "pelo lado de dentro",
+  description:
+    "Telas do Portal Terus Varejo. Cada uma responde a uma pergunta que o dono de rede faz todo dia.",
+  note: "Telas reais do ambiente de demonstração, com dados fictícios.",
+  lockedTitle: "Com os números da sua rede, na demonstração",
+  lockedCta: "Quero ver com a minha rede",
+  chapters: [
+    {
+      id: "alertas",
+      label: "Painel de alertas",
+      title: "A rede inteira em um painel",
+      description:
+        "Ruptura, excesso, oferta, margem e produto sem venda. Cada tipo de alerta com a quantidade de produtos para agir — por filial ou por fornecedor.",
+      screen: PLATFORM_SCREENS.alertboard,
+      focus: { left: 6.1, top: 61.3, width: 22, height: 17.5 },
+    },
+    {
+      id: "estoque",
+      label: "Estoque",
+      title: "Onde o produto sumiu da gôndola",
+      description:
+        "Saldo negativo, dias de cobertura, última venda e última entrada, produto por produto. O comprador vê o que repor e em qual seção.",
+      screen: PLATFORM_SCREENS.estoque,
+      focus: { left: 42, top: 60, width: 21, height: 34 },
+    },
+    {
+      id: "ranking",
+      label: "Ranking de estoque",
+      title: "Onde o estoque está parado",
+      description:
+        "Seções e fornecedores ordenados por saldo, para decidir compra e negociação com o dado na mão.",
+      screen: PLATFORM_SCREENS.ranking,
+    },
+    {
+      id: "gestao",
+      label: "Gestão de alertas",
+      title: "Loja por loja, alerta por alerta",
+      description:
+        "Pendentes, em execução, executados e reincidências — por tipo de alerta e por filial.",
+      screen: PLATFORM_SCREENS.gestao,
+      focus: { left: 6, top: 23.5, width: 92, height: 10 },
+    },
+    {
+      id: "briefing",
+      label: "Briefing do Dono",
+      title: "O resumo que o dono confere antes de sair",
+      description:
+        "Venda do dia, margem, ticket médio, ruptura em giro e a fila da loja, em uma tela.",
+      screen: PLATFORM_SCREENS.briefing,
+      locked: true,
+    },
+  ],
+};
+
+export const INTEGRATION_HEALTH = {
+  badge: "Saúde da Integração",
+  title: "Uma nota de 0 a 100 para cada parceria",
+  description:
+    "O portal calcula o índice de cada fornecedor a partir do atendimento do pedido, da ruptura, da venda, da regularidade e do prazo de entrega — e mostra onde a relação precisa de atenção.",
+  score: 53,
+  status: "Crítico",
+  pillars: [
+    { label: "Fill rate / atendimento", weight: 25, score: 0 },
+    { label: "Redução de ruptura", weight: 25, score: 100 },
+    { label: "Crescimento de venda", weight: 20, score: 100 },
+    { label: "Regularidade de abastecimento", weight: 15, score: 0 },
+    { label: "Lead time", weight: 15, score: 50 },
+  ],
+  note: "Exemplo do ambiente de demonstração.",
+} as const;

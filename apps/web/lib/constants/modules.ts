@@ -1,3 +1,5 @@
+import { PLATFORM_SCREENS, type PlatformScreen } from "@/lib/constants/lp";
+
 export type ModuleSlug =
   | "alert"
   | "order"
@@ -19,6 +21,8 @@ export interface ModuleDefinition {
   features: string[];
   metric: string;
   metricLabel: string;
+  /** Tela do portal exibida no card; `locked` sinaliza captura desfocada */
+  screen?: PlatformScreen & { locked?: boolean };
 }
 
 /**
@@ -41,6 +45,7 @@ export const MODULES: ModuleDefinition[] = [
     ],
     metric: "13",
     metricLabel: "Tipos de alerta operacional",
+    screen: PLATFORM_SCREENS.alertboard,
   },
   {
     slug: "order",
@@ -73,6 +78,7 @@ export const MODULES: ModuleDefinition[] = [
     ],
     metric: "R$",
     metricLabel: "Fila ordenada por valor recuperável",
+    screen: { ...PLATFORM_SCREENS.monitor, locked: true },
   },
   {
     slug: "strategy",
@@ -89,6 +95,7 @@ export const MODULES: ModuleDefinition[] = [
     ],
     metric: "YoY",
     metricLabel: "Tendência para decidir",
+    screen: PLATFORM_SCREENS.ranking,
   },
   {
     slug: "unitization",

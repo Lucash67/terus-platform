@@ -66,7 +66,10 @@ export function ModulesSection({
                     delay={Math.min(index * 70, 490)}
                     className="h-full"
                   >
-                    <ModuleCard module={module} />
+                    <ModuleCard
+                      module={module}
+                      withMedia={group.id === "core"}
+                    />
                   </Reveal>
                 ),
               )}

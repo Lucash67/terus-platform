@@ -1,8 +1,10 @@
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { FounderVideo } from "@/components/sections/founder-video";
+import { IntegrationHealthCard } from "@/components/sections/integration-health-card";
 import {
   FOUNDER_VIDEOS,
+  INTEGRATION_HEALTH,
   PONTE_FORNECEDOR,
   SUPPLIER_QUOTE,
 } from "@/lib/constants/lp";
@@ -67,10 +69,27 @@ export function SupplierBridgeSection() {
           </ul>
         </Reveal>
 
+        <div className="mx-auto mt-20 grid max-w-5xl items-center gap-10 lg:grid-cols-[1fr_26rem] lg:gap-16">
+          <Reveal variant="left">
+            <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
+              {INTEGRATION_HEALTH.badge}
+            </p>
+            <h3 className="mt-4 font-display text-heading-xl font-bold text-text-primary">
+              {INTEGRATION_HEALTH.title}
+            </h3>
+            <p className="mt-4 text-body-lg text-text-secondary">
+              {INTEGRATION_HEALTH.description}
+            </p>
+          </Reveal>
+          <Reveal variant="right" delay={120}>
+            <IntegrationHealthCard />
+          </Reveal>
+        </div>
+
         <Reveal
           variant="scale"
           delay={120}
-          className="mx-auto mt-16 grid max-w-4xl items-center gap-10 rounded-2xl border border-surface-border bg-surface-elevated-1/60 p-6 sm:p-10 md:grid-cols-[15rem_1fr]"
+          className="mx-auto mt-20 grid max-w-4xl items-center gap-10 rounded-2xl border border-surface-border bg-surface-elevated-1/60 p-6 sm:p-10 md:grid-cols-[15rem_1fr]"
         >
           <FounderVideo
             {...FOUNDER_VIDEOS.fornecedor}
