@@ -13,7 +13,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Comece com a sua rede",
   description:
     "Pré-cadastro da Terus Varejo: conte qual ERP a rede usa e quantas lojas tem, e nossa equipe retoma com você pelo WhatsApp.",
-  path: "/solicitar-demo",
+  path: "/comecar",
 });
 
 export default function SolicitarDemoPage() {

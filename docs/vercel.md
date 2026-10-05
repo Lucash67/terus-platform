@@ -102,7 +102,7 @@ Aguardar deploy (~1 min) e validar URL.
    ```
 2. Abrir produção: https://terus-platform-web.vercel.app
 3. Verificar Navbar, Home, Rede Terus, logos
-4. Testar rotas críticas: `/cases`, `/modulos`, `/solicitar-demo`
+4. Testar rotas críticas: `/cases`, `/modulos`, `/comecar`
 
 ### Auditoria completa (pré-deploy)
 

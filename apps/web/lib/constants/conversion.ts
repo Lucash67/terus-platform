@@ -1,7 +1,7 @@
 export const CTA = {
   primary: {
     label: "Começar com a minha rede",
-    href: "/solicitar-demo",
+    href: "/comecar",
   },
   secondary: {
     label: "Conhecer Terus Varejo",

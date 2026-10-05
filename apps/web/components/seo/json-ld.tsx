@@ -45,7 +45,7 @@ const softwareApplicationJsonLd = {
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/OnlineOnly",
-    url: `${SITE_URL}/solicitar-demo`,
+    url: `${SITE_URL}/comecar`,
   },
   featureList: MODULES.map((module) => module.name),
   provider: {

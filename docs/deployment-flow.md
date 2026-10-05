@@ -142,7 +142,7 @@ Executar após push em `main` (~1 minuto para deploy Vercel).
 - [ ] `/modulos` + `/modulos/alert`
 - [ ] `/cases`
 - [ ] `/conteudos`
-- [ ] `/solicitar-demo` (link WhatsApp)
+- [ ] `/comecar` (link WhatsApp)
 - [ ] `/sobre`
 
 ### Validar logs

@@ -15,7 +15,7 @@ export const PUBLIC_ROUTES = [
   { path: "/conteudos", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/sobre", priority: 0.7, changeFrequency: "monthly" as const },
   {
-    path: "/solicitar-demo",
+    path: "/comecar",
     priority: 0.9,
     changeFrequency: "monthly" as const,
   },

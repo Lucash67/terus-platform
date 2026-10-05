@@ -181,7 +181,7 @@ export function WelcomeHero() {
               </Button>
             ) : (
               <Button size="lg" variant="outline" asChild>
-                <Link href="/solicitar-demo">Falar com especialista</Link>
+                <Link href="/comecar">Falar com especialista</Link>
               </Button>
             )}
           </div>

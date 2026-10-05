@@ -14,10 +14,6 @@ Itens combinados que dependem de material ou decisão. Remova o item quando entr
 - **Telas do Terus Task em alta resolução.** As artes atuais vieram do WhatsApp (472 px de
   largura). Trocar em `public/app-task/` pelos originais quando chegarem.
 
-## Esperando decisão
-
-- **Endereço do pré-cadastro.** Hoje em `/solicitar-demo`. Proposta: `/comecar`, com
-  redirecionamento permanente do endereço antigo. Rota nova precisa de aprovação.
 ## Fora do site (time de produto)
 
 - Portal escreve "Godula" em vez de "Gôndola".
