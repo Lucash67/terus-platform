@@ -190,23 +190,28 @@ export const PONTE_FORNECEDOR = {
     {
       title: "Comprador revisa",
       description: "Sugestão por estoque, venda e parâmetros da rede.",
+      status: "Revisado",
     },
     {
       title: "Fornecedor aprova",
       description: "Valida preço e DE-PARA no Portal do Fornecedor.",
+      status: "Aprovado",
     },
     {
       title: "Entra no ERP",
       description: "Gravado no Winthor, Sankhya ou VitSis do fornecedor.",
+      status: "No ERP",
     },
     {
       title: "NF e rastreio",
       description:
         "Status do pedido, nota fiscal e carga visíveis para a rede.",
+      status: "Em rota",
     },
     {
       title: "Loja recebe",
       description: "Recebimento no app com contagem cega do volume.",
+      status: "Recebido",
     },
   ],
   extras: [

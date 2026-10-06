@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { FounderVideo } from "@/components/sections/founder-video";
 import { IntegrationHealthCard } from "@/components/sections/integration-health-card";
+import { OrderJourney3D } from "@/components/sections/order-journey-3d";
 import {
   FOUNDER_VIDEOS,
   INTEGRATION_HEALTH,
@@ -11,7 +12,7 @@ import {
 
 export function SupplierBridgeSection() {
   return (
-    <section className="section-rhythm relative overflow-hidden">
+    <section className="section-rhythm relative overflow-x-clip">
       <div
         className="pointer-events-none absolute -left-32 top-1/3 h-80 w-80 rounded-full bg-brand-secondary/10 blur-3xl"
         aria-hidden="true"
@@ -28,8 +29,14 @@ export function SupplierBridgeSection() {
             {PONTE_FORNECEDOR.description}
           </p>
         </Reveal>
+      </Container>
 
-        <div className="relative mt-14">
+      <div className="hidden lg:block">
+        <OrderJourney3D />
+      </div>
+
+      <Container className="relative">
+        <div className="relative mt-14 lg:hidden">
           <div
             className="tr-horizon pointer-events-none absolute inset-x-8 top-5 hidden h-px md:block"
             aria-hidden="true"
