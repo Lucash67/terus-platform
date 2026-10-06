@@ -8,16 +8,19 @@ import { clamp01, smoothstep, stickyTrackProgress } from "@/lib/scroll-math";
 
 const STEPS = PONTE_FORNECEDOR.steps;
 const LAST = STEPS.length - 1;
-/** ~5 giros de roda do mouse por etapa */
-const SCROLL_PER_STEP_VH = 45;
+/** ~3 giros de roda do mouse entre uma etapa e a próxima */
+const SCROLL_PER_STEP_VH = 30;
+/** Pausa na primeira e na última etapa */
+const EDGE_VH = 15;
+const TRAVEL_VH = LAST * SCROLL_PER_STEP_VH + 2 * EDGE_VH;
 /** Distância entre estações no chão, em px */
-const SPACING = 400;
-const FLOOR_TILT_DEG = 58;
-const INTRO_EXTRA_TILT_DEG = 22;
-/** Parte de cada etapa em que a câmera viaja até a próxima estação */
-const TRAVEL_FROM = 0.6;
-/** Recuo da câmera no meio da viagem entre estações */
-const DOLLY_PX = 220;
+const SPACING = 380;
+const FLOOR_TILT_DEG = 50;
+const INTRO_EXTRA_TILT_DEG = 16;
+/** Fração de cada trecho em que a câmera fica parada sobre a estação */
+const HOLD = 0.12;
+/** Recuo leve da câmera no meio da viagem entre estações */
+const DOLLY_PX = 70;
 
 function CheckIcon({ className }: { className?: string }) {
   return (
@@ -45,6 +48,7 @@ export function OrderJourney3D() {
   const fillRef = React.useRef<HTMLDivElement>(null);
   const packetRef = React.useRef<HTMLDivElement>(null);
   const cardEls = React.useRef<(HTMLDivElement | null)[]>([]);
+  const pillFills = React.useRef<(HTMLSpanElement | null)[]>([]);
   const [current, setCurrent] = React.useState(0);
   const [finished, setFinished] = React.useState(false);
 
@@ -61,12 +65,17 @@ export function OrderJourney3D() {
     const update = () => {
       frame = 0;
       const progress = stickyTrackProgress(track);
-      setFinished(progress > 0.94);
-      const steps = progress * STEPS.length;
-      const index = Math.min(LAST, Math.floor(steps));
+      setFinished(progress > 0.97);
+      const raw =
+        clamp01(
+          (progress * TRAVEL_VH - EDGE_VH) / (LAST * SCROLL_PER_STEP_VH),
+        ) * LAST;
+      const index = Math.min(LAST, Math.floor(raw));
       const travel =
-        index < LAST && !reduceMotion
-          ? smoothstep(TRAVEL_FROM, 1, steps - index)
+        index < LAST
+          ? reduceMotion
+            ? Math.round(raw - index)
+            : smoothstep(HOLD, 1 - HOLD, raw - index)
           : 0;
       const camera = index + travel;
       setCurrent((value) => {
@@ -80,7 +89,7 @@ export function OrderJourney3D() {
       const tilt = FLOOR_TILT_DEG + (1 - enter) * INTRO_EXTRA_TILT_DEG;
       const dolly = Math.sin(travel * Math.PI);
       const depth = (1 - enter) * -300 - dolly * DOLLY_PX;
-      const swing = (enter - 1) * 14 + dolly * 6;
+      const swing = (enter - 1) * 8;
       world.style.transform = `translateZ(${depth}px) rotateX(${tilt}deg) rotateZ(${swing}deg) translateX(${-camera * SPACING}px)`;
       world.style.setProperty("--stand", `${-tilt}deg`);
 
@@ -88,17 +97,21 @@ export function OrderJourney3D() {
         fillRef.current.style.transform = `scaleX(${camera / LAST})`;
       }
       if (packetRef.current) {
-        const hop = Math.sin(travel * Math.PI) * 36;
+        const hop = Math.sin(travel * Math.PI) * 20;
         packetRef.current.style.transform = `translate3d(${camera * SPACING}px, 0, 0)`;
         packetRef.current.style.setProperty("--hop", `${-hop}px`);
       }
 
       cardEls.current.forEach((card, i) => {
         if (!card) return;
-        const focus = 1 - clamp01(Math.abs(camera - i) * 1.4);
-        card.style.opacity = String(0.3 + 0.7 * focus);
-        card.style.setProperty("--lift", `${-(12 + focus * 44)}px`);
-        card.style.setProperty("--scale", String(0.82 + 0.18 * focus));
+        const focus = 1 - clamp01(Math.abs(camera - i) * 0.8);
+        card.style.opacity = String(0.45 + 0.55 * focus);
+        card.style.setProperty("--lift", `${-(16 + focus * 36)}px`);
+        card.style.setProperty("--scale", String(0.88 + 0.12 * focus));
+      });
+
+      pillFills.current.forEach((fill, i) => {
+        if (fill) fill.style.transform = `scaleX(${clamp01(camera - i + 1)})`;
       });
     };
 
@@ -116,6 +129,19 @@ export function OrderJourney3D() {
     };
   }, []);
 
+  const goTo = (index: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const top = track.getBoundingClientRect().top + window.scrollY;
+    const offsetVh = EDGE_VH + index * SCROLL_PER_STEP_VH;
+    window.scrollTo({
+      top:
+        top +
+        (offsetVh / TRAVEL_VH) * (track.offsetHeight - window.innerHeight),
+      behavior: "smooth",
+    });
+  };
+
   const standing =
     "[transform:translateX(-50%)_rotateX(var(--stand,-58deg))_translateY(var(--lift,0px))_scale(var(--scale,1))]";
 
@@ -123,14 +149,51 @@ export function OrderJourney3D() {
     <div
       ref={trackRef}
       className="relative mt-6"
-      style={{ height: `${STEPS.length * SCROLL_PER_STEP_VH + 100}vh` }}
+      style={{ height: `${TRAVEL_VH + 100}vh` }}
     >
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-16">
-        <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-8">
-          <p className="font-mono text-caption font-semibold uppercase tracking-widest text-text-tertiary">
+        <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-8">
+          <p className="shrink-0 font-mono text-caption font-semibold uppercase tracking-widest text-text-tertiary">
             Jornada do pedido
           </p>
-          <p className="font-mono text-heading-md font-semibold text-text-primary">
+          <ol className="flex flex-1 justify-center gap-2">
+            {STEPS.map((step, i) => (
+              <li key={step.title} className="max-w-[10rem] flex-1">
+                <button
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-current={i === current ? "step" : undefined}
+                  className={cn(
+                    "group w-full rounded-lg px-2 py-1.5 text-left transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary",
+                    i === current
+                      ? "bg-brand-primary-dim"
+                      : "hover:bg-surface-elevated-2",
+                  )}
+                >
+                  <span className="block h-1 overflow-hidden rounded-full bg-surface-border">
+                    <span
+                      ref={(el) => {
+                        pillFills.current[i] = el;
+                      }}
+                      className="block h-full origin-left rounded-full bg-brand-primary"
+                      style={{ transform: i === 0 ? "scaleX(1)" : "scaleX(0)" }}
+                    />
+                  </span>
+                  <span
+                    className={cn(
+                      "mt-1.5 block truncate text-caption font-medium transition-colors duration-200",
+                      i === current
+                        ? "text-text-primary"
+                        : "text-text-tertiary group-hover:text-text-secondary",
+                    )}
+                  >
+                    {step.title}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ol>
+          <p className="shrink-0 font-mono text-heading-md font-semibold text-text-primary">
             <span className="text-brand-primary">
               {String(current + 1).padStart(2, "0")}
             </span>
