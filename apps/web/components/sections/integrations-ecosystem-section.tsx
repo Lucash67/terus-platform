@@ -3,7 +3,8 @@ import { Badge } from "@terus/ui";
 import { Container } from "@/components/layout/container";
 import { CtaButtons } from "@/components/conversion/cta-buttons";
 import { Reveal } from "@/components/motion/reveal";
-import { CAMADA_INTEGRACAO, INTEGRACOES } from "@/lib/constants/site-data";
+import { TechLayersPanel } from "@/components/sections/tech-layers-panel";
+import { INTEGRACOES } from "@/lib/constants/site-data";
 
 const STATUS_LABELS = {
   homologado: { label: "Em produção", variant: "success" as const },
@@ -24,7 +25,7 @@ export function IntegrationsEcosystemSection() {
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
             A Terus captura os dados da rede, gera alertas e atividades, e grava
-            o pedido aprovado no sistema do fornecedor — sem planilha no meio.
+            o pedido aprovado no sistema do fornecedor — sem redigitação.
           </p>
         </Reveal>
 
@@ -56,45 +57,7 @@ export function IntegrationsEcosystemSection() {
           })}
         </div>
 
-        <Reveal delay={80} className="mx-auto mt-16 max-w-2xl text-center">
-          <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
-            Camada de integração
-          </p>
-          <h3 className="mt-3 font-display text-heading-lg font-bold text-text-primary">
-            Do ERP à ação — a base do ecossistema
-          </h3>
-          <p className="mt-3 text-body-md text-text-secondary">
-            Três componentes que já operam no produto: coleta segura,
-            processamento inteligente e integração com fornecedores e ERP.
-          </p>
-        </Reveal>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {CAMADA_INTEGRACAO.map((item, index) => (
-            <Reveal
-              key={item.name}
-              variant="scale"
-              delay={Math.min(100 + index * 70, 420)}
-              className="relative overflow-hidden rounded-xl border border-surface-border bg-surface-elevated-1 p-8"
-            >
-              <div
-                className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-primary/10 blur-2xl"
-                aria-hidden="true"
-              />
-              <div className="relative">
-                <span className="inline-block rounded-md bg-brand-primary-dim px-2.5 py-1 font-mono text-caption font-medium uppercase tracking-wider text-brand-primary">
-                  {item.role}
-                </span>
-                <h3 className="mt-4 font-display text-heading-md font-semibold text-text-primary">
-                  {item.name}
-                </h3>
-                <p className="mt-3 text-body-md leading-relaxed text-text-secondary">
-                  {item.description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <TechLayersPanel />
 
         <Reveal delay={120}>
           <CtaButtons className="mt-12" />

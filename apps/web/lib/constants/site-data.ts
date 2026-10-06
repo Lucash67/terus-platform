@@ -275,24 +275,58 @@ export const PROVA_SOCIAL_PILARES = [
  * Camada de integração do produto real (legado: Agent, IAproc, Bond).
  * Infraestrutura que alimenta os módulos da Terus Varejo.
  */
+export const CAMADA_INTEGRACAO_HEADER = {
+  badge: "Tecnologia Terus",
+  title: "Três camadas entre o banco do seu ERP e a gôndola",
+  description:
+    "Captura, inteligência e integração rodando juntas: o dado sai do ERP da rede, vira ação priorizada e o pedido entra no ERP do fornecedor.",
+  retailErps: ["RMS", "Consinco", "VR", "CISS Poder", "RPInfo", "API REST"],
+  supplierErps: ["Winthor", "Sankhya", "VitSis"],
+} as const;
+
+/** Specs seguem os manuais de integração e módulos da wiki. */
 export const CAMADA_INTEGRACAO = [
   {
     name: "Agent",
-    role: "Coleta",
+    role: "Captura",
+    headline: "Lê o ERP da rede, direto na fonte",
     description:
-      "Conexão segura e controlada aos sistemas do varejo. Extrai os dados necessários, compacta, criptografa e envia para a nuvem Terus.",
+      "Captura direta do banco ou da API do ERP, a partir de um IP fixo da Terus.",
+    stat: { value: "0", label: "escritas no ERP da rede" },
+    specs: [
+      "Oracle, PostgreSQL ou API REST",
+      "Só leitura: nada é gravado, alterado ou apagado",
+      "Sem VPN — basta liberar o IP no firewall",
+      "Saúde da integração mostra atraso e completude das cargas",
+    ],
   },
   {
     name: "IAproc",
     role: "Inteligência",
+    headline: "Transforma o dado em ação priorizada",
     description:
-      "Processa e trata os dados recebidos pelo Agent e transforma resultados em ações efetivas para os módulos da Terus Varejo.",
+      "Cruza estoque, venda, preço e oferta e decide o que a loja e o comprador fazem primeiro.",
+    stat: { value: "13", label: "tipos de alerta" },
+    specs: [
+      "Ruptura, excesso, sem venda, queda e margem",
+      "Fila da loja ordenada pelo retorno em R$",
+      "Pedido de reposição sugerido por estoque e venda",
+      "Venda antes e depois de cada alerta, medida no portal",
+    ],
   },
   {
     name: "Bond",
     role: "Integração",
+    headline: "Fecha o ciclo com o fornecedor",
     description:
-      "Integra ERPs e fornecedores parceiros: sugestão de abastecimento, pedido de compra e troca de dados com indústria e distribuição.",
+      "O pedido aprovado no portal é gravado no ERP da indústria ou do distribuidor.",
+    stat: { value: "35% → 0,5%", label: "rejeição no ERP · Cometa" },
+    specs: [
+      "Gravação no Winthor, Sankhya ou VitSis",
+      "DE-PARA com vínculo automático por EAN",
+      "Status, NF e tracking de volta ao portal",
+      "Alertas e sell-out dos SKUs para a indústria",
+    ],
   },
 ] as const;
 
