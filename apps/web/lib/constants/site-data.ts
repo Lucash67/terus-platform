@@ -360,30 +360,23 @@ export const ERP_ECOSYSTEM: ErpEcosystemItem[] = [
 export const PILARES_CONFIABILIDADE = [
   {
     name: "Só leitura no ERP da rede",
-    status: "ativo" as const,
+    icon: "leitura" as const,
     description:
       "Não gravamos pedido, não alteramos cadastro e não apagamos nada no ERP do varejo. Só SELECT.",
     logo: null,
   },
   {
     name: "Sem VPN",
-    status: "ativo" as const,
+    icon: "rede" as const,
     description:
       "Conexão a partir de um IP fixo da Terus, liberado no firewall do cliente. Nada instalado na rede.",
     logo: null,
   },
   {
     name: "Usuário dedicado",
-    status: "ativo" as const,
+    icon: "usuario" as const,
     description:
       "Usuário de aplicação com permissões mínimas — nunca administrador nem dono do banco.",
-    logo: null,
-  },
-  {
-    name: "Credencial protegida",
-    status: "conformidade" as const,
-    description:
-      "Senha enviada por canal seguro e dados de cliente borrados em toda documentação. LGPD na prática.",
     logo: null,
   },
 ];
@@ -391,7 +384,7 @@ export const PILARES_CONFIABILIDADE = [
 /** @deprecated Use PILARES_CONFIABILIDADE — mantido para compatibilidade de import */
 export const CERTIFICACOES = PILARES_CONFIABILIDADE.map((p) => ({
   name: p.name,
-  issuer: p.status === "ativo" ? "Implementado" : "Em conformidade",
+  issuer: "",
   description: p.description,
   logo: p.logo,
 }));
