@@ -6,7 +6,7 @@ import { cn } from "@terus/ui";
 import { CountUp } from "@/components/motion/count-up";
 import { INTEGRATION_HEALTH } from "@/lib/constants/lp";
 
-/** Recria a tela "Saúde da Integração" do portal com a nota e os pilares animados. */
+/** Recria a tela "Avaliação de fornecedores" do portal com a nota e os pilares animados. */
 export function IntegrationHealthCard({ className }: { className?: string }) {
   const ref = React.useRef<HTMLDivElement>(null);
   const [visible, setVisible] = React.useState(false);
@@ -39,18 +39,18 @@ export function IntegrationHealthCard({ className }: { className?: string }) {
         className,
       )}
     >
-      <div className="h-1 bg-status-error" aria-hidden="true" />
+      <div className="h-1 bg-status-warning" aria-hidden="true" />
       <div className="p-6 sm:p-8">
         <p className="text-center font-display text-heading-md font-semibold text-text-primary">
           {INTEGRATION_HEALTH.badge}
         </p>
         <p className="mt-1 text-center text-caption text-text-tertiary">
-          Índice de 0 a 100 por fornecedor
+          Nota de 0 a 100 por fornecedor
         </p>
         <p className="mt-6 text-center font-display text-display-lg font-bold leading-none text-text-primary">
           <CountUp value={INTEGRATION_HEALTH.score} duration={1600} />
         </p>
-        <p className="mt-2 text-center text-body-sm font-semibold text-status-error">
+        <p className="mt-2 text-center text-body-sm font-semibold text-status-warning">
           {INTEGRATION_HEALTH.status}
         </p>
 
@@ -60,7 +60,7 @@ export function IntegrationHealthCard({ className }: { className?: string }) {
               <div className="flex items-baseline justify-between gap-4 text-body-sm">
                 <span className="text-text-primary">{pillar.label}</span>
                 <span className="shrink-0 font-mono text-caption text-text-tertiary">
-                  peso {pillar.weight}% · {pillar.score}
+                  {pillar.score}
                 </span>
               </div>
               <div className="mt-2 h-2 overflow-hidden rounded-full bg-surface-elevated-3">

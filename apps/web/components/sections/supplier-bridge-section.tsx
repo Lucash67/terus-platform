@@ -58,18 +58,54 @@ export function SupplierBridgeSection() {
           </ol>
         </div>
 
-        <Reveal delay={200} className="mt-14">
-          <ul className="flex flex-wrap justify-center gap-3">
-            {PONTE_FORNECEDOR.extras.map((extra) => (
-              <li
-                key={extra}
-                className="rounded-full border border-surface-border bg-surface-elevated-1 px-4 py-2 text-body-sm text-text-secondary"
-              >
-                {extra}
-              </li>
-            ))}
-          </ul>
+        <Reveal className="mx-auto mt-14 max-w-2xl text-center">
+          <h3 className="font-display text-heading-lg font-bold text-text-primary">
+            {PONTE_FORNECEDOR.benefitsTitle}
+          </h3>
         </Reveal>
+        <div className="mx-auto mt-8 grid max-w-5xl gap-6 md:grid-cols-2">
+          {PONTE_FORNECEDOR.benefits.map((group, groupIndex) => (
+            <Reveal
+              key={group.audience}
+              variant={groupIndex === 0 ? "left" : "right"}
+              delay={groupIndex * 120}
+              className="rounded-2xl border border-surface-border bg-surface-elevated-1 p-6 shadow-elevated transition-[border-color,box-shadow] duration-300 hover:border-brand-primary/40 hover:shadow-glow-sm sm:p-8"
+            >
+              <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
+                {group.audience}
+              </p>
+              <ul className="mt-6 space-y-5">
+                {group.items.map((item) => (
+                  <li key={item.title} className="flex gap-4">
+                    <span
+                      className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-primary-dim text-brand-primary"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 12 12" className="h-3 w-3">
+                        <path
+                          d="M2 6l3 3 5-5"
+                          stroke="currentColor"
+                          strokeWidth="1.75"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      <span className="block font-display text-body-md font-semibold text-text-primary">
+                        {item.title}
+                      </span>
+                      <span className="mt-1 block text-body-sm text-text-secondary">
+                        {item.description}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
 
         <div className="mx-auto mt-20 grid max-w-5xl items-center gap-10 lg:grid-cols-[1fr_26rem] lg:gap-16">
           <Reveal variant="left">

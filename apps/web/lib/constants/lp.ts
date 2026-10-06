@@ -133,12 +133,12 @@ export const SUPPLIER_QUOTE = {
     {
       at: 37,
       label: "Onde a Terus entra",
-      hint: "O pedido do varejo chega ao sistema do fornecedor sem intervenção humana.",
+      hint: "Aprovado no portal, o pedido é gravado direto no ERP do fornecedor, sem redigitação.",
     },
     {
       at: 49,
       label: "O promotor sabe o que não vende",
-      hint: "Os produtos fora do ritmo vão para o app do promotor do fornecedor.",
+      hint: "Produto que parou de vender ou caiu forte vai para a fila do promotor no Terus Task.",
     },
     {
       at: 58,
@@ -228,7 +228,7 @@ export const PONTE_FORNECEDOR = {
   badge: "Varejo + fornecedor",
   title: "O pedido sai da rede e entra no ERP do fornecedor",
   description:
-    "Sem e-mail, sem planilha, sem redigitação. É isso que levou a rejeição de pedidos no ERP de 35% para 0,5%.",
+    "O comprador envia pelo portal, o fornecedor aprova no dele e o pedido é gravado direto no ERP, sem redigitação. No Cometa Supermercados, a rejeição de pedidos no ERP caiu de 35% para 0,5%.",
   steps: [
     {
       title: "Comprador revisa",
@@ -248,20 +248,68 @@ export const PONTE_FORNECEDOR = {
     {
       title: "NF e rastreio",
       description:
-        "Status do pedido, nota fiscal e carga visíveis para a rede.",
+        "Nota fiscal e tracking no portal. Com unitização, cada volume é rastreado até a loja.",
       status: "Em rota",
     },
     {
       title: "Loja recebe",
-      description: "Recebimento no app com contagem cega do volume.",
+      description:
+        "Com unitização, a loja lê a etiqueta no app e confirma com contagem cega.",
       status: "Recebido",
     },
   ],
-  extras: [
-    "Devolução de excesso com contagem cega",
-    "Negociação de margem",
-    "Sell-in e sell-out por loja",
-    "Avaliação de fornecedores",
+  benefitsTitle: "O que já funciona no portal, dos dois lados",
+  benefits: [
+    {
+      audience: "Para a indústria e o distribuidor",
+      items: [
+        {
+          title: "Pedido da rede direto no ERP",
+          description:
+            "Aprovado no portal, entra no Winthor, Sankhya ou VitSis — com status, NF e tracking.",
+        },
+        {
+          title: "Seus SKUs dentro de cada rede",
+          description:
+            "Alertas, sell-out, ruptura e nível de serviço dos seus produtos, loja por loja.",
+        },
+        {
+          title: "Negociação de margem com conformidade",
+          description:
+            "Proposta de preço para a rede e acompanhamento do que foi acordado depois de aprovada.",
+        },
+        {
+          title: "DE-PARA com vínculo por EAN",
+          description:
+            "O seu código ligado ao da rede, com conversão de unidade e importação por planilha.",
+        },
+      ],
+    },
+    {
+      audience: "Para a rede",
+      items: [
+        {
+          title: "Pedido de reposição sugerido",
+          description:
+            "Calculado por estoque, venda e parâmetros da rede. O comprador revisa e envia.",
+        },
+        {
+          title: "Devolução de excesso com contagem cega",
+          description:
+            "A loja conta no Terus Task sem ver o saldo do sistema; o comprador aprova o que volta.",
+        },
+        {
+          title: "Execução do promotor na carteira",
+          description:
+            "O comprador acompanha a fila do Terus Task de promotores e encarregados na carteira dele.",
+        },
+        {
+          title: "Rastreamento de cargas",
+          description:
+            "Com unitização, gaiolas e paletes acompanhados do depósito até a entrada na loja.",
+        },
+      ],
+    },
   ],
 } as const;
 
@@ -478,18 +526,18 @@ export const TASK_APP = {
 } as const;
 
 export const INTEGRATION_HEALTH = {
-  badge: "Saúde da Integração",
-  title: "Uma nota de 0 a 100 para cada parceria",
+  badge: "Avaliação de fornecedores",
+  title: "Uma nota de 0 a 100 para cada fornecedor",
   description:
-    "O portal calcula o índice de cada fornecedor a partir do atendimento do pedido, da ruptura, da venda, da regularidade e do prazo de entrega — e mostra onde a relação precisa de atenção.",
-  score: 53,
-  status: "Crítico",
+    "O portal da rede consolida atendimento, ruptura, sell-out, regularidade e lead time em um número compartilhado para a reunião comercial. O fornecedor vê o mesmo espelho em Desempenho no varejo.",
+  score: 71,
+  status: "Atenção",
   pillars: [
-    { label: "Fill rate / atendimento", weight: 25, score: 0 },
-    { label: "Redução de ruptura", weight: 25, score: 100 },
-    { label: "Crescimento de venda", weight: 20, score: 100 },
-    { label: "Regularidade de abastecimento", weight: 15, score: 0 },
-    { label: "Lead time", weight: 15, score: 50 },
+    { label: "Atendimento", score: 78 },
+    { label: "Ruptura", score: 57 },
+    { label: "Sell-out", score: 38 },
+    { label: "Regularidade", score: 100 },
+    { label: "Lead time", score: 100 },
   ],
   note: "Exemplo do ambiente de demonstração.",
 } as const;
