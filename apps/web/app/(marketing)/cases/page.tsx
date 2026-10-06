@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { CtaSection } from "@/components/sections/cta-section";
 import { CONTEUDOS_CASES } from "@/lib/constants/site-data";
@@ -44,6 +45,18 @@ export default function CasesPage() {
           <section className="bg-surface-base py-16">
             <Container className="max-w-4xl">
               <Reveal>
+                {c.logos.primary ? (
+                  <div className="tr-logo-chip mb-6 inline-flex h-16 px-5 py-2">
+                    <Image
+                      src={c.logos.primary}
+                      alt={c.company ?? c.title}
+                      width={454}
+                      height={142}
+                      sizes="192px"
+                      className="h-12 w-auto object-contain"
+                    />
+                  </div>
+                ) : null}
                 <div className="flex flex-wrap gap-2 items-center mb-6">
                   <Badge variant="outline" className="text-caption capitalize">
                     {c.category}

@@ -943,7 +943,7 @@ export const CONTEUDOS_CASES: CaseStudy[] = [
       },
     ],
     logos: {
-      primary: null,
+      primary: "/logos/clientes/cometa.png",
       monochrome: null,
       dark: null,
     },
