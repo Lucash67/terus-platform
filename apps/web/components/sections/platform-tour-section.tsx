@@ -10,6 +10,7 @@ import { PlatformScreenshot } from "@/components/sections/platform-screenshot";
 import { ANALYTICS_EVENTS, track } from "@/lib/analytics";
 import { CTA } from "@/lib/constants/conversion";
 import { PLATFORM_TOUR, type TourChapter } from "@/lib/constants/lp";
+import { clamp01, smoothstep } from "@/lib/scroll-math";
 
 const CHAPTERS = PLATFORM_TOUR.chapters;
 /** ~5 giros de roda do mouse por tela */
@@ -19,13 +20,6 @@ const MAX_TILT_DEG = 18;
 const FADE = 0.12;
 const FOCUS_ZOOM = 0.18;
 const DRIFT_ZOOM = 0.06;
-
-const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
-
-function smoothstep(from: number, to: number, value: number) {
-  const t = clamp01((value - from) / (to - from));
-  return t * t * (3 - 2 * t);
-}
 
 function LockIcon({ className }: { className?: string }) {
   return (
