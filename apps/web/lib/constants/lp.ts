@@ -234,7 +234,7 @@ export const FAQ = {
     {
       question: "O que o meu TI precisa fazer?",
       answer:
-        "Liberar o IP fixo da Terus no firewall, criar o usuário de integração e aplicar o script de permissões que entregamos pronto. Não precisa de VPN nem de instalar nada na rede.",
+        "Liberar o IP fixo da Terus no firewall, criar o usuário de integração e aplicar o script de permissões que entregamos pronto. Não precisa de VPN.",
     },
     {
       question: "A loja precisa de equipamento novo?",

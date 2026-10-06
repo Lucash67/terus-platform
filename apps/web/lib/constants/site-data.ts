@@ -369,7 +369,7 @@ export const PILARES_CONFIABILIDADE = [
     name: "Sem VPN",
     icon: "rede" as const,
     description:
-      "Conexão a partir de um IP fixo da Terus, liberado no firewall do cliente. Nada instalado na rede.",
+      "Conexão a partir de um IP fixo da Terus, liberado no firewall do cliente.",
     logo: null,
   },
   {
