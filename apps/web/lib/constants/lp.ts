@@ -108,10 +108,53 @@ export const FOUNDER_SECTION = {
   ],
 } as const;
 
+/** Capítulos e perguntas seguem a fala do Rodrigo no vídeo do fornecedor. */
 export const SUPPLIER_QUOTE = {
   quote: "Vender e entregar é só uma parte dessa relação.",
+  hook: "O pedido chegou certo. Mas o seu produto chegou à gôndola?",
   description:
-    "O pedido do varejo chega certo no sistema do fornecedor, sem redigitação, e o promotor recebe no app os produtos que não estão vendendo como deveriam.",
+    "Em 1min15, o Rodrigo mostra a etapa que vem depois da entrega — e o que muda quando fornecedor e varejo passam a olhar para os mesmos problemas.",
+  chapters: [
+    {
+      at: 0,
+      label: "O pedido precisa ser ágil e correto",
+      hint: "É aí que começa a relação entre quem fornece e o varejo.",
+    },
+    {
+      at: 11,
+      label: "A etapa depois da entrega",
+      hint: "Fazer o produto chegar, de fato, até o consumidor.",
+    },
+    {
+      at: 18,
+      label: "5 perguntas sobre a gôndola",
+      hint: "Alguma delas indica que você está perdendo venda?",
+    },
+    {
+      at: 37,
+      label: "Onde a Terus entra",
+      hint: "O pedido do varejo chega ao sistema do fornecedor sem intervenção humana.",
+    },
+    {
+      at: 49,
+      label: "O promotor sabe o que não vende",
+      hint: "Os produtos fora do ritmo vão para o app do promotor do fornecedor.",
+    },
+    {
+      at: 58,
+      label: "Fornecedor e varejo conectados",
+      hint: "Olhando para os mesmos problemas e buscando os mesmos resultados.",
+    },
+  ],
+  /** Capítulo em que as perguntas aparecem, com o segundo de cada uma */
+  questionsChapter: 2,
+  questions: [
+    { at: 19.5, text: "O produto chegou realmente à gôndola?" },
+    { at: 22, text: "Ele foi reposto?" },
+    { at: 24.5, text: "Está exposto de maneira adequada?" },
+    { at: 27.5, text: "A etiqueta de preço está bem posicionada?" },
+    { at: 30.5, text: "As ofertas estão destacadas?" },
+  ],
 } as const;
 
 export const PERSONAS: {

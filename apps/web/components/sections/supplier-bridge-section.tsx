@@ -1,14 +1,9 @@
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
-import { FounderVideo } from "@/components/sections/founder-video";
 import { IntegrationHealthCard } from "@/components/sections/integration-health-card";
 import { OrderJourney3D } from "@/components/sections/order-journey-3d";
-import {
-  FOUNDER_VIDEOS,
-  INTEGRATION_HEALTH,
-  PONTE_FORNECEDOR,
-  SUPPLIER_QUOTE,
-} from "@/lib/constants/lp";
+import { SupplierVideoSpotlight } from "@/components/sections/supplier-video-spotlight";
+import { INTEGRATION_HEALTH, PONTE_FORNECEDOR } from "@/lib/constants/lp";
 
 export function SupplierBridgeSection() {
   return (
@@ -93,26 +88,8 @@ export function SupplierBridgeSection() {
           </Reveal>
         </div>
 
-        <Reveal
-          variant="scale"
-          delay={120}
-          className="mx-auto mt-20 grid max-w-4xl items-center gap-10 rounded-2xl border border-surface-border bg-surface-elevated-1/60 p-6 sm:p-10 md:grid-cols-[15rem_1fr]"
-        >
-          <FounderVideo
-            {...FOUNDER_VIDEOS.fornecedor}
-            className="mx-auto max-w-[15rem]"
-            sizes="240px"
-          />
-          <blockquote className="text-center md:text-left">
-            <p className="font-display text-heading-lg font-bold leading-snug text-text-primary sm:text-heading-xl">
-              <span className="text-brand-primary">“</span>
-              {SUPPLIER_QUOTE.quote}
-              <span className="text-brand-primary">”</span>
-            </p>
-            <p className="mt-4 text-body-md leading-relaxed text-text-secondary">
-              {SUPPLIER_QUOTE.description}
-            </p>
-          </blockquote>
+        <Reveal variant="scale" delay={120}>
+          <SupplierVideoSpotlight />
         </Reveal>
       </Container>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, type MutableRefObject } from "react";
 import { cn } from "@terus/ui";
 
 import { FOUNDER, type FounderVideoData } from "@/lib/constants/lp";
@@ -11,6 +11,10 @@ interface FounderVideoProps extends FounderVideoData {
   className?: string;
   /** Largura renderizada da capa, usada pelo next/image */
   sizes?: string;
+  /** Recebe o segundo atual a cada `timeupdate` */
+  onTime?: (seconds: number) => void;
+  /** Preenchido com uma função que leva o vídeo a um segundo, com som */
+  seekRef?: MutableRefObject<((seconds: number) => void) | null>;
 }
 
 /**
@@ -24,6 +28,8 @@ export function FounderVideo({
   duration,
   className,
   sizes = "(min-width: 1024px) 320px, 80vw",
+  onTime,
+  seekRef,
 }: FounderVideoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -32,6 +38,20 @@ export function FounderVideo({
     videoRef,
     label: title,
   });
+
+  useEffect(() => {
+    if (!seekRef) return;
+    seekRef.current = (seconds) => {
+      const video = videoRef.current;
+      if (!video) return;
+      if (!withSound) {
+        playWithSound(seconds);
+        return;
+      }
+      video.currentTime = seconds;
+      void video.play().catch(() => undefined);
+    };
+  }, [seekRef, withSound, playWithSound]);
 
   return (
     <figure className={cn("w-full max-w-xs", className)}>
@@ -48,6 +68,11 @@ export function FounderVideo({
           playsInline
           preload="none"
           controls={withSound}
+          onTimeUpdate={
+            onTime
+              ? (event) => onTime(event.currentTarget.currentTime)
+              : undefined
+          }
           className="h-full w-full bg-surface-base object-cover"
         />
 
