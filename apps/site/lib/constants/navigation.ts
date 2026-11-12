@@ -38,6 +38,12 @@ export const MAIN_NAV: NavGroup[] = [
         description: "Fila de alertas com dados fictícios.",
       },
       {
+        label: "Tecnologia",
+        href: "/tecnologia",
+        description:
+          "Agent, IAproc, Bond, Portal do Cliente, Task Web e Teams.",
+      },
+      {
         label: "Integrações",
         href: "/integracoes",
         description: "ERPs documentados, requisitos e segurança.",
@@ -84,6 +90,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [
     title: "Plataforma",
     links: [
       { label: "Visão geral", href: "/plataforma" },
+      { label: "Tecnologia", href: "/tecnologia" },
       { label: "Integrações", href: "/integracoes" },
       { label: "Ecossistema", href: "/ecossistema" },
       { label: "Varejo", href: "/varejo" },

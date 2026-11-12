@@ -1,9 +1,16 @@
 import { MODULE_SLUGS } from "@/lib/constants/modules";
+import { TECH_COMPONENTS } from "@/lib/constants/technology";
 
 /** Rotas públicas indexáveis — alinhado ao sitemap aprovado (Fase 3B) */
 export const PUBLIC_ROUTES = [
   { path: "", priority: 1.0, changeFrequency: "weekly" as const },
   { path: "/plataforma", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/tecnologia", priority: 0.8, changeFrequency: "monthly" as const },
+  ...TECH_COMPONENTS.map((t) => ({
+    path: `/tecnologia/${t.slug}`,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+  })),
   { path: "/varejo", priority: 0.8, changeFrequency: "monthly" as const },
   {
     path: "/industria-distribuidores",

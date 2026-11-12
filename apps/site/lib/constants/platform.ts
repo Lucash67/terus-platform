@@ -1,31 +1,11 @@
 /**
- * Componentes da plataforma conforme o catálogo público de terustec.com.br
- * (registrado no pacote Digital Experience 2.0, doc 03/08, acesso em 12/11/2026).
- * Descrições mantidas no nível de detalhe da fonte — sem especificações inventadas.
- * Agent, IAproc e Bond estão em site-data.ts (CAMADA_INTEGRACAO); Alert, Task e
- * Strategy em modules.ts.
+ * Suporte Anjo: citado no site oficial terustec.com.br (registrado no pacote DX 2.0,
+ * doc 03/08). Sem página própria por falta de descrição detalhada na fonte.
  */
-export const PLATFORM_COMPONENTS = [
-  {
-    name: "Portal do Cliente",
-    description:
-      "Acesso aos dados e às ações gerenciais e operacionais da rede em um só lugar.",
-  },
-  {
-    name: "Task Web",
-    description:
-      "Atividades de reposição, pedidos e bloqueios/desbloqueios direto no portal.",
-  },
-  {
-    name: "Teams",
-    description:
-      "Verificação das evidências da execução feita pelo Terus Task.",
-  },
-  {
-    name: "Suporte Anjo",
-    description: "Apoio personalizado, com contato recorrente da equipe Terus.",
-  },
-] as const;
+export const SUPORTE_ANJO = {
+  name: "Suporte Anjo",
+  description: "Apoio personalizado, com contato recorrente da equipe Terus.",
+} as const;
 
 export const SECURITY_POINTS = [
   {
@@ -34,13 +14,14 @@ export const SECURITY_POINTS = [
       "Nada é gravado, alterado ou apagado no banco do varejo. O usuário de integração tem permissões mínimas.",
   },
   {
+    title: "Dados compactados e criptografados",
+    description:
+      "O Agent compacta e criptografa o resultado das consultas antes de enviá-lo à nuvem da Terus.",
+  },
+  {
     title: "Sem VPN",
     description:
       "A captura parte de um IP fixo da Terus; o TI libera esse IP no firewall.",
-  },
-  {
-    title: "Saúde da integração visível",
-    description: "Atraso e completude das cargas acompanhados no portal.",
   },
   {
     title: "Credenciais fora do formulário",
