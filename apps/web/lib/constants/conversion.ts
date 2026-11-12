@@ -2,8 +2,13 @@ export const WHATSAPP_NUMBER = "5585997384940";
 
 export const CTA = {
   primary: {
-    label: "Começar com a minha rede",
+    label: "Começar agora",
     href: "/comecar",
+  },
+  /** Conversa com o time comercial (página de contato com canais reais) */
+  specialist: {
+    label: "Falar com especialista",
+    href: "/contato",
   },
   /** Contato rápido: abre o WhatsApp comercial em nova aba */
   secondary: {

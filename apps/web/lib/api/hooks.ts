@@ -36,6 +36,27 @@ export const queryKeys = {
   staff: ["admin", "staff"] as const,
 };
 
+/** Reflete imediatamente a jornada devolvida pelo servidor no cache da lista. */
+function upsertJourney(
+  qc: ReturnType<typeof useQueryClient>,
+  journey: Journey,
+) {
+  qc.setQueryData(queryKeys.journey(journey.organization.id), journey);
+  qc.setQueryData<{ items: Journey[] }>(queryKeys.organizations, (prev) => {
+    const items = prev?.items ?? [];
+    const exists = items.some(
+      (j) => j.organization.id === journey.organization.id,
+    );
+    return {
+      items: exists
+        ? items.map((j) =>
+            j.organization.id === journey.organization.id ? journey : j,
+          )
+        : [...items, journey],
+    };
+  });
+}
+
 /** Sessão atual: `null` quando não autenticado (401), erro para indisponibilidade. */
 export function useSession(
   options: Partial<UseQueryOptions<SessionInfo | null>> = {},
@@ -157,10 +178,7 @@ export function useCreateOrganization() {
         method: "POST",
         body: { ...organizationBody(values), source: readAttribution() },
       }),
-    onSuccess: (journey) => {
-      qc.setQueryData(queryKeys.journey(journey.organization.id), journey);
-      void qc.invalidateQueries({ queryKey: queryKeys.organizations });
-    },
+    onSuccess: (journey) => upsertJourney(qc, journey),
   });
 }
 
@@ -172,10 +190,7 @@ export function useUpdateOrganization(tenantId: string) {
         method: "PUT",
         body: organizationBody(values),
       }),
-    onSuccess: (journey) => {
-      qc.setQueryData(queryKeys.journey(tenantId), journey);
-      void qc.invalidateQueries({ queryKey: queryKeys.organizations });
-    },
+    onSuccess: (journey) => upsertJourney(qc, journey),
   });
 }
 
@@ -191,10 +206,7 @@ export function useSaveProfile(tenantId: string) {
           notes: values.notes || null,
         },
       }),
-    onSuccess: (journey) => {
-      qc.setQueryData(queryKeys.journey(tenantId), journey);
-      void qc.invalidateQueries({ queryKey: queryKeys.organizations });
-    },
+    onSuccess: (journey) => upsertJourney(qc, journey),
   });
 }
 
@@ -206,10 +218,7 @@ export function useRequestCommercial(tenantId: string) {
         method: "POST",
         body: { ...values, message: values.message || null },
       }),
-    onSuccess: (journey) => {
-      qc.setQueryData(queryKeys.journey(tenantId), journey);
-      void qc.invalidateQueries({ queryKey: queryKeys.organizations });
-    },
+    onSuccess: (journey) => upsertJourney(qc, journey),
   });
 }
 

@@ -10,7 +10,9 @@ export default function MarketingLayout({
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-1 pb-24 lg:pb-0">{children}</main>
+      <main id="conteudo" className="flex-1 pb-24 lg:pb-0">
+        {children}
+      </main>
       <Footer />
       <StickyDemoCta />
     </div>

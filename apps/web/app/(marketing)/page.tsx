@@ -4,6 +4,7 @@ import { ClientLogosStrip } from "@/components/sections/client-logos-strip";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ErpTickerSection } from "@/components/sections/erp-ticker-section";
 import { FaqSection } from "@/components/sections/faq-section";
+import { FlowPipelineSection } from "@/components/sections/flow-pipeline-section";
 import { FounderVideoSection } from "@/components/sections/founder-video-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { IntegrationsEcosystemSection } from "@/components/sections/integrations-ecosystem-section";
@@ -40,6 +41,7 @@ export default function HomePage() {
       <ClientLogosStrip />
       <RealResultsSection />
       <PainSection />
+      <FlowPipelineSection />
       <FounderVideoSection />
       <PlatformTourSection />
       <TaskAppSection />
