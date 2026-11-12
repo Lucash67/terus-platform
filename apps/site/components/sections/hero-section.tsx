@@ -34,9 +34,9 @@ export function HeroSection() {
             <div className="hero-fade-in flex flex-col items-center gap-3 lg:items-start">
               <Badge
                 variant="secondary"
-                className="border border-brand-primary/30 bg-brand-primary-dim px-3 py-1 font-mono text-caption uppercase tracking-widest text-brand-primary"
+                className="border border-brand-primary/30 bg-brand-primary-dim px-3 py-1 whitespace-nowrap font-mono text-caption uppercase tracking-wider text-brand-primary sm:tracking-widest"
               >
-                <span className="hero-live-pulse mr-2 inline-block h-1.5 w-1.5 rounded-full bg-status-success" />
+                <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-brand-primary" />
                 {SITE_TAGLINE}
               </Badge>
             </div>

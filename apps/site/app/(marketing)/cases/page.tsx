@@ -196,7 +196,7 @@ export default function CasesPage() {
                         key={i}
                         className="flex justify-between items-center border-b border-status-success/10 pb-2 last:border-0 last:pb-0"
                       >
-                        <span className="text-body-sm text-status-success/80 font-medium">
+                        <span className="text-body-sm text-status-success font-medium">
                           {ind.label}
                         </span>
                         <span className="font-display text-body-md font-bold text-status-success">

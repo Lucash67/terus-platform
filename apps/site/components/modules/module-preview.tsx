@@ -25,7 +25,7 @@ export function ModulePreview({ slug, className }: ModulePreviewProps) {
           terus · {slug}
         </span>
         <span className="ml-auto flex items-center gap-1.5 font-mono text-caption uppercase tracking-widest text-status-success">
-          <span className="hero-live-pulse inline-block h-1.5 w-1.5 rounded-full bg-status-success" />
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-text-tertiary" />
           live
         </span>
       </div>

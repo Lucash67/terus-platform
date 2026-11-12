@@ -80,7 +80,6 @@ export function FounderVideo({
           <button
             type="button"
             onClick={() => playWithSound()}
-            aria-label={`Assistir com som: ${title} (${duration})`}
             className="group absolute inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-primary"
           >
             <Image
@@ -138,6 +137,7 @@ export function FounderVideo({
               <span className="mt-2 block font-display text-body-md font-semibold leading-snug text-text-primary">
                 {title}
               </span>
+              <span className="sr-only"> — assistir com som</span>
             </span>
           </button>
         ) : null}

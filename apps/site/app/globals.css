@@ -90,17 +90,17 @@
     --surface-elevated-3-rgb: 220 231 242;
     --surface-border-rgb: 213 224 236;
     --surface-border-subtle-rgb: 228 236 244;
-    --brand-primary-rgb: 0 119 184;
+    --brand-primary-rgb: 0 111 171; /* AA: 4,6:1 sobre elevated-2 (era 0 119 184) */
     --brand-primary-hover-rgb: 0 136 209;
     --brand-secondary-rgb: 0 102 204;
     --brand-dark-rgb: 0 61 122;
-    --status-success-rgb: 0 143 79;
-    --status-warning-rgb: 166 106 0;
-    --status-error-rgb: 217 32 56;
+    --status-success-rgb: 0 124 69; /* AA (era 0 143 79) */
+    --status-warning-rgb: 143 91 0; /* AA (era 166 106 0) */
+    --status-error-rgb: 197 29 51; /* AA (era 217 32 56) */
     --status-neutral-rgb: 100 128 156;
     --text-primary-rgb: 10 22 40;
     --text-secondary-rgb: 61 88 120;
-    --text-tertiary-rgb: 100 128 156;
+    --text-tertiary-rgb: 86 110 134; /* AA: 4,6:1 sobre elevated-2 (era 100 128 156) */
     --text-disabled-rgb: 165 184 204;
     --text-link-rgb: 0 119 184;
 

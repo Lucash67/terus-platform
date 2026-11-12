@@ -15,7 +15,7 @@ import path from "node:path";
 const require = createRequire(import.meta.url);
 const { chromium, devices } = require("playwright");
 
-const BASE = process.env.BASE_URL ?? "http://localhost:3000";
+const BASE = process.env.BASE_URL ?? "http://localhost:3002";
 const STAFF_EMAIL = process.env.STAFF_EMAIL ?? "";
 const STAFF_PASSWORD = process.env.STAFF_PASSWORD ?? "";
 const SHOTS = path.resolve(process.env.SHOTS_DIR ?? "../../docs/reconstruction/screenshots");

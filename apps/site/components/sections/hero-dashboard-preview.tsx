@@ -56,7 +56,7 @@ export function HeroDashboardPreview() {
             <span className="h-2.5 w-2.5 rounded-full bg-status-success/80" />
           </div>
           <div className="flex items-center gap-2">
-            <span className="hero-live-pulse h-2 w-2 rounded-full bg-status-success" />
+            <span className="h-2 w-2 rounded-full bg-text-tertiary" />
             <span className="font-mono text-caption font-medium text-text-secondary">
               Portal Terus Varejo
             </span>

@@ -164,7 +164,7 @@ export function Navbar() {
             <TerusLogo priority className="w-28 sm:w-32" />
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center gap-0.5 xl:flex">
             {MAIN_NAV.map((group) => (
               <DesktopMenu
                 key={group.label}
@@ -174,7 +174,7 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-2 xl:flex">
             <ThemeToggle />
             {ONBOARDING_ENABLED ? (
               <Link
@@ -192,7 +192,14 @@ export function Navbar() {
             </Button>
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
+            <Button
+              size="sm"
+              asChild
+              className="hidden font-semibold sm:inline-flex"
+            >
+              <Link href={CTA.primary.href}>{CTA.primary.label}</Link>
+            </Button>
             <ThemeToggle />
             <button
               type="button"
@@ -231,7 +238,7 @@ export function Navbar() {
         {mobileOpen ? (
           <div
             id="menu-mobile"
-            className="nav-pop max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-surface-border py-4 lg:hidden"
+            className="nav-pop max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-surface-border py-4 xl:hidden"
           >
             <ul className="flex flex-col gap-1">
               {MAIN_NAV.map((group) => (

@@ -41,9 +41,9 @@ export function PageHero({
             <div className="hero-fade-in mb-6 flex justify-center">
               <Badge
                 variant="secondary"
-                className="border border-brand-primary/30 bg-brand-primary-dim px-3 py-1 font-mono text-caption uppercase tracking-widest text-brand-primary"
+                className="border border-brand-primary/30 bg-brand-primary-dim px-3 py-1 whitespace-nowrap font-mono text-caption uppercase tracking-wider text-brand-primary sm:tracking-widest"
               >
-                <span className="hero-live-pulse mr-2 inline-block h-1.5 w-1.5 rounded-full bg-status-success" />
+                <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-brand-primary" />
                 {badge}
               </Badge>
             </div>
