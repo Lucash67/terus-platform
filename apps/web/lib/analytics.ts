@@ -23,21 +23,3 @@ export function track(event: AnalyticsEvent, props?: EventProps): void {
   if (typeof window === "undefined") return;
   window.plausible?.(event, props ? { props } : undefined);
 }
-
-/**
- * Eventos da jornada (doc 06 do pacote). Disparados SOMENTE após confirmação
- * do backend e sem PII. Plausible não usa cookies; desligado sem domínio.
- */
-export type JourneyEvent =
-  | "cta_clicked"
-  | "onboarding_started"
-  | "account_created"
-  | "company_registered"
-  | "qualification_completed"
-  | "proposal_requested"
-  | "onboarding_resumed";
-
-export function trackEvent(event: JourneyEvent, props?: EventProps): void {
-  if (typeof window === "undefined") return;
-  window.plausible?.(event, props ? { props } : undefined);
-}

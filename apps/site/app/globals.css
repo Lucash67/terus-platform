@@ -1,0 +1,1064 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Identidade oficial Terus — dark enterprise (CLAUDE.md), tema padrão.
+       Canais RGB permitem modificadores de opacidade do Tailwind e troca de tema. */
+    --surface-base-rgb: 5 10 20;
+    --surface-elevated-1-rgb: 10 22 40;
+    --surface-elevated-2-rgb: 15 30 54;
+    --surface-elevated-3-rgb: 22 36 64;
+    --surface-border-rgb: 30 50 86;
+    --surface-border-subtle-rgb: 21 42 74;
+    --brand-primary-rgb: 0 194 255;
+    --brand-primary-hover-rgb: 51 206 255;
+    --brand-secondary-rgb: 0 102 204;
+    --brand-dark-rgb: 0 61 122;
+    --status-success-rgb: 0 230 118;
+    --status-warning-rgb: 255 179 0;
+    --status-error-rgb: 255 61 87;
+    --status-neutral-rgb: 84 110 138;
+    --text-primary-rgb: 232 244 255;
+    --text-secondary-rgb: 139 169 197;
+    --text-tertiary-rgb: 84 110 138;
+    --text-disabled-rgb: 45 74 106;
+    --text-link-rgb: 0 194 255;
+
+    /* Tokens de cor derivados (uso direto em CSS/gradientes/color-mix) */
+    --surface-base: rgb(var(--surface-base-rgb));
+    --surface-elevated-1: rgb(var(--surface-elevated-1-rgb));
+    --surface-elevated-2: rgb(var(--surface-elevated-2-rgb));
+    --surface-elevated-3: rgb(var(--surface-elevated-3-rgb));
+    --surface-overlay: rgb(3 8 18 / 0.72);
+    --surface-border: rgb(var(--surface-border-rgb));
+    --surface-border-subtle: rgb(var(--surface-border-subtle-rgb));
+    --brand-primary: rgb(var(--brand-primary-rgb));
+    --brand-primary-hover: rgb(var(--brand-primary-hover-rgb));
+    --brand-primary-dim: rgb(var(--brand-primary-rgb) / 0.1);
+    --brand-secondary: rgb(var(--brand-secondary-rgb));
+    --brand-dark: rgb(var(--brand-dark-rgb));
+    --status-success: rgb(var(--status-success-rgb));
+    --status-success-dim: rgb(var(--status-success-rgb) / 0.1);
+    --status-warning: rgb(var(--status-warning-rgb));
+    --status-warning-dim: rgb(var(--status-warning-rgb) / 0.1);
+    --status-error: rgb(var(--status-error-rgb));
+    --status-error-dim: rgb(var(--status-error-rgb) / 0.1);
+    --status-neutral: rgb(var(--status-neutral-rgb));
+    --status-neutral-dim: rgb(var(--status-neutral-rgb) / 0.12);
+    --text-primary: rgb(var(--text-primary-rgb));
+    --text-secondary: rgb(var(--text-secondary-rgb));
+    --text-tertiary: rgb(var(--text-tertiary-rgb));
+    --text-disabled: rgb(var(--text-disabled-rgb));
+    --text-link: rgb(var(--text-link-rgb));
+
+    /* Glow de marca (some no tema claro) */
+    --glow-sm: 0 0 12px rgb(var(--brand-primary-rgb) / 0.25);
+    --glow: 0 0 24px rgb(var(--brand-primary-rgb) / 0.35);
+    --glow-lg: 0 0 48px rgb(var(--brand-primary-rgb) / 0.35);
+    /* Typography tokens */
+    --font-display: var(--font-dm-sans);
+    --font-body: var(--font-ibm-plex-sans);
+    --text-h1: 3.75rem;
+    --text-h2: 2.25rem;
+    --text-h3: 1.875rem;
+    --text-h4: 1.5rem;
+    --text-body-lg: 1.125rem;
+    --text-body: 1rem;
+    --text-body-sm: 0.875rem;
+    --text-caption: 0.75rem;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    /* Shadow tokens — profundidade para superfícies escuras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 4px 16px -2px rgba(0, 0, 0, 0.45);
+    --shadow-elevated: 0 12px 28px -6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgb(var(--brand-primary-rgb) / 0.04);
+    --shadow-floating: 0 24px 48px -12px rgba(0, 0, 0, 0.65);
+    --shadow-premium: 0 24px 60px -12px rgb(var(--brand-primary-rgb) / 0.16), 0 12px 28px -8px rgba(0, 0, 0, 0.6);
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+  }
+
+  /* Tema claro — ativado via classe .light no <html> */
+  .light {
+    --surface-base-rgb: 255 255 255;
+    --surface-elevated-1-rgb: 245 248 252;
+    --surface-elevated-2-rgb: 234 241 248;
+    --surface-elevated-3-rgb: 220 231 242;
+    --surface-border-rgb: 213 224 236;
+    --surface-border-subtle-rgb: 228 236 244;
+    --brand-primary-rgb: 0 119 184;
+    --brand-primary-hover-rgb: 0 136 209;
+    --brand-secondary-rgb: 0 102 204;
+    --brand-dark-rgb: 0 61 122;
+    --status-success-rgb: 0 143 79;
+    --status-warning-rgb: 166 106 0;
+    --status-error-rgb: 217 32 56;
+    --status-neutral-rgb: 100 128 156;
+    --text-primary-rgb: 10 22 40;
+    --text-secondary-rgb: 61 88 120;
+    --text-tertiary-rgb: 100 128 156;
+    --text-disabled-rgb: 165 184 204;
+    --text-link-rgb: 0 119 184;
+
+    --surface-overlay: rgb(10 22 40 / 0.45);
+    --brand-primary-dim: rgb(var(--brand-primary-rgb) / 0.08);
+    --status-success-dim: rgb(var(--status-success-rgb) / 0.1);
+    --status-warning-dim: rgb(var(--status-warning-rgb) / 0.12);
+    --status-error-dim: rgb(var(--status-error-rgb) / 0.1);
+    --status-neutral-dim: rgb(var(--status-neutral-rgb) / 0.12);
+
+    --glow-sm: 0 0 0 0 transparent;
+    --glow: 0 0 0 0 transparent;
+    --glow-lg: 0 0 0 0 transparent;
+
+    --shadow-sm: 0 1px 2px 0 rgba(10, 22, 40, 0.06);
+    --shadow-card: 0 4px 12px -2px rgba(10, 22, 40, 0.08);
+    --shadow-elevated: 0 12px 24px -6px rgba(10, 22, 40, 0.12);
+    --shadow-floating: 0 24px 40px -12px rgba(10, 22, 40, 0.16);
+    --shadow-premium: 0 24px 50px -12px rgb(var(--brand-primary-rgb) / 0.12), 0 12px 24px -8px rgba(10, 22, 40, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-surface-border;
+  }
+  body {
+    @apply bg-surface-base text-text-primary;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-text-primary to-brand-primary bg-clip-text text-transparent;
+  }
+
+  .cta-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--brand-primary) 0%,
+      var(--brand-secondary) 100%
+    );
+  }
+
+  /* Hero section — fundo vivo dark enterprise */
+  .hero-section-bg {
+    background-image: radial-gradient(
+        ellipse 70% 55% at 20% 35%,
+        color-mix(in srgb, var(--brand-primary) 10%, transparent) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 55% 45% at 82% 12%,
+        color-mix(in srgb, var(--brand-secondary) 16%, transparent) 0%,
+        transparent 55%
+      );
+  }
+
+  .hero-live-pulse {
+    animation: hero-live-pulse 2s ease-in-out infinite;
+  }
+
+  .hero-dashboard-float {
+    animation: hero-float 6s ease-in-out infinite;
+  }
+
+  .hero-fade-in {
+    animation: hero-fade-in 0.6s ease-out both;
+  }
+
+  .hero-fade-in-delay {
+    animation: hero-fade-in 0.8s ease-out 0.2s both;
+  }
+
+  .hero-metric-enter {
+    animation: hero-slide-up 0.5s ease-out both;
+  }
+
+  .hero-alert-enter {
+    animation: hero-slide-up 0.4s ease-out both;
+  }
+
+  .hero-bar-grow {
+    animation: hero-bar-grow 0.8s ease-out both;
+    transform-origin: bottom;
+  }
+
+  .hero-flow-dot-right {
+    animation: hero-flow-right 2s ease-in-out infinite;
+  }
+
+  .hero-flow-dot-left {
+    animation: hero-flow-left 2s ease-in-out infinite;
+  }
+
+  .hero-flow-dot-up {
+    animation: hero-flow-up 2s ease-in-out infinite;
+  }
+
+  @keyframes hero-live-pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.3);
+    }
+  }
+
+  @keyframes hero-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes hero-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-bar-grow {
+    from {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes hero-flow-right {
+    0% {
+      left: 0%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes hero-flow-left {
+    0% {
+      left: 100%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      left: 0%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes hero-flow-up {
+    0% {
+      top: 100%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      top: 0%;
+      opacity: 0;
+    }
+  }
+
+  /* Ritmo de seções */
+  .section-rhythm {
+    @apply border-t border-surface-border-subtle py-16 sm:py-20 lg:py-24;
+  }
+
+  .section-rhythm-alt {
+    @apply border-t border-surface-border-subtle bg-surface-elevated-1/60 py-16 sm:py-20 lg:py-24;
+  }
+
+  .premium-cta-card {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .premium-cta-glow {
+    background: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      color-mix(in srgb, var(--brand-primary) 14%, transparent) 0%,
+      transparent 70%
+    );
+  }
+
+  .card-interactive {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-interactive:hover {
+    @apply border-brand-primary/40 shadow-elevated;
+    transform: translateY(-3px);
+  }
+
+  .module-preview {
+    animation: hero-fade-in 0.6s ease-out both;
+  }
+
+  .module-preview-bar {
+    animation: hero-bar-grow 0.8s ease-out both;
+    transform-origin: bottom;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-live-pulse,
+    .hero-dashboard-float,
+    .hero-fade-in,
+    .hero-fade-in-delay,
+    .hero-metric-enter,
+    .hero-alert-enter,
+    .hero-bar-grow,
+    .hero-flow-dot-right,
+    .hero-flow-dot-left,
+    .hero-flow-dot-up,
+    .module-preview,
+    .module-preview-bar {
+      animation: none;
+    }
+
+    .card-interactive:hover {
+      transform: none;
+    }
+  }
+}
+
+/* ============================================================
+   Terus Design Language v0.5 — materiais e movimento globais
+   ============================================================ */
+@layer utilities {
+  /* Vidro escuro — navbar, barras flutuantes */
+  .tr-glass {
+    background: color-mix(in srgb, var(--surface-base) 78%, transparent);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  }
+
+  /* Grid técnico de fundo — assinatura visual das seções */
+  .tr-grid-bg {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--brand-primary) 6%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--brand-primary) 6%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 44px 44px;
+    mask-image: radial-gradient(
+      ellipse 85% 70% at 50% 30%,
+      black 25%,
+      transparent 78%
+    );
+  }
+
+  /* Linha de horizonte ciano — divisor de destaque */
+  .tr-horizon {
+    background: linear-gradient(
+      to right,
+      transparent,
+      color-mix(in srgb, var(--brand-primary) 55%, transparent) 50%,
+      transparent
+    );
+  }
+
+  /* Glow de marca */
+  .tr-glow-ring {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--brand-primary) 35%, transparent),
+      0 0 24px color-mix(in srgb, var(--brand-primary) 22%, transparent);
+  }
+
+  /* Chip claro para logos de clientes (arquivos com fundo branco) */
+  .tr-logo-chip {
+    @apply flex items-center justify-center rounded-lg border border-surface-border/40 bg-white/95 transition-all duration-300;
+  }
+
+  .tr-logo-chip:hover {
+    @apply bg-white;
+    box-shadow: 0 0 20px color-mix(in srgb, var(--brand-primary) 25%, transparent);
+  }
+
+  /* Reveal on scroll — aplicado via <Reveal/>; nunca no conteúdo above-the-fold */
+  .tr-reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(5px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .tr-reveal-scale {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .tr-reveal-left {
+    opacity: 0;
+    transform: translateX(-28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .tr-reveal-right {
+    opacity: 0;
+    transform: translateX(28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .is-revealed.tr-reveal,
+  .is-revealed.tr-reveal-scale,
+  .is-revealed.tr-reveal-left,
+  .is-revealed.tr-reveal-right {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  /* Ticker horizontal contínuo — logo wall */
+  .tr-ticker {
+    animation: tr-ticker 42s linear infinite;
+  }
+
+  .tr-ticker-fast {
+    animation-duration: 30s;
+  }
+
+  .tr-ticker-reverse {
+    animation-direction: reverse;
+  }
+
+  .tr-ticker-wrap:hover .tr-ticker {
+    animation-play-state: paused;
+  }
+
+  @keyframes tr-ticker {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Diagrama do fluxo da cadeia — varejo → Terus → indústria */
+  .tr-flow .tr-flow-node {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .tr-flow.is-active .tr-flow-node {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tr-flow-ring {
+    transform-origin: center;
+    transform-box: fill-box;
+    opacity: 0;
+  }
+
+  .tr-flow.is-active .tr-flow-ring {
+    animation: tr-flow-ring 2.8s ease-out infinite;
+  }
+
+  .tr-flow-mobile-dot {
+    opacity: 0;
+  }
+
+  .tr-flow.is-active .tr-flow-mobile-dot {
+    animation: tr-flow-mobile 1.6s ease-in-out infinite;
+  }
+
+  @keyframes tr-flow-ring {
+    0% {
+      opacity: 0.7;
+      transform: scale(0.85);
+    }
+    70% {
+      opacity: 0;
+      transform: scale(1.35);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.35);
+    }
+  }
+
+  @keyframes tr-flow-mobile {
+    0% {
+      top: 0%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+
+  /* Contorno luminoso que percorre a borda de um card em destaque */
+  .tr-beam {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tr-beam::before {
+    content: "";
+    position: absolute;
+    inset: -150%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 300deg,
+      color-mix(in srgb, var(--brand-primary) 65%, transparent) 340deg,
+      transparent 360deg
+    );
+    animation: ob-spin 6s linear infinite;
+  }
+
+  .tr-beam::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--surface-elevated-1);
+  }
+
+  .tr-beam > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tr-reveal,
+    .tr-reveal-scale,
+    .tr-reveal-left,
+    .tr-reveal-right {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+
+    .tr-ticker,
+    .tr-ticker-fast,
+    .tr-ticker-reverse {
+      animation: none;
+    }
+
+    .tr-flow .tr-flow-node {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .tr-flow-ring,
+    .tr-flow-mobile-dot {
+      animation: none;
+      opacity: 0.4;
+    }
+
+    .tr-beam::before {
+      animation: none;
+    }
+  }
+}
+
+/* ============================================================
+   Onboarding Wizard — camada de movimento
+   ============================================================ */
+@layer utilities {
+  /* Fundo vivo do wizard: malha + auroras de marca */
+  .ob-bg {
+    background-image:
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--brand-primary) 3%, transparent),
+        transparent 320px
+      ),
+      radial-gradient(
+        circle at 15% 10%,
+        color-mix(in srgb, var(--brand-primary) 7%, transparent) 0%,
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 85%,
+        color-mix(in srgb, var(--brand-secondary) 8%, transparent) 0%,
+        transparent 40%
+      );
+  }
+
+  .ob-grid-overlay {
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--brand-primary) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--brand-primary) 5%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 20%, transparent 75%);
+  }
+
+  .ob-aurora {
+    filter: blur(90px);
+    opacity: 0.5;
+    animation: ob-aurora-drift 18s ease-in-out infinite alternate;
+  }
+
+  .ob-aurora-delayed {
+    animation-delay: -9s;
+  }
+
+  /* Entradas de conteúdo — nítido, rápido, com profundidade */
+  .ob-enter {
+    animation: ob-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .ob-enter-scale {
+    animation: ob-enter-scale 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .ob-enter-right {
+    animation: ob-enter-right 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Stepper */
+  .ob-connector-fill {
+    transform-origin: left;
+    animation: ob-connector-fill 0.7s cubic-bezier(0.65, 0, 0.35, 1) both;
+  }
+
+  .ob-node-pop {
+    animation: ob-node-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .ob-node-current::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    border: 2px solid color-mix(in srgb, var(--brand-primary) 45%, transparent);
+    animation: ob-ring-pulse 2.2s ease-out infinite;
+  }
+
+  .ob-check-draw {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: ob-draw 0.45s ease-out 0.15s forwards;
+  }
+
+  /* Diagnóstico */
+  .ob-spin {
+    animation: ob-spin 0.9s linear infinite;
+  }
+
+  .ob-radar-sweep {
+    animation: ob-spin 2.6s linear infinite;
+    transform-origin: center;
+  }
+
+  .ob-log-line {
+    animation: ob-log-line 0.35s ease-out both;
+  }
+
+  .ob-progress-stripes {
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      color-mix(in srgb, var(--surface-base) 35%, transparent) 45%,
+      color-mix(in srgb, var(--surface-base) 35%, transparent) 55%,
+      transparent 100%
+    );
+    background-size: 220% 100%;
+    animation: ob-shimmer 1.6s linear infinite;
+  }
+
+  .ob-scanline {
+    animation: ob-scanline 2.4s ease-in-out infinite;
+  }
+
+  /* Assinatura digital */
+  .ob-pen-draw {
+    stroke-dasharray: 320;
+    stroke-dashoffset: 320;
+    animation: ob-draw-long 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+  }
+
+  /* Conclusão */
+  .ob-success-ring {
+    animation: ob-success-ring 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+
+  .ob-check-big {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: ob-draw-big 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.35s forwards;
+  }
+
+  .ob-module-activate {
+    animation: ob-module-activate 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .ob-float-slow {
+    animation: hero-float 7s ease-in-out infinite;
+  }
+
+  .ob-live-dot {
+    animation: hero-live-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes ob-aurora-drift {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(60px, -40px, 0) scale(1.15);
+    }
+  }
+
+  @keyframes ob-enter {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes ob-enter-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.94) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes ob-enter-right {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes ob-connector-fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes ob-node-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes ob-ring-pulse {
+    0% {
+      transform: scale(0.85);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ob-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes ob-draw-long {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes ob-draw-big {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes ob-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes ob-log-line {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ob-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -20% 0;
+    }
+  }
+
+  @keyframes ob-scanline {
+    0%,
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(400%);
+    }
+  }
+
+  @keyframes ob-success-ring {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ob-module-activate {
+    from {
+      opacity: 0;
+      transform: translateY(14px) scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ob-aurora,
+    .ob-enter,
+    .ob-enter-scale,
+    .ob-enter-right,
+    .ob-connector-fill,
+    .ob-node-pop,
+    .ob-check-draw,
+    .ob-spin,
+    .ob-radar-sweep,
+    .ob-log-line,
+    .ob-progress-stripes,
+    .ob-scanline,
+    .ob-pen-draw,
+    .ob-success-ring,
+    .ob-check-big,
+    .ob-module-activate,
+    .ob-float-slow,
+    .ob-live-dot {
+      animation: none;
+    }
+
+    .ob-node-current::after {
+      animation: none;
+    }
+
+    .ob-check-draw,
+    .ob-pen-draw,
+    .ob-check-big {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+/* ── Digital Experience 2.0: navegação, pipeline e demo ─────────────────── */
+@layer components {
+  .nav-pop {
+    animation: nav-pop 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes nav-pop {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .flow-track {
+    position: relative;
+    overflow: hidden;
+  }
+  .flow-track::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 30%;
+    background: linear-gradient(90deg, transparent, rgb(var(--brand-primary-rgb) / 0.9), transparent);
+    animation: flow-sweep 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  .flow-track-vertical::after {
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(180deg, transparent, rgb(var(--brand-primary-rgb) / 0.9), transparent);
+    animation-name: flow-sweep-vertical;
+  }
+  @keyframes flow-sweep {
+    from {
+      transform: translateX(-120%);
+    }
+    to {
+      transform: translateX(400%);
+    }
+  }
+  @keyframes flow-sweep-vertical {
+    from {
+      transform: translateY(-120%);
+    }
+    to {
+      transform: translateY(300%);
+    }
+  }
+  .flow-node {
+    transition:
+      transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 300ms,
+      box-shadow 300ms;
+  }
+  .flow-node[data-active="true"] {
+    transform: translateY(-4px);
+    border-color: rgb(var(--brand-primary-rgb) / 0.6);
+    box-shadow: var(--shadow-premium);
+  }
+  .demo-row-enter {
+    animation: demo-row 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes demo-row {
+    from {
+      opacity: 0;
+      transform: translateX(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-pop,
+    .demo-row-enter {
+      animation: none;
+    }
+    .flow-track::after {
+      animation: none;
+      opacity: 0;
+    }
+    .flow-node {
+      transition: none;
+    }
+  }
+}

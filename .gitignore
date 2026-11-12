@@ -81,3 +81,7 @@ __pycache__/
 
 # E2E / evidências locais
 apps/web/test-results/
+
+# apps/site reutiliza os assets da LP (copiados de apps/web/public no build)
+apps/site/public/
+apps/site/test-results/

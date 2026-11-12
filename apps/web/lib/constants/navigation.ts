@@ -1,115 +1,55 @@
-import { MODULES } from "@/lib/constants/modules";
-
 export interface NavLink {
   label: string;
   href: string;
-  description?: string;
-}
-
-export interface NavGroup {
-  label: string;
-  href: string;
-  /** Itens do menu suspenso (desktop) / acordeão (mobile) */
-  items?: NavLink[];
 }
 
 /**
- * Navegação institucional (Digital Experience 2.0).
- * Módulos e textos vêm de modules.ts (wiki.terus.tec.br/varejo).
+ * LP mode: menu lateral oculto até a expansão do site.
+ * Para reativar as abas, copie de MAIN_NAV_LINKS_ARCHIVED → MAIN_NAV_LINKS
+ * e restaure as colunas do footer (FOOTER_LINKS_ARCHIVED).
  */
-export const MAIN_NAV: NavGroup[] = [
-  {
-    label: "Plataforma",
-    href: "/plataforma",
-    items: [
-      {
-        label: "Visão geral",
-        href: "/plataforma",
-        description: "Do ERP à gôndola: detectar, executar e medir.",
-      },
-      {
-        label: "Como funciona",
-        href: "/plataforma#como-funciona",
-        description: "Captura, inteligência e integração.",
-      },
-      {
-        label: "Demonstração",
-        href: "/plataforma#demo",
-        description: "Fila de alertas com dados fictícios.",
-      },
-      {
-        label: "Integrações",
-        href: "/integracoes",
-        description: "ERPs documentados, requisitos e segurança.",
-      },
-    ],
-  },
-  {
-    label: "Soluções",
-    href: "/modulos",
-    items: MODULES.map((m) => ({
-      label: m.name,
-      href: `/modulos/${m.slug}`,
-      description: m.tagline,
-    })),
-  },
-  {
-    label: "Segmentos",
-    href: "/varejo",
-    items: [
-      {
-        label: "Varejo",
-        href: "/varejo",
-        description: "Diretoria, comprador e loja na mesma rotina.",
-      },
-      {
-        label: "Indústria e distribuidores",
-        href: "/industria-distribuidores",
-        description: "Pedido da rede direto no seu ERP.",
-      },
-      {
-        label: "Ecossistema",
-        href: "/ecossistema",
-        description: "Rede Terus: varejos e fornecedores conectados.",
-      },
-    ],
-  },
+export const LP_NAV_MODE = true;
+
+/** Abas arquivadas — não excluir; serão reativadas na expansão do site */
+export const MAIN_NAV_LINKS_ARCHIVED: NavLink[] = [
+  { label: "Módulos", href: "/modulos" },
+  { label: "Ecossistema", href: "/ecossistema" },
   { label: "Cases", href: "/cases" },
   { label: "Conteúdos", href: "/conteudos" },
   { label: "Sobre", href: "/sobre" },
 ];
 
-export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [
-  {
-    title: "Plataforma",
-    links: [
-      { label: "Visão geral", href: "/plataforma" },
-      { label: "Integrações", href: "/integracoes" },
-      { label: "Ecossistema", href: "/ecossistema" },
-      { label: "Varejo", href: "/varejo" },
-      {
-        label: "Indústria e distribuidores",
-        href: "/industria-distribuidores",
-      },
-    ],
-  },
-  {
-    title: "Soluções",
-    links: MODULES.map((m) => ({ label: m.name, href: `/modulos/${m.slug}` })),
-  },
-  {
-    title: "Empresa",
-    links: [
-      { label: "Sobre", href: "/sobre" },
-      { label: "Cases", href: "/cases" },
-      { label: "Conteúdos", href: "/conteudos" },
-      { label: "Contato", href: "/contato" },
-      { label: "Começar agora", href: "/comecar" },
-    ],
-  },
-];
+/** Menu ativo da LP (vazio = só logo + CTAs) */
+export const MAIN_NAV_LINKS: NavLink[] = LP_NAV_MODE
+  ? []
+  : MAIN_NAV_LINKS_ARCHIVED;
 
-export const LEGAL_LINKS: NavLink[] = [
-  { label: "Privacidade", href: "/privacidade" },
-  { label: "Termos de uso", href: "/termos" },
-];
+export const FOOTER_LINKS_ARCHIVED = {
+  plataforma: [
+    { label: "Módulos", href: "/modulos" },
+    { label: "Ecossistema", href: "/ecossistema" },
+  ],
+  modulos: [
+    { label: "Terus Alert", href: "/modulos/alert" },
+    { label: "Terus Order", href: "/modulos/order" },
+    { label: "Terus Task", href: "/modulos/task" },
+    { label: "Terus Strategy", href: "/modulos/strategy" },
+    { label: "Terus Unitization", href: "/modulos/unitization" },
+    { label: "Terus Production", href: "/modulos/production" },
+    { label: "Terus Chain", href: "/modulos/chain" },
+    { label: "Terus Vitrine", href: "/modulos/vitrine" },
+  ],
+  sobre: [{ label: "Sobre", href: "/sobre" }],
+} as const;
+
+export const FOOTER_LINKS = LP_NAV_MODE
+  ? {
+      plataforma: [] as NavLink[],
+      modulos: [] as NavLink[],
+      sobre: [] as NavLink[],
+    }
+  : {
+      plataforma: [...FOOTER_LINKS_ARCHIVED.plataforma],
+      modulos: [...FOOTER_LINKS_ARCHIVED.modulos],
+      sobre: [...FOOTER_LINKS_ARCHIVED.sobre],
+    };

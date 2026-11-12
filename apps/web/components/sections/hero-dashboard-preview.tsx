@@ -61,8 +61,8 @@ export function HeroDashboardPreview() {
               Portal Terus Varejo
             </span>
           </div>
-          <Badge variant="secondary" className="text-caption">
-            Ilustração
+          <Badge variant="success" className="text-caption">
+            Online
           </Badge>
         </div>
 

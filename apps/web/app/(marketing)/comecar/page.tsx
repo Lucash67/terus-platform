@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Badge, Button } from "@terus/ui";
 
 import { PreCadastroForm } from "@/components/conversion/pre-cadastro-form";
-import { StartPaths } from "@/components/conversion/start-paths";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { FounderVideoSection } from "@/components/sections/founder-video-section";
@@ -10,13 +9,13 @@ import { CTA, DEMO_PAGE } from "@/lib/constants/conversion";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Começar agora",
+  title: "Comece com a sua rede",
   description:
-    "Explore a demonstração, crie sua conta para pedir a proposta ou fale com o time comercial da Terus Varejo.",
+    "Pré-cadastro da Terus Varejo: conte qual ERP a rede usa e quantas lojas tem, e nossa equipe retoma com você pelo WhatsApp.",
   path: "/comecar",
 });
 
-export default function ComecarPage() {
+export default function SolicitarDemoPage() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-surface-border bg-gradient-to-b from-brand-primary/5 via-surface-base to-surface-base">
@@ -29,45 +28,27 @@ export default function ComecarPage() {
           aria-hidden="true"
         />
         <Container className="relative py-16 sm:py-24">
-          <div className="hero-fade-in mx-auto max-w-2xl text-center">
-            <Badge
-              variant="secondary"
-              className="border border-brand-primary/20 bg-brand-primary/5 text-brand-primary"
-            >
-              Começar
-            </Badge>
-            <h1 className="mt-6 font-display text-display-lg font-bold tracking-tight text-text-primary sm:text-display-xl">
-              Escolha como <span className="text-gradient">quer começar</span>
-            </h1>
-            <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
-              Explore sem cadastro, crie sua conta para pedir a proposta ou fale
-              direto com o time comercial.
-            </p>
-            <p className="mt-6 font-mono text-caption font-semibold uppercase tracking-widest text-text-tertiary">
-              {DEMO_PAGE.trustLine}
-            </p>
-          </div>
-          <div className="hero-fade-in-delay mt-12">
-            <StartPaths />
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-b border-surface-border">
-        <Container className="py-16 sm:py-20">
           <div className="grid items-center gap-12 lg:grid-cols-[1fr_32rem]">
-            <Reveal className="text-center lg:text-left">
-              <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
+            <div className="hero-fade-in text-center lg:text-left">
+              <Badge
+                variant="secondary"
+                className="border border-brand-primary/20 bg-brand-primary/5 text-brand-primary"
+              >
                 {DEMO_PAGE.badge}
-              </p>
-              <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary">
-                Prefere seguir pelo WhatsApp?
-              </h2>
-              <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
+              </Badge>
+              <h1 className="mt-6 font-display text-display-lg font-bold tracking-tight text-text-primary sm:text-display-xl">
+                {DEMO_PAGE.title}{" "}
+                <span className="text-gradient">{DEMO_PAGE.titleAccent}</span>
+              </h1>
+              <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
                 {DEMO_PAGE.description}
               </p>
-            </Reveal>
-            <div id="pre-cadastro" className="scroll-mt-24">
+              <p className="mt-6 font-mono text-caption font-semibold uppercase tracking-widest text-text-tertiary">
+                {DEMO_PAGE.trustLine}
+              </p>
+            </div>
+
+            <div id="pre-cadastro" className="hero-fade-in-delay scroll-mt-24">
               <PreCadastroForm />
             </div>
           </div>

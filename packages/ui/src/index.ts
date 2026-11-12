@@ -12,5 +12,3 @@ export { Input } from "./components/input";
 export { Label } from "./components/label";
 export { Select } from "./components/select";
 export { cn } from "./lib/utils";
-export { Textarea } from "./components/textarea";
-export { Checkbox } from "./components/checkbox";
