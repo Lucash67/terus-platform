@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { AttributionCapture } from "@/components/analytics/attribution-capture";
 import { AuthShell } from "@/components/onboarding/auth-shell";
 import { RegisterForm } from "@/components/onboarding/register-form";
 
@@ -21,6 +22,7 @@ export default function CriarContaPage() {
         </>
       }
     >
+      <AttributionCapture cta="criar_conta" />
       <RegisterForm />
     </AuthShell>
   );

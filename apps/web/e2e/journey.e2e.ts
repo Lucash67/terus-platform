@@ -62,7 +62,7 @@ const ctxA = await browser.newContext(desktop);
 const page = await ctxA.newPage();
 
 await step("1. Home → módulo → Começar agora", async () => {
-  await page.goto("/");
+  await page.goto("/?utm_source=e2e&utm_campaign=dx2");
   await shot(page, "01-home-desktop");
   await page.goto("/modulos/alert");
   await page.getByRole("link", { name: /começar agora/i }).first().click();
@@ -204,6 +204,7 @@ await step("7. Equipe Terus vê e gerencia a solicitação", async () => {
   await s.getByText(`Rede E2E ${RUN}`).first().click();
   await s.waitForURL(/\/admin\/leads\//);
   await s.getByText(/score/i).first().waitFor();
+  await s.getByText(/utm_source: e2e/).waitFor(); // origem do lead gravada
   await s.getByLabel("Mover para").selectOption("in_review");
   await s.getByLabel("Nota (visível ao cliente)").fill("Recebemos e estamos analisando.");
   await s.getByRole("button", { name: /confirmar: em análise/i }).click();

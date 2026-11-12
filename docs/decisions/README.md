@@ -14,6 +14,11 @@ Este diretório contém as Architecture Decision Records da plataforma Terus.
 - **ADR-008** - Cloudflare para CDN, WAF e DNS
 - **ADR-009** - Plausible para analytics do site
 
+## ADRs Propostos (aguardam aprovação)
+
+- **ADR-010** - Self Onboarding 2.0: jornada de aquisição persistida no backend
+- **ADR-011** - E2E com Playwright sem nova dependência de runtime
+
 ## Template
 
 Para criar um novo ADR, siga o template definido em `PROJECT_RULES.md`, seção 16.

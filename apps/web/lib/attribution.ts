@@ -35,7 +35,7 @@ export function captureAttribution(cta?: string): void {
     if (value) next[key] = value.slice(0, 100);
   }
   next.landing_path ??= window.location.pathname.slice(0, 200);
-  if (cta) next.cta = cta.slice(0, 60);
+  if (cta) next.cta ??= cta.slice(0, 60);
   try {
     storage.setItem(KEY, JSON.stringify(next));
   } catch {
