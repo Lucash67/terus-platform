@@ -4,7 +4,7 @@
 
 | Verificação | Resultado |
 |---|---|
-| CI do Draft PR #1 (Lint, Type Check, Build, Python Lint, Python Type Check, Python Tests com PostgreSQL 16) | ✅ 6/6 |
+| CI do Draft PR #1, run 103 (Lint, Type Check, Build @terus/web, Build @terus/site, Python Lint, Python Type Check, Python Tests com PostgreSQL 16) | ✅ 7/7 |
 | API: `pytest` (26 testes) com FastAPI 0.162 / Starlette 1.10 | ✅ 26 passed |
 | API: `pip-audit` | ✅ nenhuma vulnerabilidade conhecida (antes: Starlette 0.37.2 com várias) |
 | E2E da jornada (`apps/site/e2e/journey.e2e.ts`) | ✅ 11/11 |
