@@ -70,3 +70,14 @@ Thumbs.db
 
 # Ferramenta local de verificação visual (não versionar)
 .redesign-shots/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# E2E / evidências locais
+apps/web/test-results/
