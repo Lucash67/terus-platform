@@ -34,3 +34,4 @@
 - Decisão de design: abertura própria da home institucional (ver `VISUAL_COMPARISON.md`).
 - Endereço, e-mail e telefone do site antigo (2023) não foram reaproveitados: confirmar se continuam válidos.
 - A wiki indica que "cadastros, onboarding e integrações" ficam no **Terus Admin Portal** (login). Definir como o Self Onboarding 2.0 conversa com ele antes da trilha B.
+- **Build da LP depende do Google Fonts:** `apps/web` usa `next/font/google`, que falhou de forma intermitente aqui e no CI (`Cannot read properties of null`). Se acontecer num push para o `main`, o deploy de produção falha. O `apps/site` já usa fontes locais; replicar na LP exige sua aprovação.

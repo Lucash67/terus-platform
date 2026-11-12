@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 import { Analytics } from "@/components/analytics/analytics";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -8,25 +8,50 @@ import { rootMetadata } from "@/lib/seo/metadata";
 
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
+// Fontes servidas localmente (OFL, ver app/fonts/LICENSE.md): o build não depende do Google Fonts.
+const dmSans = localFont({
+  src: [
+    { path: "./fonts/dm-sans-latin.woff2", weight: "500 700", style: "normal" },
+  ],
   variable: "--font-dm-sans",
   display: "swap",
-  weight: ["500", "600", "700"],
+  fallback: ["system-ui", "sans-serif"],
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
+const ibmPlexSans = localFont({
+  src: [
+    {
+      path: "./fonts/ibm-plex-sans-400-latin.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ibm-plex-sans-500-latin.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   variable: "--font-ibm-plex-sans",
   display: "swap",
-  weight: ["400", "500"],
+  fallback: ["system-ui", "sans-serif"],
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
+const ibmPlexMono = localFont({
+  src: [
+    {
+      path: "./fonts/ibm-plex-mono-400-latin.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ibm-plex-mono-500-latin.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   variable: "--font-ibm-plex-mono",
   display: "swap",
-  weight: ["400", "500"],
+  fallback: ["ui-monospace", "monospace"],
 });
 
 export const metadata: Metadata = rootMetadata;

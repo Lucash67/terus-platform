@@ -10,6 +10,7 @@
 | E2E da jornada (`apps/site/e2e/journey.e2e.ts`) | ✅ 11/11 |
 | QA de páginas: 22 páginas × 1440 px, 1024 px, iPhone 13 (HTTP 200, 1 h1, sem rolagem lateral, títulos únicos) | ✅ (falhava em 1024 px antes da correção do menu) |
 | Preservação da LP | ✅ ver `LP_PRESERVATION_AUDIT.md` |
+| CI runs 99 e 100 | ❌ falha no build do `apps/site`: download do Google Fonts pelo `next/font/google` (intermitente). Corrigido com fontes locais (`app/fonts`, OFL); build validado com a rede cortada |
 
 ### Acessibilidade automatizada (axe-core 4.14, WCAG 2.0/2.1/2.2 A e AA, 1440 e 390 px)
 | | LP atual (8 páginas) | Novo site (21 páginas) |
