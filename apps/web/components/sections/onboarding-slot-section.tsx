@@ -3,7 +3,7 @@ import { Button } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
-import { ONBOARDING_STEPS } from "@/lib/constants/onboarding";
+import { JOURNEY_STEPS } from "@/lib/constants/onboarding";
 
 /**
  * Espaço do funil de onboarding na LP. Só é renderizado quando
@@ -27,15 +27,17 @@ export function OnboardingSlotSection() {
             Onboarding
           </p>
           <h2 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Conecte a sua rede à Terus
+            Comece pelo cadastro, no seu ritmo
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Do cadastro à ativação, guiado passo a passo.
+            Conta, empresa, operação e pedido de proposta — salvo na sua conta
+            para retomar de qualquer dispositivo. Sem senha nem acesso ao banco
+            do ERP.
           </p>
         </Reveal>
 
-        <ol className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-7">
-          {ONBOARDING_STEPS.map((step, index) => (
+        <ol className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {JOURNEY_STEPS.map((step, index) => (
             <Reveal
               key={step.id}
               as="li"
@@ -48,13 +50,16 @@ export function OnboardingSlotSection() {
               <p className="mt-2 text-body-sm font-semibold text-text-primary">
                 {step.label}
               </p>
+              <p className="mt-1 text-caption text-text-tertiary">
+                {step.description}
+              </p>
             </Reveal>
           ))}
         </ol>
 
         <div className="mt-10 flex justify-center">
           <Button size="lg" asChild>
-            <Link href="/onboarding">Começar onboarding</Link>
+            <Link href="/criar-conta">Começar agora</Link>
           </Button>
         </div>
       </Container>

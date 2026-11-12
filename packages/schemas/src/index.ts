@@ -107,3 +107,5 @@ export const healthResponseSchema = z.object({
     vault: z.enum(["up", "down", "skipped"]),
   }),
 });
+
+export * from "./self-onboarding";

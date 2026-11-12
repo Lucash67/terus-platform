@@ -1,309 +1,232 @@
-export type OnboardingErpId = "winthor" | "rms" | "other";
+/**
+ * Self Onboarding 2.0 — rótulos e etapas da trilha "novo cliente".
+ * Estados vêm sempre do backend (apps/api); aqui só a apresentação.
+ * ERPs e módulos: wiki.terus.tec.br/varejo (ver modules.ts e site-data.ts).
+ */
 
-export interface OnboardingStepDef {
-  id: string;
+export interface JourneyStepDef {
+  id: "conta" | "empresa" | "perfil" | "solicitacao" | "acompanhamento";
   order: number;
   href: string;
   label: string;
-  shortLabel: string;
+  description: string;
 }
 
-export const ONBOARDING_STEPS: OnboardingStepDef[] = [
+export const JOURNEY_STEPS: JourneyStepDef[] = [
   {
-    id: "cadastro",
+    id: "conta",
     order: 1,
-    href: "/onboarding/cadastro",
-    label: "Cadastro da empresa",
-    shortLabel: "Cadastro",
+    href: "/criar-conta",
+    label: "Sua conta",
+    description: "E-mail e senha para retomar de qualquer dispositivo.",
   },
   {
-    id: "integracao",
+    id: "empresa",
     order: 2,
-    href: "/onboarding/integracao",
-    label: "Escolha do ERP",
-    shortLabel: "ERP",
+    href: "/onboarding/empresa",
+    label: "Empresa",
+    description: "Razão social, CNPJ, segmento e porte.",
   },
   {
-    id: "instrucoes",
+    id: "perfil",
     order: 3,
-    href: "/onboarding/instrucoes",
-    label: "Instruções de integração",
-    shortLabel: "Instruções",
+    href: "/onboarding/perfil",
+    label: "Operação",
+    description: "ERP, prioridades e prazo — sem senha nem acesso ao banco.",
   },
   {
-    id: "banco",
+    id: "solicitacao",
     order: 4,
-    href: "/onboarding/banco",
-    label: "Configuração do banco",
-    shortLabel: "Banco",
+    href: "/onboarding/solicitacao",
+    label: "Recomendação e proposta",
+    description: "Módulos indicados para o que você quer resolver.",
   },
   {
-    id: "diagnostico",
+    id: "acompanhamento",
     order: 5,
-    href: "/onboarding/diagnostico",
-    label: "Diagnóstico automatizado",
-    shortLabel: "Diagnóstico",
-  },
-  {
-    id: "contratos",
-    order: 6,
-    href: "/onboarding/contratos",
-    label: "Contrato digital",
-    shortLabel: "Contrato",
-  },
-  {
-    id: "conclusao",
-    order: 7,
-    href: "/onboarding/conclusao",
-    label: "Ativação",
-    shortLabel: "Ativação",
+    href: "/portal",
+    label: "Acompanhamento",
+    description: "Status, histórico e próximos passos no portal.",
   },
 ];
 
-export const TOTAL_STEPS = ONBOARDING_STEPS.length;
-
-export interface ErpOption {
-  id: OnboardingErpId;
-  name: string;
-  vendor: string;
-  description: string;
-  homologated: boolean;
-  marketShare: string;
-  databases: string[];
-}
-
-export const ERP_OPTIONS: ErpOption[] = [
-  {
-    id: "winthor",
-    name: "Winthor",
-    vendor: "TOTVS",
-    description:
-      "ERP líder no atacado distribuidor. Integração homologada com leitura direta das tabelas de estoque, pedidos e faturamento.",
-    homologated: true,
-    marketShare: "Atacado & Distribuição",
-    databases: ["Oracle"],
-  },
-  {
-    id: "rms",
-    name: "RMS",
-    vendor: "TOTVS",
-    description:
-      "ERP consolidado no varejo supermercadista. Integração homologada com cobertura de lojas, CDs e retaguarda.",
-    homologated: true,
-    marketShare: "Varejo Supermercadista",
-    databases: ["Oracle", "SQL Server"],
-  },
-  {
-    id: "other",
-    name: "Outro ERP",
-    vendor: "Não homologado",
-    description:
-      "Seu ERP ainda não está no catálogo homologado. Nossa equipe de integrações analisa a viabilidade e retorna em até 48h úteis.",
-    homologated: false,
-    marketShare: "Análise sob demanda",
-    databases: ["A definir"],
-  },
-];
-
-export interface ErpInstructionStep {
-  title: string;
-  description: string;
-  code?: string;
-}
-
-export const ERP_INSTRUCTIONS: Record<
-  Exclude<OnboardingErpId, "other">,
-  ErpInstructionStep[]
-> = {
-  winthor: [
-    {
-      title: "Crie um usuário de leitura no Oracle",
-      description:
-        "A Terus opera com acesso somente-leitura. Crie um usuário dedicado com privilégio de SELECT nas tabelas do Winthor.",
-      code: 'CREATE USER terus_reader IDENTIFIED BY "********";\nGRANT CREATE SESSION TO terus_reader;\nGRANT SELECT ON PCPRODUT TO terus_reader;\nGRANT SELECT ON PCEST TO terus_reader;\nGRANT SELECT ON PCPEDC TO terus_reader;',
-    },
-    {
-      title: "Libere o IP da Terus no firewall",
-      description:
-        "Autorize conexões TCP de saída para o coletor Terus na porta do listener Oracle (padrão 1521). O tráfego é criptografado ponta a ponta.",
-      code: "# Origem autorizada\n52.67.118.0/24  →  porta 1521 (TCP)",
-    },
-    {
-      title: "Confirme o service name da instância",
-      description:
-        "Tenha em mãos o host, a porta e o service name (ex: WINT) da instância de produção ou da réplica de leitura.",
-    },
-  ],
-  rms: [
-    {
-      title: "Crie um usuário de leitura no banco",
-      description:
-        "A Terus opera com acesso somente-leitura. Crie um usuário dedicado com privilégio de SELECT nas tabelas do RMS.",
-      code: "CREATE LOGIN terus_reader WITH PASSWORD = '********';\nCREATE USER terus_reader FOR LOGIN terus_reader;\nGRANT SELECT ON SCHEMA::dbo TO terus_reader;",
-    },
-    {
-      title: "Libere o IP da Terus no firewall",
-      description:
-        "Autorize conexões TCP de saída para o coletor Terus na porta do banco (padrão 1433 SQL Server / 1521 Oracle).",
-      code: "# Origem autorizada\n52.67.118.0/24  →  porta 1433 (TCP)",
-    },
-    {
-      title: "Identifique o banco de retaguarda",
-      description:
-        "Tenha em mãos o host, a porta e o nome do banco de retaguarda consolidado (lojas + CD) do RMS.",
-    },
-  ],
+export const SEGMENT_LABELS: Record<string, string> = {
+  supermercado: "Supermercado",
+  atacarejo: "Atacarejo",
+  farmacia: "Farmácia",
+  material_construcao: "Material de construção",
+  industria: "Indústria",
+  distribuidor: "Distribuidor",
+  outro: "Outro",
 };
 
-export interface DiagnosticRunnerDef {
-  id: string;
-  name: string;
+export const SIZE_BAND_LABELS: Record<string, string> = {
+  "1": "1 loja",
+  "2-10": "2 a 10 lojas",
+  "11-50": "11 a 50 lojas",
+  "51+": "Mais de 50 lojas",
+};
+
+/** ERPs documentados na wiki: varejo (captura) e fornecedor (recebe pedido via Bond). */
+export const ERP_GROUPS: {
   label: string;
-  description: string;
-  durationMs: number;
-  logs: string[];
-  result: string;
-}
-
-export const DIAGNOSTIC_RUNNERS: DiagnosticRunnerDef[] = [
+  options: { id: string; label: string }[];
+}[] = [
   {
-    id: "nat",
-    name: "NatRunner",
-    label: "Conectividade TCP",
-    description: "Alcança o host do banco na porta informada",
-    durationMs: 2600,
-    logs: ["resolvendo host…", "abrindo socket TCP…", "handshake concluído"],
-    result: "34ms de latência de rede",
-  },
-  {
-    id: "auth",
-    name: "AuthRunner",
-    label: "Autenticação",
-    description: "Valida usuário e senha no banco do ERP",
-    durationMs: 3200,
-    logs: [
-      "iniciando sessão…",
-      "credenciais aceitas",
-      "sessão somente-leitura confirmada",
+    label: "ERP do varejo (documentados na wiki)",
+    options: [
+      { id: "rms", label: "RMS" },
+      { id: "consinco", label: "Consinco" },
+      { id: "vr_software", label: "VR Software" },
+      { id: "ciss_poder", label: "CISS Poder" },
+      { id: "rpinfo", label: "RPInfo" },
+      { id: "api_rest", label: "API REST própria" },
     ],
-    result: "usuário terus_reader autenticado",
   },
   {
-    id: "permission",
-    name: "PermissionRunner",
-    label: "Permissões de leitura",
-    description: "Confere SELECT nas tabelas essenciais",
-    durationMs: 3800,
-    logs: [
-      "verificando produtos…",
-      "verificando estoque…",
-      "verificando pedidos…",
-      "verificando faturamento…",
+    label: "ERP de indústria/distribuidor",
+    options: [
+      { id: "winthor", label: "Winthor" },
+      { id: "sankhya", label: "Sankhya" },
+      { id: "vitsis", label: "VitSis" },
     ],
-    result: "12 de 12 tabelas acessíveis",
   },
-  {
-    id: "query",
-    name: "QueryRunner",
-    label: "Queries do ERP",
-    description: "Executa as consultas homologadas do catálogo",
-    durationMs: 4600,
-    logs: [
-      "posição de estoque…",
-      "curva de vendas 30d…",
-      "pedidos em aberto…",
-      "cadastro de lojas…",
-    ],
-    result: "4 queries válidas · schemas compatíveis",
-  },
-  {
-    id: "performance",
-    name: "PerformanceRunner",
-    label: "Performance",
-    description: "Mede latência e volume de leitura sustentado",
-    durationMs: 4200,
-    logs: [
-      "amostrando latência…",
-      "p50 38ms · p95 92ms",
-      "throughput de leitura ok",
-    ],
-    result: "apto para sincronização em tempo real",
-  },
+  { label: "Outro", options: [{ id: "outro", label: "Outro ERP" }] },
 ];
 
-export interface ContractClause {
-  title: string;
-  summary: string;
-}
+export const ERP_LABELS: Record<string, string> = Object.fromEntries(
+  ERP_GROUPS.flatMap((g) => g.options.map((o) => [o.id, o.label])),
+);
 
-export const CONTRACT_CLAUSES: ContractClause[] = [
+export const PRIORITY_OPTIONS: { id: string; label: string; hint: string }[] = [
   {
-    title: "Objeto",
-    summary:
-      "Licenciamento da Terus Varejo — Inteligência da Cadeia de Suprimentos — em modelo SaaS, com sincronização contínua do ERP.",
+    id: "ruptura",
+    label: "Ruptura de gôndola",
+    hint: "Produto faltando na loja",
   },
   {
-    title: "Acesso aos dados",
-    summary:
-      "Acesso exclusivamente de leitura. Credenciais custodiadas em cofre criptografado, com rotação e revogação automáticas.",
+    id: "excesso",
+    label: "Excesso de estoque",
+    hint: "Capital parado, sem giro",
   },
   {
-    title: "Confidencialidade & LGPD",
-    summary:
-      "Dados operacionais tratados sob acordo de confidencialidade e em conformidade com a Lei Geral de Proteção de Dados.",
+    id: "reposicao",
+    label: "Reposição e pedidos",
+    hint: "Pedido ao fornecedor",
   },
   {
-    title: "Nível de serviço",
-    summary:
-      "Disponibilidade de 99,5% da Terus Varejo, com suporte em horário comercial e canal prioritário para incidentes críticos.",
+    id: "execucao_loja",
+    label: "Execução na loja",
+    hint: "Tarefas com evidência",
   },
+  { id: "metas", label: "Metas e indicadores", hint: "Comprador, seção, loja" },
+  {
+    id: "fornecedores",
+    label: "Relação com fornecedores",
+    hint: "Pedido no ERP deles",
+  },
+  { id: "producao", label: "Produção própria", hint: "Padaria, açougue" },
+  { id: "cd_logistica", label: "CD e logística", hint: "Volumes até a loja" },
+  { id: "exposicao", label: "Exposição e espaço", hint: "Layout de gôndola" },
 ];
 
-export interface TerusModuleDef {
-  id: string;
-  name: string;
-  tagline: string;
-}
+export const TIMELINE_OPTIONS = [
+  { id: "imediato", label: "Quero começar agora" },
+  { id: "ate_3_meses", label: "Nos próximos 3 meses" },
+  { id: "explorando", label: "Estou conhecendo" },
+] as const;
 
-export const TERUS_MODULES: TerusModuleDef[] = [
+export const CONTACT_OPTIONS = [
+  { id: "whatsapp", label: "WhatsApp" },
+  { id: "telefone", label: "Telefone" },
+  { id: "email", label: "E-mail" },
+] as const;
+
+export const JOURNEY_STATUS: Record<
+  string,
   {
-    id: "alert",
-    name: "Terus Alert",
-    tagline: "Alertas e mesa do comprador",
+    label: string;
+    tone: "neutral" | "info" | "success" | "warning";
+    description: string;
+  }
+> = {
+  draft: {
+    label: "Rascunho",
+    tone: "neutral",
+    description: "Cadastro iniciado.",
   },
-  {
-    id: "order",
-    name: "Terus Order",
-    tagline: "Reposição, devoluções e fornecedores conectados",
+  registration_complete: {
+    label: "Empresa cadastrada",
+    tone: "info",
+    description: "Falta contar como é a operação.",
   },
-  {
-    id: "task",
-    name: "Terus Task",
-    tagline: "App da loja com fila por retorno em R$",
+  qualification_complete: {
+    label: "Perfil concluído",
+    tone: "info",
+    description: "Revise as recomendações e solicite a proposta.",
   },
-  {
-    id: "strategy",
-    name: "Terus Strategy",
-    tagline: "Metas, vendas, compras e estoque",
+  proposal_requested: {
+    label: "Proposta solicitada",
+    tone: "warning",
+    description:
+      "A equipe comercial da Terus vai analisar e entrar em contato.",
   },
-  {
-    id: "unitization",
-    name: "Terus Unitization",
-    tagline: "Etiquetas e rastreio de cargas",
+  under_review: {
+    label: "Em análise",
+    tone: "warning",
+    description: "A equipe Terus está preparando a proposta.",
   },
-  {
-    id: "production",
-    name: "Terus Production",
-    tagline: "Produção própria da rede",
+  proposal_sent: {
+    label: "Proposta enviada",
+    tone: "info",
+    description: "Confira a proposta enviada pelo canal combinado.",
   },
-  {
-    id: "chain",
-    name: "Terus Chain",
-    tagline: "Avaliação de fornecedores e saúde da integração",
+  acceptance_pending: {
+    label: "Aceite pendente",
+    tone: "warning",
+    description: "Aguardando o aceite e a assinatura do contrato.",
   },
-  {
-    id: "vitrine",
-    name: "Terus Vitrine",
-    tagline: "Gestão de espaço e exposição",
+  contracted: {
+    label: "Contratado",
+    tone: "success",
+    description:
+      "Contrato registrado pela equipe Terus. Próximo passo: implantação.",
   },
-];
+  archived: {
+    label: "Arquivado",
+    tone: "neutral",
+    description: "Jornada encerrada. Fale com a Terus para reabrir.",
+  },
+};
+
+export const REQUEST_STATUS: Record<string, string> = {
+  received: "Recebida",
+  in_review: "Em análise",
+  proposal_sent: "Proposta enviada",
+  acceptance_pending: "Aceite pendente",
+  contracted: "Contratado",
+  lost: "Não avançou",
+  archived: "Arquivada",
+};
+
+export const IMPLEMENTATION_STATUS: Record<
+  string,
+  { label: string; tone: "neutral" | "info" | "success" | "warning" }
+> = {
+  concluido: { label: "Concluído", tone: "success" },
+  informado: { label: "Informado", tone: "info" },
+  pendente: { label: "Pendente", tone: "warning" },
+  nao_configurado: { label: "Não configurado", tone: "neutral" },
+  nao_iniciado: { label: "Não iniciado", tone: "neutral" },
+};
+
+/** Etapas do pipeline comercial (admin) e transições permitidas — espelham o backend. */
+export const REQUEST_TRANSITIONS: Record<string, string[]> = {
+  received: ["in_review", "lost", "archived"],
+  in_review: ["proposal_sent", "lost", "archived"],
+  proposal_sent: ["acceptance_pending", "in_review", "lost", "archived"],
+  acceptance_pending: ["contracted", "proposal_sent", "lost", "archived"],
+  contracted: [],
+  lost: ["in_review"],
+  archived: ["in_review"],
+};
