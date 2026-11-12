@@ -42,8 +42,12 @@ jobs:
         run: pnpm typecheck
 
   build:
-    name: Build
+    name: Build (${{ matrix.app }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app: ["@terus/web", "@terus/site"]
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
@@ -56,7 +60,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build
-        run: pnpm build
+        run: pnpm turbo run build --filter="${{ matrix.app }}"
 
   python-lint:
     name: Python Lint
