@@ -18,6 +18,7 @@ Este diretório contém as Architecture Decision Records da plataforma Terus.
 
 - **ADR-010** - Self Onboarding 2.0: jornada de aquisição persistida no backend
 - **ADR-011** - E2E com Playwright sem nova dependência de runtime
+- **ADR-012** - Nova experiência institucional em apps/site, isolada da LP
 
 ## Template
 

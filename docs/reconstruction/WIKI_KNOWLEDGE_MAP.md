@@ -1,8 +1,12 @@
 # Mapa de conhecimento da wiki
 
-A wiki (`wiki.terus.tec.br`) **não pôde ser acessada nesta sessão**: o host está fora da
-lista de rede permitida do container (erro de proxy 403 / DNS). Nada foi inventado para
-suprir a falta.
+**Fase 2:** a wiki passou a ser acessível (ambiente `terus-platform`). Páginas lidas:
+`/varejo`, `/varejo/tec`, `/varejo/tec/varejo`, `/varejo/tec/fornecedor`, `/varejo/tec/como-ler`,
+`/varejo/tec/production`, `/varejo/task`. Confirmam os menus do Portal Varejo e do Portal do
+Fornecedor e informam que cadastros, onboarding e integrações ficam no Terus Admin Portal
+(com login, não público). Os manuais técnicos de integração não são públicos.
+
+**Fase 1:** a wiki estava bloqueada na rede da sessão; nada foi inventado.
 
 O conhecimento da wiki já incorporado ao repositório por commits anteriores, e reutilizado:
 

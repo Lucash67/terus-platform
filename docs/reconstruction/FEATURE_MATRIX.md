@@ -1,5 +1,7 @@
 # Matriz de funcionalidades
 
+> Fase 2: o site e a jornada vivem em `apps/site`; `apps/web` (LP) está idêntico ao `main`.
+
 Legenda: **implementado** (código integrado) · **testado** (evidência executada) ·
 **pendente externo** (falta credencial/acesso/aprovação) · **não implementado**.
 
@@ -16,8 +18,9 @@ Legenda: **implementado** (código integrado) · **testado** (evidência executa
 | `/ecossistema`, `/cases`, `/conteudos`, `/sobre` | já existiam · testados |
 | SEO: títulos únicos, sitemap com novas rotas, robots bloqueando áreas autenticadas | implementado · testado (títulos) |
 | `prefers-reduced-motion` nas novas animações | implementado · testado (capturas com reduced motion) |
-| Lighthouse / auditoria WCAG automatizada | não implementado (ferramenta não executada nesta sessão) |
-| Página por componente do terustec.com.br (Agent, IAproc, Task Web, Teams, Bond…) | não implementado — aguardando acesso às subpáginas oficiais |
+| Lighthouse e axe (WCAG A/AA) | testado na fase 2 (ver QA_REPORT) |
+| Páginas Agent, IAproc, Bond, Portal do Cliente, Task Web, Teams (`/tecnologia/*`) | implementado · testado (fase 2, fontes oficiais) |
+| Suporte Anjo com página própria | não implementado — fonte oficial só tem uma frase |
 
 ## Self Onboarding 2.0 — trilha A (novo cliente)
 | Funcionalidade | Status |
@@ -65,4 +68,4 @@ Legenda: **implementado** (código integrado) · **testado** (evidência executa
 | CSRF por header, rate limit em auth, headers de segurança | implementado · testado |
 | Logs JSON sem segredos | implementado |
 | Health check real | implementado · testado |
-| CI: job de testes com PostgreSQL | implementado · não executado ainda (roda no próximo PR) |
+| CI: job de testes com PostgreSQL | implementado · testado (Draft PR #1, 6/6 verdes) |

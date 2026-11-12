@@ -3,8 +3,8 @@
 ## Acessos desta sessão
 | Bloqueio | Efeito | Como destravar |
 |---|---|---|
-| `wiki.terus.tec.br`, `terustec.com.br`, `terus.tec.br` fora da rede permitida | Conteúdo novo não reconferido nas fontes; usado só o que já estava validado no repo e no pacote | Liberar os hosts nas configurações de rede do ambiente Claude e pedir a reconferência |
-| Vercel MCP sem autorização no time `lucash67s-projects` | Não foi possível listar/abrir o deploy de preview da branch | Autorizar o acesso do conector Vercel ao time |
+| ~~Fontes oficiais bloqueadas~~ | **Resolvido na fase 2**: ambiente `terus-platform` criado com acesso à wiki, terustec.com.br e terus.tec.br | — |
+| Vercel MCP sem autorização no time `lucash67s-projects` | Não foi possível listar deploys nem criar prévia | Ver `PREVIEW.md` (link de consentimento + aprovação do projeto) |
 | Repositórios `terusfarm` e `simuladorterus` fora do escopo GitHub | Não consultados | Adicionar à sessão, se relevantes |
 
 ## Infraestrutura para ir ao ar
@@ -26,3 +26,11 @@
 - Conceito "Da informação à ação. Do ERP à gôndola." — não usado; aprovar se desejar.
 - Descrições de Portal do Cliente, Task Web, Teams e Suporte Anjo (tiradas do pacote).
 - Atualizar CLAUDE.md (route groups e trilha de onboarding) após aprovação — não alterado aqui.
+
+## Novos na fase 2
+- `terus.tec.br` serve WhatsApp antigo `(85) 9629-0044`; o `main` usa `(85) 99738-4940`. Conferir Cloudflare/Vercel.
+- Next.js 14 com avisos de segurança corrigidos só no 15.5 (LP e novo site): decidir migração por ADR.
+- Aprovar ADR-012 (novo site isolado em `apps/site`).
+- Decisão de design: abertura própria da home institucional (ver `VISUAL_COMPARISON.md`).
+- Endereço, e-mail e telefone do site antigo (2023) não foram reaproveitados: confirmar se continuam válidos.
+- A wiki indica que "cadastros, onboarding e integrações" ficam no **Terus Admin Portal** (login). Definir como o Self Onboarding 2.0 conversa com ele antes da trilha B.

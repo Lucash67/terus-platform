@@ -17,16 +17,16 @@ TERUS_STAFF_PASSWORD='TroqueEsta123' poetry run python -m app.cli create-staff \
 poetry run uvicorn app.main:app --port 8000
 
 # 3. Web (outro terminal)
-cd apps/web && pnpm install
+cd apps/site && pnpm install
 NEXT_PUBLIC_ONBOARDING_ENABLED=true API_INTERNAL_URL=http://127.0.0.1:8000 pnpm dev
 ```
-Abra http://localhost:3000 → "Começar agora". Painel: http://localhost:3000/admin.
+Abra http://localhost:3002 → "Começar agora". Painel: http://localhost:3002/admin.
 
 ## Testes
 ```bash
 cd apps/api && TEST_DATABASE_URL=postgresql+asyncpg://postgres@127.0.0.1:5432/terus_test poetry run pytest -q
-cd apps/web && STAFF_EMAIL=... STAFF_PASSWORD=... node e2e/journey.e2e.ts   # com a stack rodando
-cd apps/web && node e2e/screenshots.e2e.ts
+cd apps/site && STAFF_EMAIL=... STAFF_PASSWORD=... node e2e/journey.e2e.ts   # com a stack rodando
+cd apps/site && node e2e/screenshots.e2e.ts
 ```
 
 ## Variáveis

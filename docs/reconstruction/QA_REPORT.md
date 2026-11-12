@@ -1,5 +1,49 @@
 # Relatório de QA
 
+## Fase 2 — 12/11/2026 (estado atual)
+
+| Verificação | Resultado |
+|---|---|
+| CI do Draft PR #1 (Lint, Type Check, Build, Python Lint, Python Type Check, Python Tests com PostgreSQL 16) | ✅ 6/6 |
+| API: `pytest` (26 testes) com FastAPI 0.162 / Starlette 1.10 | ✅ 26 passed |
+| API: `pip-audit` | ✅ nenhuma vulnerabilidade conhecida (antes: Starlette 0.37.2 com várias) |
+| E2E da jornada (`apps/site/e2e/journey.e2e.ts`) | ✅ 11/11 |
+| QA de páginas: 22 páginas × 1440 px, 1024 px, iPhone 13 (HTTP 200, 1 h1, sem rolagem lateral, títulos únicos) | ✅ (falhava em 1024 px antes da correção do menu) |
+| Preservação da LP | ✅ ver `LP_PRESERVATION_AUDIT.md` |
+
+### Acessibilidade automatizada (axe-core 4.14, WCAG 2.0/2.1/2.2 A e AA, 1440 e 390 px)
+| | LP atual (8 páginas) | Novo site (21 páginas) |
+|---|---|---|
+| Contraste | 472 nós | 15 nós (numerais decorativos `aria-hidden` e cartões 3D em transição) |
+| Nome acessível ≠ texto visível | 14 | 0 |
+| Região rolável sem teclado | 1 | 0 |
+
+### Lighthouse 12.8 (local, `next start`, celular simulado salvo indicação)
+| Página | Perf. | Acess. | Boas práticas | SEO | LCP |
+|---|---|---|---|---|---|
+| Novo · home (celular) | 81 | 100 | 100 | 100 | 4,3 s |
+| Novo · plataforma (celular) | 86 | 100 | 100 | 100 | 4,2 s |
+| Novo · tecnologia/agent (celular) | 94 | 100 | 100 | 100 | 3,1 s |
+| Novo · começar (celular) | 85 | 100 | 100 | 100 | 4,4 s |
+| Novo · criar conta (celular) | 90 | 100 | 96¹ | 66² | 3,5 s |
+| LP · home (celular) | 88 | 96 | 100 | 100 | 3,8 s |
+| Novo · home (desktop) | 99 | 96 | 100 | 100 | 0,8 s |
+| LP · home (desktop) | 99 | 96 | 100 | 100 | 0,9 s |
+
+¹ 401 esperado no console ao checar sessão de quem não entrou. ² `noindex` proposital.
+
+### Dependências (pnpm audit)
+- **Next.js 14.2.35** (LP e novo site): avisos altos/moderados corrigidos só a partir da 15.5.x
+  (DoS em Server Components, SSRF/smuggling em rewrites, cache poisoning). O novo site usa
+  rewrites para a API com destino fixo por variável de ambiente. Atualizar exige ADR (a stack
+  fixa Next 14) e vale também para a LP em produção.
+- Ferramentas de desenvolvimento (eslint 8, turbo 1.13, brace-expansion, js-yaml): avisos
+  sem efeito no site publicado; atualizar junto com a migração do Next.
+
+---
+
+## Fase 1 (histórico)
+
 Executado em 12/11/2026 no container da sessão (Node 22, Python 3.13, PostgreSQL 16 local,
 Chromium do Playwright). Dados 100% sintéticos (CNPJs gerados, e-mails `example.com`).
 
