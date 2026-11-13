@@ -13,6 +13,7 @@ export default function robots(): MetadataRoute.Robots {
         "/admin",
         "/portal",
         "/onboarding",
+        "/ativacao-demo",
         "/entrar",
         "/criar-conta",
         "/recuperar-acesso",
