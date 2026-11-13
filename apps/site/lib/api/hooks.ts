@@ -4,6 +4,7 @@ import {
   useMutation,
   useQuery,
   useQueryClient,
+  type QueryClient,
   type UseQueryOptions,
 } from "@tanstack/react-query";
 import type {
@@ -35,6 +36,19 @@ export const queryKeys = {
   funnel: ["admin", "funnel"] as const,
   staff: ["admin", "staff"] as const,
 };
+
+/**
+ * Troca o usuário da sessão (entrar, criar conta, sair). Descarta os dados do usuário
+ * anterior, mas mantém a consulta de sessão no cache e só troca o valor dela: quem já a
+ * observa (a navbar, que vive no layout e não remonta ao trocar de rota) é notificado.
+ * `qc.clear()` removia essa consulta e deixava a navbar presa no estado anterior.
+ */
+function replaceSession(qc: QueryClient, session: SessionInfo | null) {
+  qc.removeQueries({
+    predicate: (query) => query.queryKey[0] !== queryKeys.session[0],
+  });
+  qc.setQueryData(queryKeys.session, session);
+}
 
 /** Reflete imediatamente a jornada devolvida pelo servidor no cache da lista. */
 function upsertJourney(
@@ -99,10 +113,7 @@ export function useRegister() {
           job_title: values.job_title || null,
         },
       }),
-    onSuccess: (data) => {
-      qc.clear();
-      qc.setQueryData(queryKeys.session, data);
-    },
+    onSuccess: (data) => replaceSession(qc, data),
   });
 }
 
@@ -114,10 +125,7 @@ export function useLogin() {
         method: "POST",
         body: values,
       }),
-    onSuccess: (data) => {
-      qc.clear();
-      qc.setQueryData(queryKeys.session, data);
-    },
+    onSuccess: (data) => replaceSession(qc, data),
   });
 }
 
@@ -125,10 +133,7 @@ export function useLogout() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: () => apiRequest<void>("/v1/auth/logout", { method: "POST" }),
-    onSettled: () => {
-      qc.clear();
-      qc.setQueryData(queryKeys.session, null);
-    },
+    onSettled: () => replaceSession(qc, null),
   });
 }
 
