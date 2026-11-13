@@ -1,5 +1,9 @@
 # Terus API
 
-Backend da Terus Platform — FastAPI com Python 3.12.
+Backend da Terus Platform — FastAPI async, SQLAlchemy 2, Alembic, PostgreSQL 16.
 
-Responsável pelos endpoints REST da plataforma de Supply Chain Intelligence, incluindo onboarding, diagnóstico, provisionamento e administração.
+Hoje cobre o Self Onboarding 2.0 (ADR-010): autenticação (JWT RS256 + refresh em cookies
+HttpOnly), organizações, jornada de aquisição, solicitações comerciais, painel da equipe Terus
+e auditoria imutável.
+
+Execução, variáveis e testes: `docs/reconstruction/DEPLOYMENT.md`.

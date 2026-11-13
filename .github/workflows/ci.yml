@@ -42,8 +42,12 @@ jobs:
         run: pnpm typecheck
 
   build:
-    name: Build
+    name: Build (${{ matrix.app }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app: ["@terus/web", "@terus/site"]
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
@@ -56,7 +60,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build
-        run: pnpm build
+        run: pnpm turbo run build --filter="${{ matrix.app }}"
 
   python-lint:
     name: Python Lint
@@ -87,3 +91,30 @@ jobs:
         run: cd apps/api && poetry install
       - name: Type check with mypy
         run: cd apps/api && poetry run mypy app/
+
+  python-test:
+    name: Python Tests (PostgreSQL)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_DB: terus_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Poetry
+        run: pip install poetry
+      - name: Install dependencies
+        run: cd apps/api && poetry install
+      - name: Migrations + integration tests
+        env:
+          TEST_DATABASE_URL: postgresql+asyncpg://postgres@localhost:5432/terus_test
+        run: cd apps/api && poetry run pytest -q
