@@ -7,9 +7,9 @@ interface ThemeToggleProps {
   className?: string;
 }
 
-/** Alterna claro/escuro na sessão. A próxima abertura do site volta ao claro. */
+/** Alterna escuro/claro. A escolha fica lembrada neste navegador (padrão: escuro). */
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const [isLight, setIsLight] = React.useState(true);
+  const [isLight, setIsLight] = React.useState(false);
 
   React.useEffect(() => {
     setIsLight(document.documentElement.classList.contains("light"));

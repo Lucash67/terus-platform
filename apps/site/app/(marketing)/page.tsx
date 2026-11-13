@@ -1,32 +1,18 @@
 import type { Metadata } from "next";
 
-import { ClientLogosStrip } from "@/components/sections/client-logos-strip";
-import { CtaSection } from "@/components/sections/cta-section";
-import { ErpTickerSection } from "@/components/sections/erp-ticker-section";
+import { HeroLivingShelf } from "@/components/home/hero-living-shelf";
+import { LeaksSection } from "@/components/home/leaks-section";
+import { ModulesOrbit } from "@/components/home/modules-orbit";
+import { ProofSection } from "@/components/home/proof-section";
+import { SignalJourney } from "@/components/home/signal-journey";
+import { StoreQueuesSection } from "@/components/home/store-queues-section";
+import { TrustSection } from "@/components/home/trust-section";
+import { TwoPortalsSection } from "@/components/home/two-portals-section";
 import { FaqSection } from "@/components/sections/faq-section";
-import { FlowPipelineSection } from "@/components/sections/flow-pipeline-section";
-import { FounderVideoSection } from "@/components/sections/founder-video-section";
-import { HeroSection } from "@/components/sections/hero-section";
-import { IntegrationsEcosystemSection } from "@/components/sections/integrations-ecosystem-section";
-import { ModulesSection } from "@/components/sections/modules-section";
-import { PainSection } from "@/components/sections/pain-section";
-import { PersonasSection } from "@/components/sections/personas-section";
-import { PlatformTourSection } from "@/components/sections/platform-tour-section";
-import { TaskAppSection } from "@/components/sections/task-app-section";
-import { PositioningSection } from "@/components/sections/positioning-section";
-import { RealResultsSection } from "@/components/sections/real-results-section";
-import { RedeTerusSection } from "@/components/sections/rede-terus-section";
-import { ReliabilitySection } from "@/components/sections/reliability-section";
-import { SocialProofSection } from "@/components/sections/social-proof-section";
-import { SupplierBridgeSection } from "@/components/sections/supplier-bridge-section";
 import { OnboardingSlotSection } from "@/components/sections/onboarding-slot-section";
+import { SITE_DESCRIPTION } from "@/lib/constants/site";
 import { ONBOARDING_ENABLED } from "@/lib/feature-flags";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { SITE_DESCRIPTION } from "@/lib/constants/site";
-
-// Fora da LP por ora (repetiam conteúdo): EcosystemSection,
-// PlatformIndicatorsSection, CompaniesSection.
-// ProductDemoSection ocultada até haver vídeo real do produto.
 
 export const metadata: Metadata = createPageMetadata({
   title: "Terus Varejo — Inteligência da Cadeia de Suprimentos",
@@ -34,29 +20,24 @@ export const metadata: Metadata = createPageMetadata({
   path: "/",
 });
 
+/**
+ * Home institucional (Experience 2.0): narrativa em cenas — sinais da gôndola,
+ * caminho do dado, app da loja, módulos, os dois portais, prova real e integração.
+ * A LP comercial (apps/web) continua com a sua própria home.
+ */
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <ClientLogosStrip />
-      <RealResultsSection />
-      <PainSection />
-      <FlowPipelineSection />
-      <FounderVideoSection />
-      <PlatformTourSection />
-      <TaskAppSection />
-      <PositioningSection />
-      <PersonasSection />
-      <ModulesSection />
-      <SupplierBridgeSection />
-      <ErpTickerSection />
-      <IntegrationsEcosystemSection />
-      <SocialProofSection />
-      <RedeTerusSection />
-      <ReliabilitySection />
+      <HeroLivingShelf />
+      <LeaksSection />
+      <SignalJourney />
+      <StoreQueuesSection />
+      <ModulesOrbit />
+      <TwoPortalsSection />
+      <ProofSection />
+      <TrustSection />
       {ONBOARDING_ENABLED ? <OnboardingSlotSection /> : null}
       <FaqSection />
-      <CtaSection />
     </>
   );
 }

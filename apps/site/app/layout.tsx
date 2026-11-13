@@ -7,6 +7,7 @@ import { ThemeScript } from "@/components/theme/theme-script";
 import { rootMetadata } from "@/lib/seo/metadata";
 
 import "./globals.css";
+import "./experience.css";
 
 // Fontes servidas localmente (OFL, ver app/fonts/LICENSE.md): o build não depende do Google Fonts.
 const dmSans = localFont({
@@ -64,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`light ${dmSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+      className={`${dmSans.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-surface-base font-sans text-text-primary antialiased">
