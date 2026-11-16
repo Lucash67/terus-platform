@@ -17,15 +17,15 @@ export const DORES = {
     },
     {
       sigla: "PSV",
-      title: "Está na gôndola, mas não vende",
+      title: "Está na loja, mas não vende",
       description:
-        "Virado, escondido atrás de outro, com buraco na frente. A venda para e ninguém percebe.",
+        "No depósito, virado, escondido atrás de outro ou com buraco na frente. A venda para e ninguém percebe.",
     },
     {
       sigla: "PO",
-      title: "A oferta começou sem cartaz",
+      title: "A oferta começou sem destaque",
       description:
-        "Oferta sem sinalização não comunica preço. O investimento do encarte não volta.",
+        "Oferta sem destaque não comunica preço. O investimento do encarte não volta.",
     },
     {
       sigla: "SO",
@@ -35,7 +35,7 @@ export const DORES = {
     },
     {
       sigla: "PEE",
-      title: "Excesso parado na loja",
+      title: "Excesso de estoque na loja",
       description:
         "Capital empatado em produto sem giro há mais de 30 dias, enquanto outro item rompe.",
     },
@@ -228,12 +228,13 @@ export const PONTE_FORNECEDOR = {
   badge: "Varejo + fornecedor",
   title: "O pedido sai da rede e entra no ERP do fornecedor",
   description:
-    "O comprador envia pelo portal, o fornecedor aprova no dele e o pedido é gravado direto no ERP, sem redigitação. No Cometa Supermercados, a rejeição de pedidos no ERP caiu de 35% para 0,5%.",
+    "O comprador cria o pedido no sistema da rede e a Terus captura para o portal. O fornecedor aprova e o pedido é gravado direto no ERP dele — rápido, sem erro e sem retrabalho.",
   steps: [
     {
-      title: "Comprador revisa",
-      description: "Sugestão por estoque, venda e parâmetros da rede.",
-      status: "Revisado",
+      title: "Comprador faz o pedido",
+      description:
+        "No sistema da rede, com sugestão por estoque, venda e parâmetros. A Terus captura para o portal.",
+      status: "Pedido",
     },
     {
       title: "Fornecedor aprova",
@@ -241,20 +242,21 @@ export const PONTE_FORNECEDOR = {
       status: "Aprovado",
     },
     {
-      title: "Entra no ERP",
-      description: "Gravado no Winthor, Sankhya ou VitSis do fornecedor.",
+      title: "Entra no ERP do fornecedor",
+      description:
+        "Gravado no Winthor, Sankhya, VitSis ou outro ERP do fornecedor.",
       status: "No ERP",
     },
     {
       title: "NF e rastreio",
       description:
-        "Nota fiscal e rastreio no portal. Com unitização, cada volume é rastreado até a loja.",
+        "Nota fiscal e rastreio no portal. Com unitização e redespacho, cada volume é rastreado até a loja.",
       status: "Em rota",
     },
     {
       title: "Loja recebe",
       description:
-        "Com unitização, a loja lê a etiqueta no aplicativo e confirma com contagem cega.",
+        "Com unitização e redespacho, a loja lê a etiqueta no aplicativo e confirma com contagem cega.",
       status: "Recebido",
     },
   ],
@@ -306,7 +308,7 @@ export const PONTE_FORNECEDOR = {
         {
           title: "Rastreamento de cargas",
           description:
-            "Com unitização, gaiolas e paletes acompanhados do depósito até a entrada na loja.",
+            "Com unitização e redespacho, gaiolas e paletes acompanhados do depósito até a entrada na loja.",
         },
       ],
     },
@@ -350,7 +352,7 @@ export const FAQ = {
     {
       question: "Preciso contratar todos os módulos?",
       answer:
-        "Não. O ciclo essencial é Alerta, Pedido, Tarefa e Estratégia. Unitização, Produção, Cadeia e Vitrine entram conforme a operação.",
+        "Não. O ciclo essencial é Alerta, Pedido, Tarefa e Estratégia. Unitização e Redespacho, Produção, Integração e Vitrine entram conforme a operação.",
     },
   ],
 } as const;

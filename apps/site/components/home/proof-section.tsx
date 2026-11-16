@@ -5,7 +5,7 @@ import { CountUp } from "@/components/motion/count-up";
 import { InView, Kicker, KineticText, Marquee } from "@/components/motion/xp";
 import { FounderVideo } from "@/components/sections/founder-video";
 import { FOUNDER, FOUNDER_VIDEOS } from "@/lib/constants/lp";
-import { CLIENT_LOGOS } from "@/lib/constants/site-data";
+import { CLIENT_LOGOS, LOGO_AJUSTE } from "@/lib/constants/site-data";
 
 /** Indicadores do case Cometa Supermercados — confirmados pela organização (CLAUDE.md). */
 const COMETA = [
@@ -114,10 +114,10 @@ export function ProofSection() {
               </div>
               <div className="rounded-3xl border border-surface-border p-6">
                 <p className="font-display text-display-lg font-bold text-text-primary">
-                  +<CountUp value={20} />
+                  +<CountUp value={10} />
                 </p>
                 <p className="mt-1 text-body-sm text-text-secondary">
-                  empresas na Rede Terus
+                  distribuidores e indústrias
                 </p>
               </div>
             </div>
@@ -144,14 +144,21 @@ export function ProofSection() {
         {CLIENT_LOGOS.map((c) => (
           <span
             key={c.name}
-            className="mx-10 flex h-12 w-32 items-center justify-center opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+            className="mx-10 flex h-16 w-40 items-center justify-center overflow-hidden"
           >
             <Image
               src={c.logo}
               alt={c.name}
-              width={128}
-              height={48}
-              className="h-auto max-h-12 w-auto object-contain"
+              width={480}
+              height={192}
+              className="h-full w-full object-contain"
+              style={
+                LOGO_AJUSTE[c.logo]
+                  ? {
+                      transform: `scale(${LOGO_AJUSTE[c.logo].z}) translate(${LOGO_AJUSTE[c.logo].x}px, ${LOGO_AJUSTE[c.logo].y}px)`,
+                    }
+                  : undefined
+              }
             />
           </span>
         ))}

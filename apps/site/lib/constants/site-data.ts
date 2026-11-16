@@ -370,6 +370,8 @@ export const INTEGRACOES = [
  * ERPs com integração documentada (wiki.terus.tec.br/varejo).
  * `logo` aponta para /logos/erps/* quando o arquivo oficial existir;
  * sem arquivo, o chip renderiza a inicial tipográfica.
+ * `vendor` é o fabricante do ERP; vazio quando o nome já é a própria empresa
+ * ou quando o fabricante ainda não foi confirmado (VitSis).
  */
 export interface ErpEcosystemItem {
   name: string;
@@ -381,13 +383,18 @@ export interface ErpEcosystemItem {
 export const ERP_ECOSYSTEM: ErpEcosystemItem[] = [
   { name: "RMS", vendor: "TOTVS", side: "varejo", logo: null },
   { name: "Consinco", vendor: "TOTVS", side: "varejo", logo: null },
-  { name: "VR Software", vendor: "PostgreSQL", side: "varejo", logo: null },
-  { name: "CISS Poder", vendor: "API Integrim", side: "varejo", logo: null },
-  { name: "RPInfo", vendor: "API REST", side: "varejo", logo: null },
-  { name: "API REST", vendor: "JWT ou chave", side: "varejo", logo: null },
+  { name: "VR Software", vendor: "", side: "varejo", logo: null },
+  { name: "CISS Poder", vendor: "CISS", side: "varejo", logo: null },
+  { name: "RPInfo", vendor: "", side: "varejo", logo: null },
+  {
+    name: "API REST",
+    vendor: "sistema próprio da rede",
+    side: "varejo",
+    logo: null,
+  },
   { name: "Winthor", vendor: "TOTVS", side: "fornecedor", logo: null },
-  { name: "Sankhya", vendor: "Gateway REST", side: "fornecedor", logo: null },
-  { name: "VitSis", vendor: "Firebird", side: "fornecedor", logo: null },
+  { name: "Sankhya", vendor: "", side: "fornecedor", logo: null },
+  { name: "VitSis", vendor: "", side: "fornecedor", logo: null },
 ];
 
 /** Segurança da integração — fatos dos manuais técnicos da wiki. */
@@ -808,11 +815,14 @@ export const REDE_TERUS = {
   distribuidores: uniqueBySlug(DISTRIBUIDORES),
 };
 
+/** Fora da faixa de logos a pedido do Rodrigo (chamada de 16/11/2026). */
+const FORA_DA_FAIXA = new Set(["freitas-varejo"]);
+
 export const CLIENT_LOGOS = [
   ...REDE_TERUS.varejos,
   ...REDE_TERUS.distribuidores,
 ].flatMap((company) =>
-  company.logos.primary
+  company.logos.primary && !FORA_DA_FAIXA.has(company.slug)
     ? [{ name: company.name, logo: company.logos.primary }]
     : [],
 );
@@ -949,3 +959,29 @@ export const CONTEUDOS_CASES: CaseStudy[] = [
     },
   },
 ];
+
+/**
+ * Ajuste de enquadramento dos logos da faixa (caixa de 160×64 px): os arquivos em
+ * apps/web/public/logos têm margens transparentes diferentes, e o Rodrigo pediu
+ * todos do tamanho do Cometa. `z` é o zoom e `x`/`y` o deslocamento em px, calculados
+ * a partir da área desenhada de cada imagem.
+ */
+export const LOGO_AJUSTE: Record<string, { z: number; x: number; y: number }> =
+  {
+    "/logos/clientes/baratao.png": { z: 1.99, x: -0.3, y: -1.4 },
+    "/logos/clientes/centerbox.png": { z: 3.05, x: 0, y: 0.1 },
+    "/logos/clientes/fazendinha.png": { z: 3.28, x: 0, y: 0 },
+    "/logos/clientes/frangolandia.png": { z: 1.05, x: 0, y: 0 },
+    "/logos/clientes/guara.png": { z: 3.08, x: -0.1, y: -0.2 },
+    "/logos/clientes/novaopcao.png": { z: 2.54, x: 0, y: 0 },
+    "/logos/clientes/pinheiro.png": { z: 1.09, x: 0, y: 0 },
+    "/logos/clientes/saoluiz.png": { z: 2.15, x: -0.1, y: -0.1 },
+    "/logos/clientes/superdopovo.png": { z: 1.21, x: -0.1, y: 0 },
+    "/logos/clientes/superlagoa.png": { z: 1.8, x: 0.1, y: 0.4 },
+    "/logos/distribuidores/asabranca.png": { z: 1.24, x: 0.3, y: -1.5 },
+    "/logos/distribuidores/donizete.png": { z: 1.99, x: 0.7, y: 2 },
+    "/logos/distribuidores/dorigem.png": { z: 1.63, x: 0, y: 0 },
+    "/logos/distribuidores/dsl.png": { z: 2.96, x: 0.1, y: 0 },
+    "/logos/distribuidores/ja.png": { z: 3.99, x: -1.7, y: 0.1 },
+    "/logos/distribuidores/rb.png": { z: 1.24, x: 0.1, y: 0.1 },
+  };

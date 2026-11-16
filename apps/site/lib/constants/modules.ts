@@ -99,7 +99,7 @@ export const MODULES: ModuleDefinition[] = [
   },
   {
     slug: "unitization",
-    name: "Terus Unitização",
+    name: "Terus Unitização e Redespacho",
     group: "expansao",
     tagline: "Da gaiola no CD até a entrada na loja",
     description:
@@ -131,7 +131,7 @@ export const MODULES: ModuleDefinition[] = [
   },
   {
     slug: "chain",
-    name: "Terus Cadeia",
+    name: "Terus Integração",
     group: "expansao",
     tagline: "Pontuação dos fornecedores e saúde dos dados",
     description:

@@ -25,7 +25,7 @@ const PORTAL_BLOCKS: { name: string; varejo: string; fornecedor: string }[] = [
       "Pedidos do varejo, negociação, vendas ao consumidor/compras da rede, devoluções, catálogo, de-para",
   },
   {
-    name: "Unitização e expedição",
+    name: "Unitização e Redespacho",
     varejo: "Rastreamento de cargas e etiquetas (se ativo)",
     fornecedor:
       "Rastreamento de cargas, separação, etiquetas, parâmetros do CD",
@@ -46,7 +46,7 @@ const PORTAL_BLOCKS: { name: string; varejo: string; fornecedor: string }[] = [
     fornecedor: "—",
   },
   {
-    name: "Cadeia de abastecimento",
+    name: "Integração",
     varejo: "Integração e pontuação de fornecedores",
     fornecedor: "Desempenho no varejo (em Pedidos)",
   },

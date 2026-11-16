@@ -175,8 +175,8 @@ export function StepConclusao() {
             })}
           </ul>
           <p className="mt-3 text-body-sm text-text-tertiary">
-            Expansão (Unitização, Produção, Cadeia, Vitrine) entra conforme a
-            proposta.
+            Expansão (Unitização e Redespacho, Produção, Integração, Vitrine)
+            entra conforme a proposta.
           </p>
         </div>
 

@@ -106,9 +106,9 @@ export function ModulesOrbit() {
             className="xp-in text-body-lg text-text-secondary lg:col-span-5"
             style={{ "--d": "300ms" } as React.CSSProperties}
           >
-            O ciclo essencial é Alerta, Pedido, Tarefa e Estratégia. Unitização,
-            Produção, Cadeia e Vitrine entram conforme a operação — ninguém
-            precisa contratar tudo de uma vez.
+            O ciclo essencial é Alerta, Pedido, Tarefa e Estratégia. Unitização
+            e Redespacho, Produção, Integração e Vitrine entram conforme a
+            operação — ninguém precisa contratar tudo de uma vez.
           </p>
         </InView>
 

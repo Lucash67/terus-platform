@@ -29,9 +29,11 @@ function ErpChip({ erp }: { erp: ErpEcosystemItem }) {
         <p className="truncate font-display text-body-md font-semibold text-text-primary transition-colors group-hover:text-brand-primary">
           {erp.name}
         </p>
-        <p className="truncate font-mono text-caption uppercase tracking-wider text-text-tertiary">
-          {erp.vendor}
-        </p>
+        {erp.vendor ? (
+          <p className="truncate font-mono text-caption uppercase tracking-wider text-text-tertiary">
+            {erp.vendor}
+          </p>
+        ) : null}
       </div>
       <span
         className={[

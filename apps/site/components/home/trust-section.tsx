@@ -26,9 +26,11 @@ function ErpChip({ name, vendor }: { name: string; vendor: string }) {
       <span className="font-display text-heading-md font-semibold text-text-primary">
         {name}
       </span>
-      <span className="font-mono text-caption text-text-tertiary">
-        {vendor}
-      </span>
+      {vendor ? (
+        <span className="font-mono text-caption text-text-tertiary">
+          {vendor}
+        </span>
+      ) : null}
     </span>
   );
 }

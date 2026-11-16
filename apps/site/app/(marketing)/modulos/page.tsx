@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Módulos Terus — Operação Integrada",
   description:
-    "Alerta, Pedido, Tarefa e Estratégia formam o ciclo da gôndola; Unitização, Produção, Cadeia e Vitrine expandem para logística, produção, fornecedores e exposição.",
+    "Alerta, Pedido, Tarefa e Estratégia formam o ciclo da gôndola; Unitização e Redespacho, Produção, Integração e Vitrine expandem para logística, produção, fornecedores e exposição.",
   path: "/modulos",
 });
 

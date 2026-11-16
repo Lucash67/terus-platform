@@ -11,6 +11,8 @@ import {
   KineticText,
   useSceneProgress,
 } from "@/components/motion/xp";
+import { PlatformScreenshot } from "@/components/sections/platform-screenshot";
+import { PLATFORM_SCREENS, type PlatformScreen } from "@/lib/constants/lp";
 import { CAMADA_INTEGRACAO_HEADER } from "@/lib/constants/site-data";
 
 interface Station {
@@ -20,6 +22,8 @@ interface Station {
   text: string;
   facts: string[];
   href?: string;
+  /** Tela real do portal no lugar da sigla grande */
+  screen?: PlatformScreen;
 }
 
 /* Fontes: technology.ts e CAMADA_INTEGRACAO (wiki/terustec.com.br), lp.ts (FAQ). */
@@ -52,8 +56,8 @@ const STATIONS: Station[] = [
     code: "PRT",
     name: "Portal",
     role: "Decisão",
-    text: "Diretoria vê o resumo do dia, o comprador abre a mesa com a carteira dele e aprova a reposição.",
-    facts: ["Painel de alertas", "Mesa do comprador", "Resumo do dia"],
+    text: "Toda a gestão do varejo e do fornecedor. No Portal do Varejo, a diretoria vê o resumo do dia e o comprador aprova a reposição; no Portal do Fornecedor, a indústria acompanha alertas, vendas e pedidos dos seus produtos.",
+    facts: ["Portal do Varejo", "Portal do Fornecedor", "Resumo do dia"],
     href: "/tecnologia/portal-do-cliente",
   },
   {
@@ -83,6 +87,7 @@ const STATIONS: Station[] = [
     text: "O portal mede cada alerta: venda antes e depois, acerto, reincidência e o valor capturado contra o deixado na mesa.",
     facts: ["Por loja", "Por colaborador", "Por alerta"],
     href: "/plataforma",
+    screen: PLATFORM_SCREENS.monitor,
   },
 ];
 
@@ -113,16 +118,26 @@ function StationCard({
           {s.role}
         </span>
       </div>
-      <p
-        className={cn(
-          "mt-8 font-display font-bold leading-none tracking-tighter transition-colors duration-700",
-          active ? "text-brand-primary" : "xp-outline-text",
-        )}
-        style={{ fontSize: "clamp(3.5rem, 6vw, 5.5rem)" }}
-        aria-hidden="true"
-      >
-        {s.code}
-      </p>
+      {s.screen ? (
+        <div className="mt-8 overflow-hidden rounded-xl border border-surface-border">
+          <PlatformScreenshot
+            screen={s.screen}
+            sizes="(min-width: 1024px) 26rem, 90vw"
+            className="h-[5.5rem] w-full object-cover object-top sm:h-28"
+          />
+        </div>
+      ) : (
+        <p
+          className={cn(
+            "mt-8 font-display font-bold leading-none tracking-tighter transition-colors duration-700",
+            active ? "text-brand-primary" : "xp-outline-text",
+          )}
+          style={{ fontSize: "clamp(3.5rem, 6vw, 5.5rem)" }}
+          aria-hidden="true"
+        >
+          {s.code}
+        </p>
+      )}
       <h3 className="mt-6 font-display text-heading-xl font-bold text-text-primary">
         {s.name}
       </h3>
@@ -175,19 +190,54 @@ export function SignalJourney() {
     return () => window.removeEventListener("resize", measure);
   }, [sceneRef]);
 
+  // Rolagem para o lado (trackpad ou Shift + roda) também anda pelo trilho
+  React.useEffect(() => {
+    const scene = sceneRef.current;
+    if (!scene) return;
+    const onWheel = (e: WheelEvent) => {
+      const dx = e.shiftKey && e.deltaX === 0 ? e.deltaY : e.deltaX;
+      if (!e.shiftKey && Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      const rect = scene.getBoundingClientRect();
+      const span = rect.height - window.innerHeight;
+      if (span <= 0) return;
+      const p = -rect.top / span;
+      if ((p <= 0 && dx < 0) || (p >= 1 && dx > 0)) return;
+      const track = trackRef.current;
+      const travel = track
+        ? Math.max(1, track.scrollWidth - window.innerWidth + 96)
+        : span;
+      e.preventDefault();
+      window.scrollBy({ top: dx * (span / travel) });
+    };
+    scene.addEventListener("wheel", onWheel, { passive: false });
+    return () => scene.removeEventListener("wheel", onWheel);
+  }, [sceneRef]);
+
+  const goTo = (i: number) => {
+    const scene = sceneRef.current;
+    if (!scene) return;
+    const span = scene.offsetHeight - window.innerHeight;
+    const top = scene.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: top + span * ((i + 0.5) / STATIONS.length),
+      behavior: "smooth",
+    });
+  };
+
   const intro = (
     <InView className="max-w-3xl">
       <Kicker index="02" className="xp-in">
         O caminho do dado
       </Kicker>
       <h2 className="mt-6 font-display text-display-lg font-bold tracking-tight text-text-primary sm:text-display-xl">
-        <KineticText text="Do banco do ERP até a foto da gôndola." />
+        <KineticText text="Do ERP até a foto da gôndola." />
       </h2>
       <p
         className="xp-in mt-6 text-body-lg text-text-secondary"
         style={{ "--d": "250ms" } as React.CSSProperties}
       >
-        Sete paradas, um ciclo fechado. Role para seguir o sinal.
+        Sete paradas, um ciclo fechado. Role para baixo ou para o lado para
+        seguir o sinal.
       </p>
     </InView>
   );
@@ -221,15 +271,23 @@ export function SignalJourney() {
           </div>
 
           <Container className="mt-10">
-            <div className="flex items-center gap-3" aria-hidden="true">
+            <div className="flex items-center gap-3">
               {STATIONS.map((s, i) => (
-                <span
+                <button
                   key={s.code}
-                  className={cn(
-                    "h-1 flex-1 rounded-full transition-colors duration-500",
-                    i <= active ? "bg-brand-primary" : "bg-surface-border",
-                  )}
-                />
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`Ir para ${s.name}`}
+                  aria-current={i === active ? "step" : undefined}
+                  className="group flex-1 py-2"
+                >
+                  <span
+                    className={cn(
+                      "block h-1 rounded-full transition-colors duration-500 group-hover:bg-brand-primary/60",
+                      i <= active ? "bg-brand-primary" : "bg-surface-border",
+                    )}
+                  />
+                </button>
               ))}
             </div>
             <p

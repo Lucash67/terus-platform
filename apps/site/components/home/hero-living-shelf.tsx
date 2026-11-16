@@ -1,17 +1,14 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { cn } from "@terus/ui";
 
 import { Container } from "@/components/layout/container";
 import {
   InView,
   KineticText,
-  Magnetic,
   prefersReducedMotion,
 } from "@/components/motion/xp";
-import { CTA } from "@/lib/constants/conversion";
 import { ERP_ECOSYSTEM } from "@/lib/constants/site-data";
 
 const COLS = 8;
@@ -162,12 +159,12 @@ function LivingShelf() {
 
 const STATS = [
   { value: "13", label: "tipos de alerta operacional" },
-  { value: "6", label: "filas guiadas no aplicativo da loja" },
+  { value: "6", label: "tipos de atividade no aplicativo" },
   {
     value: String(ERP_ECOSYSTEM.length),
-    label: "integrações de ERP documentadas",
+    label: "ERPs integrados",
   },
-  { value: "+20", label: "empresas na Rede Terus" },
+  { value: "315", label: "lojas de varejo ativas, em 15 redes" },
 ];
 
 export function HeroLivingShelf() {
@@ -211,20 +208,6 @@ export function HeroLivingShelf() {
               className="xp-in mt-10 flex flex-wrap items-center gap-4"
               style={{ "--d": "750ms" } as React.CSSProperties}
             >
-              <Magnetic>
-                <Link
-                  href={CTA.primary.href}
-                  className="group inline-flex items-center gap-3 rounded-full bg-brand-primary px-7 py-4 text-body-lg font-semibold text-surface-base shadow-glow"
-                >
-                  {CTA.primary.label}
-                  <span
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  >
-                    →
-                  </span>
-                </Link>
-              </Magnetic>
               <a
                 href="#jornada"
                 className="group inline-flex items-center gap-3 rounded-full border border-surface-border px-7 py-4 text-body-lg font-medium text-text-primary transition-colors hover:border-brand-primary/50"
