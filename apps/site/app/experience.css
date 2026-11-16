@@ -1,0 +1,438 @@
+/*
+ * Terus Experience — camada de motion do site institucional (apps/site).
+ * Tudo com tokens (rgb(var(--*-rgb))) para funcionar nos temas escuro e claro.
+ * Movimento só com transform/opacity/clip-path; prefers-reduced-motion desliga tudo.
+ */
+
+/* ───────── Atmosfera ───────── */
+
+.xp-grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: xp-grain 1.2s steps(4) infinite;
+}
+.light .xp-grain {
+  opacity: 0.035;
+}
+@keyframes xp-grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-4%, 2%);
+  }
+  50% {
+    transform: translate(3%, -3%);
+  }
+  75% {
+    transform: translate(-2%, -4%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.xp-aura {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgb(var(--brand-primary-rgb) / 0.12),
+    transparent 62%
+  );
+  transform: translate3d(var(--ax, -999px), var(--ay, -999px), 0);
+  transition: opacity 0.4s;
+}
+
+.xp-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 70;
+  height: 2px;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--sp, 0));
+  background: linear-gradient(
+    90deg,
+    rgb(var(--brand-secondary-rgb)),
+    rgb(var(--brand-primary-rgb))
+  );
+  box-shadow: 0 0 12px rgb(var(--brand-primary-rgb) / 0.6);
+}
+
+.xp-dots {
+  background-image: radial-gradient(
+    rgb(var(--text-primary-rgb) / 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.xp-lines {
+  background-image:
+    linear-gradient(rgb(var(--surface-border-rgb) / 0.35) 1px, transparent 1px),
+    linear-gradient(
+      90deg,
+      rgb(var(--surface-border-rgb) / 0.35) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+.xp-outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(var(--text-primary-rgb) / 0.18);
+}
+
+.xp-gradient-text {
+  background: linear-gradient(
+    100deg,
+    rgb(var(--brand-primary-rgb)),
+    rgb(var(--brand-secondary-rgb)) 55%,
+    rgb(var(--brand-primary-rgb))
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: xp-shine 6s linear infinite;
+}
+@keyframes xp-shine {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* ───────── Tipografia cinética ───────── */
+
+.xp-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+}
+.xp-word > span {
+  display: inline-block;
+  transform: translateY(105%) rotate(4deg);
+  opacity: 0;
+  transition:
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 55ms + var(--d, 0ms));
+}
+.is-in .xp-word > span {
+  transform: none;
+  opacity: 1;
+}
+
+/* ───────── Entrada por scroll ───────── */
+
+.xp-in {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.is-in.xp-in,
+.is-in .xp-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.xp-clip {
+  clip-path: inset(0 0 100% 0 round 24px);
+  transition: clip-path 1.2s cubic-bezier(0.7, 0, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+.is-in.xp-clip,
+.is-in .xp-clip {
+  clip-path: inset(0 0 0 0 round 24px);
+}
+
+/* ───────── Transição entre páginas ───────── */
+
+.xp-page {
+  animation: xp-page-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes xp-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.xp-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.xp-curtain > span {
+  background: rgb(var(--brand-primary-rgb));
+  transform-origin: 50% 0;
+  animation: xp-curtain 0.9s cubic-bezier(0.7, 0, 0.2, 1) both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+.xp-curtain > span:nth-child(even) {
+  background: rgb(var(--brand-secondary-rgb));
+}
+@keyframes xp-curtain {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+/* Entrada de itens que trocam de conteúdo: só movimento, o texto nunca fica invisível */
+.xp-pop {
+  animation: xp-pop 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes xp-pop {
+  from {
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* ───────── Componentes ───────── */
+
+.xp-marquee {
+  display: flex;
+  width: max-content;
+  animation: xp-marquee var(--dur, 40s) linear infinite;
+}
+.xp-marquee[data-reverse="true"] {
+  animation-direction: reverse;
+}
+.xp-marquee-wrap:hover .xp-marquee {
+  animation-play-state: paused;
+}
+@keyframes xp-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.xp-spot {
+  position: relative;
+  isolation: isolate;
+}
+.xp-spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(
+    360px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(var(--brand-primary-rgb) / 0.16),
+    transparent 60%
+  );
+  transition: opacity 0.3s;
+}
+.xp-spot:hover::before {
+  opacity: 1;
+}
+
+.xp-tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg));
+  transition: transform 0.25s ease-out;
+  transform-style: preserve-3d;
+}
+
+.xp-pulse {
+  animation: xp-pulse 2.2s ease-in-out infinite;
+}
+@keyframes xp-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.82);
+  }
+}
+
+.xp-ring {
+  position: relative;
+}
+.xp-ring::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 1px solid currentColor;
+  animation: xp-ring 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes xp-ring {
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.xp-scan {
+  animation: xp-scan 3.6s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+@keyframes xp-scan {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1100%);
+    opacity: 0;
+  }
+}
+
+.xp-orbit {
+  animation: xp-orbit var(--dur, 60s) linear infinite;
+}
+.xp-orbit-counter {
+  animation: xp-orbit var(--dur, 60s) linear infinite reverse;
+}
+.xp-orbit-wrap:hover .xp-orbit,
+.xp-orbit-wrap:hover .xp-orbit-counter,
+.xp-orbit-wrap:focus-within .xp-orbit,
+.xp-orbit-wrap:focus-within .xp-orbit-counter {
+  animation-play-state: paused;
+}
+@keyframes xp-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.xp-dash {
+  stroke-dasharray: 6 10;
+  animation: xp-dash 1.2s linear infinite;
+}
+@keyframes xp-dash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+.xp-float {
+  animation: xp-float 6s ease-in-out infinite;
+}
+@keyframes xp-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.relay-packet {
+  left: 0;
+  animation: relay 5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes relay {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 16px);
+    opacity: 0;
+  }
+}
+
+.xp-bar {
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.is-in .xp-bar {
+  transform: scaleX(var(--v, 1));
+}
+
+/* Barra horizontal de cena fixada (scroll horizontal) */
+.xp-track {
+  transform: translate3d(calc(var(--p, 0) * var(--travel, 0px) * -1), 0, 0);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xp-grain,
+  .xp-aura,
+  .xp-curtain {
+    display: none;
+  }
+  .xp-word > span,
+  .xp-in,
+  .xp-bar,
+  .xp-clip {
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+  .xp-page,
+  .xp-pop,
+  .xp-marquee,
+  .xp-pulse,
+  .xp-ring::after,
+  .xp-scan,
+  .xp-orbit,
+  .xp-orbit-counter,
+  .xp-dash,
+  .xp-float,
+  .relay-packet,
+  .xp-gradient-text {
+    animation: none !important;
+  }
+}

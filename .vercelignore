@@ -1,0 +1,7 @@
+# Uploads do Vercel CLI: fora o que o build do site nao usa
+docs/
+infra/
+apps/api/
+**/node_modules
+**/.next
+apps/site/public/
