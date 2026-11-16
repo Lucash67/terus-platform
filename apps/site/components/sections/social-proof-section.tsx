@@ -77,7 +77,7 @@ export function SocialProofSection() {
               <div className="border-b border-surface-border bg-surface-elevated-1/80 px-6 py-5 sm:px-10 sm:py-6">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
-                    Case em produção
+                    Caso em produção
                   </p>
                   {featuredCase.logos.primary ? (
                     <div className="tr-logo-chip h-16 px-5 py-2">
@@ -178,7 +178,7 @@ export function SocialProofSection() {
                     href="/cases"
                     className="inline-flex items-center gap-2 text-body-sm font-medium text-brand-primary transition-colors duration-200 hover:text-brand-primary-hover hover:underline"
                   >
-                    Ver case completo com todos os indicadores →
+                    Ver caso completo com todos os indicadores →
                   </Link>
                 </p>
               </div>

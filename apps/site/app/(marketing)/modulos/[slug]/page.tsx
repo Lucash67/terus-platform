@@ -119,7 +119,7 @@ export default function ModuleDetailPage({ params }: ModulePageProps) {
             </h2>
             <p className="mt-2 max-w-2xl text-body-lg text-text-secondary">
               Funcionalidades projetadas para operações de varejo e distribuição
-              em escala enterprise.
+              em escala de grandes redes.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">

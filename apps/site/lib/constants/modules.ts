@@ -32,14 +32,14 @@ export interface ModuleDefinition {
 export const MODULES: ModuleDefinition[] = [
   {
     slug: "alert",
-    name: "Terus Alert",
+    name: "Terus Alerta",
     group: "core",
     tagline: "O que está tirando venda da loja, hoje",
     description:
       "Painel de alertas da rede e da filial — ruptura, risco de ruptura, excesso, sem venda, queda, oferta, preço e margem. O comprador tem a própria mesa, só com a carteira dele.",
     features: [
       "13 tipos de alerta: ruptura, excesso, sem venda, queda, margem negativa e mais",
-      "Mesa do comprador: carteira, mix, divergência de custo e produtos sem giro 30+ dias",
+      "Mesa do comprador: carteira, sortimento, divergência de custo e produtos sem giro 30+ dias",
       "Detalhe por produto, filial, seção e dias sem venda",
       "Resumo do dia para a diretoria",
     ],
@@ -49,7 +49,7 @@ export const MODULES: ModuleDefinition[] = [
   },
   {
     slug: "order",
-    name: "Terus Order",
+    name: "Terus Pedido",
     group: "core",
     tagline: "Reposição que chega ao fornecedor — e ao ERP dele",
     description:
@@ -58,18 +58,18 @@ export const MODULES: ModuleDefinition[] = [
       "Pedido de reposição sugerido por estoque e venda",
       "Fornecedor aprova e o pedido entra no ERP dele (Winthor, Sankhya, VitSis)",
       "Devolução de excesso com contagem cega na loja",
-      "Negociação de margem, sell-in e sell-out",
+      "Negociação de margem, compras da rede e vendas ao consumidor",
     ],
     metric: "0,5%",
-    metricLabel: "Rejeição de pedido no ERP (case)",
+    metricLabel: "Rejeição de pedido no ERP (caso)",
   },
   {
     slug: "task",
-    name: "Terus Task",
+    name: "Terus Tarefa",
     group: "core",
     tagline: "A loja corrige primeiro o que mais devolve dinheiro",
     description:
-      "App da loja que conduz o operador, um produto de cada vez: abastecer a gôndola, corrigir a exposição, destacar e retirar oferta. A fila é ordenada pelo valor em R$ que cada item pode recuperar.",
+      "Aplicativo da loja que conduz o operador, um produto de cada vez: abastecer a gôndola, corrigir a exposição, destacar e retirar oferta. A fila é ordenada pelo valor em R$ que cada item pode recuperar.",
     features: [
       "Fila priorizada por retorno em R$ (Alto, Médio, Baixo)",
       "Roteiro guiado com leitura do código de barras e foto de evidência",
@@ -82,24 +82,24 @@ export const MODULES: ModuleDefinition[] = [
   },
   {
     slug: "strategy",
-    name: "Terus Strategy",
+    name: "Terus Estratégia",
     group: "core",
     tagline: "Metas, vendas, compras e estoque em um painel",
     description:
-      "Inteligência comercial da rede: metas por comprador, seção e loja; vendas vs. ano anterior; entradas; posição e ranking de estoque; ruptura e nível de serviço.",
+      "Inteligência comercial da rede: metas por comprador, seção e loja; vendas vs. ano anterior; entradas; posição e classificação de estoque; ruptura e nível de serviço.",
     features: [
       "Definição e acompanhamento de metas",
       "Vendas por loja, categoria e vs. ano anterior",
-      "Ranking de estoque com o excesso caro no topo",
+      "Classificação de estoque com o excesso caro no topo",
       "Ruptura, nível de serviço e divergência de inventário",
     ],
-    metric: "YoY",
+    metric: "Ano a ano",
     metricLabel: "Tendência para decidir",
     screen: PLATFORM_SCREENS.ranking,
   },
   {
     slug: "unitization",
-    name: "Terus Unitization",
+    name: "Terus Unitização",
     group: "expansao",
     tagline: "Da gaiola no CD até a entrada na loja",
     description:
@@ -108,14 +108,14 @@ export const MODULES: ModuleDefinition[] = [
       "Etiquetas de gaiola e palete",
       "Rastreamento de cargas: separado, em trânsito, recebido",
       "Separação prevista × realizada",
-      "Recebimento no app com contagem cega",
+      "Recebimento no aplicativo com contagem cega",
     ],
     metric: "CD→Loja",
     metricLabel: "Volume rastreado",
   },
   {
     slug: "production",
-    name: "Terus Production",
+    name: "Terus Produção",
     group: "expansao",
     tagline: "Padaria, açougue e rotisseria sob controle",
     description:
@@ -131,18 +131,18 @@ export const MODULES: ModuleDefinition[] = [
   },
   {
     slug: "chain",
-    name: "Terus Chain",
+    name: "Terus Cadeia",
     group: "expansao",
-    tagline: "Score dos fornecedores e saúde dos dados",
+    tagline: "Pontuação dos fornecedores e saúde dos dados",
     description:
       "Avaliação de fornecedores (atendimento, ruptura, prazo) para a reunião comercial e monitoramento da qualidade da integração com o ERP.",
     features: [
-      "Ranking de fornecedores na rede",
+      "Classificação de fornecedores na rede",
       "Resultado da integração por ciclo",
       "Saúde da integração: completude e atraso",
       "Conferência ERP × Terus",
     ],
-    metric: "Score",
+    metric: "Pontuação",
     metricLabel: "Desempenho do fornecedor",
   },
   {
@@ -151,14 +151,14 @@ export const MODULES: ModuleDefinition[] = [
     group: "expansao",
     tagline: "Gestão de espaço e exposição da loja",
     description:
-      "Mapa de exposição por filial, medidas e foto de cada SKU e replicação do layout de uma loja modelo para outra.",
+      "Mapa de exposição por filial, medidas e foto de cada SKU e replicação da disposição de uma loja modelo para outra.",
     features: [
       "Mapa de exposição por gôndola",
       "Medidas e foto do SKU",
-      "Replicar layout entre lojas",
-      "Auditoria da vitrine pelo app",
+      "Replicar disposição entre lojas",
+      "Auditoria da vitrine pelo aplicativo",
     ],
-    metric: "Layout",
+    metric: "Disposição",
     metricLabel: "Exposição planejada",
   },
 ];

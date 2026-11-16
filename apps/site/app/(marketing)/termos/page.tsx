@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Termos de Uso",
-  description: "Condições de uso do site e do cadastro online da Terus.",
+  description: "Condições de uso do site e do cadastro pela internet da Terus.",
   path: "/termos",
 });
 

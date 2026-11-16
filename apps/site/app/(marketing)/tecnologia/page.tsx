@@ -7,9 +7,9 @@ import { TechIndex } from "@/components/technology/tech-index";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Tecnologia — Agent, IAproc, Bond e Portal",
+  title: "Tecnologia — Agente, IAproc, Vínculo e Portal",
   description:
-    "Os componentes por trás da Terus: captura (Agent), inteligência (IAproc), integração (Bond), Portal do Cliente, Task Web e Teams.",
+    "Os componentes por trás da Terus: captura (Agente), inteligência (IAproc), integração (Vínculo), Portal do Cliente, Painel de Tarefas e Equipes.",
   path: "/tecnologia",
 });
 

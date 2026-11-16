@@ -183,7 +183,7 @@ export function FictionalDemoSection({ id = "demo" }: { id?: string }) {
             ) : (
               <p className="text-body-sm text-text-tertiary">
                 Na plataforma real, os alertas vêm do ERP da rede e a loja
-                executa pelo app Terus Task.
+                executa pelo aplicativo Terus Tarefa.
               </p>
             )}
           </div>

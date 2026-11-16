@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Política de Privacidade",
   description:
-    "Como a Terus trata os dados pessoais do site e do cadastro online (LGPD).",
+    "Como a Terus trata os dados pessoais do site e do cadastro pela internet (LGPD).",
   path: "/privacidade",
 });
 

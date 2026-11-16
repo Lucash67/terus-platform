@@ -145,7 +145,7 @@ export function TaskAppSection() {
           <div
             className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary sm:hidden"
             role="region"
-            aria-label="Telas do app Terus Task (role para o lado)"
+            aria-label="Telas do aplicativo Terus Tarefa (role para o lado)"
             tabIndex={0}
           >
             {TASK_APP.posters.map((poster, index) => (

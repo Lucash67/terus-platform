@@ -16,7 +16,7 @@ export const SECURITY_POINTS = [
   {
     title: "Dados compactados e criptografados",
     description:
-      "O Agent compacta e criptografa o resultado das consultas antes de enviá-lo à nuvem da Terus.",
+      "O Agente compacta e criptografa o resultado das consultas antes de enviá-lo à nuvem da Terus.",
   },
   {
     title: "Sem VPN",

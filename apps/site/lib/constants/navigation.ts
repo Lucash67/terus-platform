@@ -41,7 +41,7 @@ export const MAIN_NAV: NavGroup[] = [
         label: "Tecnologia",
         href: "/tecnologia",
         description:
-          "Agent, IAproc, Bond, Portal do Cliente, Task Web e Teams.",
+          "Agente, IAproc, Vínculo, Portal do Cliente, Painel de Tarefas e Equipes.",
       },
       {
         label: "Integrações",
@@ -80,7 +80,7 @@ export const MAIN_NAV: NavGroup[] = [
       },
     ],
   },
-  { label: "Cases", href: "/cases" },
+  { label: "Casos", href: "/cases" },
   { label: "Conteúdos", href: "/conteudos" },
   { label: "Sobre", href: "/sobre" },
 ];
@@ -108,7 +108,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [
     title: "Empresa",
     links: [
       { label: "Sobre", href: "/sobre" },
-      { label: "Cases", href: "/cases" },
+      { label: "Casos", href: "/cases" },
       { label: "Conteúdos", href: "/conteudos" },
       { label: "Contato", href: "/contato" },
       { label: "Começar agora", href: "/comecar" },

@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Para o varejo — diretoria, comprador e loja",
   description:
-    "Alertas de ruptura, excesso e margem, mesa do comprador e app da loja priorizado por R$ — conectados ao ERP que a rede já usa.",
+    "Alertas de ruptura, excesso e margem, mesa do comprador e aplicativo da loja priorizado por R$ — conectados ao ERP que a rede já usa.",
   path: "/varejo",
 });
 

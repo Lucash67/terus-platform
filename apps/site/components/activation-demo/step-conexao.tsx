@@ -184,7 +184,7 @@ function DbForm({ erp }: { erp: DemoErp }) {
             <Field
               id="schemaOwner"
               label="Schema owner"
-              hint="O DONODOBANCO do script"
+              hint="O DONODOBANCO do roteiro"
             >
               <Input
                 id="schemaOwner"
@@ -332,8 +332,8 @@ export function StepConexao() {
       }
       description={
         isApi
-          ? "O endereço público da API e o usuário de integração. É o que o seu TI devolve no checklist do manual."
-          : "O endereço público do banco e o nome da base. É o que o seu TI devolve no checklist do manual."
+          ? "O endereço público da API e o usuário de integração. É o que o seu TI devolve na lista de verificação do manual."
+          : "O endereço público do banco e o nome da base. É o que o seu TI devolve na lista de verificação do manual."
       }
       wide
     >

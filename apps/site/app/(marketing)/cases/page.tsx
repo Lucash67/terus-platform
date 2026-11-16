@@ -9,9 +9,9 @@ import { Reveal } from "@/components/motion/reveal";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Cases de Sucesso",
+  title: "Casos de Sucesso",
   description:
-    "Cases de sucesso e resultados operacionais validados em ambiente produtivo da Rede Terus — digitalização, Fill Rate, ticket médio e rastreabilidade.",
+    "Casos de sucesso e resultados operacionais validados em ambiente produtivo da Rede Terus — digitalização, Taxa de atendimento, tíquete médio e rastreabilidade.",
   path: "/cases",
 });
 
@@ -26,7 +26,7 @@ export default function CasesPage() {
         <Container className="relative py-20 sm:py-24">
           <div className="hero-fade-in mx-auto max-w-3xl text-center">
             <p className="font-mono text-caption font-semibold uppercase tracking-widest text-brand-primary">
-              Cases de Sucesso
+              Casos de Sucesso
             </p>
             <h1 className="mt-4 font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
               Casos de Uso da <span className="text-gradient">Rede Terus</span>

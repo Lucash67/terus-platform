@@ -92,7 +92,7 @@ function JourneyPanel({ journey }: { journey: Journey }) {
     <div className="flex flex-col gap-6">
       <div className="ob-enter rounded-2xl border border-surface-border bg-gradient-to-br from-brand-primary/10 via-surface-elevated-1 to-surface-elevated-1 p-6 sm:p-8">
         <p className="font-mono text-caption uppercase tracking-widest text-text-tertiary">
-          Status da jornada
+          Situação da jornada
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <h1 className="font-display text-heading-xl font-bold text-text-primary">

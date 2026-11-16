@@ -17,7 +17,7 @@ import {
 const IT_STEPS = [
   "Liberar o IP fixo da Terus no firewall",
   "Criar o usuário de integração",
-  "Aplicar o script de permissões que entregamos pronto",
+  "Aplicar o roteiro de permissões que entregamos pronto",
 ];
 
 function ErpChip({ name, vendor }: { name: string; vendor: string }) {

@@ -138,7 +138,7 @@ export const SUPPLIER_QUOTE = {
     {
       at: 49,
       label: "O promotor sabe o que não vende",
-      hint: "Produto que parou de vender ou caiu forte vai para a fila do promotor no Terus Task.",
+      hint: "Produto que parou de vender ou caiu forte vai para a fila do promotor no Terus Tarefa.",
     },
     {
       at: 58,
@@ -189,7 +189,7 @@ export const PERSONAS: {
         "Tudo o que pede decisão de compra, organizado por fornecedor para a próxima reunião.",
       bullets: [
         "Ruptura em itens de giro e produtos sem giro há 30+ dias",
-        "Divergência de custo e oportunidades de mix",
+        "Divergência de custo e oportunidades de sortimento",
         "Pedido de reposição sugerido por estoque e venda",
         "Aprovação de devoluções de excesso",
       ],
@@ -198,9 +198,9 @@ export const PERSONAS: {
     {
       id: "loja",
       label: "Loja",
-      title: "Um app que diz o que fazer, na ordem certa",
+      title: "Um aplicativo que diz o que fazer, na ordem certa",
       description:
-        "O operador não escolhe por memória. O Terus Task entrega o próximo produto, o roteiro e pede a foto.",
+        "O operador não escolhe por memória. O Terus Tarefa entrega o próximo produto, o roteiro e pede a foto.",
       bullets: [
         "Fila priorizada por retorno em R$ (Alto, Médio, Baixo)",
         "Coletar no depósito e abastecer a gôndola",
@@ -215,7 +215,7 @@ export const PERSONAS: {
       description:
         "O Portal do Fornecedor mostra os seus produtos em cada varejo parceiro — e recebe os pedidos.",
       bullets: [
-        "Alertas e sell-out dos seus SKUs em cada rede",
+        "Alertas e vendas ao consumidor dos seus SKUs em cada rede",
         "Pedidos do varejo aprovados e gravados no seu ERP",
         "Negociação de margem e devolução de excesso",
         "Sugestão de pedido e loja virtual B2B",
@@ -248,13 +248,13 @@ export const PONTE_FORNECEDOR = {
     {
       title: "NF e rastreio",
       description:
-        "Nota fiscal e tracking no portal. Com unitização, cada volume é rastreado até a loja.",
+        "Nota fiscal e rastreio no portal. Com unitização, cada volume é rastreado até a loja.",
       status: "Em rota",
     },
     {
       title: "Loja recebe",
       description:
-        "Com unitização, a loja lê a etiqueta no app e confirma com contagem cega.",
+        "Com unitização, a loja lê a etiqueta no aplicativo e confirma com contagem cega.",
       status: "Recebido",
     },
   ],
@@ -266,12 +266,12 @@ export const PONTE_FORNECEDOR = {
         {
           title: "Pedido da rede direto no ERP",
           description:
-            "Aprovado no portal, entra no Winthor, Sankhya ou VitSis — com status, NF e tracking.",
+            "Aprovado no portal, entra no Winthor, Sankhya ou VitSis — com situação, NF e rastreio.",
         },
         {
           title: "Seus SKUs dentro de cada rede",
           description:
-            "Alertas, sell-out, ruptura e nível de serviço dos seus produtos, loja por loja.",
+            "Alertas, vendas ao consumidor, ruptura e nível de serviço dos seus produtos, loja por loja.",
         },
         {
           title: "Negociação de margem com conformidade",
@@ -296,12 +296,12 @@ export const PONTE_FORNECEDOR = {
         {
           title: "Devolução de excesso com contagem cega",
           description:
-            "A loja conta no Terus Task sem ver o saldo do sistema; o comprador aprova o que volta.",
+            "A loja conta no Terus Tarefa sem ver o saldo do sistema; o comprador aprova o que volta.",
         },
         {
           title: "Execução do promotor na carteira",
           description:
-            "O comprador acompanha a fila do Terus Task de promotores e encarregados na carteira dele.",
+            "O comprador acompanha a fila do Terus Tarefa de promotores e encarregados na carteira dele.",
         },
         {
           title: "Rastreamento de cargas",
@@ -330,12 +330,12 @@ export const FAQ = {
     {
       question: "O que o meu TI precisa fazer?",
       answer:
-        "Liberar o IP fixo da Terus no firewall, criar o usuário de integração e aplicar o script de permissões que entregamos pronto. Não precisa de VPN.",
+        "Liberar o IP fixo da Terus no firewall, criar o usuário de integração e aplicar o roteiro de permissões que entregamos pronto. Não precisa de VPN.",
     },
     {
       question: "A loja precisa de equipamento novo?",
       answer:
-        "Não. O Terus Task roda no celular (Android 8+ ou iOS 15+) e usa a câmera para ler o código de barras e registrar a foto de evidência.",
+        "Não. O Terus Tarefa roda no celular (Android 8+ ou iOS 15+) e usa a câmera para ler o código de barras e registrar a foto de evidência.",
     },
     {
       question: "Como sei se está dando resultado?",
@@ -345,12 +345,12 @@ export const FAQ = {
     {
       question: "Os meus fornecedores também usam?",
       answer:
-        "Sim. Indústrias e distribuidores conectados acessam o Portal do Fornecedor para ver alertas e sell-out dos seus produtos e receber os pedidos da rede direto no ERP deles.",
+        "Sim. Indústrias e distribuidores conectados acessam o Portal do Fornecedor para ver alertas e vendas ao consumidor dos seus produtos e receber os pedidos da rede direto no ERP deles.",
     },
     {
       question: "Preciso contratar todos os módulos?",
       answer:
-        "Não. O ciclo essencial é Alert, Order, Task e Strategy. Unitization, Production, Chain e Vitrine entram conforme a operação.",
+        "Não. O ciclo essencial é Alerta, Pedido, Tarefa e Estratégia. Unitização, Produção, Cadeia e Vitrine entram conforme a operação.",
     },
   ],
 } as const;
@@ -386,7 +386,7 @@ export const PLATFORM_SCREENS = {
     image: "alertboard",
     width: 1920,
     height: 1200,
-    alt: "AlertBoard do Portal Terus Varejo com os tipos de alerta e a quantidade de produtos em cada um",
+    alt: "Painel de Alertas do Portal Terus Varejo com os tipos de alerta e a quantidade de produtos em cada um",
   },
   estoque: {
     image: "estoque",
@@ -398,7 +398,7 @@ export const PLATFORM_SCREENS = {
     image: "ranking",
     width: 1800,
     height: 598,
-    alt: "Ranking de estoque por seção e por fornecedor",
+    alt: "Classificação de estoque por seção e por fornecedor",
   },
   gestao: {
     image: "gestao",
@@ -410,7 +410,7 @@ export const PLATFORM_SCREENS = {
     image: "briefing",
     width: 1920,
     height: 1200,
-    alt: "Briefing do Dono com os indicadores desfocados",
+    alt: "Resumo do Dono com os indicadores desfocados",
   },
   monitor: {
     image: "monitor",
@@ -459,7 +459,7 @@ export const PLATFORM_TOUR: {
     },
     {
       id: "ranking",
-      label: "Ranking de estoque",
+      label: "Classificação de estoque",
       title: "Onde o estoque está parado",
       description:
         "Seções e fornecedores ordenados por saldo, para decidir compra e negociação com o dado na mão.",
@@ -476,10 +476,10 @@ export const PLATFORM_TOUR: {
     },
     {
       id: "briefing",
-      label: "Briefing do Dono",
+      label: "Resumo do Dono",
       title: "O resumo que o dono confere antes de sair",
       description:
-        "Venda do dia, margem, ticket médio, ruptura em giro e a fila da loja, em uma tela.",
+        "Venda do dia, margem, tíquete médio, ruptura em giro e a fila da loja, em uma tela.",
       screen: PLATFORM_SCREENS.briefing,
       locked: true,
     },
@@ -493,31 +493,31 @@ export interface AppPoster {
 }
 
 export const TASK_APP = {
-  badge: "App Terus Task",
+  badge: "Aplicativo Terus Tarefa",
   title: "A correção chega na gôndola",
   titleAccent: "pelo celular da loja",
   description:
-    "O portal aponta o problema; o Terus Task leva o operador até ele. Um produto de cada vez, com o roteiro na tela e a leitura do código de barras para confirmar.",
+    "O portal aponta o problema; o Terus Tarefa leva o operador até ele. Um produto de cada vez, com o roteiro na tela e a leitura do código de barras para confirmar.",
   bullets: [
     "Rotinas por departamento e seção",
     "Coletar no depósito e abastecer a gôndola",
     "Presença, exposição, destaque e retirada de oferta",
-    "Recebimento por gaiola ou palete, com status em tempo real",
+    "Recebimento por gaiola ou palete, com situação em tempo real",
   ],
   posters: [
     {
       image: "/app-task/task-setor.jpg",
-      alt: "Tela inicial do Terus Task com departamento, seção e as rotinas da loja",
+      alt: "Tela inicial do Terus Tarefa com departamento, seção e as rotinas da loja",
       label: "Por setor",
     },
     {
       image: "/app-task/task-tarefa.jpg",
-      alt: "Tarefa guiada no Terus Task com estoque, preço, atividades pendentes e leitura do produto",
+      alt: "Tarefa guiada no Terus Tarefa com estoque, preço, atividades pendentes e leitura do produto",
       label: "Tarefa guiada",
     },
     {
       image: "/app-task/task-coleta.jpg",
-      alt: "Fluxo de coleta e abastecimento no Terus Task com leitura de código de barras",
+      alt: "Fluxo de coleta e abastecimento no Terus Tarefa com leitura de código de barras",
       label: "Coleta e abastecimento",
     },
   ] satisfies AppPoster[],
@@ -529,15 +529,15 @@ export const INTEGRATION_HEALTH = {
   badge: "Avaliação de fornecedores",
   title: "Uma nota de 0 a 100 para cada fornecedor",
   description:
-    "O portal da rede consolida atendimento, ruptura, sell-out, regularidade e lead time em um número compartilhado para a reunião comercial. O fornecedor vê o mesmo espelho em Desempenho no varejo.",
+    "O portal da rede consolida atendimento, ruptura, vendas ao consumidor, regularidade e prazo de entrega em um número compartilhado para a reunião comercial. O fornecedor vê o mesmo espelho em Desempenho no varejo.",
   score: 71,
   status: "Atenção",
   pillars: [
     { label: "Atendimento", score: 78 },
     { label: "Ruptura", score: 57 },
-    { label: "Sell-out", score: 38 },
+    { label: "Vendas ao consumidor", score: 38 },
     { label: "Regularidade", score: 100 },
-    { label: "Lead time", score: 100 },
+    { label: "Prazo de entrega", score: 100 },
   ],
   note: "Exemplo do ambiente de demonstração.",
 } as const;

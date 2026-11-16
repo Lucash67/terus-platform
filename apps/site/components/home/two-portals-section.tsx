@@ -22,7 +22,7 @@ const PORTAL_BLOCKS: { name: string; varejo: string; fornecedor: string }[] = [
     varejo:
       "Pedido de reposição, aprovação de devoluções, fornecedores conectados",
     fornecedor:
-      "Pedidos do varejo, negociação, sell-out/sell-in, devoluções, catálogo, de-para",
+      "Pedidos do varejo, negociação, vendas ao consumidor/compras da rede, devoluções, catálogo, de-para",
   },
   {
     name: "Unitização e expedição",
@@ -47,7 +47,7 @@ const PORTAL_BLOCKS: { name: string; varejo: string; fornecedor: string }[] = [
   },
   {
     name: "Cadeia de abastecimento",
-    varejo: "Integração e score de fornecedores",
+    varejo: "Integração e pontuação de fornecedores",
     fornecedor: "Desempenho no varejo (em Pedidos)",
   },
   {

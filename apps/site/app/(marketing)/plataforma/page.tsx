@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Plataforma — do ERP à gôndola",
   description:
-    "Como a Terus lê o ERP da rede, transforma estoque e venda em alertas priorizados por R$, guia a loja pelo app e mede o resultado.",
+    "Como a Terus lê o ERP da rede, transforma estoque e venda em alertas priorizados por R$, guia a loja pelo aplicativo e mede o resultado.",
   path: "/plataforma",
 });
 

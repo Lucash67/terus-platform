@@ -43,7 +43,7 @@ export function StoreQueuesSection() {
       <Container className="relative">
         <InView className="max-w-3xl">
           <Kicker index="03" className="xp-in">
-            Terus Task · o app da loja
+            Terus Tarefa · o aplicativo da loja
           </Kicker>
           <h2 className="mt-6 font-display text-display-lg font-bold tracking-tight text-text-primary sm:text-display-xl">
             <KineticText text="Seis filas. Um produto de cada vez." />{" "}
@@ -57,9 +57,9 @@ export function StoreQueuesSection() {
             className="xp-in mt-6 text-body-lg text-text-secondary"
             style={{ "--d": "300ms" } as React.CSSProperties}
           >
-            O operador não escolhe o próximo item por memória. O app diz o
-            departamento, a seção, o produto, o que conferir — e pede a foto. A
-            ordem anda pela loja sem ir e voltar entre corredores.
+            O operador não escolhe o próximo item por memória. O aplicativo diz
+            o departamento, a seção, o produto, o que conferir — e pede a foto.
+            A ordem anda pela loja sem ir e voltar entre corredores.
           </p>
         </InView>
 
@@ -96,7 +96,7 @@ export function StoreQueuesSection() {
                 <ul
                   className="mt-3 grid grid-cols-2 gap-2"
                   role="tablist"
-                  aria-label="Filas do app"
+                  aria-label="Filas do aplicativo"
                 >
                   {STORE_QUEUES.map((item, i) => (
                     <li key={item.id} role="presentation">

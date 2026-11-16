@@ -8,7 +8,7 @@ import { Reveal } from "@/components/motion/reveal";
 
 /**
  * Fluxo ERP → sinais → decisões → tarefas → evidências.
- * Conteúdo: camadas Agent/IAproc e módulos (wiki.terus.tec.br/varejo).
+ * Conteúdo: camadas Agente/IAproc e módulos (wiki.terus.tec.br/varejo).
  * Animação ilustrativa — não representa dados ao vivo.
  */
 const STAGES = [
@@ -16,7 +16,7 @@ const STAGES = [
     id: "erp",
     label: "ERP",
     title: "Captura só leitura",
-    text: "O Agent lê o banco ou a API do ERP da rede a partir de um IP fixo da Terus — sem VPN e sem gravar nada.",
+    text: "O Agente lê o banco ou a API do ERP da rede a partir de um IP fixo da Terus — sem VPN e sem gravar nada.",
   },
   {
     id: "sinais",
@@ -34,7 +34,7 @@ const STAGES = [
     id: "tarefas",
     label: "Tarefas",
     title: "Execução guiada",
-    text: "O Terus Task conduz a loja produto a produto; o pedido de reposição segue ao ERP do fornecedor.",
+    text: "O Terus Tarefa conduz a loja produto a produto; o pedido de reposição segue ao ERP do fornecedor.",
   },
   {
     id: "evidencias",

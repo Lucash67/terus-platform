@@ -94,7 +94,7 @@ export function StepErp() {
           Qual ERP roda <span className="text-gradient">nas suas lojas</span>?
         </>
       }
-      description="Cada ERP tem um manual próprio na wiki da Terus: o que liberar na rede, o usuário a criar e o script de permissões. As próximas etapas mudam conforme a escolha."
+      description="Cada ERP tem um manual próprio na wiki da Terus: o que liberar na rede, o usuário a criar e o roteiro de permissões. As próximas etapas mudam conforme a escolha."
       wide
     >
       <div

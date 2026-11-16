@@ -25,7 +25,7 @@ export const HERO = {
   headline: "Sua gôndola perde venda todo dia.",
   headlineAccent: "Nós trazemos de volta.",
   description:
-    "Nós encontramos a ruptura, a loja corrige guiada pelo app e você vê o R$ recuperado. Alertas de ruptura, excesso e margem viram uma fila ordenada pelo valor de cada produto — e o pedido de reposição chega direto no ERP do fornecedor.",
+    "Nós encontramos a ruptura, a loja corrige guiada pelo aplicativo e você vê o R$ recuperado. Alertas de ruptura, excesso e margem viram uma fila ordenada pelo valor de cada produto — e o pedido de reposição chega direto no ERP do fornecedor.",
   highlights: [
     "13 tipos de alerta: ruptura, excesso, sem venda, oferta e margem",
     "Fila da loja priorizada por retorno em R$, com foto de evidência",
@@ -67,12 +67,12 @@ export const POSITIONING_POINTS = [
   {
     title: "Detecta",
     description:
-      "O Terus Alert lê o ERP da rede e abre alertas de ruptura, risco de ruptura, excesso, sem venda, queda, oferta, preço e margem — por loja, seção e comprador.",
+      "O Terus Alerta lê o ERP da rede e abre alertas de ruptura, risco de ruptura, excesso, sem venda, queda, oferta, preço e margem — por loja, seção e comprador.",
   },
   {
     title: "Executa",
     description:
-      "O alerta vira atividade no app da loja. O operador é guiado produto a produto, começando pelo que mais devolve dinheiro, e fecha cada visita com foto.",
+      "O alerta vira atividade no aplicativo da loja. O operador é guiado produto a produto, começando pelo que mais devolve dinheiro, e fecha cada visita com foto.",
   },
   {
     title: "Mede",
@@ -91,19 +91,19 @@ export const ECOSYSTEM_PARTNERS = [
   {
     name: "Comprador",
     description:
-      "Mesa do comprador com a carteira, oportunidades de mix, divergência de custo e pedido de reposição.",
+      "Mesa do comprador com a carteira, oportunidades de sortimento, divergência de custo e pedido de reposição.",
     category: "Portal Varejo",
   },
   {
     name: "Loja",
     description:
-      "App Terus Task: abastecer, corrigir exposição, destacar oferta e inventário — com foto.",
-    category: "App",
+      "Aplicativo Terus Tarefa: abastecer, corrigir exposição, destacar oferta e inventário — com foto.",
+    category: "Aplicativo",
   },
   {
     name: "Indústria e distribuidor",
     description:
-      "Portal do Fornecedor: alertas, sell-out, pedidos do varejo direto no ERP e devolução de excesso.",
+      "Portal do Fornecedor: alertas, vendas ao consumidor, pedidos do varejo direto no ERP e devolução de excesso.",
     category: "Portal Fornecedor",
   },
 ];

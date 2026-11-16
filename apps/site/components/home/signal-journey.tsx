@@ -33,8 +33,8 @@ const STATIONS: Station[] = [
     href: "/integracoes",
   },
   {
-    code: "AGT",
-    name: "Agent",
+    code: "AGE",
+    name: "Agente",
     role: "Captura",
     text: "Executa consultas padronizadas no banco do ERP, compacta e criptografa o resultado e envia para a nuvem da Terus.",
     facts: ["Só leitura", "Sem VPN", "IP fixo liberado no firewall"],
@@ -57,10 +57,10 @@ const STATIONS: Station[] = [
     href: "/tecnologia/portal-do-cliente",
   },
   {
-    code: "TSK",
-    name: "Terus Task",
+    code: "TAR",
+    name: "Terus Tarefa",
     role: "Execução na loja",
-    text: "O app conduz o operador um produto de cada vez: ir à seção, ler o código, corrigir e registrar a foto.",
+    text: "O aplicativo conduz o operador um produto de cada vez: ir à seção, ler o código, corrigir e registrar a foto.",
     facts: [
       "Leitura do código de barras",
       "Foto de evidência",
@@ -69,8 +69,8 @@ const STATIONS: Station[] = [
     href: "/modulos/task",
   },
   {
-    code: "BND",
-    name: "Bond",
+    code: "VIN",
+    name: "Vínculo",
     role: "Fornecedor",
     text: "O pedido aprovado no portal é gravado no ERP da indústria ou do distribuidor — sem redigitação.",
     facts: [...CAMADA_INTEGRACAO_HEADER.supplierErps, "NF e rastreio"],

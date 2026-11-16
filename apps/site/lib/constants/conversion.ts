@@ -63,13 +63,13 @@ export const DEMO_PAGE = {
       step: "03",
       title: "Proposta e integração",
       description:
-        "Plano com script de acesso só leitura, liberação de IP sem VPN e onboarding guiado.",
+        "Plano com roteiro de acesso só leitura, liberação de IP sem VPN e implantação guiada.",
     },
   ],
   demoIncludes: [
-    "Terus Alert: 13 tipos de alerta de ruptura, excesso, venda e margem",
-    "Terus Task: a fila da loja ordenada pelo R$ que cada correção recupera",
-    "Terus Order: pedido de reposição gravado direto no ERP do fornecedor",
+    "Terus Alerta: 13 tipos de alerta de ruptura, excesso, venda e margem",
+    "Terus Tarefa: a fila da loja ordenada pelo R$ que cada correção recupera",
+    "Terus Pedido: pedido de reposição gravado direto no ERP do fornecedor",
     "Métricas de efetividade: R$ antes e depois, acerto e reincidência",
     "Como funciona a integração: só leitura, sem VPN, usuário dedicado",
   ],

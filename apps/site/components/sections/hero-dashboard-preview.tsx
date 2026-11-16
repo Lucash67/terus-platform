@@ -165,11 +165,11 @@ export function HeroDashboardPreview() {
 function HubFlow() {
   return (
     <div className="flex flex-col items-center gap-1.5">
-      <FlowNode label="Loja" sublabel="Terus Task" />
+      <FlowNode label="Loja" sublabel="Terus Tarefa" />
       <FlowConnector direction="up" />
 
       <div className="flex w-full items-center justify-between gap-1">
-        <FlowNode label="Comprador" sublabel="Alert · Order" />
+        <FlowNode label="Comprador" sublabel="Alerta · Pedido" />
         <FlowConnector direction="left" />
         <FlowNode label="Terus" sublabel="Portal" highlight />
         <FlowConnector direction="right" />

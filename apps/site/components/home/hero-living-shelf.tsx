@@ -162,7 +162,7 @@ function LivingShelf() {
 
 const STATS = [
   { value: "13", label: "tipos de alerta operacional" },
-  { value: "6", label: "filas guiadas no app da loja" },
+  { value: "6", label: "filas guiadas no aplicativo da loja" },
   {
     value: String(ERP_ECOSYSTEM.length),
     label: "integrações de ERP documentadas",

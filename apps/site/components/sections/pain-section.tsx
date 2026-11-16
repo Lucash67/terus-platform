@@ -45,7 +45,7 @@ export function PainSection() {
 
         <Reveal delay={200} className="mt-10 text-center">
           <p className="font-mono text-caption uppercase tracking-widest text-text-tertiary">
-            Cada situação é um dos 13 tipos de alerta do Terus Alert
+            Cada situação é um dos 13 tipos de alerta do Terus Alerta
           </p>
         </Reveal>
       </Container>

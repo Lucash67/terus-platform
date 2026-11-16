@@ -30,8 +30,8 @@ export function LegalDocument({
           className="mt-6 rounded-lg border border-status-warning/30 bg-status-warning-dim px-4 py-3 text-body-sm text-text-primary"
         >
           Versão preliminar, em revisão jurídica. Pode ser atualizada antes do
-          lançamento do cadastro online; mudanças relevantes serão comunicadas a
-          quem tiver conta.
+          lançamento do cadastro pela internet; mudanças relevantes serão
+          comunicadas a quem tiver conta.
         </div>
         {sections.map((s) => (
           <section key={s.title} className="mt-10">

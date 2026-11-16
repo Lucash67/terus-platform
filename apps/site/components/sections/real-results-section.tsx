@@ -84,7 +84,7 @@ export function RealResultsSection() {
               href="/cases"
               className="text-body-sm font-medium text-brand-primary transition-colors duration-200 hover:text-brand-primary-hover hover:underline"
             >
-              Ver case completo com indicadores →
+              Ver caso completo com indicadores →
             </Link>
           </p>
         </Reveal>

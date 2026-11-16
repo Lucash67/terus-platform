@@ -1,5 +1,5 @@
 /**
- * As seis filas da tela inicial do Terus Task e o que cada uma pede ao operador.
+ * As seis filas da tela inicial do Terus Tarefa e o que cada uma pede ao operador.
  * Fonte: wiki.terus.tec.br/varejo/task (manual público do app, versão de referência 2.3.21),
  * lido em 12/11/2026. Texto resumido, sem acrescentar funcionalidade.
  */
@@ -36,7 +36,7 @@ export const STORE_QUEUES: StoreQueue[] = [
     steps: [
       "Ver por que o item está na fila e quanto pode recuperar",
       "Ir à seção e ler o código de barras",
-      "Responder cada item: “Já estava OK” ou “Corrigi”",
+      "Responder cada item: “Já estava certo” ou “Corrigi”",
       "Foto da exposição corrigida — ou “Ausente na gôndola”",
     ],
   },

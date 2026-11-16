@@ -12,7 +12,7 @@ export function CasesResultsSection() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-heading-xl font-bold text-text-primary sm:text-display-lg">
-            Cases e resultados operacionais
+            Casos e resultados operacionais
           </h2>
           <p className="mt-4 text-body-lg text-text-secondary">
             Resultados validados em ambiente produtivo da Rede Terus — métricas
@@ -79,7 +79,7 @@ export function CasesResultsSection() {
                   href="/cases"
                   className="text-body-sm font-medium text-brand-primary hover:underline"
                 >
-                  Ver case completo com indicadores →
+                  Ver caso completo com indicadores →
                 </Link>
               </div>
             </Reveal>

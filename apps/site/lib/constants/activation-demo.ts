@@ -123,7 +123,7 @@ export const DEMO_ERPS: DemoErp[] = [
   },
 ];
 
-/** ERPs do lado do fornecedor: recebem o pedido (Bond), não são fonte da captura. */
+/** ERPs do lado do fornecedor: recebem o pedido (Vínculo), não são fonte da captura. */
 export const SUPPLIER_ERPS = ["Winthor", "Sankhya", "VitSis"] as const;
 
 export function findErp(id: DemoErpId | null): DemoErp | undefined {
@@ -157,12 +157,12 @@ export const PREP_STEPS: Record<Exclude<DemoErpId, "outro">, PrepStep[]> = {
     networkStep("listener Oracle do RMS", "1521"),
     ORACLE_USER,
     {
-      title: "Aplicar o script de permissões (só leitura)",
+      title: "Aplicar o roteiro de permissões (só leitura)",
       description:
         "SELECT nas tabelas de cadastro e movimento e EXECUTE nas funções de data e preço. Troque DONODOBANCO pelo schema das tabelas AA*/AG* (em geral RMS).",
       code: {
         lang: "Oracle · trecho",
-        text: "GRANT CREATE SESSION TO terus;\nGRANT SELECT ON DONODOBANCO.AA3CITEM TO terus;\nGRANT SELECT ON DONODOBANCO.AA2CESTQ TO terus;\nGRANT SELECT ON DONODOBANCO.AGG_VDA_PROD TO terus;\nGRANT SELECT ON DONODOBANCO.AG1LPEDI TO terus;\nGRANT EXECUTE ON DONODOBANCO.F_CALCSTPR TO terus;\n-- … script completo no manual",
+        text: "GRANT CREATE SESSION TO terus;\nGRANT SELECT ON DONODOBANCO.AA3CITEM TO terus;\nGRANT SELECT ON DONODOBANCO.AA2CESTQ TO terus;\nGRANT SELECT ON DONODOBANCO.AGG_VDA_PROD TO terus;\nGRANT SELECT ON DONODOBANCO.AG1LPEDI TO terus;\nGRANT EXECUTE ON DONODOBANCO.F_CALCSTPR TO terus;\n-- … roteiro completo no manual",
       },
     },
   ],
@@ -170,12 +170,12 @@ export const PREP_STEPS: Record<Exclude<DemoErpId, "outro">, PrepStep[]> = {
     networkStep("listener Oracle do Consinco", "1521"),
     ORACLE_USER,
     {
-      title: "Aplicar o script de permissões (só leitura)",
+      title: "Aplicar o roteiro de permissões (só leitura)",
       description:
         "SELECT em cadastros (MAP_*, MRL_*, MAX_*) e movimento, EXECUTE nas funções de embalagem. Troque DONODOBANCO pelo schema (em geral CONSINCO).",
       code: {
         lang: "Oracle · trecho",
-        text: "GRANT CREATE SESSION TO terus;\nGRANT SELECT ON DONODOBANCO.MAP_PRODUTO TO terus;\nGRANT SELECT ON DONODOBANCO.MRL_PRODUTOEMPRESA TO terus;\nGRANT SELECT ON DONODOBANCO.MAXV_ABCDISTRIBBASE TO terus;\nGRANT EXECUTE ON DONODOBANCO.FPADRAOEMBCOMPRA TO terus;\n-- … script completo no manual",
+        text: "GRANT CREATE SESSION TO terus;\nGRANT SELECT ON DONODOBANCO.MAP_PRODUTO TO terus;\nGRANT SELECT ON DONODOBANCO.MRL_PRODUTOEMPRESA TO terus;\nGRANT SELECT ON DONODOBANCO.MAXV_ABCDISTRIBBASE TO terus;\nGRANT EXECUTE ON DONODOBANCO.FPADRAOEMBCOMPRA TO terus;\n-- … roteiro completo no manual",
       },
     },
   ],
@@ -187,12 +187,12 @@ export const PREP_STEPS: Record<Exclude<DemoErpId, "outro">, PrepStep[]> = {
         "CONNECT no database e USAGE nos schemas public e pdv (vendas de cupom). Informe o nome do database.",
     },
     {
-      title: "Aplicar o script de permissões (só leitura)",
+      title: "Aplicar o roteiro de permissões (só leitura)",
       description:
         "Só SELECT. A Terus lê pdv.venda + pdv.vendaitem — não usa a tabela agregada public.venda.",
       code: {
         lang: "PostgreSQL · trecho",
-        text: "GRANT CONNECT ON DATABASE vr TO terus;\nGRANT USAGE ON SCHEMA public TO terus;\nGRANT USAGE ON SCHEMA pdv TO terus;\nGRANT SELECT ON public.produto TO terus;\nGRANT SELECT ON pdv.venda TO terus;\n-- … script completo no manual",
+        text: "GRANT CONNECT ON DATABASE vr TO terus;\nGRANT USAGE ON SCHEMA public TO terus;\nGRANT USAGE ON SCHEMA pdv TO terus;\nGRANT SELECT ON public.produto TO terus;\nGRANT SELECT ON pdv.venda TO terus;\n-- … roteiro completo no manual",
       },
     },
   ],
@@ -370,11 +370,11 @@ export const SIMULATED_FAILURE: Record<
 > = {
   oracle: {
     error: "ORA-00942: tabela ou view não existe",
-    fix: "Costuma ser SELECT faltando no script GRANT. Confira as permissões no manual e rode de novo.",
+    fix: "Costuma ser SELECT faltando nos comandos GRANT. Confira as permissões no manual e rode de novo.",
   },
   postgres: {
     error: "permission denied for schema pdv",
-    fix: "Falta USAGE no schema pdv ou SELECT em pdv.venda. Aplique o trecho do script e rode de novo.",
+    fix: "Falta USAGE no schema pdv ou SELECT em pdv.venda. Aplique o trecho do roteiro e rode de novo.",
   },
   api: {
     error: "HTTP 403 no serviço de estoque",
@@ -407,20 +407,20 @@ export const DEMO_CLAUSES = [
 ];
 
 export const DEMO_MODULES = [
-  { id: "alert", name: "Terus Alert", tagline: "Alertas e mesa do comprador" },
+  { id: "alert", name: "Terus Alerta", tagline: "Alertas e mesa do comprador" },
   {
     id: "order",
-    name: "Terus Order",
+    name: "Terus Pedido",
     tagline: "Reposição e fornecedores conectados",
   },
   {
     id: "task",
-    name: "Terus Task",
-    tagline: "App da loja com fila por retorno em R$",
+    name: "Terus Tarefa",
+    tagline: "Aplicativo da loja com fila por retorno em R$",
   },
   {
     id: "strategy",
-    name: "Terus Strategy",
+    name: "Terus Estratégia",
     tagline: "Metas, vendas, compras e estoque",
   },
 ];

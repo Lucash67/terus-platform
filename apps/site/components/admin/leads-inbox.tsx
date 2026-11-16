@@ -73,7 +73,7 @@ function Inbox() {
           Leads e solicitações
         </h1>
         <p className="mt-1 text-body-md text-text-secondary">
-          Conversão por etapa e caixa de entrada do self onboarding.
+          Conversão por etapa e caixa de entrada do cadastro autônomo.
         </p>
       </header>
       <Funnel
@@ -101,7 +101,7 @@ function Inbox() {
           onChange={(e) => setQuery(e.target.value)}
         />
         <label className="sr-only" htmlFor="lead-status">
-          Status
+          Situação
         </label>
         <Select
           id="lead-status"
@@ -112,7 +112,7 @@ function Inbox() {
           }}
           className="sm:w-56"
         >
-          <option value="">Todos os status</option>
+          <option value="">Todas as situações</option>
           {Object.entries(JOURNEY_STATUS).map(([k, v]) => (
             <option key={k} value={k}>
               {v.label}
@@ -162,7 +162,7 @@ function Inbox() {
                   ) : null}
                 </div>
                 <div className="text-right text-caption text-text-tertiary">
-                  <p>Score {lead.qualification_score ?? "—"}</p>
+                  <p>Pontuação {lead.qualification_score ?? "—"}</p>
                   <p>{dateFmt.format(new Date(lead.updated_at))}</p>
                 </div>
               </Link>

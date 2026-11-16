@@ -121,8 +121,8 @@ await step("4. Qualificação (ERP, prioridades, prazo)", async () => {
   await shot(page, "05-perfil");
   await page.getByRole("button", { name: /ver recomendação/i }).click();
   await page.waitForURL(/\/onboarding\/solicitacao/);
-  await page.getByText("Terus Alert").first().waitFor();
-  await page.getByText("Terus Order").first().waitFor();
+  await page.getByText("Terus Alerta").first().waitFor();
+  await page.getByText("Terus Pedido").first().waitFor();
 });
 
 await step("5. Solicitação de proposta gravada no servidor", async () => {

@@ -11,7 +11,7 @@ export default function RedefinirSenhaPage() {
     <AuthShell
       eyebrow="Acesso"
       title="Criar nova senha"
-      description="O link vale por 1 hora e só pode ser usado uma vez."
+      description="O endereço vale por 1 hora e só pode ser usado uma vez."
     >
       <Suspense>
         <ResetPasswordForm />

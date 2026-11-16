@@ -2,7 +2,7 @@ import { Container } from "@/components/layout/container";
 import { InView, Kicker, KineticText, SpotCard } from "@/components/motion/xp";
 import { DORES } from "@/lib/constants/lp";
 
-/** O que trata cada perda (wiki: filas do Terus Task e módulos Alert/Order). */
+/** O que trata cada perda (wiki: filas do Terus Tarefa e módulos Alert/Order). */
 const FIX: Record<string, string> = {
   CAP: "Fila “Coletar Produtos e Abastecer”",
   PSV: "Fila “Verificar Presença e Exposição”",

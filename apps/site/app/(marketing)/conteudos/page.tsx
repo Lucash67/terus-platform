@@ -32,7 +32,7 @@ export default function ConteudosPage() {
               <span className="text-gradient">operacional Terus</span>
             </h1>
             <p className="mt-4 text-body-lg text-text-secondary">
-              Pilares da Terus Varejo, módulos integrados e cases com resultados
+              Pilares da Terus Varejo, módulos integrados e casos com resultados
               validados — tudo o que você precisa para entender a jornada
               operacional Terus.
             </p>

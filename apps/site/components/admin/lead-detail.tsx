@@ -339,7 +339,7 @@ function Detail({ data, tenantId }: { data: LeadDetail; tenantId: string }) {
             </dl>
           </Section>
           <Section
-            title={`Qualificação · score ${data.qualification_score ?? "—"}`}
+            title={`Qualificação · pontuação ${data.qualification_score ?? "—"}`}
           >
             {journey.profile ? (
               <>

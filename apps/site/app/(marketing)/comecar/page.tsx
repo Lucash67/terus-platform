@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Começar agora",
   description:
-    "Explore a demonstração, crie sua conta para pedir a proposta ou fale com o time comercial da Terus Varejo.",
+    "Explore a demonstração, crie sua conta para pedir a proposta ou fale com a equipe comercial da Terus Varejo.",
   path: "/comecar",
 });
 
@@ -41,7 +41,7 @@ export default function ComecarPage() {
             </h1>
             <p className="mt-6 text-body-lg leading-relaxed text-text-secondary">
               Explore sem cadastro, crie sua conta para pedir a proposta ou fale
-              direto com o time comercial.
+              direto com a equipe comercial.
             </p>
             <p className="mt-6 font-mono text-caption font-semibold uppercase tracking-widest text-text-tertiary">
               {DEMO_PAGE.trustLine}

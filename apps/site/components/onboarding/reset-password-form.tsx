@@ -25,7 +25,7 @@ export function ResetPasswordForm() {
   if (!token) {
     return (
       <Notice tone="error">
-        Link incompleto.{" "}
+        Endereço incompleto.{" "}
         <Link href="/recuperar-acesso" className="underline">
           Peça um novo
         </Link>

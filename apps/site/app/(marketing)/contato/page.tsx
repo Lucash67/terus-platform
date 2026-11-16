@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Contato — falar com especialista",
   description:
-    "Fale com o time comercial da Terus pelo WhatsApp ou registre a sua empresa no cadastro online.",
+    "Fale com a equipe comercial da Terus pelo WhatsApp ou registre a sua empresa no cadastro pela internet.",
   path: "/contato",
 });
 
@@ -19,7 +19,7 @@ export default function ContatoPage() {
         badge="Contato"
         title="Fale com quem conhece"
         titleAccent="a sua operação"
-        description="Escolha o canal. O time comercial da Terus retoma com você o próximo passo."
+        description="Escolha o canal. A equipe comercial da Terus retoma com você o próximo passo."
       />
       <ContactSection />
       <FaqSection />

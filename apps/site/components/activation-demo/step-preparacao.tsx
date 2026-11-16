@@ -105,7 +105,7 @@ export function StepPreparacao() {
           <span className="text-gradient">{option.name}</span>
         </>
       }
-      description="Três passos no ambiente da rede, todos de leitura. Encaminhe para o TI ou o DBA: o roteiro e o script vêm do manual oficial da Terus."
+      description="Três passos no ambiente da rede, todos de leitura. Encaminhe para o TI ou o DBA: o roteiro e os comandos vêm do manual oficial da Terus."
       wide
     >
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">

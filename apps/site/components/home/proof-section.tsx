@@ -18,7 +18,7 @@ const COMETA = [
     lowerIsBetter: true,
   },
   {
-    label: "Fill rate",
+    label: "Taxa de atendimento",
     before: 40,
     after: 96,
     unit: "%",
@@ -109,7 +109,7 @@ export function ProofSection() {
                   <CountUp value={31881} locale />
                 </p>
                 <p className="mt-1 text-body-sm text-text-secondary">
-                  pedidos rastreáveis no case
+                  pedidos rastreáveis no caso
                 </p>
               </div>
               <div className="rounded-3xl border border-surface-border p-6">

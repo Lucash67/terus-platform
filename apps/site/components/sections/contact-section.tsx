@@ -11,14 +11,14 @@ export function ContactSection() {
     {
       title: "WhatsApp comercial",
       detail: "(85) 99738-4940",
-      text: "Conversa direta com o time comercial.",
+      text: "Conversa direta com a equipe comercial.",
       href: CTA.secondary.href,
       label: "Abrir WhatsApp",
       external: true,
     },
     ONBOARDING_ENABLED
       ? {
-          title: "Cadastro online",
+          title: "Cadastro pela internet",
           detail: "Conta + empresa + proposta",
           text: "Registre a empresa e acompanhe a solicitação pelo portal.",
           href: "/criar-conta",

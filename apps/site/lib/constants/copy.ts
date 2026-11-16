@@ -22,7 +22,7 @@ export const ENTERPRISE_TRUST = {
   badge: "Segurança",
   title: "Uma integração que o seu TI aprova",
   description:
-    "Lemos o ERP da rede sem alterar nada, sem VPN e com permissões mínimas. O checklist e o script vão prontos para o DBA.",
+    "Lemos o ERP da rede sem alterar nada, sem VPN e com permissões mínimas. A lista de verificação e o roteiro vão prontos para o DBA.",
 } as const;
 
 export const SOCIAL_PROOF = {

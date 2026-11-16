@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@terus/ui";
 
-import type { ModuleSlug } from "@/lib/constants/modules";
+import { getModuleBySlug, type ModuleSlug } from "@/lib/constants/modules";
 
 interface ModulePreviewProps {
   slug: ModuleSlug;
@@ -22,11 +22,11 @@ export function ModulePreview({ slug, className }: ModulePreviewProps) {
         <span className="h-2.5 w-2.5 rounded-full bg-status-warning/60" />
         <span className="h-2.5 w-2.5 rounded-full bg-status-success/60" />
         <span className="ml-2 font-mono text-caption uppercase tracking-widest text-text-tertiary">
-          terus · {slug}
+          terus · {getModuleBySlug(slug)?.name.replace("Terus ", "")}
         </span>
         <span className="ml-auto flex items-center gap-1.5 font-mono text-caption uppercase tracking-widest text-status-success">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-text-tertiary" />
-          live
+          ao vivo
         </span>
       </div>
       <div className="relative p-4 sm:p-6">
@@ -115,7 +115,7 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
           >
             <p className="text-caption text-text-tertiary">{kpi}</p>
             <p className="font-display text-body-sm font-bold text-brand-primary">
-              {["Loja", "Seção", "YoY"][i]}
+              {["Loja", "Seção", "Ano a ano"][i]}
             </p>
           </div>
         ))}
@@ -183,7 +183,7 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
       entries={[
         { action: "Gaiola #0412 separada", actor: "CD" },
         { action: "Remetida para a loja", actor: "Expedição" },
-        { action: "Recebida na loja · contagem cega", actor: "Terus Task" },
+        { action: "Recebida na loja · contagem cega", actor: "Terus Tarefa" },
       ]}
     />
   ),
@@ -199,9 +199,9 @@ const PREVIEWS: Record<ModuleSlug, ReactNode> = {
   chain: (
     <StatGridPreview
       stats={[
-        { label: "Atendimento", value: "Score A", ok: true },
+        { label: "Atendimento", value: "Pontuação A", ok: true },
         { label: "Prazo", value: "No prazo", ok: true },
-        { label: "Integração", value: "OK", ok: true },
+        { label: "Integração", value: "Em dia", ok: true },
         { label: "Ruptura", value: "Atenção", ok: false },
       ]}
     />

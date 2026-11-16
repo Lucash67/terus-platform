@@ -46,7 +46,7 @@ export const JOURNEY_STEPS: JourneyStepDef[] = [
     order: 5,
     href: "/portal",
     label: "Acompanhamento",
-    description: "Status, histórico e próximos passos no portal.",
+    description: "Situação, histórico e próximos passos no portal.",
   },
 ];
 
@@ -67,7 +67,7 @@ export const SIZE_BAND_LABELS: Record<string, string> = {
   "51+": "Mais de 50 lojas",
 };
 
-/** ERPs documentados na wiki: varejo (captura) e fornecedor (recebe pedido via Bond). */
+/** ERPs documentados na wiki: varejo (captura) e fornecedor (recebe pedido via Vínculo). */
 export const ERP_GROUPS: {
   label: string;
   options: { id: string; label: string }[];
@@ -127,7 +127,11 @@ export const PRIORITY_OPTIONS: { id: string; label: string; hint: string }[] = [
   },
   { id: "producao", label: "Produção própria", hint: "Padaria, açougue" },
   { id: "cd_logistica", label: "CD e logística", hint: "Volumes até a loja" },
-  { id: "exposicao", label: "Exposição e espaço", hint: "Layout de gôndola" },
+  {
+    id: "exposicao",
+    label: "Exposição e espaço",
+    hint: "Disposição de gôndola",
+  },
 ];
 
 export const TIMELINE_OPTIONS = [

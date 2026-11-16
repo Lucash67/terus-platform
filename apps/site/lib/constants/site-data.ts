@@ -8,7 +8,7 @@ export const RESULTADOS_OPERACIONAIS = [
     improvement: "Pedidos realizados digitalmente através da operação Terus.",
   },
   {
-    title: "Ticket Médio",
+    title: "Tíquete Médio",
     before: "R$ 1.740",
     after: "R$ 2.338",
     improvement: "+34% de crescimento no valor médio por pedido.",
@@ -34,7 +34,7 @@ export const INDICADORES_PLATAFORMA = [
     description: "Redução significativa na rejeição de pedidos.",
   },
   {
-    title: "Fill Rate",
+    title: "Taxa de atendimento",
     value: "40% → 96%",
     description: "Melhoria no atendimento de pedidos.",
   },
@@ -242,9 +242,9 @@ export const CASES_DE_SUCESSO = [
     title: "Cometa Supermercados",
     company: "Cometa Supermercados",
     description:
-      "Adoção da jornada operacional Terus, com foco em digitalização de pedidos, redução de rejeição ERP e elevação do Fill Rate.",
+      "Adoção da jornada operacional Terus, com foco em digitalização de pedidos, redução de rejeição ERP e elevação do Taxa de atendimento.",
     results:
-      "Digitalização até 96%, Rejeição ERP 0,5%, Fill Rate 96%, ticket médio +34%, receita +38%, 31.881 pedidos rastreáveis.",
+      "Digitalização até 96%, Rejeição ERP 0,5%, Taxa de atendimento 96%, tíquete médio +34%, receita +38%, 31.881 pedidos rastreáveis.",
     image: null,
   },
 ];
@@ -267,12 +267,12 @@ export const PROVA_SOCIAL_PILARES = [
   {
     title: "Varejo + fornecedor na mesma jornada",
     description:
-      "O pedido de reposição chega no ERP do fornecedor, o promotor vê os produtos que precisam de atenção e a loja corrige a gôndola pelo Terus Task.",
+      "O pedido de reposição chega no ERP do fornecedor, o promotor vê os produtos que precisam de atenção e a loja corrige a gôndola pelo Terus Tarefa.",
   },
 ] as const;
 
 /**
- * Camada de integração do produto real (legado: Agent, IAproc, Bond).
+ * Camada de integração do produto real (legado: Agente, IAproc, Vínculo).
  * Infraestrutura que alimenta os módulos da Terus Varejo.
  */
 export const CAMADA_INTEGRACAO_HEADER = {
@@ -287,7 +287,7 @@ export const CAMADA_INTEGRACAO_HEADER = {
 /** Specs seguem os manuais de integração e módulos da wiki. */
 export const CAMADA_INTEGRACAO = [
   {
-    name: "Agent",
+    name: "Agente",
     role: "Captura",
     headline: "Lê o ERP da rede, direto na fonte",
     description:
@@ -315,7 +315,7 @@ export const CAMADA_INTEGRACAO = [
     ],
   },
   {
-    name: "Bond",
+    name: "Vínculo",
     role: "Integração",
     headline: "Fecha o ciclo com o fornecedor",
     description:
@@ -324,8 +324,8 @@ export const CAMADA_INTEGRACAO = [
     specs: [
       "Gravação no Winthor, Sankhya ou VitSis",
       "DE-PARA com vínculo automático por EAN",
-      "Status, NF e tracking de volta ao portal",
-      "Alertas e sell-out dos SKUs para a indústria",
+      "Situação, NF e rastreio de volta ao portal",
+      "Alertas e vendas ao consumidor dos SKUs para a indústria",
     ],
   },
 ] as const;
@@ -349,11 +349,11 @@ export const INTEGRACOES = [
     logo: null,
   },
   {
-    name: "Script pronto",
+    name: "Roteiro pronto",
     type: "TI do cliente",
     status: "ativo" as const,
     description:
-      "Entregamos o checklist e o script de permissões para o DBA colar. Sem desenvolvimento do lado do cliente.",
+      "Entregamos a lista de verificação e o roteiro de permissões para o DBA colar. Sem desenvolvimento do lado do cliente.",
     logo: null,
   },
   {
@@ -361,7 +361,7 @@ export const INTEGRACOES = [
     type: "Ativação",
     status: "ativo" as const,
     description:
-      "Do checklist à primeira carga, com a nossa equipe validando conexão e permissões antes de ativar os módulos.",
+      "Da lista de verificação à primeira carga, com a nossa equipe validando conexão e permissões antes de ativar os módulos.",
     logo: null,
   },
 ];
@@ -887,7 +887,7 @@ export const CONTEUDOS_CASES: CaseStudy[] = [
       "Baixa digitalização, alto índice de rejeição ERP e baixo atendimento de pedidos.",
     implementation: "Adoção da jornada operacional Terus.",
     results:
-      "Digitalização de até 96% dos pedidos, Rejeição ERP reduzida para 0,5%, Fill Rate elevado para 96%, Ticket médio +34%, Receita processada +38%, Mais de 31 mil pedidos rastreáveis.",
+      "Digitalização de até 96% dos pedidos, Rejeição ERP reduzida para 0,5%, Taxa de atendimento elevada para 96%, Tíquete médio +34%, Receita processada +38%, Mais de 31 mil pedidos rastreáveis.",
     thumbnail: null,
     description:
       "Como o Cometa Supermercados chegou a até 96% dos pedidos digitais com a Terus.",
@@ -895,24 +895,24 @@ export const CONTEUDOS_CASES: CaseStudy[] = [
       antes: [
         { label: "Digitalização do canal", value: "0%" },
         { label: "Rejeição ERP", value: "35%" },
-        { label: "Fill Rate", value: "40%" },
-        { label: "Ticket Médio", value: "R$ 1.740" },
+        { label: "Taxa de atendimento", value: "40%" },
+        { label: "Tíquete Médio", value: "R$ 1.740" },
       ],
       depois: [
         { label: "Digitalização do canal", value: "até 96%" },
         { label: "Rejeição ERP", value: "0,5%" },
-        { label: "Fill Rate", value: "96%" },
-        { label: "Ticket Médio", value: "R$ 2.338" },
+        { label: "Taxa de atendimento", value: "96%" },
+        { label: "Tíquete Médio", value: "R$ 2.338" },
       ],
       resultados: [
-        { label: "Ticket Médio", value: "+34%" },
+        { label: "Tíquete Médio", value: "+34%" },
         { label: "Receita Processada", value: "+38%" },
         { label: "Pedidos Rastreáveis", value: "31.881" },
       ],
     },
     executiveIndicators: [
       {
-        label: "Ticket Médio",
+        label: "Tíquete Médio",
         value: "R$ 1.740 → R$ 2.338",
         description: "Crescimento de valor médio por pedido",
       },
@@ -922,7 +922,7 @@ export const CONTEUDOS_CASES: CaseStudy[] = [
         description: "Evolução do faturamento financeiro",
       },
       {
-        label: "Fill Rate",
+        label: "Taxa de atendimento",
         value: "40% → 96%",
         description: "Aumento no nível de atendimento de produtos",
       },

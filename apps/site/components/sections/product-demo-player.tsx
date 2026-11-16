@@ -129,8 +129,8 @@ export function ProductDemoPlayer() {
               </span>
               {!hasVideo ? (
                 <span className="absolute bottom-4 left-1/2 w-[min(90%,28rem)] -translate-x-1/2 rounded-lg border border-surface-border bg-surface-elevated-1/95 px-4 py-2 text-center text-body-sm text-text-secondary backdrop-blur-sm">
-                  Layout pronto — grave o screencast com o roteiro e solte o
-                  arquivo em{" "}
+                  Espaço pronto — grave o vídeo de demonstração com o roteiro e
+                  solte o arquivo em{" "}
                   <span className="font-mono text-brand-primary">
                     public/videos/
                   </span>
@@ -203,7 +203,7 @@ export function ProductDemoPlayer() {
           <Link href={CTA.primary.href}>{CTA.primary.label}</Link>
         </Button>
         <Button asChild variant="outline" size="lg">
-          <Link href="/onboarding">Começar onboarding</Link>
+          <Link href="/onboarding">Começar cadastro inicial</Link>
         </Button>
       </div>
     </div>
